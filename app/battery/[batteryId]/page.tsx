@@ -24,6 +24,7 @@ import { HealthGauge } from '../../../components/ui/HealthGauge';
 import { BatteryStatusBadge } from '../../../components/ui/BatteryStatusBadge';
 import { LifecycleTimeline } from '../../../components/ui/LifecycleTimeline';
 import { QRCodeWidget } from '../../../components/ui/QRCodeWidget';
+import { ThemeToggle } from '../../../components/ui/ThemeToggle';
 import { PublicFooter } from '@/components/shared/PublicFooter';
 
 export default function BatteryPassportPage({
@@ -79,6 +80,7 @@ export default function BatteryPassportPage({
           </div>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7]">
               <ShieldCheck className="w-3 h-3" /> Verified
             </span>

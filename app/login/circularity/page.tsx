@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { RefreshCw, Zap, ArrowRight, Sparkles, Building } from 'lucide-react';
 import { useReVoltX } from '../../../lib/store/batteryStore';
+import { ThemeToggle } from '../../../components/ui/ThemeToggle';
 
 export default function CircularityLoginPage() {
   const router = useRouter();
@@ -26,7 +27,10 @@ export default function CircularityLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7FAF8] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#F7FAF8] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative">
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10">
+        <ThemeToggle />
+      </div>
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
         <Link href="/" className="inline-flex items-center gap-2 mb-4 group">
           <div className="h-10 w-10 rounded-xl bg-[#137A58] flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform">

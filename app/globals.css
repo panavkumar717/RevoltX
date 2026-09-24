@@ -136,3 +136,202 @@ body {
   animation: border-glow-flow 3s ease-in-out infinite;
 }
 
+/* ========================================================
+   GLOBAL PROJECT-WIDE DARK MODE UTILITIES & OVERRIDES
+======================================================== */
+.dark {
+  color-scheme: dark;
+}
+
+/* Surfaces & Containers */
+.dark body {
+  background-color: #0B1310;
+  color: #ECFDF5;
+}
+
+.dark .bg-white,
+.dark .bg-white\/95,
+.dark .bg-white\/90,
+.dark .bg-white\/80 {
+  background-color: #111E18 !important;
+}
+
+.dark .bg-\[\#F7FAF8\] {
+  background-color: #0B1310 !important;
+}
+
+.dark .bg-\[\#F0F5F2\],
+.dark .bg-\[\#F5F8F6\],
+.dark .bg-\[\#EAEFEF\] {
+  background-color: #162720 !important;
+}
+
+.dark .bg-\[\#EBF7F3\],
+.dark .bg-\[\#DDF5EA\] {
+  background-color: #133325 !important;
+}
+
+.dark .bg-\[\#F3F8E5\] {
+  background-color: #1B290E !important;
+}
+
+.dark .bg-\[\#FEF6E7\] {
+  background-color: #261E10 !important;
+}
+
+.dark .bg-\[\#FDF0EE\],
+.dark .bg-\[\#FDF2F2\] {
+  background-color: #2E1515 !important;
+}
+
+.dark .bg-\[\#EBF3FB\] {
+  background-color: #102336 !important;
+}
+
+/* Text Colors */
+.dark .text-\[\#10201B\] {
+  color: #ECFDF5 !important;
+}
+
+.dark .text-\[\#62756E\],
+.dark .text-\[\#A0AEC0\] {
+  color: #9BB3A8 !important;
+}
+
+.dark .text-\[\#137A58\] {
+  color: #34D399 !important;
+}
+
+.dark .text-\[\#21A879\] {
+  color: #34D399 !important;
+}
+
+.dark .text-\[\#5D7C13\] {
+  color: #A3E635 !important;
+}
+
+.dark .text-\[\#D89A24\] {
+  color: #FBBF24 !important;
+}
+
+.dark .text-\[\#D94B4B\] {
+  color: #F87171 !important;
+}
+
+.dark .text-\[\#4386C5\] {
+  color: #60A5FA !important;
+}
+
+/* Ensure action button white text stays crisp */
+.dark button.text-white,
+.dark a.text-white,
+.dark .text-white {
+  color: #FFFFFF !important;
+}
+
+/* Primary buttons in dark mode */
+.dark .bg-\[\#137A58\] {
+  background-color: #1B9A6F !important;
+}
+
+.dark .hover\:bg-\[\#0E5B42\]:hover {
+  background-color: #137A58 !important;
+}
+
+/* Borders & Dividers */
+.dark .border-\[\#DDE7E2\] {
+  border-color: #1E382D !important;
+}
+
+.dark .border-\[\#BBEAD7\] {
+  border-color: #1D4A37 !important;
+}
+
+.dark .border-\[\#DAECAE\] {
+  border-color: #38561A !important;
+}
+
+.dark .border-\[\#F8E0B0\] {
+  border-color: #4D3918 !important;
+}
+
+.dark .border-\[\#F8C8C4\] {
+  border-color: #582121 !important;
+}
+
+.dark .divide-\[\#DDE7E2\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: #1E382D !important;
+}
+
+.dark .border-black\/10,
+.dark .border-black\/5 {
+  border-color: #1E382D !important;
+}
+
+/* Hover States & Table Rows */
+.dark .hover\:bg-\[\#F0F5F2\]:hover,
+.dark .hover\:bg-\[\#F7FAF8\]:hover,
+.dark .hover\:bg-\[\#E2EBE6\]:hover,
+.dark .hover\:bg-white:hover {
+  background-color: #1A3027 !important;
+}
+
+.dark .hover\:text-\[\#10201B\]:hover {
+  color: #ECFDF5 !important;
+}
+
+.dark tr:hover td {
+  background-color: #14241D !important;
+}
+
+/* Form Elements */
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #162720 !important;
+  color: #ECFDF5 !important;
+  border-color: #1E382D !important;
+}
+
+.dark input:focus,
+.dark select:focus,
+.dark textarea:focus {
+  background-color: #1A3027 !important;
+  border-color: #34D399 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #5B7268 !important;
+}
+
+/* Pill Badges & Neutral Contrast */
+.dark .bg-black\/10 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ECFDF5 !important;
+}
+
+/* Recharts SVG Chart Adaptations */
+.dark .recharts-cartesian-grid-horizontal line,
+.dark .recharts-cartesian-grid-vertical line {
+  stroke: #1E382D !important;
+}
+
+.dark .recharts-text {
+  fill: #9BB3A8 !important;
+}
+
+.dark .recharts-cartesian-axis-line {
+  stroke: #1E382D !important;
+}
+
+.dark .shadow-2xs,
+.dark .shadow-xs,
+.dark .shadow-sm,
+.dark .shadow-md,
+.dark .shadow-lg,
+.dark .shadow-xl {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+}
+
+

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Factory, Zap, ArrowRight, ShieldCheck, Sparkles, Building2 } from 'lucide-react';
 import { useReVoltX } from '../../../lib/store/batteryStore';
+import { ThemeToggle } from '../../../components/ui/ThemeToggle';
 
 export default function ManufacturerLoginPage() {
   const router = useRouter();
@@ -26,7 +27,10 @@ export default function ManufacturerLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7FAF8] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#F7FAF8] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative">
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-10">
+        <ThemeToggle />
+      </div>
       {/* Brand Header */}
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
         <Link href="/" className="inline-flex items-center gap-2 mb-4 group">

@@ -52,7 +52,7 @@ export const RXScoreGauge: React.FC<RXScoreGaugeProps> = ({
             cx={dimensions.size / 2}
             cy={dimensions.size / 2}
             r={radius}
-            stroke="#DDE7E2"
+            className="stroke-[#DDE7E2] dark:stroke-[#1E382D]"
             strokeWidth={dimensions.strokeWidth}
             fill="none"
           />

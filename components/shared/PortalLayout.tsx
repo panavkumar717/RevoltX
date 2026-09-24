@@ -20,6 +20,7 @@ import {
   Check
 } from 'lucide-react';
 import { useReVoltX } from '../../lib/store/batteryStore';
+import { ThemeToggle } from '../ui/ThemeToggle';
 
 export interface NavItem {
   label: string;
@@ -191,6 +192,9 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
               <span className="hidden md:inline">Passport</span>
             </Link>
 
+            {/* Dark Mode Theme Toggle */}
+            <ThemeToggle />
+
             {/* Live Synchronized Badge */}
             <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7] text-[11px] font-semibold">
               <span className="h-1.5 w-1.5 rounded-full bg-[#137A58] animate-pulse" />
@@ -346,6 +350,10 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
               </div>
 
               <div className="pt-3 border-t border-[#DDE7E2] space-y-2">
+                <div className="flex items-center justify-between px-2 py-1 rounded-xl bg-[#F0F5F2]">
+                  <span className="text-xs font-medium text-[#62756E]">Theme Appearance</span>
+                  <ThemeToggle />
+                </div>
                 <button
                   type="button"
                   onClick={() => { handleReset(); setMobileNavOpen(false); }}
