@@ -99,16 +99,18 @@ vec3 StarLayer(vec2 uv) {
       float glossLocal = tri(uStarSpeed / (PERIOD * seed + 1.0));
       float flareSize = smoothstep(0.9, 1.0, size) * glossLocal;
 
-      float red = smoothstep(STAR_COLOR_CUTOFF, 1.0, Hash21(si + 1.0)) + STAR_COLOR_CUTOFF;
-      float blu = smoothstep(STAR_COLOR_CUTOFF, 1.0, Hash21(si + 3.0)) + STAR_COLOR_CUTOFF;
-      float grn = min(red, blu) * seed;
-      vec3 base = vec3(red, grn, blu);
+      // Assign diverse, vibrant spectral colors to each individual star (cyan, sapphire, emerald, gold, amber, violet, ruby, rose)
+      float starHue = fract(Hash21(si + vec2(17.43, 73.19)) + uHueShift / 360.0);
+      float satSeed = Hash21(si + vec2(31.84, 11.57));
+      float starSat = mix(0.45, 1.0, satSeed) * uSaturation;
       
-      float hue = atan(base.g - base.r, base.b - base.r) / (2.0 * 3.14159) + 0.5;
-      hue = fract(hue + uHueShift / 360.0);
-      float sat = length(base - vec3(dot(base, vec3(0.299, 0.587, 0.114)))) * uSaturation;
-      float val = max(max(base.r, base.g), base.b);
-      base = hsv2rgb(vec3(hue, sat, val));
+      vec3 base = hsv2rgb(vec3(starHue, starSat, 1.0));
+      
+      // Preserve a small fraction (~15%) of stars as sparkling diamond white
+      float whiteChance = Hash21(si + vec2(9.21, 64.33));
+      if (whiteChance > 0.85) {
+        base = mix(base, vec3(1.0), 0.85);
+      }
 
       vec2 pad = vec2(tris(seed * 34.0 + uTime * uSpeed / 10.0), tris(seed * 38.0 + uTime * uSpeed / 30.0)) - 0.5;
 
@@ -209,7 +211,7 @@ export default function Galaxy({
   speed = 1.0,
   mouseInteraction = true,
   glowIntensity = 0.3,
-  saturation = 0.0,
+  saturation = 0.85,
   mouseRepulsion = true,
   repulsionStrength = 2,
   twinkleIntensity = 0.3,

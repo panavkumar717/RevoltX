@@ -49,14 +49,14 @@ export default function LandingPage() {
           trackWindowMouse={true}
           mouseInteraction={true}
           mouseRepulsion={true}
-          repulsionStrength={2.5}
-          density={0.6}
-          glowIntensity={0.5}
-          saturation={0.0}
+          repulsionStrength={1.5}
+          density={0.7}
+          glowIntensity={0.4}
+          saturation={0.9}
           hueShift={0}
-          speed={0.8}
+          speed={0.5}
           starSpeed={0.5}
-          twinkleIntensity={0.35}
+          twinkleIntensity={0.5}
           transparent={true}
         />
       </div>
