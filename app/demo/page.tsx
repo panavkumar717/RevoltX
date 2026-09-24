@@ -261,36 +261,36 @@ export default function DemoPage() {
   }, [isPlaying]);
 
   return (
-    <div className="min-h-screen bg-[#F7FAF8] flex flex-col selection:bg-[#DDF5EA] selection:text-[#137A58]">
+    <div className="min-h-screen bg-[#FAFAFA] dark:bg-[#000000] text-zinc-900 dark:text-zinc-100 flex flex-col selection:bg-blue-500/20 selection:text-blue-300">
       <PublicNavbar />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 sm:pt-32 md:pt-36 md:pb-16">
         {/* Demo Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-[#DDE7E2] gap-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-zinc-200 dark:border-zinc-800 gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7] flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-[#21A879]" />
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-[#0070F3] dark:text-[#38BDF8]" />
                 Interactive Judge Walkthrough (60–90 Seconds)
               </span>
-              <span className="text-xs font-mono font-bold text-[#62756E]">
+              <span className="text-xs font-mono font-bold text-zinc-500 dark:text-zinc-400">
                 Step {current.step} of {DEMO_STAGES.length}
               </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-[#10201B] mt-2">
+            <h1 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100 mt-2">
               The Complete ReVoltX Battery Lifecycle
             </h1>
-            <p className="text-xs sm:text-sm text-[#62756E] mt-1 max-w-2xl">
-              Follow battery <strong className="text-[#10201B]">RX-2026-892738</strong> from gigafactory fabrication to first-life telemetry, Smart Dock diagnostics, AI decision engine, and second-life solar storage.
+            <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1 max-w-2xl">
+              Follow battery <strong className="text-zinc-900 dark:text-zinc-100">RX-2026-892738</strong> from gigafactory fabrication to first-life telemetry, Smart Dock diagnostics, AI decision engine, and second-life solar storage.
             </p>
           </div>
 
           {/* Interactive Player Controls */}
-          <div className="flex items-center gap-2 bg-white p-2 rounded-2xl border border-[#DDE7E2] shadow-xs">
+          <div className="flex items-center gap-2 bg-white dark:bg-zinc-900 p-2 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xs">
             <button
               type="button"
               onClick={() => setIsPlaying(!isPlaying)}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] transition-colors"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] transition-colors"
             >
               {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current" />}
               <span>{isPlaying ? 'Pause' : 'Auto Play'}</span>
@@ -303,7 +303,7 @@ export default function DemoPage() {
                 setCurrentStepIndex(prev => Math.max(0, prev - 1));
               }}
               disabled={currentStepIndex === 0}
-              className="p-2 rounded-xl border border-[#DDE7E2] text-[#10201B] hover:bg-[#F0F5F2] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              className="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
               title="Previous Step"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -316,7 +316,7 @@ export default function DemoPage() {
                 setCurrentStepIndex(prev => Math.min(DEMO_STAGES.length - 1, prev + 1));
               }}
               disabled={currentStepIndex === DEMO_STAGES.length - 1}
-              className="p-2 rounded-xl border border-[#DDE7E2] text-[#10201B] hover:bg-[#F0F5F2] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+              className="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
               title="Next Step"
             >
               <ArrowRight className="w-4 h-4" />
@@ -328,7 +328,7 @@ export default function DemoPage() {
                 setIsPlaying(false);
                 setCurrentStepIndex(0);
               }}
-              className="p-2 rounded-xl border border-[#DDE7E2] text-[#62756E] hover:bg-[#F0F5F2] hover:text-[#10201B] transition-colors"
+              className="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
               title="Restart Demo"
             >
               <RotateCcw className="w-4 h-4" />
@@ -352,10 +352,10 @@ export default function DemoPage() {
                 }}
                 className={`h-2.5 flex-1 min-w-[28px] rounded-full transition-all ${
                   isCurrent 
-                    ? 'bg-[#137A58] ring-2 ring-[#BBEAD7]' 
+                    ? 'bg-[#0070F3] ring-2 ring-blue-400/40' 
                     : isCompleted 
-                    ? 'bg-[#21A879]' 
-                    : 'bg-[#DDE7E2] hover:bg-[#C4D6CD]'
+                    ? 'bg-[#38BDF8]' 
+                    : 'bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700'
                 }`}
                 title={`Step ${s.step}: ${s.title}`}
               />
@@ -374,32 +374,32 @@ export default function DemoPage() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 15 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDE7E2] shadow-sm space-y-5"
+                className="bg-white dark:bg-zinc-900/80 rounded-3xl p-6 sm:p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-5"
               >
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#137A58] bg-[#DDF5EA] px-2.5 py-1 rounded-full">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#0070F3] dark:text-[#38BDF8] bg-blue-500/10 px-2.5 py-1 rounded-full">
                     {current.phase}
                   </span>
-                  <h2 className="text-2xl font-bold text-[#10201B] mt-3">
+                  <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mt-3">
                     {current.title}
                   </h2>
-                  <p className="text-xs text-[#62756E] mt-1 font-mono">
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1 font-mono">
                     Actor: {current.actor}
                   </p>
                 </div>
 
-                <p className="text-sm text-[#10201B] leading-relaxed">
+                <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
                   {current.description}
                 </p>
 
                 {/* Structured Step Data Cards */}
-                <div className="space-y-2 pt-2 border-t border-[#DDE7E2]">
+                <div className="space-y-2 pt-2 border-t border-zinc-200 dark:border-zinc-800">
                   {Object.entries(current.data).map(([k, v]) => (
-                    <div key={k} className="flex items-center justify-between text-xs p-2.5 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2]">
-                      <span className="text-[#62756E] font-medium capitalize">
+                    <div key={k} className="flex items-center justify-between text-xs p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-800">
+                      <span className="text-zinc-500 dark:text-zinc-400 font-medium capitalize">
                         {k.replace(/([A-Z])/g, ' $1')}
                       </span>
-                      <span className="font-mono font-bold text-[#10201B]">{v}</span>
+                      <span className="font-mono font-bold text-zinc-900 dark:text-zinc-100">{v}</span>
                     </div>
                   ))}
                 </div>
@@ -410,7 +410,7 @@ export default function DemoPage() {
                     type="button"
                     onClick={() => setCurrentStepIndex(prev => Math.max(0, prev - 1))}
                     disabled={currentStepIndex === 0}
-                    className="text-xs font-semibold text-[#62756E] hover:text-[#10201B] disabled:opacity-30"
+                    className="text-xs font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 disabled:opacity-30"
                   >
                     ← Previous
                   </button>
@@ -419,7 +419,7 @@ export default function DemoPage() {
                     type="button"
                     onClick={() => setCurrentStepIndex(prev => Math.min(DEMO_STAGES.length - 1, prev + 1))}
                     disabled={currentStepIndex === DEMO_STAGES.length - 1}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-xl bg-[#137A58] text-white hover:bg-[#0E5B42] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-xl bg-[#0070F3] text-white hover:bg-[#0058C6] transition-colors"
                   >
                     <span>Next Stage</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -429,32 +429,32 @@ export default function DemoPage() {
             </AnimatePresence>
 
             {/* Quick Links to Live Portals at This Stage */}
-            <div className="p-5 rounded-2xl bg-[#F0F5F2] border border-[#DDE7E2] space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#62756E] block">
+            <div className="p-5 rounded-2xl bg-zinc-100 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 space-y-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 block">
                 Examine in Live Portals
               </span>
               <div className="grid grid-cols-2 gap-2 text-xs font-semibold">
                 <Link
                   href="/manufacturer/batteries/RX-2026-892738"
-                  className="p-2.5 rounded-xl bg-white hover:bg-[#DDF5EA] hover:text-[#137A58] border border-[#DDE7E2] flex items-center gap-1.5 transition-colors"
+                  className="p-2.5 rounded-xl bg-white dark:bg-zinc-800 hover:bg-blue-500/10 hover:text-[#0070F3] dark:hover:text-[#38BDF8] border border-zinc-200 dark:border-zinc-700 flex items-center gap-1.5 transition-colors"
                 >
                   <Factory className="w-3.5 h-3.5" /> Manufacturer
                 </Link>
                 <Link
                   href="/owner"
-                  className="p-2.5 rounded-xl bg-white hover:bg-[#DDF5EA] hover:text-[#137A58] border border-[#DDE7E2] flex items-center gap-1.5 transition-colors"
+                  className="p-2.5 rounded-xl bg-white dark:bg-zinc-800 hover:bg-indigo-500/10 hover:text-[#6366F1] dark:hover:text-[#818CF8] border border-zinc-200 dark:border-zinc-700 flex items-center gap-1.5 transition-colors"
                 >
                   <User className="w-3.5 h-3.5" /> Owner Portal
                 </Link>
                 <Link
                   href="/internal/testing"
-                  className="p-2.5 rounded-xl bg-white hover:bg-[#FEF6E7] hover:text-[#D89A24] border border-[#DDE7E2] flex items-center gap-1.5 transition-colors"
+                  className="p-2.5 rounded-xl bg-white dark:bg-zinc-800 hover:bg-amber-500/10 hover:text-amber-500 border border-zinc-200 dark:border-zinc-700 flex items-center gap-1.5 transition-colors"
                 >
                   <Cpu className="w-3.5 h-3.5" /> Smart Dock Sim
                 </Link>
                 <Link
                   href="/circularity/opportunities"
-                  className="p-2.5 rounded-xl bg-white hover:bg-[#F3F8E5] hover:text-[#5D7C13] border border-[#DDE7E2] flex items-center gap-1.5 transition-colors"
+                  className="p-2.5 rounded-xl bg-white dark:bg-zinc-800 hover:bg-sky-500/10 hover:text-[#0284C7] dark:hover:text-[#38BDF8] border border-zinc-200 dark:border-zinc-700 flex items-center gap-1.5 transition-colors"
                 >
                   <RefreshCw className="w-3.5 h-3.5" /> Circularity
                 </Link>
@@ -467,8 +467,8 @@ export default function DemoPage() {
             {/* Contextual Visualizer dynamically based on current step */}
             {currentStepIndex <= 3 && (
               <div className="space-y-6">
-                <div className="bg-white rounded-3xl p-6 border border-[#DDE7E2] shadow-sm">
-                  <h3 className="text-sm font-bold text-[#10201B] mb-4">
+                <div className="bg-white dark:bg-zinc-900/80 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm">
+                  <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-4">
                     Digital Battery Passport & Physical QR Code Created
                   </h3>
                   <QRCodeWidget batteryId="RX-2026-892738" revoltXId="RX-2026-892738" size={160} />
@@ -482,15 +482,15 @@ export default function DemoPage() {
                   title="First-Life Telemetry & Degradation Trend"
                 />
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="p-4 rounded-2xl bg-white border border-[#DDE7E2]">
-                    <span className="text-xs text-[#62756E] font-medium">State of Health (SOH)</span>
-                    <p className="text-2xl font-bold font-mono text-[#D89A24] mt-1">72%</p>
-                    <p className="text-[11px] text-[#62756E] mt-1">Threshold: Retired from primary EV duty</p>
+                  <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">State of Health (SOH)</span>
+                    <p className="text-2xl font-bold font-mono text-amber-500 mt-1">72%</p>
+                    <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1">Threshold: Retired from primary EV duty</p>
                   </div>
-                  <div className="p-4 rounded-2xl bg-white border border-[#DDE7E2]">
-                    <span className="text-xs text-[#62756E] font-medium">Service Ticket</span>
-                    <p className="text-lg font-bold font-mono text-[#10201B] mt-1">SR-89201</p>
-                    <p className="text-[11px] text-[#137A58] font-semibold mt-1">● Technician Alex Rivera Assigned</p>
+                  <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Service Ticket</span>
+                    <p className="text-lg font-bold font-mono text-zinc-900 dark:text-zinc-100 mt-1">SR-89201</p>
+                    <p className="text-[11px] text-[#0070F3] dark:text-[#38BDF8] font-semibold mt-1">● Technician Alex Rivera Assigned</p>
                   </div>
                 </div>
               </div>
@@ -505,15 +505,15 @@ export default function DemoPage() {
 
             {currentStepIndex >= 12 && (
               <div className="space-y-6">
-                <div className="bg-white rounded-3xl p-6 border border-[#DDE7E2] shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="bg-white dark:bg-zinc-900/80 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3] dark:text-[#38BDF8]">
                       Assessment Complete
                     </span>
-                    <h3 className="text-xl font-bold text-[#10201B] mt-1">
+                    <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mt-1">
                       Computed RX Intelligence Score
                     </h3>
-                    <p className="text-xs text-[#62756E] mt-1 max-w-sm">
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1 max-w-sm">
                       Thermally de-rated for high-amperage vehicle launch, but structurally pristine for daily solar energy storage.
                     </p>
                   </div>

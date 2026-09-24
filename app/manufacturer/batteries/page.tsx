@@ -27,7 +27,7 @@ export default function ManufacturerBatteriesPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#DDE7E2]">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
             Fleet Inventory
           </span>
           <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -40,7 +40,7 @@ export default function ManufacturerBatteriesPage() {
 
         <Link
           href="/manufacturer/batteries/register"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
         >
           <PlusCircle className="w-4 h-4" />
           <span>Register New Battery</span>
@@ -56,7 +56,7 @@ export default function ManufacturerBatteriesPage() {
             placeholder="Search by Battery ID (e.g. RX-2026-892738), serial number, vehicle..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
+            className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0070F3]"
           />
         </div>
 
@@ -94,7 +94,7 @@ export default function ManufacturerBatteriesPage() {
               {filtered.map(b => (
                 <tr key={b.id} className="hover:bg-[#F7FAF8] transition-colors">
                   <td className="py-3 font-mono font-bold text-[#10201B]">
-                    <Link href={`/manufacturer/batteries/${b.revoltXId}`} className="hover:text-[#137A58]">
+                    <Link href={`/manufacturer/batteries/${b.revoltXId}`} className="hover:text-[#0070F3]">
                       {b.revoltXId}
                     </Link>
                     <span className="block text-[10px] text-[#62756E] font-normal">{b.serialNumber}</span>
@@ -104,13 +104,13 @@ export default function ManufacturerBatteriesPage() {
                     <span className="block text-[10px] text-[#62756E]">{b.capacity} Ah • {b.packConfiguration}</span>
                   </td>
                   <td className="py-3">
-                    <span className={`font-mono font-bold ${b.currentSOH >= 80 ? 'text-[#137A58]' : b.currentSOH >= 65 ? 'text-[#D89A24]' : 'text-[#D94B4B]'}`}>
+                    <span className={`font-mono font-bold ${b.currentSOH >= 80 ? 'text-[#0070F3]' : b.currentSOH >= 65 ? 'text-[#D89A24]' : 'text-[#D94B4B]'}`}>
                       {b.currentSOH}%
                     </span>
                     <span className="block text-[10px] text-[#62756E]">from {b.initialSOH}%</span>
                   </td>
                   <td className="py-3 font-mono text-[#10201B]">{b.rul} cyc</td>
-                  <td className="py-3 font-mono font-bold text-[#137A58]">{b.rxScore}/100</td>
+                  <td className="py-3 font-mono font-bold text-[#0070F3]">{b.rxScore}/100</td>
                   <td className="py-3">
                     <BatteryStatusBadge risk={b.risk} size="sm" />
                   </td>
@@ -127,7 +127,7 @@ export default function ManufacturerBatteriesPage() {
                       </Link>
                       <Link
                         href={`/battery/${b.revoltXId}`}
-                        className="p-1 rounded-md text-[#62756E] hover:text-[#137A58]"
+                        className="p-1 rounded-md text-[#62756E] hover:text-[#0070F3]"
                         title="Open Public Passport"
                       >
                         <QrCode className="w-4 h-4" />

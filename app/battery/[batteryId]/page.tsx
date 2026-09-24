@@ -47,7 +47,7 @@ export default function BatteryPassportPage({
           </p>
           <Link
             href="/battery/RX-2026-892738"
-            className="mt-4 inline-block px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-semibold"
+            className="mt-4 inline-block px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-semibold"
           >
             View Star Battery RX-2026-892738
           </Link>
@@ -57,7 +57,7 @@ export default function BatteryPassportPage({
   }
 
   return (
-    <div className="min-h-screen bg-[#F7FAF8] flex flex-col selection:bg-[#DDF5EA] selection:text-[#137A58]">
+    <div className="min-h-screen bg-[#F7FAF8] flex flex-col selection:bg-[#EFF6FF] selection:text-[#0070F3]">
       {/* Top Mobile-First App Bar */}
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#DDE7E2] px-4 py-3">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
@@ -70,18 +70,18 @@ export default function BatteryPassportPage({
           </Link>
 
           <div className="flex items-center gap-1.5">
-            <div className="h-6 w-6 rounded-md bg-[#137A58] flex items-center justify-center text-white">
-              <Zap className="h-3.5 w-3.5 fill-current text-[#C9EF72]" />
+            <div className="h-6 w-6 rounded-md bg-[#0070F3] flex items-center justify-center text-white">
+              <Zap className="h-3.5 w-3.5 fill-current text-[#0070F3]" />
             </div>
             <span className="font-bold text-sm text-[#10201B]">
-              REVolt<span className="text-[#137A58]">X</span>
+              REVolt<span className="text-[#0070F3]">X</span>
             </span>
             <span className="text-[10px] text-[#62756E] font-medium hidden sm:inline">Passport</span>
           </div>
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7]">
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#EFF6FF] text-[#0070F3] border border-[#BFDBFE]">
               <ShieldCheck className="w-3 h-3" /> Verified
             </span>
           </div>
@@ -94,7 +94,7 @@ export default function BatteryPassportPage({
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDE7E2] shadow-sm relative overflow-hidden">
           {/* Subtle watermark background */}
           <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
-            <Zap className="w-48 h-48 text-[#137A58]" />
+            <Zap className="w-48 h-48 text-[#0070F3]" />
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
@@ -117,7 +117,7 @@ export default function BatteryPassportPage({
 
             <div className="shrink-0 flex items-center gap-2">
               <span className="inline-block p-2 rounded-xl bg-[#F0F5F2] border border-[#DDE7E2]">
-                <QrCode className="w-8 h-8 text-[#137A58]" />
+                <QrCode className="w-8 h-8 text-[#0070F3]" />
               </span>
             </div>
           </div>
@@ -188,7 +188,7 @@ export default function BatteryPassportPage({
               </div>
               <div className="flex justify-between text-xs py-1">
                 <span className="text-[#62756E]">EU Passport Hash</span>
-                <span className="font-mono text-[11px] text-[#137A58]">0x8f4d...391e (Verified)</span>
+                <span className="font-mono text-[11px] text-[#0070F3]">0x8f4d...391e (Verified)</span>
               </div>
             </div>
           </div>
@@ -205,7 +205,7 @@ export default function BatteryPassportPage({
                 Continuous Chain of Custody
               </h3>
             </div>
-            <span className="text-xs font-mono font-bold text-[#137A58] bg-[#DDF5EA] px-2.5 py-1 rounded-full border border-[#BBEAD7]">
+            <span className="text-xs font-mono font-bold text-[#0070F3] bg-[#EFF6FF] px-2.5 py-1 rounded-full border border-[#BFDBFE]">
               {battery.lifecycleEvents.length} Events Logged
             </span>
           </div>
@@ -234,7 +234,7 @@ export default function BatteryPassportPage({
                   </div>
                   <p className="text-[#62756E]"><strong className="text-[#10201B]">Findings:</strong> {record.findings}</p>
                   <p className="text-[#62756E]"><strong className="text-[#10201B]">Action:</strong> {record.actionTaken}</p>
-                  <p className="text-[10px] text-[#137A58] font-mono">Inspector: {record.technician} • ReVoltX Certified</p>
+                  <p className="text-[10px] text-[#0070F3] font-mono">Inspector: {record.technician} • ReVoltX Certified</p>
                 </div>
               ))}
             </div>
@@ -251,7 +251,7 @@ export default function BatteryPassportPage({
             <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2]">
               <span className="text-[#62756E] block text-[10px] uppercase font-semibold">Carbon Footprint (LCA)</span>
               <span className="text-sm font-bold font-mono text-[#10201B]">64.2 kg CO₂e / kWh</span>
-              <span className="text-[10px] text-[#137A58] block mt-0.5">Top 15% Industry Benchmark</span>
+              <span className="text-[10px] text-[#0070F3] block mt-0.5">Top 15% Industry Benchmark</span>
             </div>
 
             <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2]">
@@ -285,7 +285,7 @@ export default function BatteryPassportPage({
             <button
               type="button"
               onClick={() => alert(`Official Battery Passport Certificate exported for ${battery.revoltXId}`)}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-semibold hover:bg-[#0E5B42] transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-semibold hover:bg-[#0058C6] transition-colors"
             >
               <Download className="w-3.5 h-3.5" /> Download PDF
             </button>

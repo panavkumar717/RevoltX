@@ -27,7 +27,7 @@ export default function CircularityOpportunitiesPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#DDE7E2]">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#5D7C13] bg-[#F3F8E5] px-2.5 py-0.5 rounded-full border border-[#DAECAE]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#0284C7] bg-[#F0F9FF] px-2.5 py-0.5 rounded-full border border-[#BAE6FD]">
             Second-Life Sourcing
           </span>
           <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -65,7 +65,7 @@ export default function CircularityOpportunitiesPage() {
             onClick={() => setAppFilter(tab.key)}
             className={`px-3.5 py-1.5 rounded-xl transition-all whitespace-nowrap ${
               appFilter === tab.key
-                ? 'bg-[#137A58] text-white shadow-xs'
+                ? 'bg-[#0070F3] text-white shadow-xs'
                 : 'bg-white text-[#62756E] hover:text-[#10201B] border border-[#DDE7E2]'
             }`}
           >
@@ -82,12 +82,12 @@ export default function CircularityOpportunitiesPage() {
           return (
             <div
               key={opp.id}
-              className="bg-white rounded-3xl p-6 border border-[#DDE7E2] shadow-xs flex flex-col justify-between hover:border-[#137A58] transition-all group"
+              className="bg-white rounded-3xl p-6 border border-[#DDE7E2] shadow-xs flex flex-col justify-between hover:border-[#0070F3] transition-all group"
             >
               <div>
                 <div className="flex items-start justify-between">
                   <div>
-                    <span className="font-mono font-bold text-base text-[#10201B] group-hover:text-[#137A58]">
+                    <span className="font-mono font-bold text-base text-[#10201B] group-hover:text-[#0070F3]">
                       {opp.batteryId}
                     </span>
                     <p className="text-[11px] text-[#62756E] font-medium">
@@ -97,7 +97,7 @@ export default function CircularityOpportunitiesPage() {
 
                   <span className={`px-2.5 py-1 rounded-full text-xs font-bold border ${
                     opp.status === 'Available'
-                      ? 'bg-[#DDF5EA] text-[#137A58] border-[#BBEAD7]'
+                      ? 'bg-[#EFF6FF] text-[#0070F3] border-[#BFDBFE]'
                       : 'bg-[#F0F5F2] text-[#62756E] border-[#DDE7E2]'
                   }`}>
                     {opp.status}
@@ -105,7 +105,7 @@ export default function CircularityOpportunitiesPage() {
                 </div>
 
                 <div className="mt-3">
-                  <span className="text-[10px] uppercase font-bold text-[#5D7C13] bg-[#F3F8E5] px-2 py-0.5 rounded">
+                  <span className="text-[10px] uppercase font-bold text-[#0284C7] bg-[#F0F9FF] px-2 py-0.5 rounded">
                     Target Application
                   </span>
                   <h4 className="text-sm font-bold text-[#10201B] mt-1">{opp.targetApplication}</h4>
@@ -122,7 +122,7 @@ export default function CircularityOpportunitiesPage() {
                   </div>
                   <div>
                     <span className="text-[10px] text-[#62756E] uppercase font-bold">RX Score</span>
-                    <p className="text-xs font-bold font-mono text-[#137A58] mt-0.5">{opp.rxScore}/100</p>
+                    <p className="text-xs font-bold font-mono text-[#0070F3] mt-0.5">{opp.rxScore}/100</p>
                   </div>
                 </div>
 
@@ -141,7 +141,7 @@ export default function CircularityOpportunitiesPage() {
 
                 <Link
                   href={`/circularity/opportunities/${opp.batteryId}`}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
                 >
                   <span>Request Allocation</span>
                   <ArrowRight className="w-3.5 h-3.5" />

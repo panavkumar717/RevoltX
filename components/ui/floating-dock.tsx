@@ -68,7 +68,7 @@ const FloatingDockMobile = ({
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-[#162720] border border-[#DDE7E2] dark:border-[#1E382D] shadow-md hover:bg-[#DDF5EA] dark:hover:bg-[#133325] text-[#10201B] dark:text-[#ECFDF5] transition-colors"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-md hover:bg-blue-50 dark:hover:bg-blue-950/40 text-zinc-900 dark:text-zinc-100 transition-colors"
                   title={item.title}
                 >
                   <div className="h-5 w-5 flex items-center justify-center">{item.icon}</div>
@@ -82,7 +82,7 @@ const FloatingDockMobile = ({
         type="button"
         onClick={() => setOpen(!open)}
         aria-label="Toggle Quick Dock Navigation"
-        className="flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-[#162720] border border-[#DDE7E2] dark:border-[#1E382D] shadow-lg text-[#137A58] dark:text-[#34D399] hover:bg-[#DDF5EA] dark:hover:bg-[#133325] transition-colors"
+        className="flex h-11 w-11 items-center justify-center rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-lg text-[#0070F3] dark:text-[#38BDF8] hover:bg-blue-50 dark:hover:bg-blue-950/40 transition-colors"
       >
         <IconLayoutNavbarCollapse className="h-5 w-5" />
       </button>
@@ -103,7 +103,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden h-16 items-end gap-3 rounded-2xl bg-white/90 dark:bg-[#111E18]/90 backdrop-blur-md px-3.5 pb-2.5 md:flex border border-[#DDE7E2] dark:border-[#1E382D] shadow-lg",
+        "mx-auto hidden h-16 items-end gap-3 rounded-2xl bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3.5 pb-2.5 md:flex border border-zinc-200 dark:border-zinc-800 shadow-lg",
         className
       )}
     >
@@ -169,7 +169,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full bg-[#F0F5F2] dark:bg-[#162720] border border-[#DDE7E2] dark:border-[#1E382D] hover:border-[#137A58] dark:hover:border-[#34D399] transition-colors shadow-2xs group"
+        className="relative flex aspect-square items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/60 hover:border-[#0070F3] dark:hover:border-[#38BDF8] transition-colors shadow-2xs group"
       >
         <AnimatePresence>
           {hovered && (
@@ -177,7 +177,7 @@ function IconContainer({
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-9 left-1/2 w-fit rounded-lg border border-[#DDE7E2] dark:border-[#1E382D] bg-white dark:bg-[#111E18] px-2.5 py-1 text-xs font-semibold whitespace-pre text-[#10201B] dark:text-[#ECFDF5] shadow-md pointer-events-none z-50"
+              className="absolute -top-9 left-1/2 w-fit rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-2.5 py-1 text-xs font-semibold whitespace-pre text-zinc-900 dark:text-zinc-100 shadow-md pointer-events-none z-50"
             >
               {title}
             </motion.div>
@@ -185,7 +185,7 @@ function IconContainer({
         </AnimatePresence>
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center text-[#10201B] dark:text-[#ECFDF5] group-hover:text-[#137A58] dark:group-hover:text-[#34D399] transition-colors"
+          className="flex items-center justify-center text-zinc-700 dark:text-zinc-300 group-hover:text-[#0070F3] dark:group-hover:text-[#38BDF8] transition-colors"
         >
           {icon}
         </motion.div>

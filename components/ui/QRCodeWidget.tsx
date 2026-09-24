@@ -33,7 +33,7 @@ export const QRCodeWidget: React.FC<QRCodeWidgetProps> = ({
     <div className="bg-white rounded-2xl p-4 border border-[#DDE7E2] shadow-xs flex flex-col items-center text-center">
       <div className="relative p-3 bg-[#F7FAF8] rounded-xl border border-[#DDE7E2] group overflow-hidden">
         {/* Animated Laser Scanning Beam */}
-        <div className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#137A58] to-transparent animate-scan-beam pointer-events-none opacity-80" />
+        <div className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#0070F3] to-transparent animate-scan-beam pointer-events-none opacity-80" />
 
         {/* Crisp Stylized SVG QR Matrix */}
         <svg 
@@ -47,19 +47,19 @@ export const QRCodeWidget: React.FC<QRCodeWidgetProps> = ({
 
           {/* Corner finder patterns */}
           {/* Top Left */}
-          <rect x="10" y="10" width="24" height="24" rx="3" fill="#137A58" />
+          <rect x="10" y="10" width="24" height="24" rx="3" fill="#0070F3" />
           <rect x="14" y="14" width="16" height="16" rx="2" fill="#FFFFFF" />
-          <rect x="18" y="18" width="8" height="8" rx="1" fill="#137A58" />
+          <rect x="18" y="18" width="8" height="8" rx="1" fill="#0070F3" />
 
           {/* Top Right */}
-          <rect x="66" y="10" width="24" height="24" rx="3" fill="#137A58" />
+          <rect x="66" y="10" width="24" height="24" rx="3" fill="#0070F3" />
           <rect x="70" y="14" width="16" height="16" rx="2" fill="#FFFFFF" />
-          <rect x="74" y="18" width="8" height="8" rx="1" fill="#137A58" />
+          <rect x="74" y="18" width="8" height="8" rx="1" fill="#0070F3" />
 
           {/* Bottom Left */}
-          <rect x="10" y="66" width="24" height="24" rx="3" fill="#137A58" />
+          <rect x="10" y="66" width="24" height="24" rx="3" fill="#0070F3" />
           <rect x="14" y="70" width="16" height="16" rx="2" fill="#FFFFFF" />
-          <rect x="18" y="74" width="8" height="8" rx="1" fill="#137A58" />
+          <rect x="18" y="74" width="8" height="8" rx="1" fill="#0070F3" />
 
           {/* Data Modules (Deterministic Pattern) */}
           <rect x="38" y="10" width="6" height="6" fill="#10201B" rx="1" />
@@ -74,7 +74,7 @@ export const QRCodeWidget: React.FC<QRCodeWidgetProps> = ({
           <rect x="26" y="52" width="6" height="6" fill="#10201B" rx="1" />
 
           {/* Center Brand Monogram */}
-          <rect x="40" y="40" width="20" height="20" rx="4" fill="#137A58" />
+          <rect x="40" y="40" width="20" height="20" rx="4" fill="#0070F3" />
           <text 
             x="50" 
             y="54" 
@@ -115,7 +115,7 @@ export const QRCodeWidget: React.FC<QRCodeWidgetProps> = ({
         </span>
       </div>
 
-      <div className="mt-1 flex items-center gap-1 text-[11px] text-[#137A58] font-medium">
+      <div className="mt-1 flex items-center gap-1 text-[11px] text-[#0070F3] font-medium">
         <ShieldCheck className="w-3.5 h-3.5" /> ReVoltX Cryptographic Seal
       </div>
 
@@ -123,7 +123,7 @@ export const QRCodeWidget: React.FC<QRCodeWidgetProps> = ({
         <div className="mt-3 flex items-center gap-2 w-full">
           <Link
             href={passportPath}
-            className="flex-1 inline-flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl bg-[#137A58] text-white text-xs font-semibold hover:bg-[#0E5B42] transition-colors"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl bg-[#0070F3] text-white text-xs font-semibold hover:bg-[#0058C6] transition-colors"
           >
             <QrCode className="w-3.5 h-3.5" /> Scan / Open
           </Link>
@@ -133,7 +133,7 @@ export const QRCodeWidget: React.FC<QRCodeWidgetProps> = ({
             className="p-1.5 rounded-xl border border-[#DDE7E2] hover:bg-[#F0F5F2] text-[#62756E] transition-colors"
             title="Copy Passport URL"
           >
-            {copied ? <Check className="w-4 h-4 text-[#137A58]" /> : <Copy className="w-4 h-4" />}
+            {copied ? <Check className="w-4 h-4 text-[#0070F3]" /> : <Copy className="w-4 h-4" />}
           </button>
         </div>
       )}

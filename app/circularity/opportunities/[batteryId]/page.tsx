@@ -67,10 +67,10 @@ export default function CircularityOpportunityDetailPage({
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-md bg-[#5D7C13] text-white">
+              <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-md bg-[#0284C7] text-white">
                 SECOND-LIFE ASSESSMENT CANDIDATE
               </span>
-              <span className="text-xs font-bold text-[#137A58] bg-[#DDF5EA] px-2.5 py-0.5 rounded-full">
+              <span className="text-xs font-bold text-[#0070F3] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full">
                 UL 1974 Protocol
               </span>
             </div>
@@ -139,18 +139,18 @@ export default function CircularityOpportunityDetailPage({
         {/* Allocation Action Flow */}
         <div className="mt-8 pt-6 border-t border-[#DDE7E2]">
           {allocated ? (
-            <div className="p-6 rounded-2xl bg-[#DDF5EA] border border-[#BBEAD7] text-center space-y-3">
-              <CheckCircle2 className="w-10 h-10 text-[#137A58] mx-auto" />
+            <div className="p-6 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] text-center space-y-3">
+              <CheckCircle2 className="w-10 h-10 text-[#0070F3] mx-auto" />
               <h3 className="text-lg font-bold text-[#10201B]">
                 Battery Successfully Allocated to {partnerName}!
               </h3>
               <p className="text-xs text-[#62756E] max-w-md mx-auto">
-                Asset <strong className="text-[#10201B] font-mono">{battery.revoltXId}</strong> lifecycle has transitioned to <strong className="text-[#137A58]">SECOND_LIFE</strong> in the ReVoltX Universal Database. The continuous Digital Battery Passport remains uninterrupted.
+                Asset <strong className="text-[#10201B] font-mono">{battery.revoltXId}</strong> lifecycle has transitioned to <strong className="text-[#0070F3]">SECOND_LIFE</strong> in the ReVoltX Universal Database. The continuous Digital Battery Passport remains uninterrupted.
               </p>
               <div className="pt-2 flex justify-center gap-3">
                 <Link
                   href="/circularity/transactions"
-                  className="px-5 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42]"
+                  className="px-5 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6]"
                 >
                   View Custody Transaction
                 </Link>
@@ -179,9 +179,9 @@ export default function CircularityOpportunityDetailPage({
                 <button
                   type="button"
                   onClick={handleRequestAllocation}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
                 >
-                  <Sun className="w-4 h-4 text-[#C9EF72]" />
+                  <Sun className="w-4 h-4 text-[#0070F3]" />
                   <span>Request & Allocate for Solar Duty</span>
                 </button>
               </div>

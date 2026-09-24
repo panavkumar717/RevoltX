@@ -24,21 +24,21 @@ export default function InternalIntelligencePage() {
           <span className="text-xs font-bold uppercase text-[#62756E]">Active Model Core</span>
           <h3 className="text-lg font-bold text-[#10201B]">LFP-EIS-Hybrid-v4</h3>
           <p className="text-xs text-[#62756E]">Physics-informed neural network combining Arrhenius degradation with equivalent circuit impedance modeling.</p>
-          <span className="text-xs font-mono text-[#137A58] block pt-2">99.1% Test Accuracy</span>
+          <span className="text-xs font-mono text-[#0070F3] block pt-2">99.1% Test Accuracy</span>
         </div>
 
         <div className="p-6 rounded-3xl bg-white border border-[#DDE7E2] shadow-xs space-y-2">
           <span className="text-xs font-bold uppercase text-[#62756E]">NMC High-Density Core</span>
           <h3 className="text-lg font-bold text-[#10201B]">NMC-Pouch-EIS-v3</h3>
           <p className="text-xs text-[#62756E]">Trained on 4.2 million kilometers of heavy truck and transit duty telemetry. Real-time dendrite early warning.</p>
-          <span className="text-xs font-mono text-[#137A58] block pt-2">98.4% Accuracy</span>
+          <span className="text-xs font-mono text-[#0070F3] block pt-2">98.4% Accuracy</span>
         </div>
 
         <div className="p-6 rounded-3xl bg-white border border-[#DDE7E2] shadow-xs space-y-2">
           <span className="text-xs font-bold uppercase text-[#62756E]">RX Score Calibration</span>
           <h3 className="text-lg font-bold text-[#10201B]">Deterministic Matrix v2.6</h3>
           <p className="text-xs text-[#62756E]">Integrates capacity retention, thermal dissipation margin, cycle count velocity, and secondary reuse viability.</p>
-          <span className="text-xs font-mono text-[#5D7C13] block pt-2">UL 1974 Aligned</span>
+          <span className="text-xs font-mono text-[#0284C7] block pt-2">UL 1974 Aligned</span>
         </div>
       </div>
 

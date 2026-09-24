@@ -44,9 +44,9 @@ export function HeroBackground({ className = '', particleCount = 28 }: HeroBackg
     }> = [];
 
     const colors = [
-      'rgba(19, 122, 88, ',  // Emerald
-      'rgba(33, 168, 121, ', // Mint
-      'rgba(201, 239, 114, ' // Lime
+      'rgba(0, 112, 243, ',  // Vercel Electric Blue
+      'rgba(99, 102, 241, ', // Indigo
+      'rgba(56, 189, 248, '  // Sky Cyan
     ];
 
     for (let i = 0; i < particleCount; i++) {
@@ -98,7 +98,7 @@ export function HeroBackground({ className = '', particleCount = 28 }: HeroBackg
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(19, 122, 88, ${0.12 * (1 - dist / 110)})`;
+            ctx.strokeStyle = `rgba(0, 112, 243, ${0.12 * (1 - dist / 110)})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }

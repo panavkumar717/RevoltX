@@ -118,7 +118,7 @@ export default function SmartDockTestingPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#DDE7E2]">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#137A58] bg-[#DDF5EA] px-2.5 py-0.5 rounded-full border border-[#BBEAD7]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full border border-[#BFDBFE]">
             Hardware Test Bench Interface
           </span>
           <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -164,9 +164,9 @@ export default function SmartDockTestingPage() {
               key={lbl}
               className={`flex items-center gap-1 px-3 py-1.5 rounded-xl whitespace-nowrap transition-colors ${
                 isCurrent
-                  ? 'bg-[#137A58] text-white font-bold'
+                  ? 'bg-[#0070F3] text-white font-bold'
                   : isPassed
-                  ? 'bg-[#DDF5EA] text-[#137A58]'
+                  ? 'bg-[#EFF6FF] text-[#0070F3]'
                   : 'bg-[#F0F5F2] text-[#62756E]'
               }`}
             >
@@ -180,7 +180,7 @@ export default function SmartDockTestingPage() {
       {step === 1 && (
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDE7E2] shadow-sm space-y-5">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#137A58]">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#0070F3]">
               Step 1 of 7
             </span>
             <h2 className="text-xl font-bold text-[#10201B] mt-1">
@@ -198,7 +198,7 @@ export default function SmartDockTestingPage() {
                 onClick={() => setSelectedBatteryId(b.revoltXId)}
                 className={`p-4 rounded-2xl border cursor-pointer transition-all flex items-center justify-between ${
                   selectedBatteryId === b.revoltXId
-                    ? 'bg-[#DDF5EA] border-[#137A58] ring-2 ring-[#BBEAD7]'
+                    ? 'bg-[#EFF6FF] border-[#0070F3] ring-2 ring-[#BFDBFE]'
                     : 'bg-[#F7FAF8] border-[#DDE7E2] hover:bg-white'
                 }`}
               >
@@ -213,7 +213,7 @@ export default function SmartDockTestingPage() {
                 </div>
 
                 <span className={`text-xs font-bold px-3 py-1 rounded-xl ${
-                  selectedBatteryId === b.revoltXId ? 'bg-[#137A58] text-white' : 'bg-white border border-[#DDE7E2]'
+                  selectedBatteryId === b.revoltXId ? 'bg-[#0070F3] text-white' : 'bg-white border border-[#DDE7E2]'
                 }`}>
                   {selectedBatteryId === b.revoltXId ? 'Selected for Test' : 'Select'}
                 </span>
@@ -225,7 +225,7 @@ export default function SmartDockTestingPage() {
             <button
               type="button"
               onClick={() => setStep(2)}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42]"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6]"
             >
               <span>Proceed to Dock Connection</span>
               <ArrowRight className="w-4 h-4" />
@@ -238,7 +238,7 @@ export default function SmartDockTestingPage() {
       {step === 2 && (
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDE7E2] shadow-sm space-y-6">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#137A58]">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#0070F3]">
               Step 2 of 7
             </span>
             <h2 className="text-xl font-bold text-[#10201B] mt-1">
@@ -262,7 +262,7 @@ export default function SmartDockTestingPage() {
             <button
               type="button"
               onClick={() => setStep(3)}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42]"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6]"
             >
               <span>Harness Attached • Verify Sensors</span>
               <ArrowRight className="w-4 h-4" />
@@ -275,7 +275,7 @@ export default function SmartDockTestingPage() {
       {step === 3 && (
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDE7E2] shadow-sm space-y-6">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#137A58]">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#0070F3]">
               Step 3 of 7 (Sensor Verification)
             </span>
             <h2 className="text-xl font-bold text-[#10201B] mt-1">
@@ -287,48 +287,48 @@ export default function SmartDockTestingPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="p-4 rounded-2xl bg-[#DDF5EA] border border-[#BBEAD7] flex items-center justify-between">
+            <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <Gauge className="w-5 h-5 text-[#137A58]" />
+                <Gauge className="w-5 h-5 text-[#0070F3]" />
                 <div>
                   <h4 className="text-xs font-bold text-[#10201B]">Voltage Sensor</h4>
-                  <span className="text-[11px] text-[#137A58] font-mono">51.2V Calibrated</span>
+                  <span className="text-[11px] text-[#0070F3] font-mono">51.2V Calibrated</span>
                 </div>
               </div>
-              <span className="text-xs font-bold text-[#137A58]">● Connected</span>
+              <span className="text-xs font-bold text-[#0070F3]">● Connected</span>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#DDF5EA] border border-[#BBEAD7] flex items-center justify-between">
+            <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <Zap className="w-5 h-5 text-[#137A58]" />
+                <Zap className="w-5 h-5 text-[#0070F3]" />
                 <div>
                   <h4 className="text-xs font-bold text-[#10201B]">Current Sensor</h4>
-                  <span className="text-[11px] text-[#137A58] font-mono">0.0A Zero Offset</span>
+                  <span className="text-[11px] text-[#0070F3] font-mono">0.0A Zero Offset</span>
                 </div>
               </div>
-              <span className="text-xs font-bold text-[#137A58]">● Connected</span>
+              <span className="text-xs font-bold text-[#0070F3]">● Connected</span>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#DDF5EA] border border-[#BBEAD7] flex items-center justify-between">
+            <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <Thermometer className="w-5 h-5 text-[#137A58]" />
+                <Thermometer className="w-5 h-5 text-[#0070F3]" />
                 <div>
                   <h4 className="text-xs font-bold text-[#10201B]">Temperature Sensor</h4>
-                  <span className="text-[11px] text-[#137A58] font-mono">38.4°C Probe 1</span>
+                  <span className="text-[11px] text-[#0070F3] font-mono">38.4°C Probe 1</span>
                 </div>
               </div>
-              <span className="text-xs font-bold text-[#137A58]">● Connected</span>
+              <span className="text-xs font-bold text-[#0070F3]">● Connected</span>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#DDF5EA] border border-[#BBEAD7] flex items-center justify-between">
+            <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <Cpu className="w-5 h-5 text-[#137A58]" />
+                <Cpu className="w-5 h-5 text-[#0070F3]" />
                 <div>
                   <h4 className="text-xs font-bold text-[#10201B]">ESP32 Gateway</h4>
-                  <span className="text-[11px] text-[#137A58] font-mono">WiFi / MQTT 250ms</span>
+                  <span className="text-[11px] text-[#0070F3] font-mono">WiFi / MQTT 250ms</span>
                 </div>
               </div>
-              <span className="text-xs font-bold text-[#137A58]">● Connected</span>
+              <span className="text-xs font-bold text-[#0070F3]">● Connected</span>
             </div>
           </div>
 
@@ -343,7 +343,7 @@ export default function SmartDockTestingPage() {
             <button
               type="button"
               onClick={() => setStep(4)}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42]"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6]"
             >
               <span>Sensors Verified • Start Test Waveform</span>
               <ArrowRight className="w-4 h-4" />
@@ -357,15 +357,15 @@ export default function SmartDockTestingPage() {
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDE7E2] shadow-sm space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#137A58]">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#0070F3]">
                 Step 4 of 7 (Live Diagnostic Stream)
               </span>
               <h2 className="text-xl font-bold text-[#10201B] mt-1">
                 Collecting Dynamic Waveform Data
               </h2>
             </div>
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7] flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-[#137A58] animate-ping" />
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#EFF6FF] text-[#0070F3] border border-[#BFDBFE] flex items-center gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-[#0070F3] animate-ping" />
               Live 250ms Buffer
             </span>
           </div>
@@ -383,9 +383,9 @@ export default function SmartDockTestingPage() {
             <button
               type="button"
               onClick={handleStartIntelligence}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-sm"
             >
-              <Cpu className="w-4 h-4 text-[#C9EF72]" />
+              <Cpu className="w-4 h-4 text-[#0070F3]" />
               <span>Run ReVoltX AI Intelligence</span>
             </button>
           </div>
@@ -395,12 +395,12 @@ export default function SmartDockTestingPage() {
       {/* STEP 5: Running ReVoltX AI Intelligence */}
       {step === 5 && (
         <div className="bg-white rounded-3xl p-8 border border-[#DDE7E2] shadow-sm text-center space-y-6 py-12">
-          <div className="p-4 rounded-3xl bg-[#DDF5EA] text-[#137A58] w-fit mx-auto animate-pulse">
+          <div className="p-4 rounded-3xl bg-[#EFF6FF] text-[#0070F3] w-fit mx-auto animate-pulse">
             <Cpu className="w-12 h-12" />
           </div>
 
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
               Step 5 of 7
             </span>
             <h2 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -415,17 +415,17 @@ export default function SmartDockTestingPage() {
           <div className="max-w-md mx-auto bg-[#F7FAF8] p-5 rounded-2xl border border-[#DDE7E2] space-y-3">
             <div className="flex items-center justify-between text-xs font-semibold text-[#10201B]">
               <span>Analysis Stage {aiStage + 1} of {AI_STAGES.length}</span>
-              <span className="font-mono text-[#137A58]">{Math.round(((aiStage + 1) / AI_STAGES.length) * 100)}%</span>
+              <span className="font-mono text-[#0070F3]">{Math.round(((aiStage + 1) / AI_STAGES.length) * 100)}%</span>
             </div>
 
             <div className="w-full bg-[#EAEAEA] h-2 rounded-full overflow-hidden">
               <div 
-                className="bg-[#137A58] h-full transition-all duration-300"
+                className="bg-[#0070F3] h-full transition-all duration-300"
                 style={{ width: `${((aiStage + 1) / AI_STAGES.length) * 100}%` }}
               />
             </div>
 
-            <p className="text-xs font-mono font-medium text-[#137A58] text-left pt-1">
+            <p className="text-xs font-mono font-medium text-[#0070F3] text-left pt-1">
               ● {AI_STAGES[aiStage]}
             </p>
           </div>
@@ -437,14 +437,14 @@ export default function SmartDockTestingPage() {
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDE7E2] shadow-sm space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#137A58]">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#0070F3]">
                 Step 6 of 7 (Assessment Results)
               </span>
               <h2 className="text-xl font-bold text-[#10201B] mt-1">
                 Diagnostic Analysis Complete
               </h2>
             </div>
-            <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#DDF5EA] text-[#137A58]">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#EFF6FF] text-[#0070F3]">
               Evaluation Complete
             </span>
           </div>
@@ -469,10 +469,10 @@ export default function SmartDockTestingPage() {
               <span className="text-[10px] text-[#62756E]">Thermal drift</span>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#DDF5EA] border border-[#BBEAD7]">
-              <span className="text-[10px] uppercase font-bold text-[#137A58]">RX SCORE</span>
-              <p className="text-3xl font-bold font-mono text-[#137A58] mt-1">78 / 100</p>
-              <span className="text-[10px] text-[#137A58] font-bold">2nd-Life Grade A-</span>
+            <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE]">
+              <span className="text-[10px] uppercase font-bold text-[#0070F3]">RX SCORE</span>
+              <p className="text-3xl font-bold font-mono text-[#0070F3] mt-1">78 / 100</p>
+              <span className="text-[10px] text-[#0070F3] font-bold">2nd-Life Grade A-</span>
             </div>
           </div>
 
@@ -497,7 +497,7 @@ export default function SmartDockTestingPage() {
             <button
               type="button"
               onClick={() => setStep(7)}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42]"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6]"
             >
               <span>Proceed to Decision Engine</span>
               <ArrowRight className="w-4 h-4" />
@@ -511,7 +511,7 @@ export default function SmartDockTestingPage() {
         <div className="space-y-6">
           <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDE7E2] shadow-sm space-y-6">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#137A58]">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#0070F3]">
                 Step 7 of 7 (Decision Engine)
               </span>
               <h2 className="text-xl font-bold text-[#10201B] mt-1">
@@ -527,7 +527,7 @@ export default function SmartDockTestingPage() {
               {/* Option 1: Continue Use */}
               <div
                 onClick={() => handleApplyDecision('CONTINUE_USE')}
-                className="p-5 rounded-2xl border cursor-pointer hover:border-[#137A58] transition-all bg-[#F7FAF8] hover:bg-white text-left space-y-2"
+                className="p-5 rounded-2xl border cursor-pointer hover:border-[#0070F3] transition-all bg-[#F7FAF8] hover:bg-white text-left space-y-2"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-xs text-[#10201B]">CONTINUE USE</span>
@@ -538,7 +538,7 @@ export default function SmartDockTestingPage() {
                 </p>
                 <button
                   type="button"
-                  className="w-full py-2 rounded-xl border border-[#DDE7E2] text-xs font-semibold hover:bg-[#DDF5EA] hover:text-[#137A58]"
+                  className="w-full py-2 rounded-xl border border-[#DDE7E2] text-xs font-semibold hover:bg-[#EFF6FF] hover:text-[#0070F3]"
                 >
                   Select Continue Use
                 </button>
@@ -547,21 +547,21 @@ export default function SmartDockTestingPage() {
               {/* Option 2: Second Life (Recommended) */}
               <div
                 onClick={() => handleApplyDecision('SECOND_LIFE')}
-                className="p-5 rounded-2xl border-2 border-[#137A58] bg-[#F3F8E5] cursor-pointer shadow-xs text-left space-y-2 relative"
+                className="p-5 rounded-2xl border-2 border-[#0070F3] bg-[#F0F9FF] cursor-pointer shadow-xs text-left space-y-2 relative"
               >
-                <span className="absolute -top-2.5 right-4 bg-[#137A58] text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase">
+                <span className="absolute -top-2.5 right-4 bg-[#0070F3] text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase">
                   AI Recommended
                 </span>
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-xs text-[#10201B]">SECOND LIFE</span>
-                  <span className="text-[10px] font-bold text-[#5D7C13]">Optimal</span>
+                  <span className="text-[10px] font-bold text-[#0284C7]">Optimal</span>
                 </div>
                 <p className="text-xs text-[#10201B] font-medium">
                   Qualify pack for stationary solar energy storage. Dispatches to Circularity Portal.
                 </p>
                 <button
                   type="button"
-                  className="w-full py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42]"
+                  className="w-full py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6]"
                 >
                   Approve Second Life (Solar)
                 </button>
@@ -590,8 +590,8 @@ export default function SmartDockTestingPage() {
 
             {/* Sync Confirmation Banner */}
             {syncedToCloud && (
-              <div className="p-5 rounded-2xl bg-[#DDF5EA] border border-[#BBEAD7] space-y-2">
-                <div className="flex items-center gap-2 text-[#137A58] font-bold text-sm">
+              <div className="p-5 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] space-y-2">
+                <div className="flex items-center gap-2 text-[#0070F3] font-bold text-sm">
                   <CheckCircle2 className="w-5 h-5" />
                   <span>Decision Applied • ReVoltX Database Synchronized!</span>
                 </div>
@@ -619,7 +619,7 @@ export default function SmartDockTestingPage() {
                   </Link>
                   <Link
                     href={`/battery/${selectedBatteryId}`}
-                    className="px-3 py-1.5 rounded-xl bg-[#137A58] text-white hover:bg-[#0E5B42]"
+                    className="px-3 py-1.5 rounded-xl bg-[#0070F3] text-white hover:bg-[#0058C6]"
                   >
                     Digital Battery Passport →
                   </Link>

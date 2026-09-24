@@ -85,7 +85,7 @@ export default function CircularityRecyclingPage() {
         <button
           type="button"
           onClick={() => setShowLogModal(true)}
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
         >
           <Plus className="w-4 h-4" />
           <span>Record Material Recovery</span>
@@ -94,7 +94,7 @@ export default function CircularityRecyclingPage() {
 
       {/* Assumptions & Methodology Disclosure (Requirement 21) */}
       <div className="p-4 rounded-2xl bg-[#F0F5F2] border border-[#DDE7E2] flex items-start gap-3">
-        <Info className="w-5 h-5 text-[#137A58] shrink-0 mt-0.5" />
+        <Info className="w-5 h-5 text-[#0070F3] shrink-0 mt-0.5" />
         <div className="text-xs text-[#62756E] leading-relaxed">
           <strong className="text-[#10201B]">Prototype Calculation Assumptions:</strong> Material yield estimates are calculated assuming standard NMC/LFP cathode bill-of-materials and 96.4% hydrometallurgical closed-loop recovery efficiency pursuant to EU Battery Regulation 2023/1542 Annex XII targets.
         </div>
@@ -123,7 +123,7 @@ export default function CircularityRecyclingPage() {
               {recyclingCandidates.map(b => (
                 <tr key={b.id} className="hover:bg-[#F7FAF8] transition-colors">
                   <td className="py-3.5 font-mono font-bold text-[#10201B]">
-                    <Link href={`/battery/${b.revoltXId}`} className="hover:text-[#137A58]">
+                    <Link href={`/battery/${b.revoltXId}`} className="hover:text-[#0070F3]">
                       {b.revoltXId}
                     </Link>
                   </td>
@@ -168,7 +168,7 @@ export default function CircularityRecyclingPage() {
               Immutable chain-of-custody closing the circular battery loop.
             </p>
           </div>
-          <span className="text-xs font-mono font-bold text-[#137A58] bg-[#DDF5EA] px-2.5 py-1 rounded-full">
+          <span className="text-xs font-mono font-bold text-[#0070F3] bg-[#EFF6FF] px-2.5 py-1 rounded-full">
             {recyclingRecords.length} Completed Batches
           </span>
         </div>
@@ -184,7 +184,7 @@ export default function CircularityRecyclingPage() {
                   <span className="font-mono font-bold text-sm text-[#10201B]">
                     Batch #{rec.id} • Target Battery: {rec.batteryId}
                   </span>
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#DDF5EA] text-[#137A58]">
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#EFF6FF] text-[#0070F3]">
                     {rec.status}
                   </span>
                 </div>
@@ -311,7 +311,7 @@ export default function CircularityRecyclingPage() {
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-xl bg-[#137A58] text-white font-bold hover:bg-[#0E5B42]"
+                  className="px-5 py-2 rounded-xl bg-[#0070F3] text-white font-bold hover:bg-[#0058C6]"
                 >
                   Confirm & Close Circular Loop
                 </button>

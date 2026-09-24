@@ -49,7 +49,7 @@ export const revoltxDockItems: DockItem[] = [
   },
   {
     title: "Live Demo",
-    icon: <IconPlayerPlay className="h-full w-full text-[#137A58] dark:text-[#34D399]" />,
+    icon: <IconPlayerPlay className="h-full w-full text-[#0070F3] dark:text-[#38BDF8]" />,
     href: "/demo",
   },
   {

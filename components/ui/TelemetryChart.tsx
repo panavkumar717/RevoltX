@@ -38,16 +38,16 @@ export const TelemetryChart: React.FC<TelemetryChartProps> = ({
     voltage: {
       label: 'Voltage',
       unit: 'V',
-      color: '#137A58',
-      fill: '#DDF5EA',
+      color: '#0070F3',
+      fill: 'rgba(0, 112, 243, 0.15)',
       icon: Gauge,
       domain: ['dataMin - 1', 'dataMax + 1'] as [string, string]
     },
     current: {
       label: 'Current',
       unit: 'A',
-      color: '#21A879',
-      fill: '#E0F5EC',
+      color: '#6366F1',
+      fill: 'rgba(99, 102, 241, 0.15)',
       icon: Zap,
       domain: [0, 'dataMax + 5'] as [number, string]
     },

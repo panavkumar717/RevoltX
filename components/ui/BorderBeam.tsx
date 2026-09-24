@@ -32,9 +32,9 @@ export function BorderBeam({
   duration = 6,
   delay = 0,
   borderRadius = 16,
-  colorFrom = '#137A58',
-  colorMid = '#21A879',
-  colorTo = '#C9EF72',
+  colorFrom = '#0070F3',
+  colorMid = '#6366F1',
+  colorTo = '#38BDF8',
   hoverOnly = false,
   className = '',
 }: BorderBeamProps) {

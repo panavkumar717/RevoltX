@@ -11,7 +11,7 @@ export default function CircularityImpactPage() {
   return (
     <div className="space-y-6">
       <div className="pb-4 border-b border-[#DDE7E2]">
-        <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
+        <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
           Environmental Accounting & LCA
         </span>
         <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -24,7 +24,7 @@ export default function CircularityImpactPage() {
 
       {/* Assumptions Disclosure (Requirement 49) */}
       <div className="p-4 rounded-2xl bg-[#F0F5F2] border border-[#DDE7E2] flex items-start gap-3">
-        <Info className="w-5 h-5 text-[#137A58] shrink-0 mt-0.5" />
+        <Info className="w-5 h-5 text-[#0070F3] shrink-0 mt-0.5" />
         <div className="text-xs text-[#62756E] leading-relaxed">
           <strong className="text-[#10201B]">Transparent LCA Model Assumptions:</strong> CO₂e avoidance is computed using Argonne GREET model assumptions (72 kg CO₂e avoided per kWh of second-life stationary capacity deployed vs. manufacturing new NMC cells). Mineral recovery calculations assume 96.4% hydrometallurgical closed-loop efficiency.
         </div>
@@ -36,7 +36,7 @@ export default function CircularityImpactPage() {
           <span className="text-[10px] uppercase font-bold text-[#62756E] block">
             BATTERY LIFE EXTENDED
           </span>
-          <p className="text-2xl font-bold font-mono text-[#137A58] mt-1">+3.8 Years</p>
+          <p className="text-2xl font-bold font-mono text-[#0070F3] mt-1">+3.8 Years</p>
           <span className="text-[10px] text-[#62756E] mt-0.5 block">Average across repurposed fleet</span>
         </div>
 
@@ -52,7 +52,7 @@ export default function CircularityImpactPage() {
           <span className="text-[10px] uppercase font-bold text-[#62756E] block">
             MINERALS RECOVERED
           </span>
-          <p className="text-2xl font-bold font-mono text-[#21A879] mt-1">26.8 Tons</p>
+          <p className="text-2xl font-bold font-mono text-[#38BDF8] mt-1">26.8 Tons</p>
           <span className="text-[10px] text-[#62756E] mt-0.5 block">Lithium, Nickel, Cobalt, Copper</span>
         </div>
 
@@ -60,7 +60,7 @@ export default function CircularityImpactPage() {
           <span className="text-[10px] uppercase font-bold text-[#62756E] block">
             2ND-LIFE DEPLOYMENTS
           </span>
-          <p className="text-2xl font-bold font-mono text-[#5D7C13] mt-1">174 Units</p>
+          <p className="text-2xl font-bold font-mono text-[#0284C7] mt-1">174 Units</p>
           <span className="text-[10px] text-[#62756E] mt-0.5 block">Solar, telecom & microgrids</span>
         </div>
 
@@ -93,16 +93,16 @@ export default function CircularityImpactPage() {
           <div>
             <div className="flex justify-between text-xs mb-1">
               <span className="font-semibold text-[#10201B]">ReVoltX Circular Model (Manufacture → First Life → Second Life → Hydromet Loop)</span>
-              <span className="font-mono font-bold text-[#137A58]">58 kg CO₂e / kWh</span>
+              <span className="font-mono font-bold text-[#0070F3]">58 kg CO₂e / kWh</span>
             </div>
             <div className="w-full bg-[#F0F5F2] h-3 rounded-full overflow-hidden">
-              <div className="bg-[#137A58] h-full w-[33%]" />
+              <div className="bg-[#0070F3] h-full w-[33%]" />
             </div>
           </div>
         </div>
 
         <p className="text-xs text-[#62756E] pt-2">
-          Result: ReVoltX delivers a <strong className="text-[#137A58]">60.8% reduction in lifecycle greenhouse gas emissions</strong> compared to linear cell disposal.
+          Result: ReVoltX delivers a <strong className="text-[#0070F3]">60.8% reduction in lifecycle greenhouse gas emissions</strong> compared to linear cell disposal.
         </p>
       </div>
     </div>

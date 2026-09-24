@@ -65,7 +65,7 @@ export function ThemeToggle({ className = '' }: ThemeToggleProps) {
       whileTap={{ scale: 0.92 }}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      className={`relative h-9 w-9 rounded-xl border border-[#DDE7E2] dark:border-[#1E352B] bg-white dark:bg-[#111E18] text-[#10201B] dark:text-[#ECFDF5] hover:bg-[#F0F5F2] dark:hover:bg-[#162720] shadow-2xs hover:shadow-xs flex items-center justify-center transition-colors cursor-pointer overflow-hidden ${className}`}
+      className={`relative h-9 w-9 rounded-xl border border-[#DDE7E2] dark:border-[#1E352B] bg-white dark:bg-[#111E18] text-[#10201B] dark:text-[#F8FAFC] hover:bg-[#F0F5F2] dark:hover:bg-[#162720] shadow-2xs hover:shadow-xs flex items-center justify-center transition-colors cursor-pointer overflow-hidden ${className}`}
     >
       <AnimatePresence mode="wait" initial={false}>
         {isDark ? (
@@ -75,7 +75,7 @@ export function ThemeToggle({ className = '' }: ThemeToggleProps) {
             animate={{ rotate: 0, scale: 1, opacity: 1 }}
             exit={{ rotate: 90, scale: 0, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 350, damping: 22 }}
-            className="flex items-center justify-center text-[#C9EF72]"
+            className="flex items-center justify-center text-[#0070F3]"
           >
             <Moon className="h-4 w-4" />
           </motion.div>

@@ -44,16 +44,16 @@ export const LifecycleTimeline: React.FC<LifecycleTimelineProps> = ({
               <div 
                 className={`absolute -left-6 top-0.5 flex h-5 w-5 items-center justify-center rounded-full border-2 transition-all ${
                   isCurrent 
-                    ? 'border-[#137A58] bg-white ring-4 ring-[#DDF5EA]' 
+                    ? 'border-[#0070F3] bg-white ring-4 ring-blue-500/20' 
                     : isPassed 
-                    ? 'border-[#137A58] bg-[#137A58] text-white' 
+                    ? 'border-[#0070F3] bg-[#0070F3] text-white' 
                     : 'border-[#DDE7E2] bg-white text-[#A0AEC0]'
                 }`}
               >
                 {isPassed ? (
                   <Check className="h-3 w-3 stroke-[3]" />
                 ) : isCurrent ? (
-                  <span className="h-2 w-2 rounded-full bg-[#137A58] animate-pulse" />
+                  <span className="h-2 w-2 rounded-full bg-[#0070F3] animate-pulse" />
                 ) : (
                   <span className="h-1.5 w-1.5 rounded-full bg-[#DDE7E2]" />
                 )}
@@ -61,11 +61,11 @@ export const LifecycleTimeline: React.FC<LifecycleTimelineProps> = ({
 
               <div className="pt-0.5">
                 <div className="flex items-center gap-2">
-                  <h4 className={`text-sm font-semibold ${isCurrent ? 'text-[#137A58]' : isPassed ? 'text-[#10201B]' : 'text-[#62756E]'}`}>
+                  <h4 className={`text-sm font-semibold ${isCurrent ? 'text-[#0070F3]' : isPassed ? 'text-[#10201B]' : 'text-[#62756E]'}`}>
                     {stage.label}
                   </h4>
                   {isCurrent && (
-                    <span className="inline-flex items-center gap-1 rounded-full bg-[#DDF5EA] px-2 py-0.5 text-[10px] font-semibold text-[#137A58]">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-blue-500/10 px-2 py-0.5 text-[10px] font-semibold text-[#0070F3]">
                       <Radio className="w-2.5 h-2.5 animate-pulse" /> Active Stage
                     </span>
                   )}
@@ -83,7 +83,7 @@ export const LifecycleTimeline: React.FC<LifecycleTimelineProps> = ({
                     </div>
                     <p className="text-[#62756E] text-[11px] mt-1">{matchingEvent.description}</p>
                     {matchingEvent.actor && (
-                      <p className="text-[10px] text-[#137A58] font-mono mt-1">Verified: {matchingEvent.actor}</p>
+                      <p className="text-[10px] text-[#0070F3] font-mono mt-1">Verified: {matchingEvent.actor}</p>
                     )}
                   </div>
                 )}
@@ -104,7 +104,7 @@ export const LifecycleTimeline: React.FC<LifecycleTimelineProps> = ({
           {/* Connecting line */}
           <div className="absolute left-8 right-8 top-4 h-0.5 bg-[#DDE7E2] -z-0" />
           <div 
-            className="absolute left-8 top-4 h-0.5 bg-[#137A58] transition-all duration-700 -z-0" 
+            className="absolute left-8 top-4 h-0.5 bg-[#0070F3] transition-all duration-700 -z-0" 
             style={{ width: `${Math.max(0, (currentIndex / (STAGES.length - 1)) * 100)}%` }}
           />
 
@@ -118,23 +118,23 @@ export const LifecycleTimeline: React.FC<LifecycleTimelineProps> = ({
                 <div
                   className={`flex h-8 w-8 items-center justify-center rounded-full border-2 transition-all ${
                     isCurrent
-                      ? 'border-[#137A58] bg-white text-[#137A58] ring-4 ring-[#DDF5EA] shadow-xs'
+                      ? 'border-[#0070F3] bg-white text-[#0070F3] ring-4 ring-blue-500/20 shadow-xs'
                       : isPassed
-                      ? 'border-[#137A58] bg-[#137A58] text-white'
+                      ? 'border-[#0070F3] bg-[#0070F3] text-white'
                       : 'border-[#DDE7E2] bg-white text-[#62756E]'
                   }`}
                 >
                   {isPassed ? (
                     <Check className="h-4 w-4 stroke-[3]" />
                   ) : isCurrent ? (
-                    <span className="h-2.5 w-2.5 rounded-full bg-[#137A58] animate-pulse" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#0070F3] animate-pulse" />
                   ) : (
                     <span className="text-[10px] font-mono font-medium">{idx + 1}</span>
                   )}
                 </div>
 
                 <div className="mt-2 flex flex-col items-center">
-                  <span className={`text-[11px] font-semibold ${isCurrent ? 'text-[#137A58]' : isPassed ? 'text-[#10201B]' : 'text-[#62756E]'}`}>
+                  <span className={`text-[11px] font-semibold ${isCurrent ? 'text-[#0070F3]' : isPassed ? 'text-[#10201B]' : 'text-[#62756E]'}`}>
                     {stage.label}
                   </span>
                   <span className="text-[10px] text-[#62756E] max-w-[85px] leading-tight">
@@ -151,13 +151,13 @@ export const LifecycleTimeline: React.FC<LifecycleTimelineProps> = ({
       {showDetails && (
         <div className="mt-4 p-4 rounded-xl bg-[#F0F5F2] border border-[#DDE7E2] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-lg bg-[#DDF5EA] text-[#137A58]">
+            <div className="p-2.5 rounded-lg bg-blue-500/10 text-[#0070F3]">
               <Clock className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-xs uppercase tracking-wider font-semibold text-[#62756E]">Current Lifecycle Phase</span>
-                <span className="text-xs font-bold text-[#137A58] bg-white px-2 py-0.5 rounded border border-[#DDE7E2]">
+                <span className="text-xs font-bold text-[#0070F3] bg-white px-2 py-0.5 rounded border border-[#DDE7E2]">
                   {STAGES[currentIndex]?.label || currentStage}
                 </span>
               </div>
@@ -168,7 +168,7 @@ export const LifecycleTimeline: React.FC<LifecycleTimelineProps> = ({
           </div>
           <div className="text-right">
             <span className="text-xs text-[#62756E] block">Lifecycle Progress</span>
-            <span className="text-sm font-bold font-mono text-[#137A58]">
+            <span className="text-sm font-bold font-mono text-[#0070F3]">
               {Math.round(((currentIndex + 1) / STAGES.length) * 100)}% Complete
             </span>
           </div>

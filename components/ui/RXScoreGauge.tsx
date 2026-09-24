@@ -27,10 +27,10 @@ export const RXScoreGauge: React.FC<RXScoreGaugeProps> = ({
   const strokeDashoffset = circumference - (score / 100) * circumference;
 
   const getScoreColor = (val: number) => {
-    if (val >= 85) return '#137A58'; // Primary Brand Green
-    if (val >= 70) return '#21A879'; // Secondary Green
-    if (val >= 50) return '#D89A24'; // Warning
-    return '#D94B4B';               // Critical
+    if (val >= 85) return '#0070F3'; // Vercel Electric Blue
+    if (val >= 70) return '#38BDF8'; // Sky Cyan
+    if (val >= 50) return '#F59E0B'; // Warning Amber
+    return '#EF4444';               // Critical Rose
   };
 
   const getRatingLabel = (val: number) => {
@@ -100,28 +100,28 @@ export const RXScoreGauge: React.FC<RXScoreGaugeProps> = ({
       {showDetails && size !== 'sm' && (
         <div className="mt-4 w-full grid grid-cols-2 gap-2 text-left">
           <div className="flex items-center gap-2 p-2 rounded-lg bg-[#F0F5F2] border border-[#DDE7E2]">
-            <Activity className="w-3.5 h-3.5 text-[#137A58]" />
+            <Activity className="w-3.5 h-3.5 text-[#0070F3]" />
             <div>
               <p className="text-[10px] text-[#62756E]">Cell Balance</p>
               <p className="text-xs font-semibold text-[#10201B] font-mono">98.4%</p>
             </div>
           </div>
           <div className="flex items-center gap-2 p-2 rounded-lg bg-[#F0F5F2] border border-[#DDE7E2]">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#21A879]" />
+            <ShieldCheck className="w-3.5 h-3.5 text-[#38BDF8]" />
             <div>
               <p className="text-[10px] text-[#62756E]">Thermal Margin</p>
               <p className="text-xs font-semibold text-[#10201B] font-mono">38.4°C Safe</p>
             </div>
           </div>
           <div className="flex items-center gap-2 p-2 rounded-lg bg-[#F0F5F2] border border-[#DDE7E2]">
-            <Zap className="w-3.5 h-3.5 text-[#D89A24]" />
+            <Zap className="w-3.5 h-3.5 text-[#F59E0B]" />
             <div>
               <p className="text-[10px] text-[#62756E]">Degradation Slope</p>
               <p className="text-xs font-semibold text-[#10201B] font-mono">-0.018%/cyc</p>
             </div>
           </div>
           <div className="flex items-center gap-2 p-2 rounded-lg bg-[#F0F5F2] border border-[#DDE7E2]">
-            <Cpu className="w-3.5 h-3.5 text-[#137A58]" />
+            <Cpu className="w-3.5 h-3.5 text-[#0070F3]" />
             <div>
               <p className="text-[10px] text-[#62756E]">2nd Life Index</p>
               <p className="text-xs font-semibold text-[#10201B] font-mono">A- Grade</p>

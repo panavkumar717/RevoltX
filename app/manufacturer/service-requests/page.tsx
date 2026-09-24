@@ -31,8 +31,8 @@ export default function ManufacturerServiceRequestsPage() {
   const statusStyles: Record<ServiceStatus, string> = {
     'Requested': 'bg-[#FEF6E7] text-[#D89A24] border-[#F8E0B0]',
     'Scheduled': 'bg-[#EBF3FB] text-[#4386C5] border-[#C8DFEF]',
-    'Technician Assigned': 'bg-[#DDF5EA] text-[#137A58] border-[#BBEAD7]',
-    'Assessment Complete': 'bg-[#F3F8E5] text-[#5D7C13] border-[#DAECAE]',
+    'Technician Assigned': 'bg-[#EFF6FF] text-[#0070F3] border-[#BFDBFE]',
+    'Assessment Complete': 'bg-[#F0F9FF] text-[#0284C7] border-[#BAE6FD]',
     'Replacement Recommended': 'bg-[#FDF0EE] text-[#D94B4B] border-[#F8C8C4]',
     'Completed': 'bg-[#F0F5F2] text-[#62756E] border-[#DDE7E2]'
   };
@@ -41,7 +41,7 @@ export default function ManufacturerServiceRequestsPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#DDE7E2]">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
             Operations & Field Logistics
           </span>
           <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -55,7 +55,7 @@ export default function ManufacturerServiceRequestsPage() {
         <button
           type="button"
           onClick={() => setShowModal(true)}
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
         >
           <Plus className="w-4 h-4" />
           <span>New Service Request</span>
@@ -81,7 +81,7 @@ export default function ManufacturerServiceRequestsPage() {
               {serviceRequests.map(req => (
                 <tr key={req.id} className="hover:bg-[#F7FAF8] transition-colors">
                   <td className="py-3.5 font-mono font-bold text-[#10201B]">{req.id}</td>
-                  <td className="py-3.5 font-mono font-semibold text-[#137A58]">
+                  <td className="py-3.5 font-mono font-semibold text-[#0070F3]">
                     <Link href={`/manufacturer/batteries/${req.batteryId}`} className="hover:underline">
                       {req.batteryId}
                     </Link>
@@ -96,7 +96,7 @@ export default function ManufacturerServiceRequestsPage() {
                   </td>
                   <td className="py-3.5">
                     {req.technicianName ? (
-                      <span className="inline-flex items-center gap-1 font-semibold text-[#137A58]">
+                      <span className="inline-flex items-center gap-1 font-semibold text-[#0070F3]">
                         <UserCheck className="w-3.5 h-3.5" /> {req.technicianName}
                       </span>
                     ) : (
@@ -202,7 +202,7 @@ export default function ManufacturerServiceRequestsPage() {
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-xl bg-[#137A58] text-white font-bold hover:bg-[#0E5B42]"
+                  className="px-5 py-2 rounded-xl bg-[#0070F3] text-white font-bold hover:bg-[#0058C6]"
                 >
                   Submit Service Request
                 </button>

@@ -27,7 +27,7 @@ export default function OwnerHealthPage() {
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#DDE7E2]">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
             Health Intelligence for Owners
           </span>
           <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -40,7 +40,7 @@ export default function OwnerHealthPage() {
 
         <Link
           href="/owner/service"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
         >
           <Wrench className="w-3.5 h-3.5" />
           <span>Book Health Check</span>
@@ -50,7 +50,7 @@ export default function OwnerHealthPage() {
       {/* Human Explanation Highlight Card */}
       <div className="p-6 rounded-3xl bg-white border border-[#DDE7E2] shadow-sm space-y-4">
         <div className="flex items-start gap-3">
-          <div className="p-3 rounded-2xl bg-[#DDF5EA] text-[#137A58]">
+          <div className="p-3 rounded-2xl bg-[#EFF6FF] text-[#0070F3]">
             <HeartPulse className="w-6 h-6" />
           </div>
           <div>
@@ -81,7 +81,7 @@ export default function OwnerHealthPage() {
 
           <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2]">
             <span className="text-[10px] uppercase font-bold text-[#62756E]">Recommended Action</span>
-            <p className="text-xs font-bold text-[#137A58] mt-1">On-Site Health Check</p>
+            <p className="text-xs font-bold text-[#0070F3] mt-1">On-Site Health Check</p>
             <span className="text-[10px] text-[#62756E]">ReVoltX technician visit</span>
           </div>
         </div>
@@ -120,7 +120,7 @@ export default function OwnerHealthPage() {
       {/* Helpful Care Tips for Battery Longevity */}
       <div className="bg-white rounded-3xl p-6 border border-[#DDE7E2] shadow-xs space-y-4">
         <h3 className="text-sm font-bold text-[#10201B] flex items-center gap-2">
-          <ShieldCheck className="w-4 h-4 text-[#137A58]" />
+          <ShieldCheck className="w-4 h-4 text-[#0070F3]" />
           <span>Tailored Battery Care Tips for Sarah</span>
         </h3>
 

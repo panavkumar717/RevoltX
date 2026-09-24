@@ -295,28 +295,28 @@ export function ExplodedBatteryView() {
             hoverOnly={false}
             borderRadius={24}
             duration={8}
-            colorFrom="#137A58"
-            colorMid="#21A879"
-            colorTo="#C9EF72"
+            colorFrom="#0070F3"
+            colorMid="#6366F1"
+            colorTo="#38BDF8"
           />
 
           {/* Top HUD Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 border-b border-white/10 bg-black/30 backdrop-blur-md gap-3 relative z-10">
             <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-[#34D399] shadow-inner">
+              <div className="h-9 w-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-[#38BDF8] shadow-inner">
                 <Layers className="w-5 h-5 animate-pulse" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#34D399] flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#34D399] animate-ping" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#38BDF8] flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#0070F3] animate-ping" />
                     3D Exploded Hardware View
                   </span>
                   <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/5 text-[#9BB3A8] border border-white/10">
                     Asset RX-2026-892738 (LFP 60Ah)
                   </span>
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-[#ECFDF5] mt-0.5 flex items-center gap-2">
+                <h3 className="text-base sm:text-lg font-bold text-[#EDEDED] mt-0.5 flex items-center gap-2">
                   <span>{currentStage.name}</span>
                 </h3>
               </div>
@@ -328,14 +328,14 @@ export function ExplodedBatteryView() {
                 <span className="text-[10px] font-mono font-semibold text-[#9BB3A8]">
                   FRAME {String(currentFrame).padStart(3, '0')} / {TOTAL_FRAMES}
                 </span>
-                <div className="flex items-center gap-1 text-[11px] font-bold text-[#34D399]">
+                <div className="flex items-center gap-1 text-[11px] font-bold text-[#38BDF8]">
                   <span>{progressPercent}% Exploded</span>
                 </div>
               </div>
 
               <Link
                 href="/battery/RX-2026-892738"
-                className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5 transition-all shadow-xs"
+                className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 border border-blue-500/30 flex items-center gap-1.5 transition-all shadow-xs"
               >
                 <span>Passport</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -365,22 +365,22 @@ export function ExplodedBatteryView() {
             <div className="absolute top-4 left-4 z-10 max-w-xs sm:max-w-sm pointer-events-none">
               <div className="p-3 rounded-2xl bg-black/50 backdrop-blur-md border border-white/10 text-left shadow-lg">
                 <div className="flex items-center justify-between gap-2 mb-1">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#34D399] flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-[#C9EF72]" />
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#38BDF8] flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-[#0070F3]" />
                     Stage {currentStage.stageNum} of 4
                   </span>
                   <span className="text-[10px] font-mono text-[#9BB3A8]">
                     Frames {currentStage.range[0]}-{currentStage.range[1]}
                   </span>
                 </div>
-                <p className="text-xs text-[#ECFDF5] font-medium leading-tight mb-2">
+                <p className="text-xs text-[#F8FAFC] font-medium leading-tight mb-2">
                   {currentStage.description}
                 </p>
                 <div className="grid grid-cols-3 gap-1.5 pt-1.5 border-t border-white/10 text-[10px]">
                   {currentStage.specs.map((spec, i) => (
                     <div key={i} className="flex flex-col">
                       <span className="text-[#62756E] dark:text-[#9BB3A8] text-[9px] truncate">{spec.label}</span>
-                      <span className="font-mono font-bold text-[#ECFDF5] truncate">{spec.value}</span>
+                      <span className="font-mono font-bold text-[#F8FAFC] truncate">{spec.value}</span>
                     </div>
                   ))}
                 </div>
@@ -390,10 +390,10 @@ export function ExplodedBatteryView() {
             {/* Floating Live Telemetry Metrics HUD (Top Right) */}
             <div className="hidden md:flex flex-col gap-2 absolute top-4 right-4 z-10 pointer-events-none">
               <div className="px-3 py-2 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 flex items-center gap-2.5 shadow-lg">
-                <Zap className="w-3.5 h-3.5 text-[#C9EF72]" />
+                <Zap className="w-3.5 h-3.5 text-[#0070F3]" />
                 <div className="text-left">
                   <div className="text-[9px] text-[#9BB3A8] uppercase tracking-wider">Busbar Voltage</div>
-                  <div className="text-xs font-mono font-bold text-[#ECFDF5]">51.2 V Nominal</div>
+                  <div className="text-xs font-mono font-bold text-[#F8FAFC]">51.2 V Nominal</div>
                 </div>
               </div>
 
@@ -401,15 +401,15 @@ export function ExplodedBatteryView() {
                 <Thermometer className="w-3.5 h-3.5 text-[#F59E0B]" />
                 <div className="text-left">
                   <div className="text-[9px] text-[#9BB3A8] uppercase tracking-wider">Module Core Temp</div>
-                  <div className="text-xs font-mono font-bold text-[#ECFDF5]">38.4 °C (Normal)</div>
+                  <div className="text-xs font-mono font-bold text-[#F8FAFC]">38.4 °C (Normal)</div>
                 </div>
               </div>
 
               <div className="px-3 py-2 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 flex items-center gap-2.5 shadow-lg">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#34D399]" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[#38BDF8]" />
                 <div className="text-left">
                   <div className="text-[9px] text-[#9BB3A8] uppercase tracking-wider">Core Health</div>
-                  <div className="text-xs font-mono font-bold text-[#34D399]">72% SOH (Second Life)</div>
+                  <div className="text-xs font-mono font-bold text-[#38BDF8]">72% SOH (Second Life)</div>
                 </div>
               </div>
             </div>
@@ -420,7 +420,7 @@ export function ExplodedBatteryView() {
                 initial={{ opacity: 0, y: -6 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-white/15 text-xs font-medium text-[#34D399] backdrop-blur-md shadow-md animate-bounce"
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-white/15 text-xs font-medium text-[#38BDF8] backdrop-blur-md shadow-md animate-bounce"
               >
                 <span>Scroll down to explode battery view</span>
                 <ChevronDown className="w-3.5 h-3.5" />
@@ -435,7 +435,7 @@ export function ExplodedBatteryView() {
               <button
                 type="button"
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#137A58] hover:bg-[#0E5B42] text-white text-xs font-semibold shadow-xs transition-colors"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#0070F3] hover:bg-[#0058C6] text-white text-xs font-semibold shadow-xs transition-colors"
                 title={isPlaying ? 'Pause Auto-Explode' : 'Auto-Explode Battery'}
               >
                 {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
@@ -483,7 +483,7 @@ export function ExplodedBatteryView() {
                       }}
                       className={`text-[10px] px-2.5 py-1 rounded-lg font-medium transition-all ${
                         isActive
-                          ? 'bg-emerald-500/20 text-[#34D399] border border-emerald-500/30 font-bold'
+                          ? 'bg-blue-500/20 text-[#38BDF8] border border-blue-500/30 font-bold'
                           : 'text-[#9BB3A8] hover:text-white'
                       }`}
                     >
@@ -506,18 +506,18 @@ export function ExplodedBatteryView() {
                   max={TOTAL_FRAMES}
                   value={currentFrame}
                   onChange={handleScrubberChange}
-                  className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#21A879]"
+                  className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#0070F3]"
                   aria-label="Exploded View Frame Scrubber"
                 />
               </div>
-              <span className="text-[10px] font-mono text-[#34D399] font-bold whitespace-nowrap">
+              <span className="text-[10px] font-mono text-[#38BDF8] font-bold whitespace-nowrap">
                 151
               </span>
             </div>
 
             {/* Single Source of Truth link */}
             <div className="hidden md:flex items-center gap-2 text-xs text-[#9BB3A8]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#34D399] animate-pulse" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#0070F3] animate-pulse" />
               <span>Scroll to scrub • Pinned until fully exploded</span>
             </div>
           </div>

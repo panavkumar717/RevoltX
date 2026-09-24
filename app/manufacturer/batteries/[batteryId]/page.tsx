@@ -41,7 +41,7 @@ export default function ManufacturerBatteryDetailPage({
     return (
       <div className="p-8 text-center bg-white rounded-2xl border border-[#DDE7E2]">
         <h2 className="text-base font-bold text-[#10201B]">Battery Record Not Found</h2>
-        <Link href="/manufacturer/batteries" className="text-xs text-[#137A58] underline mt-2 inline-block">
+        <Link href="/manufacturer/batteries" className="text-xs text-[#0070F3] underline mt-2 inline-block">
           Return to Battery Catalog
         </Link>
       </div>
@@ -74,7 +74,7 @@ export default function ManufacturerBatteryDetailPage({
         <div className="flex items-center gap-2.5">
           <Link
             href="/manufacturer/service-requests"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
           >
             <Wrench className="w-4 h-4" />
             <span>Request ReVoltX Health Assessment</span>
@@ -85,7 +85,7 @@ export default function ManufacturerBatteryDetailPage({
             className="p-2 rounded-xl border border-[#DDE7E2] hover:bg-white text-[#10201B] transition-colors"
             title="Public Passport"
           >
-            <QrCode className="w-4 h-4 text-[#137A58]" />
+            <QrCode className="w-4 h-4 text-[#0070F3]" />
           </Link>
         </div>
       </div>
@@ -133,7 +133,7 @@ export default function ManufacturerBatteryDetailPage({
             <div className="p-3.5 rounded-2xl bg-white border border-[#DDE7E2]">
               <span className="text-[10px] uppercase font-bold text-[#62756E]">Pack Voltage</span>
               <p className="text-xl font-bold font-mono text-[#10201B] mt-0.5">{battery.voltage} V</p>
-              <span className="text-[10px] text-[#137A58]">16S Nominal</span>
+              <span className="text-[10px] text-[#0070F3]">16S Nominal</span>
             </div>
             <div className="p-3.5 rounded-2xl bg-white border border-[#DDE7E2]">
               <span className="text-[10px] uppercase font-bold text-[#62756E]">Pack Current</span>
@@ -234,8 +234,8 @@ export default function ManufacturerBatteryDetailPage({
 
             <div className="p-4 rounded-2xl bg-white border border-[#DDE7E2]">
               <span className="text-xs text-[#62756E] block font-semibold">Second-Life Remaining Cycles</span>
-              <p className="text-xl font-bold font-mono text-[#137A58] mt-1">{battery.rul} cycles</p>
-              <span className="text-[11px] text-[#137A58]">Safe for stationary cycling</span>
+              <p className="text-xl font-bold font-mono text-[#0070F3] mt-1">{battery.rul} cycles</p>
+              <span className="text-[11px] text-[#0070F3]">Safe for stationary cycling</span>
             </div>
           </div>
         </div>
@@ -283,7 +283,7 @@ export default function ManufacturerBatteryDetailPage({
             </h3>
             <Link
               href="/manufacturer/service-requests"
-              className="text-xs font-semibold text-[#137A58] hover:underline"
+              className="text-xs font-semibold text-[#0070F3] hover:underline"
             >
               + File New Inspection Request
             </Link>
@@ -301,7 +301,7 @@ export default function ManufacturerBatteryDetailPage({
                   </div>
                   <p className="text-[#62756E]"><strong>Findings:</strong> {srv.findings}</p>
                   <p className="text-[#62756E]"><strong>Action:</strong> {srv.actionTaken}</p>
-                  <p className="text-[10px] text-[#137A58] font-mono">Technician: {srv.technician}</p>
+                  <p className="text-[10px] text-[#0070F3] font-mono">Technician: {srv.technician}</p>
                 </div>
               ))}
             </div>

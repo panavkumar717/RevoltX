@@ -47,7 +47,7 @@ export default function InternalServiceRequestDetailPage({
               <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-md bg-[#10201B] text-white">
                 {request.id}
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7]">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#EFF6FF] text-[#0070F3] border border-[#BFDBFE]">
                 {request.status}
               </span>
             </div>
@@ -62,9 +62,9 @@ export default function InternalServiceRequestDetailPage({
 
           <Link
             href="/internal/testing"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42]"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6]"
           >
-            <Cpu className="w-4 h-4 text-[#C9EF72]" />
+            <Cpu className="w-4 h-4 text-[#0070F3]" />
             <span>Connect Smart Battery Dock</span>
           </Link>
         </div>
@@ -95,7 +95,7 @@ export default function InternalServiceRequestDetailPage({
             </h3>
             <div className="flex justify-between py-1 border-b border-[#DDE7E2]">
               <span className="text-[#62756E]">Assigned Technician:</span>
-              <span className="font-semibold text-[#137A58]">
+              <span className="font-semibold text-[#0070F3]">
                 {request.technicianName || 'Alex Rivera (Staff Ops)'}
               </span>
             </div>
@@ -133,7 +133,7 @@ export default function InternalServiceRequestDetailPage({
               </div>
               <div className="p-2 rounded-xl bg-[#F0F5F2]">
                 <span className="text-[10px] text-[#62756E]">RX Score</span>
-                <p className="font-mono font-bold text-sm text-[#137A58]">{battery.rxScore}/100</p>
+                <p className="font-mono font-bold text-sm text-[#0070F3]">{battery.rxScore}/100</p>
               </div>
               <div className="p-2 rounded-xl bg-[#F0F5F2]">
                 <span className="text-[10px] text-[#62756E]">Chemistry</span>
@@ -147,14 +147,14 @@ export default function InternalServiceRequestDetailPage({
         <div className="pt-4 border-t border-[#DDE7E2] flex items-center justify-between">
           <Link
             href={`/battery/${request.batteryId}`}
-            className="text-xs font-semibold text-[#137A58] hover:underline"
+            className="text-xs font-semibold text-[#0070F3] hover:underline"
           >
             Inspect Digital Battery Passport →
           </Link>
 
           <Link
             href="/internal/testing"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42]"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6]"
           >
             <span>Start Test with Smart Battery Dock</span>
             <ArrowRight className="w-4 h-4" />

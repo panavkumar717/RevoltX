@@ -26,7 +26,7 @@ export default function CircularityDashboardPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#DDE7E2]">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#5D7C13] bg-[#F3F8E5] px-2.5 py-0.5 rounded-full border border-[#DAECAE]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#0284C7] bg-[#F0F9FF] px-2.5 py-0.5 rounded-full border border-[#BAE6FD]">
               Circularity Partner Network
             </span>
             <span className="text-[11px] text-[#62756E]">
@@ -44,7 +44,7 @@ export default function CircularityDashboardPage() {
         <div className="flex items-center gap-2">
           <Link
             href="/circularity/opportunities"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>Browse Opportunities</span>
@@ -66,14 +66,14 @@ export default function CircularityDashboardPage() {
             AVAILABLE 2ND-LIFE BATTERIES
           </span>
           <p className="text-2xl font-bold font-mono text-[#10201B] mt-1">174 Packs</p>
-          <span className="text-[10px] text-[#137A58] mt-1 block">Certified for repurposing</span>
+          <span className="text-[10px] text-[#0070F3] mt-1 block">Certified for repurposing</span>
         </div>
 
         <div className="p-4 rounded-2xl bg-white border border-[#DDE7E2] shadow-2xs">
           <span className="text-[10px] uppercase font-bold text-[#62756E] block">
             POTENTIAL ENERGY CAPACITY
           </span>
-          <p className="text-2xl font-bold font-mono text-[#137A58] mt-1">14.2 MWh</p>
+          <p className="text-2xl font-bold font-mono text-[#0070F3] mt-1">14.2 MWh</p>
           <span className="text-[10px] text-[#62756E] mt-1 block">Stationary buffer pool</span>
         </div>
 
@@ -81,7 +81,7 @@ export default function CircularityDashboardPage() {
           <span className="text-[10px] uppercase font-bold text-[#62756E] block">
             SECOND-LIFE CANDIDATES
           </span>
-          <p className="text-2xl font-bold font-mono text-[#5D7C13] mt-1">48 Pending</p>
+          <p className="text-2xl font-bold font-mono text-[#0284C7] mt-1">48 Pending</p>
           <span className="text-[10px] text-[#62756E] mt-1 block">Completing Smart Dock tests</span>
         </div>
 
@@ -97,7 +97,7 @@ export default function CircularityDashboardPage() {
           <span className="text-[10px] uppercase font-bold text-[#62756E] block">
             MATERIAL RECOVERY YIELD
           </span>
-          <p className="text-2xl font-bold font-mono text-[#21A879] mt-1">96.4% Li/Ni</p>
+          <p className="text-2xl font-bold font-mono text-[#38BDF8] mt-1">96.4% Li/Ni</p>
           <span className="text-[10px] text-[#62756E] mt-1 block">Purified black mass</span>
         </div>
       </div>
@@ -116,7 +116,7 @@ export default function CircularityDashboardPage() {
 
           <Link
             href="/circularity/opportunities"
-            className="text-xs font-semibold text-[#137A58] hover:underline flex items-center gap-1"
+            className="text-xs font-semibold text-[#0070F3] hover:underline flex items-center gap-1"
           >
             <span>View All Opportunities</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -127,7 +127,7 @@ export default function CircularityDashboardPage() {
           {opportunities.map(opp => (
             <div
               key={opp.id}
-              className="p-5 rounded-2xl bg-[#F7FAF8] border border-[#DDE7E2] flex flex-col justify-between hover:border-[#137A58] transition-colors"
+              className="p-5 rounded-2xl bg-[#F7FAF8] border border-[#DDE7E2] flex flex-col justify-between hover:border-[#0070F3] transition-colors"
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -135,7 +135,7 @@ export default function CircularityDashboardPage() {
                     {opp.batteryId}
                   </span>
                   <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                    opp.status === 'Available' ? 'bg-[#DDF5EA] text-[#137A58]' : 'bg-[#F0F5F2] text-[#62756E]'
+                    opp.status === 'Available' ? 'bg-[#EFF6FF] text-[#0070F3]' : 'bg-[#F0F5F2] text-[#62756E]'
                   }`}>
                     {opp.status}
                   </span>
@@ -153,7 +153,7 @@ export default function CircularityDashboardPage() {
                   </div>
                   <div>
                     <span className="text-[#62756E] text-[10px]">SOH:</span>
-                    <p className="font-bold font-mono text-[#137A58]">{opp.soh}%</p>
+                    <p className="font-bold font-mono text-[#0070F3]">{opp.soh}%</p>
                   </div>
                 </div>
               </div>
@@ -165,7 +165,7 @@ export default function CircularityDashboardPage() {
 
                 <Link
                   href={`/circularity/opportunities/${opp.batteryId}`}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#137A58] hover:underline"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#0070F3] hover:underline"
                 >
                   <span>Inspect & Claim</span>
                   <ArrowRight className="w-3.5 h-3.5" />

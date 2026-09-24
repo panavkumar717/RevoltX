@@ -23,7 +23,7 @@ export default function InternalTechniciansPage() {
           </p>
         </div>
 
-        <div className="text-xs font-mono font-bold text-[#137A58] bg-white px-3 py-1.5 rounded-xl border border-[#DDE7E2]">
+        <div className="text-xs font-mono font-bold text-[#0070F3] bg-white px-3 py-1.5 rounded-xl border border-[#DDE7E2]">
           3 Certified Engineers Active
         </div>
       </div>
@@ -38,7 +38,7 @@ export default function InternalTechniciansPage() {
             <div>
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-2xl bg-[#137A58] text-white flex items-center justify-center font-bold text-sm">
+                  <div className="h-10 w-10 rounded-2xl bg-[#0070F3] text-white flex items-center justify-center font-bold text-sm">
                     {t.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
@@ -49,7 +49,7 @@ export default function InternalTechniciansPage() {
 
                 <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
                   t.status === 'On Field'
-                    ? 'bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7]'
+                    ? 'bg-[#EFF6FF] text-[#0070F3] border border-[#BFDBFE]'
                     : 'bg-[#FEF6E7] text-[#D89A24] border border-[#F8E0B0]'
                 }`}>
                   {t.status}
@@ -58,11 +58,11 @@ export default function InternalTechniciansPage() {
 
               <div className="mt-4 space-y-2 text-xs text-[#62756E]">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-[#137A58]" />
+                  <MapPin className="w-3.5 h-3.5 text-[#0070F3]" />
                   <span>{t.currentLocation}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-[#137A58]" />
+                  <Phone className="w-3.5 h-3.5 text-[#0070F3]" />
                   <span className="font-mono">{t.phone}</span>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export default function InternalTechniciansPage() {
                 </div>
                 <div>
                   <span className="text-[10px] text-[#62756E] uppercase font-bold">Completed</span>
-                  <p className="font-mono font-bold text-sm text-[#137A58]">{t.completedAssessments}</p>
+                  <p className="font-mono font-bold text-sm text-[#0070F3]">{t.completedAssessments}</p>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function InternalTechniciansPage() {
             <div className="pt-3 border-t border-[#DDE7E2]">
               <Link
                 href="/internal/testing"
-                className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] transition-colors"
+                className="w-full inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] transition-colors"
               >
                 <span>Launch Smart Dock Assessment</span>
                 <ArrowRight className="w-3.5 h-3.5" />

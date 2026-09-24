@@ -22,7 +22,7 @@ export const BatteryStatusBadge: React.FC<BatteryStatusBadgeProps> = ({
 
   if (risk) {
     const riskStyles = {
-      Low: 'bg-[#DDF5EA] text-[#137A58] border-[#BBEAD7]',
+      Low: 'bg-blue-500/10 text-[#0070F3] border-blue-500/20',
       Moderate: 'bg-[#FEF6E7] text-[#D89A24] border-[#F8E0B0]',
       High: 'bg-[#FDF0EE] text-[#D94B4B] border-[#F8C8C4]',
       Critical: 'bg-[#7F1D1D] text-white border-transparent'
@@ -30,7 +30,7 @@ export const BatteryStatusBadge: React.FC<BatteryStatusBadgeProps> = ({
 
     return (
       <span className={`inline-flex items-center gap-1.5 rounded-full font-semibold border ${riskStyles} ${sizeClasses}`}>
-        <span className={`h-1.5 w-1.5 rounded-full ${risk === 'Low' ? 'bg-[#137A58]' : risk === 'Moderate' ? 'bg-[#D89A24]' : 'bg-[#D94B4B]'}`} />
+        <span className={`h-1.5 w-1.5 rounded-full ${risk === 'Low' ? 'bg-[#0070F3]' : risk === 'Moderate' ? 'bg-[#D89A24]' : 'bg-[#D94B4B]'}`} />
         {risk} Risk
       </span>
     );
@@ -39,12 +39,12 @@ export const BatteryStatusBadge: React.FC<BatteryStatusBadgeProps> = ({
   if (stage) {
     const stageMap: Record<LifecycleStage, { label: string; bg: string; text: string; border: string }> = {
       MANUFACTURED: { label: 'Manufactured', bg: 'bg-[#F0F5F2]', text: '#62756E', border: 'border-[#DDE7E2]' },
-      REGISTERED: { label: 'Passport Minted', bg: 'bg-[#EBF3FB]', text: '#4386C5', border: 'border-[#C8DFEF]' },
-      FIRST_LIFE: { label: 'First Life (Active)', bg: 'bg-[#DDF5EA]', text: '#137A58', border: 'border-[#BBEAD7]' },
-      HEALTH_MONITORING: { label: 'Health Monitoring', bg: 'bg-[#EBF7F3]', text: '#21A879', border: 'border-[#C5ECD9]' },
+      REGISTERED: { label: 'Passport Minted', bg: 'bg-[#EBF3FB]', text: '#0070F3', border: 'border-[#C8DFEF]' },
+      FIRST_LIFE: { label: 'First Life (Active)', bg: 'bg-blue-500/10', text: '#0070F3', border: 'border-blue-500/20' },
+      HEALTH_MONITORING: { label: 'Health Monitoring', bg: 'bg-sky-500/10', text: '#0284C7', border: 'border-sky-500/20' },
       ASSESSMENT: { label: 'Smart Dock Assessment', bg: 'bg-[#FEF6E7]', text: '#D89A24', border: 'border-[#F8E0B0]' },
-      CONTINUE_USE: { label: 'Continue Use Approved', bg: 'bg-[#DDF5EA]', text: '#137A58', border: 'border-[#BBEAD7]' },
-      SECOND_LIFE: { label: 'Second Life (Repurposed)', bg: 'bg-[#F3F8E5]', text: '#5D7C13', border: 'border-[#DAECAE]' },
+      CONTINUE_USE: { label: 'Continue Use Approved', bg: 'bg-blue-500/10', text: '#0070F3', border: 'border-blue-500/20' },
+      SECOND_LIFE: { label: 'Second Life (Repurposed)', bg: 'bg-indigo-500/10', text: '#6366F1', border: 'border-indigo-500/20' },
       RECYCLING: { label: 'Recycling In Progress', bg: 'bg-[#FDF0EE]', text: '#D94B4B', border: 'border-[#F8C8C4]' },
       LIFECYCLE_CLOSED: { label: 'Closed Loop Recycled', bg: 'bg-[#EAEAEA]', text: '#4B5563', border: 'border-[#D1D5DB]' }
     };

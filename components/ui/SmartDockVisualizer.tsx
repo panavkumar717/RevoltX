@@ -26,8 +26,8 @@ export const SmartDockVisualizer: React.FC<SmartDockVisualizerProps> = ({
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between pb-4 border-b border-white/10 gap-2">
         <div>
           <div className="flex items-center gap-2">
-            <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[#137A58] dark:bg-[#34D399] animate-pulse" />
-            <h3 className="text-base font-bold text-[#10201B] dark:text-[#ECFDF5]">ReVoltX Smart Battery Dock (Hardware Diagnostic Interface)</h3>
+            <span className="inline-flex h-2.5 w-2.5 rounded-full bg-[#0070F3] dark:bg-[#38BDF8] animate-pulse" />
+            <h3 className="text-base font-bold text-[#10201B] dark:text-[#F8FAFC]">ReVoltX Smart Battery Dock (Hardware Diagnostic Interface)</h3>
           </div>
           <p className="text-xs text-[#62756E] dark:text-[#9BB3A8] mt-0.5">
             Physical test dock for non-destructive electrochemical telemetry & health assessment
@@ -35,10 +35,10 @@ export const SmartDockVisualizer: React.FC<SmartDockVisualizerProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="text-xs font-mono font-bold bg-white/10 dark:bg-white/5 px-2.5 py-1 rounded-md text-[#10201B] dark:text-[#ECFDF5] border border-white/10">
+          <span className="text-xs font-mono font-bold bg-white/10 dark:bg-white/5 px-2.5 py-1 rounded-md text-[#10201B] dark:text-[#F8FAFC] border border-white/10">
             Target: {batteryId}
           </span>
-          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${isTesting ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20' : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'}`}>
+          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${isTesting ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20' : 'bg-blue-500/10 text-blue-400 border border-blue-500/20'}`}>
             {isTesting ? 'Diagnostic Stream Active' : 'Dock Ready'}
           </span>
         </div>
@@ -48,12 +48,12 @@ export const SmartDockVisualizer: React.FC<SmartDockVisualizerProps> = ({
       <div className="my-6 grid grid-cols-1 md:grid-cols-4 gap-4 relative">
         {/* Node 1: Physical Battery */}
         <div className="p-4 rounded-xl bg-white/10 dark:bg-white/5 border border-white/10 flex flex-col items-center text-center relative">
-          <div className="p-3 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[#137A58] dark:text-[#34D399] mb-2">
+          <div className="p-3 rounded-full bg-blue-500/10 border border-blue-500/20 text-[#0070F3] dark:text-[#38BDF8] mb-2">
             <Zap className="w-5 h-5" />
           </div>
-          <span className="text-xs font-bold text-[#10201B] dark:text-[#ECFDF5]">Physical Battery</span>
+          <span className="text-xs font-bold text-[#10201B] dark:text-[#F8FAFC]">Physical Battery</span>
           <span className="text-[11px] font-mono text-[#62756E] dark:text-[#9BB3A8] mt-0.5">{batteryId}</span>
-          <span className="mt-2 text-[10px] text-[#137A58] dark:text-[#34D399] font-semibold flex items-center gap-1">
+          <span className="mt-2 text-[10px] text-[#0070F3] dark:text-[#38BDF8] font-semibold flex items-center gap-1">
             <CheckCircle2 className="w-3 h-3" /> Docked & Locked
           </span>
         </div>
@@ -62,8 +62,8 @@ export const SmartDockVisualizer: React.FC<SmartDockVisualizerProps> = ({
         <div className="p-4 rounded-xl bg-white/10 dark:bg-white/5 border border-white/10 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-bold text-[#10201B] dark:text-[#ECFDF5] flex items-center gap-1.5">
-                <Cpu className="w-4 h-4 text-[#137A58] dark:text-[#34D399]" /> Sensor Matrix
+              <span className="text-xs font-bold text-[#10201B] dark:text-[#F8FAFC] flex items-center gap-1.5">
+                <Cpu className="w-4 h-4 text-[#0070F3] dark:text-[#38BDF8]" /> Sensor Matrix
               </span>
               <span className="text-[10px] font-mono text-[#62756E] dark:text-[#9BB3A8]">ESP32 SoC</span>
             </div>
@@ -71,18 +71,18 @@ export const SmartDockVisualizer: React.FC<SmartDockVisualizerProps> = ({
             <div className="space-y-1.5">
               <div className="flex items-center justify-between text-[11px] bg-white/10 dark:bg-white/5 p-1.5 rounded border border-white/10">
                 <span className="flex items-center gap-1 text-[#62756E] dark:text-[#9BB3A8]">
-                  <Gauge className="w-3 h-3 text-[#137A58] dark:text-[#34D399]" /> Voltage Sensor
+                  <Gauge className="w-3 h-3 text-[#0070F3] dark:text-[#38BDF8]" /> Voltage Sensor
                 </span>
-                <span className="font-semibold text-[#137A58] dark:text-[#34D399] flex items-center gap-1">
+                <span className="font-semibold text-[#0070F3] dark:text-[#38BDF8] flex items-center gap-1">
                   ● Connected
                 </span>
               </div>
 
               <div className="flex items-center justify-between text-[11px] bg-white/10 dark:bg-white/5 p-1.5 rounded border border-white/10">
                 <span className="flex items-center gap-1 text-[#62756E] dark:text-[#9BB3A8]">
-                  <Zap className="w-3 h-3 text-[#21A879] dark:text-[#34D399]" /> Current Sensor
+                  <Zap className="w-3 h-3 text-[#38BDF8] dark:text-[#60A5FA]" /> Current Sensor
                 </span>
-                <span className="font-semibold text-[#137A58] dark:text-[#34D399] flex items-center gap-1">
+                <span className="font-semibold text-[#0070F3] dark:text-[#38BDF8] flex items-center gap-1">
                   ● Connected
                 </span>
               </div>
@@ -91,7 +91,7 @@ export const SmartDockVisualizer: React.FC<SmartDockVisualizerProps> = ({
                 <span className="flex items-center gap-1 text-[#62756E] dark:text-[#9BB3A8]">
                   <Thermometer className="w-3 h-3 text-[#D89A24] dark:text-[#FBBF24]" /> Temp Probe
                 </span>
-                <span className="font-semibold text-[#137A58] dark:text-[#34D399] flex items-center gap-1">
+                <span className="font-semibold text-[#0070F3] dark:text-[#38BDF8] flex items-center gap-1">
                   ● Connected
                 </span>
               </div>
@@ -100,7 +100,7 @@ export const SmartDockVisualizer: React.FC<SmartDockVisualizerProps> = ({
                 <span className="flex items-center gap-1 text-[#62756E] dark:text-[#9BB3A8]">
                   <Cpu className="w-3 h-3 text-[#4386C5] dark:text-[#60A5FA]" /> ESP32 Gateway
                 </span>
-                <span className="font-semibold text-[#137A58] dark:text-[#34D399] flex items-center gap-1">
+                <span className="font-semibold text-[#0070F3] dark:text-[#38BDF8] flex items-center gap-1">
                   ● Connected
                 </span>
               </div>
@@ -111,40 +111,40 @@ export const SmartDockVisualizer: React.FC<SmartDockVisualizerProps> = ({
         {/* Node 3: Protocol / Cloud Bridge */}
         <div className="p-4 rounded-xl bg-white/10 dark:bg-white/5 border border-white/10 flex flex-col justify-between">
           <div>
-            <span className="text-xs font-bold text-[#10201B] dark:text-[#ECFDF5] block mb-2">Bridge & Telemetry</span>
+            <span className="text-xs font-bold text-[#10201B] dark:text-[#F8FAFC] block mb-2">Bridge & Telemetry</span>
             <div className="space-y-2 text-xs">
               <div className="p-2 rounded bg-white/10 dark:bg-white/5 border border-white/10">
                 <span className="text-[10px] text-[#62756E] dark:text-[#9BB3A8] block">Protocol</span>
-                <span className="font-mono font-semibold text-[#10201B] dark:text-[#ECFDF5]">MQTT / TLS 1.3 / REST</span>
+                <span className="font-mono font-semibold text-[#10201B] dark:text-[#F8FAFC]">MQTT / TLS 1.3 / REST</span>
               </div>
               <div className="p-2 rounded bg-white/10 dark:bg-white/5 border border-white/10">
                 <span className="text-[10px] text-[#62756E] dark:text-[#9BB3A8] block">Cloud Broker</span>
-                <span className="font-mono font-semibold text-[#137A58] dark:text-[#34D399]">telemetry.revoltx.cloud</span>
+                <span className="font-mono font-semibold text-[#0070F3] dark:text-[#38BDF8]">telemetry.revoltx.cloud</span>
               </div>
             </div>
           </div>
           <div className="mt-2 text-[10px] text-[#62756E] dark:text-[#9BB3A8] flex items-center gap-1">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#137A58] dark:bg-[#34D399]" /> 250ms Sample Rate
+            <span className="h-1.5 w-1.5 rounded-full bg-[#0070F3] dark:bg-[#38BDF8]" /> 250ms Sample Rate
           </div>
         </div>
 
         {/* Node 4: AI Intelligence & Decision Engine */}
-        <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex flex-col justify-between">
+        <div className="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 flex flex-col justify-between">
           <div>
-            <div className="flex items-center gap-1.5 mb-1 text-[#137A58] dark:text-[#34D399]">
-              <span className="h-2 w-2 rounded-full bg-[#137A58] dark:bg-[#34D399] animate-ping" />
+            <div className="flex items-center gap-1.5 mb-1 text-[#0070F3] dark:text-[#38BDF8]">
+              <span className="h-2 w-2 rounded-full bg-[#0070F3] dark:bg-[#38BDF8] animate-ping" />
               <span className="text-xs font-bold uppercase tracking-wider">AI Decision Engine</span>
             </div>
-            <p className="text-[11px] text-[#10201B] dark:text-[#ECFDF5] mt-1 leading-snug">
+            <p className="text-[11px] text-[#10201B] dark:text-[#F8FAFC] mt-1 leading-snug">
               Synthesizes electrochemical curves, computes RX Score, and executes multi-path routing.
             </p>
           </div>
 
           <div className="mt-3 grid grid-cols-3 gap-1 text-center font-bold text-[10px]">
-            <div className="p-1 rounded bg-white/10 dark:bg-white/10 text-[#137A58] dark:text-[#34D399] border border-white/10">
+            <div className="p-1 rounded bg-white/10 dark:bg-white/10 text-[#0070F3] dark:text-[#38BDF8] border border-white/10">
               USE
             </div>
-            <div className="p-1 rounded bg-white/10 dark:bg-white/10 text-[#5D7C13] dark:text-[#A3E635] border border-white/10">
+            <div className="p-1 rounded bg-white/10 dark:bg-white/10 text-[#6366F1] dark:text-[#818CF8] border border-white/10">
               2ND LIFE
             </div>
             <div className="p-1 rounded bg-white/10 dark:bg-white/10 text-[#D94B4B] dark:text-[#F87171] border border-white/10">

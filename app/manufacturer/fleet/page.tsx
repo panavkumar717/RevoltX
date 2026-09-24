@@ -32,7 +32,7 @@ export default function ManufacturerFleetPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#DDE7E2]">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
             Telematics & Fleet Logistics
           </span>
           <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -57,7 +57,7 @@ export default function ManufacturerFleetPage() {
             placeholder="Search vehicle model, courier fleet, or battery ID..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
+            className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0070F3]"
           />
         </div>
 
@@ -70,7 +70,7 @@ export default function ManufacturerFleetPage() {
               else { setSortKey('soh'); setSortAsc(false); }
             }}
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold border flex items-center gap-1 transition-colors ${
-              sortKey === 'soh' ? 'bg-[#DDF5EA] text-[#137A58] border-[#BBEAD7]' : 'bg-[#F7FAF8] text-[#10201B] border-[#DDE7E2]'
+              sortKey === 'soh' ? 'bg-[#EFF6FF] text-[#0070F3] border-[#BFDBFE]' : 'bg-[#F7FAF8] text-[#10201B] border-[#DDE7E2]'
             }`}
           >
             <span>SOH</span>
@@ -84,7 +84,7 @@ export default function ManufacturerFleetPage() {
               else { setSortKey('score'); setSortAsc(false); }
             }}
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold border flex items-center gap-1 transition-colors ${
-              sortKey === 'score' ? 'bg-[#DDF5EA] text-[#137A58] border-[#BBEAD7]' : 'bg-[#F7FAF8] text-[#10201B] border-[#DDE7E2]'
+              sortKey === 'score' ? 'bg-[#EFF6FF] text-[#0070F3] border-[#BFDBFE]' : 'bg-[#F7FAF8] text-[#10201B] border-[#DDE7E2]'
             }`}
           >
             <span>RX Score</span>
@@ -115,7 +115,7 @@ export default function ManufacturerFleetPage() {
                 <tr key={b.id} className="hover:bg-[#F7FAF8] transition-colors">
                   <td className="py-3.5">
                     <div className="flex items-center gap-2">
-                      <div className="p-1.5 rounded-lg bg-[#F0F5F2] text-[#137A58]">
+                      <div className="p-1.5 rounded-lg bg-[#F0F5F2] text-[#0070F3]">
                         <Truck className="w-4 h-4" />
                       </div>
                       <div>
@@ -129,17 +129,17 @@ export default function ManufacturerFleetPage() {
                     </div>
                   </td>
                   <td className="py-3.5 font-mono font-bold text-[#10201B]">
-                    <Link href={`/manufacturer/batteries/${b.revoltXId}`} className="hover:text-[#137A58]">
+                    <Link href={`/manufacturer/batteries/${b.revoltXId}`} className="hover:text-[#0070F3]">
                       {b.revoltXId}
                     </Link>
                   </td>
                   <td className="py-3.5">
-                    <span className={`font-mono font-bold ${b.currentSOH >= 80 ? 'text-[#137A58]' : b.currentSOH >= 65 ? 'text-[#D89A24]' : 'text-[#D94B4B]'}`}>
+                    <span className={`font-mono font-bold ${b.currentSOH >= 80 ? 'text-[#0070F3]' : b.currentSOH >= 65 ? 'text-[#D89A24]' : 'text-[#D94B4B]'}`}>
                       {b.currentSOH}%
                     </span>
                   </td>
                   <td className="py-3.5 font-mono text-[#10201B]">{b.rul} cyc</td>
-                  <td className="py-3.5 font-mono font-bold text-[#137A58]">{b.rxScore}/100</td>
+                  <td className="py-3.5 font-mono font-bold text-[#0070F3]">{b.rxScore}/100</td>
                   <td className="py-3.5">
                     <BatteryStatusBadge risk={b.risk} size="sm" />
                   </td>
@@ -152,7 +152,7 @@ export default function ManufacturerFleetPage() {
                   <td className="py-3.5 text-right">
                     <Link
                       href={`/manufacturer/batteries/${b.revoltXId}`}
-                      className="px-2.5 py-1 rounded-lg bg-[#137A58] text-white font-semibold text-[11px] hover:bg-[#0E5B42] transition-colors"
+                      className="px-2.5 py-1 rounded-lg bg-[#0070F3] text-white font-semibold text-[11px] hover:bg-[#0058C6] transition-colors"
                     >
                       Detail
                     </Link>
