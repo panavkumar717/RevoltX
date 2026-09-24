@@ -17,17 +17,60 @@ import {
 } from 'lucide-react';
 import { useReVoltX } from '../../lib/store/batteryStore';
 import { BatteryStatusBadge } from '../../components/ui/BatteryStatusBadge';
+import MagicBento, { MagicBentoCardItem } from '../../components/ui/MagicBento';
 
 export default function ManufacturerDashboardPage() {
   const { batteries } = useReVoltX();
 
-  // Metrics specified in prompt
-  const stats = [
-    { label: 'TOTAL BATTERIES', value: '10,000', change: '+240 this month', color: 'text-zinc-900 dark:text-zinc-100', border: 'border-zinc-200 dark:border-zinc-800' },
-    { label: 'HEALTHY', value: '8,420', sub: '84.2% Fleet Nominal', color: 'text-[#0070F3] dark:text-[#38BDF8]', border: 'border-blue-500/20' },
-    { label: 'ATTENTION REQUIRED', value: '1,240', sub: 'SOH 70-80% / Minor Drift', color: 'text-amber-500 dark:text-amber-400', border: 'border-amber-500/20' },
-    { label: 'HIGH RISK', value: '340', sub: 'Urgent Service Advised', color: 'text-red-500 dark:text-red-400', border: 'border-red-500/20' },
-    { label: 'SECOND-LIFE CANDIDATES', value: '174', sub: 'Ready for Stationary Duty', color: 'text-sky-500 dark:text-sky-400', border: 'border-sky-500/20' }
+  const bentoStats: MagicBentoCardItem[] = [
+    {
+      label: 'GLOBAL FLEET',
+      title: 'Total Active Batteries',
+      value: '10,000',
+      sub: '+240 this month',
+      description: 'High-density commercial pack telemetry synchronized across 14 operational regions.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">+2.4% MoM</span>
+    },
+    {
+      label: 'NOMINAL FLEET',
+      title: 'Healthy & Nominal',
+      value: '8,420',
+      sub: '84.2% Fleet Nominal',
+      description: 'Impedance and thermal metrics well within factory tolerances without micro-shorts.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">Grade A</span>
+    },
+    {
+      label: 'ADVISORY QUEUE',
+      title: 'Attention Required',
+      value: '1,240',
+      sub: 'SOH 70-80% / Minor Drift',
+      description: 'Early capacity drift flagged by AI diagnostics. Pre-emptive balancing scheduled.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20 font-bold">Watch</span>
+    },
+    {
+      label: 'CRITICAL PRIORITY',
+      title: 'High Risk Alert',
+      value: '340',
+      sub: 'Urgent Service Advised',
+      description: 'Rapid internal resistance rise detected. Automated service dispatch triggered.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-red-500/10 text-red-500 border border-red-500/20 font-bold">Critical</span>
+    },
+    {
+      label: 'CIRCULARITY POOL',
+      title: 'Second-Life Candidates',
+      value: '174',
+      sub: 'Ready for Stationary Duty',
+      description: 'Packs retired from mobility duty certified for BESS and microgrid energy storage.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">2nd Life</span>
+    },
+    {
+      label: 'WARRANTY AI',
+      title: 'Warranty Risk Saved',
+      value: '$1.42M',
+      sub: 'Predicted Failure Prevention',
+      description: 'Predictive module-level repairs avoiding complete pack swaps and OEM recall exposure.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">ROI 4.8x</span>
+    }
   ];
 
   return (
@@ -69,25 +112,20 @@ export default function ManufacturerDashboardPage() {
         </div>
       </div>
 
-      {/* 5 Core Metrics specified by Prompt */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
-        {stats.map((stat) => (
-          <div
-            key={stat.label}
-            className={`p-4 rounded-2xl bg-white dark:bg-zinc-900/80 border ${stat.border} shadow-2xs`}
-          >
-            <span className="text-[10px] uppercase font-bold tracking-wider text-zinc-500 dark:text-zinc-400 block">
-              {stat.label}
-            </span>
-            <p className={`text-2xl sm:text-3xl font-bold font-mono mt-1 ${stat.color}`}>
-              {stat.value}
-            </p>
-            <span className="text-[10px] text-zinc-500 dark:text-zinc-400 mt-1 block">
-              {stat.sub || stat.change}
-            </span>
-          </div>
-        ))}
-      </div>
+      {/* Interactive Fleet Intelligence Magic Bento */}
+      <MagicBento 
+        cards={bentoStats}
+        textAutoHide={false}
+        enableStars={true}
+        enableSpotlight={true}
+        enableBorderGlow={true}
+        enableTilt={true}
+        enableMagnetism={true}
+        clickEffect={true}
+        spotlightRadius={320}
+        particleCount={14}
+        glowColor="0, 112, 243"
+      />
 
       {/* Action Required Banner: Batteries Needing ReVoltX Inspection */}
       <div className="p-5 rounded-3xl bg-white dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 shadow-xs space-y-4">

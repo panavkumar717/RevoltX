@@ -18,6 +18,7 @@ import { useReVoltX } from '../../../lib/store/batteryStore';
 import { RXScoreGauge } from '../../../components/ui/RXScoreGauge';
 import { HealthGauge } from '../../../components/ui/HealthGauge';
 import { TelemetryChart } from '../../../components/ui/TelemetryChart';
+import MagicBento, { MagicBentoCardItem } from '../../../components/ui/MagicBento';
 
 export default function OwnerHealthPage() {
   const { getBattery } = useReVoltX();
@@ -117,28 +118,64 @@ export default function OwnerHealthPage() {
         </div>
       </div>
 
-      {/* Helpful Care Tips for Battery Longevity */}
+      {/* Helpful Care Tips for Battery Longevity Magic Bento */}
       <div className="bg-white rounded-3xl p-6 border border-[#DDE7E2] shadow-xs space-y-4">
-        <h3 className="text-sm font-bold text-[#10201B] flex items-center gap-2">
-          <ShieldCheck className="w-4 h-4 text-[#0070F3]" />
-          <span>Tailored Battery Care Tips for Sarah</span>
-        </h3>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-          <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2] space-y-1">
-            <h4 className="font-bold text-[#10201B]">Limit DC Fast Charging</h4>
-            <p className="text-[#62756E]">
-              Charging at 0.5C to 0.8C on AC overnight reduces cell thermal stress by up to 40%.
-            </p>
-          </div>
-
-          <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2] space-y-1">
-            <h4 className="font-bold text-[#10201B]">Avoid 100% Resting States</h4>
-            <p className="text-[#62756E]">
-              If parking your vehicle for more than 48 hours, keeping state-of-charge between 50% and 80% prevents electrolyte oxidation.
-            </p>
-          </div>
+        <div className="flex items-center justify-between">
+          <h3 className="text-sm font-bold text-[#10201B] flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-[#0070F3]" />
+            <span>Tailored Battery Care Tips for Sarah</span>
+          </h3>
+          <span className="text-[10px] font-mono font-bold text-[#0070F3] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full border border-[#BFDBFE]">
+            AI Proactive Protection
+          </span>
         </div>
+
+        <MagicBento 
+          cards={[
+            {
+              label: 'CHARGING PROFILE',
+              title: 'Limit High-Power DC Fast Charging',
+              value: '0.8C Max',
+              sub: 'Thermal Relief Protocol',
+              description: 'Charging at 0.5C to 0.8C on AC overnight reduces cell thermal stress by up to 40% and preserves anode SEI layer integrity.',
+              badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Recommended</span>
+            },
+            {
+              label: 'STATE OF CHARGE',
+              title: 'Avoid 100% Overnight Resting States',
+              value: '50% - 80%',
+              sub: 'Storage Equilibrium',
+              description: 'If parking your vehicle for more than 48 hours, keeping state-of-charge between 50% and 80% prevents transition metal dissolution.',
+              badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Best Practice</span>
+            },
+            {
+              label: 'CLIMATE SYSTEM',
+              title: 'Precondition While Plugged In',
+              value: 'Pre-Heat / Cool',
+              sub: 'Grid-Assisted Tempering',
+              description: 'Condition the battery pack to 22°C before driving using wallbox current rather than draining onboard electrochemical energy.',
+              badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">+12% Range</span>
+            },
+            {
+              label: 'RECUPERATION',
+              title: 'Optimize Regenerative Deceleration',
+              value: 'Adaptive Mode',
+              sub: 'Kinetic Energy Reclaim',
+              description: 'Smooth regenerative braking returns up to 28% of expended propulsion energy directly back into the pack without overheating cells.',
+              badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Efficiency</span>
+            }
+          ]}
+          textAutoHide={false}
+          enableStars={true}
+          enableSpotlight={true}
+          enableBorderGlow={true}
+          enableTilt={true}
+          enableMagnetism={true}
+          clickEffect={true}
+          spotlightRadius={280}
+          particleCount={10}
+          glowColor="0, 112, 243"
+        />
       </div>
     </div>
   );

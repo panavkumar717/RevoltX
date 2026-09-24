@@ -26,6 +26,7 @@ import { LifecycleTimeline } from '../../../components/ui/LifecycleTimeline';
 import { QRCodeWidget } from '../../../components/ui/QRCodeWidget';
 import { ThemeToggle } from '../../../components/ui/ThemeToggle';
 import { PublicFooter } from '@/components/shared/PublicFooter';
+import MagicBento, { MagicBentoCardItem } from '../../../components/ui/MagicBento';
 
 export default function BatteryPassportPage({
   params
@@ -241,35 +242,63 @@ export default function BatteryPassportPage({
           </div>
         )}
 
-        {/* Technical & Environmental Specifications */}
+        {/* Technical & Environmental Specifications Magic Bento */}
         <div className="bg-white rounded-3xl p-6 border border-[#DDE7E2] shadow-xs space-y-4">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#62756E] block">
-            Regulatory & Environmental Declarations (EU 2023/1542)
-          </span>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-            <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2]">
-              <span className="text-[#62756E] block text-[10px] uppercase font-semibold">Carbon Footprint (LCA)</span>
-              <span className="text-sm font-bold font-mono text-[#10201B]">64.2 kg CO₂e / kWh</span>
-              <span className="text-[10px] text-[#0070F3] block mt-0.5">Top 15% Industry Benchmark</span>
-            </div>
-
-            <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2]">
-              <span className="text-[#62756E] block text-[10px] uppercase font-semibold">Critical Minerals Recyclability</span>
-              <span className="text-sm font-bold font-mono text-[#10201B]">96.4% Efficiency</span>
-              <span className="text-[10px] text-[#62756E] block mt-0.5">Lithium, Nickel, Cobalt, Copper</span>
-            </div>
-
-            <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2]">
-              <span className="text-[#62756E] block text-[10px] uppercase font-semibold">Warranty Coverage</span>
-              <span className="text-sm font-bold text-[#10201B]">{battery.warrantyPeriod}</span>
-            </div>
-
-            <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2]">
-              <span className="text-[#62756E] block text-[10px] uppercase font-semibold">Safety Standards</span>
-              <span className="text-sm font-bold text-[#10201B]">UN 38.3 • IEC 62619 • UL 1974</span>
-            </div>
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#62756E] block">
+              Regulatory & Environmental Declarations (EU 2023/1542)
+            </span>
+            <span className="text-xs font-mono font-bold text-[#0070F3] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full border border-[#BFDBFE]">
+              DPP Compliant
+            </span>
           </div>
+
+          <MagicBento 
+            cards={[
+              {
+                label: 'CARBON FOOTPRINT (LCA)',
+                title: 'Life Cycle Emissions',
+                value: '64.2 kg CO₂e',
+                sub: 'Per kWh Pack Capacity',
+                description: 'Cradle-to-gate lifecycle assessment certified. In top 15% cleanest manufacturing tier.',
+                badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Top 15%</span>
+              },
+              {
+                label: 'MINERAL RECYCLABILITY',
+                title: 'Hydrometallurgical Yield',
+                value: '96.4%',
+                sub: 'Li, Ni, Co, Cu Recovery',
+                description: 'Direct closed-loop metallurgical efficiency exceeding EU 2027 minimum mandates.',
+                badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">EU Mandate</span>
+              },
+              {
+                label: 'WARRANTY REGISTRY',
+                title: 'Manufacturer Guarantee',
+                value: battery.warrantyPeriod,
+                sub: 'Transferable Digital Contract',
+                description: 'Automated telemetry validation ensures full warranty continuity upon vehicle resale.',
+                badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">Valid</span>
+              },
+              {
+                label: 'SAFETY COMPLIANCE',
+                title: 'Global Certification',
+                value: 'Certified',
+                sub: 'UN 38.3 • IEC 62619 • UL 1974',
+                description: 'Passed mechanical crush, thermal propagation lockout, and overcharge safety tests.',
+                badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Verified</span>
+              }
+            ]}
+            textAutoHide={false}
+            enableStars={true}
+            enableSpotlight={true}
+            enableBorderGlow={true}
+            enableTilt={true}
+            enableMagnetism={true}
+            clickEffect={true}
+            spotlightRadius={280}
+            particleCount={10}
+            glowColor="0, 112, 243"
+          />
         </div>
 
         {/* QR Sharing & Export */}

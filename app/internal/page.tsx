@@ -19,12 +19,64 @@ import {
 } from 'lucide-react';
 import { useReVoltX } from '../../lib/store/batteryStore';
 import { BatteryStatusBadge } from '../../components/ui/BatteryStatusBadge';
+import MagicBento, { MagicBentoCardItem } from '../../components/ui/MagicBento';
 
 export default function InternalDashboardPage() {
   const { batteries, serviceRequests, opportunities, recyclingRecords } = useReVoltX();
 
   const pendingRequests = serviceRequests.filter(r => r.status !== 'Completed');
   const criticalBatteries = batteries.filter(b => b.risk === 'High' || b.risk === 'Critical');
+
+  const internalBentoCards: MagicBentoCardItem[] = [
+    {
+      label: 'ECOSYSTEM SCALE',
+      title: 'Monitored Packs & Fleets',
+      value: `${(batteries.length + 10000).toLocaleString()}`,
+      sub: 'Across 14 OEMs & 38 Commercial Fleets',
+      description: 'Continuous CAN-bus and cloud IoT telemetry ingestion with sub-second anomaly screening.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Live Stream</span>
+    },
+    {
+      label: 'HARDWARE DOCK QUEUE',
+      title: 'Pending Lab Assessments',
+      value: `${pendingRequests.length} In Queue`,
+      sub: 'Automated 12-minute Smart Dock testing',
+      description: 'EIS impedance spectroscopy, open-circuit voltage stability, and rapid thermal cycling tests.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20 font-bold">Active Tests</span>
+    },
+    {
+      label: 'SAFETY MONITORING',
+      title: 'Critical Risk Packs',
+      value: `${criticalBatteries.length} High Risk`,
+      sub: 'Automated Lockout Advised',
+      description: 'Internal resistance spike or thermal gradient exceeding safe vehicle operating boundaries.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-red-500/10 text-red-500 border border-red-500/20 font-bold">Urgent</span>
+    },
+    {
+      label: 'CIRCULAR SOURCING',
+      title: 'Second-Life Listings',
+      value: `${opportunities.length} Qualified`,
+      sub: 'ESS & Telecom Station Matches',
+      description: 'Dynamic matchmaking algorithm routing 70-80% SOH packs to grid-tied buffer applications.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Marketplace</span>
+    },
+    {
+      label: 'MINERAL HARVEST',
+      title: 'Recycling Batches',
+      value: `${recyclingRecords.length} Active Batches`,
+      sub: '96.4% Recovery Yield',
+      description: 'Direct hydrometallurgical processing extracting battery-grade lithium, nickel, and cobalt salts.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">Urban Mining</span>
+    },
+    {
+      label: 'FIELD OPERATIONS',
+      title: 'Technician Operations',
+      value: '3 On Duty',
+      sub: '1,280 Registered Vehicle Owners',
+      description: 'Field diagnostic units equipped with automated high-voltage test harnesses and bypass balancers.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Staff Online</span>
+    }
+  ];
 
   return (
     <div className="space-y-6">
@@ -56,48 +108,20 @@ export default function InternalDashboardPage() {
         </div>
       </div>
 
-      {/* 8 Core Metrics specified in Section 7 */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5">
-        <div className="p-3.5 rounded-2xl bg-white border border-[#DDE7E2] shadow-2xs">
-          <span className="text-[9px] uppercase font-bold text-[#62756E] block">Ecosystem Packs</span>
-          <p className="text-xl font-bold font-mono text-[#10201B] mt-0.5">{batteries.length + 10000}</p>
-        </div>
-
-        <div className="p-3.5 rounded-2xl bg-white border border-[#DDE7E2] shadow-2xs">
-          <span className="text-[9px] uppercase font-bold text-[#62756E] block">Manufacturers</span>
-          <p className="text-xl font-bold font-mono text-[#10201B] mt-0.5">14 Active</p>
-        </div>
-
-        <div className="p-3.5 rounded-2xl bg-white border border-[#DDE7E2] shadow-2xs">
-          <span className="text-[9px] uppercase font-bold text-[#62756E] block">Fleet Operators</span>
-          <p className="text-xl font-bold font-mono text-[#10201B] mt-0.5">38 Fleets</p>
-        </div>
-
-        <div className="p-3.5 rounded-2xl bg-white border border-[#DDE7E2] shadow-2xs">
-          <span className="text-[9px] uppercase font-bold text-[#62756E] block">Active Owners</span>
-          <p className="text-xl font-bold font-mono text-[#10201B] mt-0.5">1,280 Users</p>
-        </div>
-
-        <div className="p-3.5 rounded-2xl bg-[#FEF6E7] border border-[#F8E0B0] shadow-2xs">
-          <span className="text-[9px] uppercase font-bold text-[#D89A24] block">Pending Tests</span>
-          <p className="text-xl font-bold font-mono text-[#D89A24] mt-0.5">{pendingRequests.length} Queue</p>
-        </div>
-
-        <div className="p-3.5 rounded-2xl bg-[#F0F9FF] border border-[#BAE6FD] shadow-2xs">
-          <span className="text-[9px] uppercase font-bold text-[#0284C7] block">2nd Life Opps</span>
-          <p className="text-xl font-bold font-mono text-[#0284C7] mt-0.5">{opportunities.length} Listed</p>
-        </div>
-
-        <div className="p-3.5 rounded-2xl bg-[#FDF0EE] border border-[#F8C8C4] shadow-2xs">
-          <span className="text-[9px] uppercase font-bold text-[#D94B4B] block">Recycling Batches</span>
-          <p className="text-xl font-bold font-mono text-[#D94B4B] mt-0.5">{recyclingRecords.length} Active</p>
-        </div>
-
-        <div className="p-3.5 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] shadow-2xs">
-          <span className="text-[9px] uppercase font-bold text-[#0070F3] block">Technicians</span>
-          <p className="text-xl font-bold font-mono text-[#0070F3] mt-0.5">3 On Duty</p>
-        </div>
-      </div>
+      {/* Interactive Operations Command Magic Bento */}
+      <MagicBento 
+        cards={internalBentoCards}
+        textAutoHide={false}
+        enableStars={true}
+        enableSpotlight={true}
+        enableBorderGlow={true}
+        enableTilt={true}
+        enableMagnetism={true}
+        clickEffect={true}
+        spotlightRadius={320}
+        particleCount={14}
+        glowColor="0, 112, 243"
+      />
 
       {/* Primary Section 1: Assessment Queue & Active Smart Dock Simulator */}
       <div className="p-6 rounded-3xl bg-white border border-[#DDE7E2] shadow-xs space-y-4">

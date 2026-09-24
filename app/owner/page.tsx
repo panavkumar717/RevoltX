@@ -19,10 +19,62 @@ import { RXScoreGauge } from '../../components/ui/RXScoreGauge';
 import { HealthGauge } from '../../components/ui/HealthGauge';
 import { BatteryStatusBadge } from '../../components/ui/BatteryStatusBadge';
 import { LifecycleTimeline } from '../../components/ui/LifecycleTimeline';
+import MagicBento, { MagicBentoCardItem } from '../../components/ui/MagicBento';
 
 export default function OwnerDashboardPage() {
   const { getBattery } = useReVoltX();
   const battery = getBattery('RX-2026-892738')!;
+
+  const ownerBentoCards: MagicBentoCardItem[] = [
+    {
+      label: 'REVOLTX SCORE',
+      title: 'Health & Balance Rating',
+      value: `${battery.rxScore} / 100`,
+      sub: 'Solid Second-Life Grade',
+      description: 'Based on multi-cycle impedance tests, voltage consistency, and thermal stability.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">Grade B+</span>
+    },
+    {
+      label: 'STATE OF HEALTH',
+      title: 'Remaining Capacity',
+      value: `${battery.currentSOH}%`,
+      sub: 'Attention Recommended',
+      description: 'Nominal baseline 88kWh. Current usable retention is 63.4kWh.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20 font-bold">Inspection</span>
+    },
+    {
+      label: 'REMAINING LIFE',
+      title: 'Expected Useful Life',
+      value: `${battery.rul} cycles`,
+      sub: '~1.2 yrs courier service',
+      description: 'Calculated using AI cycle extrapolation under current daily driving & charge patterns.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">Active</span>
+    },
+    {
+      label: 'RESIDUAL VALUE',
+      title: 'Estimated Trade-In Credit',
+      value: '$1,850',
+      sub: 'Guaranteed Buyback Floor',
+      description: 'Certified second-life stationary buyers will bid directly for your pack upon vehicle retirement.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">Secured</span>
+    },
+    {
+      label: 'CIRCULAR IMPACT',
+      title: 'Carbon Offset Yield',
+      value: '4.8 tCO2e',
+      sub: 'Lifecycle Footprint Prevented',
+      description: 'Repurposing this battery for solar buffer duty offsets mining 180kg of virgin raw minerals.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">Eco Score 94</span>
+    },
+    {
+      label: 'DIAGNOSTICS & ACTIONS',
+      title: 'Smart Health Check',
+      value: 'Certified',
+      sub: 'Next Inspection in 30 Days',
+      description: 'Schedule a certified ReVoltX technician dock assessment or explore replacement packs.',
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">Available</span>
+    }
+  ];
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
@@ -53,43 +105,21 @@ export default function OwnerDashboardPage() {
           </div>
         </div>
 
-        {/* 3 Core Big Metrics */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-zinc-200 dark:border-zinc-800">
-          <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-800">
-            <span className="text-[10px] uppercase font-bold text-zinc-500 dark:text-zinc-400 block">
-              REVOLTX SCORE
-            </span>
-            <p className="text-3xl font-bold font-mono text-[#0070F3] dark:text-[#38BDF8] mt-1">
-              {battery.rxScore} <span className="text-sm font-normal text-zinc-500">/ 100</span>
-            </p>
-            <span className="text-xs text-[#0070F3] dark:text-[#38BDF8] font-semibold mt-0.5 block">
-              Solid Second-Life Grade
-            </span>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-800">
-            <span className="text-[10px] uppercase font-bold text-zinc-500 dark:text-zinc-400 block">
-              STATE OF HEALTH
-            </span>
-            <p className="text-3xl font-bold font-mono text-amber-500 mt-1">
-              {battery.currentSOH}%
-            </p>
-            <span className="text-xs text-amber-500 font-semibold mt-0.5 block">
-              Attention Recommended
-            </span>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-800">
-            <span className="text-[10px] uppercase font-bold text-zinc-500 dark:text-zinc-400 block">
-              REMAINING LIFE
-            </span>
-            <p className="text-3xl font-bold font-mono text-zinc-900 dark:text-zinc-100 mt-1">
-              {battery.rul} <span className="text-sm font-normal text-zinc-500">cycles</span>
-            </p>
-            <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium mt-0.5 block">
-              ~1.2 yrs courier service
-            </span>
-          </div>
+        {/* Magic Bento Core Battery Telemetry */}
+        <div className="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-800">
+          <MagicBento 
+            cards={ownerBentoCards}
+            textAutoHide={false}
+            enableStars={true}
+            enableSpotlight={true}
+            enableBorderGlow={true}
+            enableTilt={true}
+            enableMagnetism={true}
+            clickEffect={true}
+            spotlightRadius={300}
+            particleCount={12}
+            glowColor="0, 112, 243"
+          />
         </div>
       </div>
 

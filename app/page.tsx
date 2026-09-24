@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
@@ -41,25 +41,55 @@ import { revoltxDockItems } from '../components/shared/dockItems';
 import Galaxy from '../components/ui/Galaxy';
 
 export default function LandingPage() {
+  const [isDark, setIsDark] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Check initial theme state on client
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+
+    checkTheme();
+
+    // Observe class attribute changes on <html> so toggling theme instantly updates
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          checkTheme();
+        }
+      }
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+    window.addEventListener('storage', checkTheme);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('storage', checkTheme);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-transparent flex flex-col selection:bg-blue-500/20 selection:text-blue-300 transition-colors relative">
-      {/* Full-Page Fixed Non-Scrollable Interactive Galaxy Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <Galaxy
-          trackWindowMouse={true}
-          mouseInteraction={true}
-          mouseRepulsion={true}
-          repulsionStrength={1.5}
-          density={0.7}
-          glowIntensity={0.4}
-          saturation={0.9}
-          hueShift={0}
-          speed={0.5}
-          starSpeed={0.5}
-          twinkleIntensity={0.5}
-          transparent={true}
-        />
-      </div>
+    <div className="min-h-screen bg-white dark:bg-transparent flex flex-col selection:bg-blue-500/20 selection:text-blue-300 transition-colors relative">
+      {/* Full-Page Fixed Interactive Galaxy Background - Rendered ONLY in Dark Mode */}
+      {isDark && (
+        <div className="hidden dark:block fixed inset-0 z-0 pointer-events-none overflow-hidden">
+          <Galaxy
+            trackWindowMouse={true}
+            mouseInteraction={true}
+            mouseRepulsion={true}
+            repulsionStrength={1.5}
+            density={0.7}
+            glowIntensity={0.4}
+            saturation={0.9}
+            hueShift={0}
+            speed={0.5}
+            starSpeed={0.5}
+            twinkleIntensity={0.5}
+            transparent={true}
+          />
+        </div>
+      )}
 
       <PublicNavbar />
 
