@@ -34,7 +34,7 @@ import { BorderBeam } from '../components/ui/BorderBeam';
 import { BlurText } from '../components/ui/BlurText';
 import { ShinyText } from '../components/ui/ShinyText';
 import { AnimatedCounter } from '../components/ui/AnimatedCounter';
-import { HeroBackground } from '../components/ui/HeroBackground';
+import { GreenBatteryBackground } from '../components/ui/GreenBatteryBackground';
 import { ExplodedBatteryView } from '../components/ui/ExplodedBatteryView';
 import { FloatingDock } from '../components/ui/floating-dock';
 import { revoltxDockItems } from '../components/shared/dockItems';
@@ -70,7 +70,7 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-transparent flex flex-col selection:bg-blue-500/20 selection:text-blue-300 transition-colors relative">
+    <div className="min-h-screen bg-[#F8FAF9] dark:bg-transparent flex flex-col selection:bg-emerald-500/20 selection:text-emerald-900 dark:selection:bg-blue-500/20 dark:selection:text-blue-300 transition-colors relative">
       {/* Full-Page Fixed Interactive Galaxy Background - Rendered ONLY in Dark Mode */}
       {isDark && (
         <div className="hidden dark:block fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -90,6 +90,11 @@ export default function LandingPage() {
           />
         </div>
       )}
+
+      {/* Full-Page Fixed Interactive Green Battery Background - Rendered in Light Mode */}
+      <div className="dark:hidden fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <GreenBatteryBackground active={!isDark} />
+      </div>
 
       <PublicNavbar />
 
