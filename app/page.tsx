@@ -27,7 +27,6 @@ import {
 } from 'lucide-react';
 import { PublicNavbar } from '../components/shared/PublicNavbar';
 import { PublicFooter } from '../components/shared/PublicFooter';
-import { RXScoreGauge } from '../components/ui/RXScoreGauge';
 import { SmartDockVisualizer } from '../components/ui/SmartDockVisualizer';
 import { QRCodeWidget } from '../components/ui/QRCodeWidget';
 import { SpotlightCard } from '../components/ui/SpotlightCard';
@@ -36,10 +35,9 @@ import { BlurText } from '../components/ui/BlurText';
 import { ShinyText } from '../components/ui/ShinyText';
 import { AnimatedCounter } from '../components/ui/AnimatedCounter';
 import { HeroBackground } from '../components/ui/HeroBackground';
+import { ExplodedBatteryView } from '../components/ui/ExplodedBatteryView';
 
 export default function LandingPage() {
-  const [activeBranch, setActiveBranch] = useState<'continue' | 'secondLife' | 'recycle'>('secondLife');
-
   return (
     <div className="min-h-screen bg-[#F7FAF8] dark:bg-[#0B1310] flex flex-col selection:bg-[#DDF5EA] dark:selection:bg-[#133325] selection:text-[#137A58] dark:selection:text-[#34D399] transition-colors">
       <PublicNavbar />
@@ -47,12 +45,12 @@ export default function LandingPage() {
       {/* ========================================================
           HERO SECTION with Interactive Lifecycle Flow
       ======================================================== */}
-      <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden border-b border-[#DDE7E2] dark:border-[#1E352B]">
-        {/* React Bits Interactive Particle Background */}
-        <HeroBackground particleCount={32} />
-
-        {/* Subtle decorative grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#DDE7E2_1px,transparent_1px),linear-gradient(to_bottom,#DDE7E2_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1E352B_1px,transparent_1px),linear-gradient(to_bottom,#1E352B_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-35 dark:opacity-20 pointer-events-none" />
+      <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 border-b border-[#DDE7E2] dark:border-[#1E352B]">
+        {/* React Bits Interactive Particle Background & Grid (Clipped) */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <HeroBackground particleCount={32} />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#DDE7E2_1px,transparent_1px),linear-gradient(to_bottom,#DDE7E2_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1E352B_1px,transparent_1px),linear-gradient(to_bottom,#1E352B_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-35 dark:opacity-20" />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Badge & Pill */}
@@ -121,299 +119,9 @@ export default function LandingPage() {
           </div>
 
           {/* ========================================================
-              Interactive Battery Lifecycle Hero Diagram (Requirement 31)
+              3D Exploded Battery Hardware Architecture (Scroll-Driven)
           ======================================================== */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="group/hero mt-14 bg-white dark:bg-[#111E18] rounded-3xl p-6 sm:p-8 border border-[#DDE7E2] dark:border-[#1E352B] shadow-sm relative overflow-hidden"
-          >
-            {/* Ambient Border Beam on Hero Diagram */}
-            <BorderBeam
-              hoverOnly={true}
-              borderRadius={24}
-              duration={7}
-              colorFrom="#137A58"
-              colorMid="#21A879"
-              colorTo="#C9EF72"
-            />
-
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#DDE7E2] dark:border-[#1E352B] gap-3 relative z-10">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#62756E] dark:text-[#9BB3A8]">
-                  Continuous Lifecycle Telemetry & AI Decision Engine
-                </span>
-                <h3 className="text-xl font-bold text-[#10201B] dark:text-[#ECFDF5] mt-0.5">
-                  Live Dynamic Asset: Battery RX-2026-892738 (LFP 60Ah)
-                </h3>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-[#DDF5EA] dark:bg-[#133325] text-[#137A58] dark:text-[#34D399] border border-[#BBEAD7] dark:border-[#1E4D38] shadow-2xs">
-                  <span className="h-2 w-2 rounded-full bg-[#137A58] dark:bg-[#34D399] animate-ping" />
-                  Real-time Data Active
-                </span>
-                <Link
-                  href="/battery/RX-2026-892738"
-                  className="text-xs font-semibold text-[#10201B] dark:text-[#ECFDF5] hover:text-[#137A58] dark:hover:text-[#34D399] flex items-center gap-1 underline underline-offset-2 transition-colors"
-                >
-                  Open Passport <ExternalLink className="w-3 h-3" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Visualizer Pipeline */}
-            <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
-              {/* Left Column: 6 Physical Telemetry Signals */}
-              <div className="lg:col-span-4 space-y-2.5">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#62756E] block mb-2">
-                  1. IoT & Smart Dock Telemetry
-                </span>
-
-                <div className="grid grid-cols-2 gap-2">
-                  <SpotlightCard
-                    borderRadius={12}
-                    beamDuration={4}
-                    className="p-3 rounded-xl bg-[#F7FAF8] dark:bg-[#15241E] border border-[#DDE7E2] dark:border-[#1E382D] cursor-pointer"
-                  >
-                    <div className="flex items-center justify-between text-[#62756E] dark:text-[#9BB3A8] text-xs">
-                      <span>Voltage</span>
-                      <Gauge className="w-3.5 h-3.5 text-[#137A58] dark:text-[#34D399]" />
-                    </div>
-                    <p className="text-base font-bold font-mono text-[#10201B] dark:text-[#ECFDF5] mt-1">
-                      <AnimatedCounter value={51.2} decimals={1} suffix=" V" />
-                    </p>
-                    <span className="text-[10px] text-[#137A58] dark:text-[#34D399] font-medium">16S Nominal</span>
-                  </SpotlightCard>
-
-                  <SpotlightCard
-                    borderRadius={12}
-                    beamDuration={4}
-                    className="p-3 rounded-xl bg-[#F7FAF8] dark:bg-[#15241E] border border-[#DDE7E2] dark:border-[#1E382D] cursor-pointer"
-                  >
-                    <div className="flex items-center justify-between text-[#62756E] dark:text-[#9BB3A8] text-xs">
-                      <span>Current</span>
-                      <Zap className="w-3.5 h-3.5 text-[#21A879] dark:text-[#34D399]" />
-                    </div>
-                    <p className="text-base font-bold font-mono text-[#10201B] dark:text-[#ECFDF5] mt-1">
-                      <AnimatedCounter value={18.2} decimals={1} suffix=" A" />
-                    </p>
-                    <span className="text-[10px] text-[#62756E] dark:text-[#9BB3A8] font-medium">0.3C Load</span>
-                  </SpotlightCard>
-
-                  <SpotlightCard
-                    borderRadius={12}
-                    beamDuration={4}
-                    beamColorFrom="#D89A24"
-                    beamColorMid="#F59E0B"
-                    beamColorTo="#FEF08A"
-                    spotlightColor="rgba(216, 154, 36, 0.15)"
-                    className="p-3 rounded-xl bg-[#F7FAF8] dark:bg-[#15241E] border border-[#DDE7E2] dark:border-[#1E382D] cursor-pointer"
-                  >
-                    <div className="flex items-center justify-between text-[#62756E] dark:text-[#9BB3A8] text-xs">
-                      <span>Temperature</span>
-                      <Thermometer className="w-3.5 h-3.5 text-[#D89A24] dark:text-[#FBBF24]" />
-                    </div>
-                    <p className="text-base font-bold font-mono text-[#D89A24] dark:text-[#FBBF24] mt-1">
-                      <AnimatedCounter value={38.4} decimals={1} suffix=" °C" />
-                    </p>
-                    <span className="text-[10px] text-[#D89A24] dark:text-[#FBBF24] font-medium">Thermal Alert</span>
-                  </SpotlightCard>
-
-                  <SpotlightCard
-                    borderRadius={12}
-                    beamDuration={4}
-                    beamColorFrom="#4386C5"
-                    beamColorMid="#38BDF8"
-                    beamColorTo="#BAE6FD"
-                    spotlightColor="rgba(67, 134, 197, 0.15)"
-                    className="p-3 rounded-xl bg-[#F7FAF8] dark:bg-[#15241E] border border-[#DDE7E2] dark:border-[#1E382D] cursor-pointer"
-                  >
-                    <div className="flex items-center justify-between text-[#62756E] dark:text-[#9BB3A8] text-xs">
-                      <span>State of Charge</span>
-                      <Activity className="w-3.5 h-3.5 text-[#4386C5] dark:text-[#60A5FA]" />
-                    </div>
-                    <p className="text-base font-bold font-mono text-[#10201B] dark:text-[#ECFDF5] mt-1">
-                      <AnimatedCounter value={84} decimals={0} suffix=" %" />
-                    </p>
-                    <span className="text-[10px] text-[#62756E] dark:text-[#9BB3A8] font-medium">3.07 kWh</span>
-                  </SpotlightCard>
-
-                  <SpotlightCard
-                    borderRadius={12}
-                    beamDuration={4}
-                    className="p-3 rounded-xl bg-[#F7FAF8] dark:bg-[#15241E] border border-[#DDE7E2] dark:border-[#1E382D] cursor-pointer"
-                  >
-                    <div className="flex items-center justify-between text-[#62756E] dark:text-[#9BB3A8] text-xs">
-                      <span>State of Health</span>
-                      <TrendingUp className="w-3.5 h-3.5 text-[#137A58] dark:text-[#34D399]" />
-                    </div>
-                    <p className="text-base font-bold font-mono text-[#10201B] dark:text-[#ECFDF5] mt-1">
-                      <AnimatedCounter value={72} decimals={0} suffix=" %" />
-                    </p>
-                    <span className="text-[10px] text-[#D89A24] dark:text-[#FBBF24] font-medium">Below EV 80%</span>
-                  </SpotlightCard>
-
-                  <SpotlightCard
-                    borderRadius={12}
-                    beamDuration={4}
-                    className="p-3 rounded-xl bg-[#F7FAF8] dark:bg-[#15241E] border border-[#DDE7E2] dark:border-[#1E382D] cursor-pointer"
-                  >
-                    <div className="flex items-center justify-between text-[#62756E] dark:text-[#9BB3A8] text-xs">
-                      <span>RUL Remaining</span>
-                      <RefreshCw className="w-3.5 h-3.5 text-[#137A58] dark:text-[#34D399]" />
-                    </div>
-                    <p className="text-base font-bold font-mono text-[#10201B] dark:text-[#ECFDF5] mt-1">
-                      <AnimatedCounter value={384} decimals={0} suffix=" cyc" />
-                    </p>
-                    <span className="text-[10px] text-[#62756E] dark:text-[#9BB3A8] font-medium">~3.5 Yrs 2nd Life</span>
-                  </SpotlightCard>
-                </div>
-              </div>
-
-              {/* Center: ReVoltX AI Intelligence Core */}
-              <div className="lg:col-span-4 flex flex-col items-center text-center p-5 rounded-2xl bg-[#F0F5F2] dark:bg-[#14231C] border border-[#DDE7E2] dark:border-[#1E382D] relative overflow-hidden group">
-                <BorderBeam
-                  hoverOnly={true}
-                  borderRadius={16}
-                  duration={5}
-                  colorFrom="#137A58"
-                  colorMid="#21A879"
-                  colorTo="#C9EF72"
-                />
-
-                <span className="text-xs font-bold uppercase tracking-wider text-[#137A58] dark:text-[#34D399] mb-3 flex items-center gap-1.5 relative z-10">
-                  <Cpu className="w-4 h-4 text-[#137A58] dark:text-[#34D399] animate-pulse" />
-                  2. ReVoltX Intelligence Core
-                </span>
-
-                <div className="relative z-10">
-                  <RXScoreGauge score={78} size="md" showDetails={false} />
-                </div>
-
-                <div className="mt-4 p-3 rounded-xl bg-white dark:bg-[#111E18] border border-[#DDE7E2] dark:border-[#1E382D] text-xs text-left w-full space-y-1 relative z-10 shadow-2xs">
-                  <div className="flex items-center justify-between font-semibold text-[#10201B] dark:text-[#ECFDF5]">
-                    <span>Anomaly Detected</span>
-                    <span className="text-[#D89A24] dark:text-[#FBBF24] text-[10px] font-mono">CODE: THM-42</span>
-                  </div>
-                  <p className="text-[#62756E] dark:text-[#9BB3A8] text-[11px] leading-tight">
-                    Accelerated thermal degradation during fast charging. Retains 72% capacity.
-                  </p>
-                </div>
-
-                <div className="mt-2 text-[10px] text-[#62756E] dark:text-[#9BB3A8] font-mono relative z-10">
-                  Electrochemical Model: LFP-EIS-v4 • Confidence: 96.2%
-                </div>
-              </div>
-
-              {/* Right Column: 3 Decision Engine Pathways */}
-              <div className="lg:col-span-4 space-y-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#62756E] dark:text-[#9BB3A8] block mb-2">
-                  3. Decision Engine Pathways
-                </span>
-
-                {/* Branch 1: Continue Use */}
-                <SpotlightCard
-                  borderRadius={12}
-                  beamDuration={4}
-                  beamColorFrom="#137A58"
-                  beamColorMid="#21A879"
-                  beamColorTo="#A7F3D0"
-                  className={`w-full text-left p-3.5 rounded-xl border transition-all cursor-pointer ${
-                    activeBranch === 'continue'
-                      ? 'bg-[#DDF5EA] dark:bg-[#133325] border-[#137A58] dark:border-[#34D399] shadow-xs ring-2 ring-[#BBEAD7] dark:ring-[#1E4D38]'
-                      : 'bg-white dark:bg-[#111E18] border-[#DDE7E2] dark:border-[#1E382D] hover:bg-[#F7FAF8] dark:hover:bg-[#162720]'
-                  }`}
-                  onClick={() => setActiveBranch('continue')}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#10201B] dark:text-[#ECFDF5] flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#137A58] dark:text-[#34D399]" />
-                      CONTINUE USE
-                    </span>
-                    <span className="text-[10px] font-mono text-[#62756E] dark:text-[#9BB3A8]">SOH &gt; 80%</span>
-                  </div>
-                  <p className="text-[11px] text-[#62756E] dark:text-[#9BB3A8] mt-1">
-                    Retain in primary high-draw EV mobility service.
-                  </p>
-                </SpotlightCard>
-
-                {/* Branch 2: Second Life (Selected by default) */}
-                <SpotlightCard
-                  borderRadius={12}
-                  beamDuration={4}
-                  beamColorFrom="#5D7C13"
-                  beamColorMid="#84CC16"
-                  beamColorTo="#ECFCCB"
-                  spotlightColor="rgba(93, 124, 19, 0.15)"
-                  className={`w-full text-left p-3.5 rounded-xl border transition-all cursor-pointer ${
-                    activeBranch === 'secondLife'
-                      ? 'bg-[#F3F8E5] dark:bg-[#202E10] border-[#5D7C13] dark:border-[#84CC16] shadow-xs ring-2 ring-[#DAECAE] dark:ring-[#365314]'
-                      : 'bg-white dark:bg-[#111E18] border-[#DDE7E2] dark:border-[#1E382D] hover:bg-[#F7FAF8] dark:hover:bg-[#162720]'
-                  }`}
-                  onClick={() => setActiveBranch('secondLife')}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#10201B] dark:text-[#ECFDF5] flex items-center gap-2">
-                      <RefreshCw className="w-4 h-4 text-[#5D7C13] dark:text-[#A3E635]" />
-                      SECOND LIFE (RECOMMENDED)
-                    </span>
-                    <span className="text-[10px] font-bold text-[#5D7C13] dark:text-[#BEF264] bg-[#E2ECC8] dark:bg-[#2A3C13] px-2 py-0.5 rounded">
-                      Optimal Fit
-                    </span>
-                  </div>
-                  <p className="text-[11px] text-[#10201B] dark:text-[#ECFDF5] font-medium mt-1">
-                    Candidate for stationary solar energy storage or telecom buffer.
-                  </p>
-                  <div className="mt-2 text-[10px] text-[#5D7C13] dark:text-[#A3E635] font-semibold">
-                    Target: Solar Energy Storage • +3.5 Yrs Extension
-                  </div>
-                </SpotlightCard>
-
-                {/* Branch 3: Recycle */}
-                <SpotlightCard
-                  borderRadius={12}
-                  beamDuration={4}
-                  beamColorFrom="#D94B4B"
-                  beamColorMid="#F87171"
-                  beamColorTo="#FECACA"
-                  spotlightColor="rgba(217, 75, 75, 0.15)"
-                  className={`w-full text-left p-3.5 rounded-xl border transition-all cursor-pointer ${
-                    activeBranch === 'recycle'
-                      ? 'bg-[#FDF0EE] dark:bg-[#331414] border-[#D94B4B] dark:border-[#F87171] shadow-xs ring-2 ring-[#F8C8C4] dark:ring-[#5C1D1D]'
-                      : 'bg-white dark:bg-[#111E18] border-[#DDE7E2] dark:border-[#1E382D] hover:bg-[#F7FAF8] dark:hover:bg-[#162720]'
-                  }`}
-                  onClick={() => setActiveBranch('recycle')}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#10201B] dark:text-[#ECFDF5] flex items-center gap-2">
-                      <Recycle className="w-4 h-4 text-[#D94B4B] dark:text-[#F87171]" />
-                      RECYCLE
-                    </span>
-                    <span className="text-[10px] font-mono text-[#62756E] dark:text-[#9BB3A8]">SOH &lt; 50%</span>
-                  </div>
-                  <p className="text-[11px] text-[#62756E] dark:text-[#9BB3A8] mt-1">
-                    Hydrometallurgical extraction of Li, Ni, Co precursors.
-                  </p>
-                </SpotlightCard>
-              </div>
-            </div>
-
-            {/* Bottom CTA to View Single Source of Truth */}
-            <div className="mt-6 pt-6 border-t border-[#DDE7E2] dark:border-[#1E382D] flex flex-col sm:flex-row items-center justify-between text-xs text-[#62756E] dark:text-[#9BB3A8] gap-3 relative z-10">
-              <span className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#137A58] dark:bg-[#34D399] animate-pulse" />
-                <span>Single Source of Truth: This battery data synchronizes across all 3 portals instantly.</span>
-              </span>
-              <Link
-                href="/demo"
-                className="font-bold text-[#137A58] dark:text-[#34D399] hover:underline flex items-center gap-1 group"
-              >
-                <span>Watch the complete 12-stage interactive walkthrough</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </Link>
-            </div>
-          </motion.div>
+          <ExplodedBatteryView />
         </div>
       </section>
 
