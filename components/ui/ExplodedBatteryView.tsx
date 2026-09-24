@@ -288,7 +288,7 @@ export function ExplodedBatteryView() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="group/card relative w-full rounded-3xl bg-[#090F0C] dark:bg-[#070D0A] border border-[#1E382D] shadow-2xl overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="group/card relative w-full rounded-3xl bg-black/40 backdrop-blur-xl border border-white/10 shadow-2xl overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
           {/* Ambient Border Glow */}
           <BorderBeam
@@ -301,9 +301,9 @@ export function ExplodedBatteryView() {
           />
 
           {/* Top HUD Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 border-b border-[#1E382D]/80 bg-[#0B1511]/90 backdrop-blur-md gap-3 relative z-10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 border-b border-white/10 bg-black/30 backdrop-blur-md gap-3 relative z-10">
             <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-xl bg-[#133325] border border-[#1E4D38] flex items-center justify-center text-[#34D399] shadow-inner">
+              <div className="h-9 w-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-[#34D399] shadow-inner">
                 <Layers className="w-5 h-5 animate-pulse" />
               </div>
               <div>
@@ -312,7 +312,7 @@ export function ExplodedBatteryView() {
                     <span className="h-1.5 w-1.5 rounded-full bg-[#34D399] animate-ping" />
                     3D Exploded Hardware View
                   </span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#162720] text-[#9BB3A8] border border-[#1E382D]">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/5 text-[#9BB3A8] border border-white/10">
                     Asset RX-2026-892738 (LFP 60Ah)
                   </span>
                 </div>
@@ -335,7 +335,7 @@ export function ExplodedBatteryView() {
 
               <Link
                 href="/battery/RX-2026-892738"
-                className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-[#133325] hover:bg-[#1A4532] text-[#34D399] border border-[#1E4D38] flex items-center gap-1.5 transition-all shadow-xs"
+                className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5 transition-all shadow-xs"
               >
                 <span>Passport</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -363,7 +363,7 @@ export function ExplodedBatteryView() {
 
             {/* Stage Badge Floating HUD (Top Left) */}
             <div className="absolute top-4 left-4 z-10 max-w-xs sm:max-w-sm pointer-events-none">
-              <div className="p-3 rounded-2xl bg-[#090F0C]/85 backdrop-blur-md border border-[#1E382D] text-left shadow-lg">
+              <div className="p-3 rounded-2xl bg-black/50 backdrop-blur-md border border-white/10 text-left shadow-lg">
                 <div className="flex items-center justify-between gap-2 mb-1">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#34D399] flex items-center gap-1">
                     <Sparkles className="w-3 h-3 text-[#C9EF72]" />
@@ -376,7 +376,7 @@ export function ExplodedBatteryView() {
                 <p className="text-xs text-[#ECFDF5] font-medium leading-tight mb-2">
                   {currentStage.description}
                 </p>
-                <div className="grid grid-cols-3 gap-1.5 pt-1.5 border-t border-[#1E382D]/70 text-[10px]">
+                <div className="grid grid-cols-3 gap-1.5 pt-1.5 border-t border-white/10 text-[10px]">
                   {currentStage.specs.map((spec, i) => (
                     <div key={i} className="flex flex-col">
                       <span className="text-[#62756E] dark:text-[#9BB3A8] text-[9px] truncate">{spec.label}</span>
@@ -389,7 +389,7 @@ export function ExplodedBatteryView() {
 
             {/* Floating Live Telemetry Metrics HUD (Top Right) */}
             <div className="hidden md:flex flex-col gap-2 absolute top-4 right-4 z-10 pointer-events-none">
-              <div className="px-3 py-2 rounded-xl bg-[#090F0C]/85 backdrop-blur-md border border-[#1E382D] flex items-center gap-2.5 shadow-lg">
+              <div className="px-3 py-2 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 flex items-center gap-2.5 shadow-lg">
                 <Zap className="w-3.5 h-3.5 text-[#C9EF72]" />
                 <div className="text-left">
                   <div className="text-[9px] text-[#9BB3A8] uppercase tracking-wider">Busbar Voltage</div>
@@ -397,7 +397,7 @@ export function ExplodedBatteryView() {
                 </div>
               </div>
 
-              <div className="px-3 py-2 rounded-xl bg-[#090F0C]/85 backdrop-blur-md border border-[#1E382D] flex items-center gap-2.5 shadow-lg">
+              <div className="px-3 py-2 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 flex items-center gap-2.5 shadow-lg">
                 <Thermometer className="w-3.5 h-3.5 text-[#F59E0B]" />
                 <div className="text-left">
                   <div className="text-[9px] text-[#9BB3A8] uppercase tracking-wider">Module Core Temp</div>
@@ -405,7 +405,7 @@ export function ExplodedBatteryView() {
                 </div>
               </div>
 
-              <div className="px-3 py-2 rounded-xl bg-[#090F0C]/85 backdrop-blur-md border border-[#1E382D] flex items-center gap-2.5 shadow-lg">
+              <div className="px-3 py-2 rounded-xl bg-black/50 backdrop-blur-md border border-white/10 flex items-center gap-2.5 shadow-lg">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#34D399]" />
                 <div className="text-left">
                   <div className="text-[9px] text-[#9BB3A8] uppercase tracking-wider">Core Health</div>
@@ -420,7 +420,7 @@ export function ExplodedBatteryView() {
                 initial={{ opacity: 0, y: -6 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#133325]/90 border border-[#1E4D38] text-xs font-medium text-[#34D399] backdrop-blur-xs shadow-md animate-bounce"
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-white/15 text-xs font-medium text-[#34D399] backdrop-blur-md shadow-md animate-bounce"
               >
                 <span>Scroll down to explode battery view</span>
                 <ChevronDown className="w-3.5 h-3.5" />
@@ -429,7 +429,7 @@ export function ExplodedBatteryView() {
           </div>
 
           {/* Bottom Interactive Scrubber & Controls Bar */}
-          <div className="px-6 py-3.5 bg-[#0B1511]/95 border-t border-[#1E382D] flex flex-col sm:flex-row items-center justify-between gap-3 relative z-10">
+          <div className="px-6 py-3.5 bg-black/30 backdrop-blur-md border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 relative z-10">
             {/* Scrubber Controls */}
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <button
@@ -452,7 +452,7 @@ export function ExplodedBatteryView() {
                     window.scrollTo({ top: window.scrollY + trackRect.top - 80, behavior: 'smooth' });
                   }
                 }}
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-[#162720] hover:bg-[#1E382D] text-[#9BB3A8] text-xs transition-colors"
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/15 text-white border border-white/10 text-xs transition-colors"
                 title="Reset to Assembled View"
               >
                 <RotateCcw className="w-3 h-3" />
@@ -460,7 +460,7 @@ export function ExplodedBatteryView() {
               </button>
 
               {/* Stage Jump Buttons */}
-              <div className="hidden lg:flex items-center gap-1 pl-2 border-l border-[#1E382D]">
+              <div className="hidden lg:flex items-center gap-1 pl-2 border-l border-white/10">
                 {STAGES.map((stage) => {
                   const isActive = currentStage.stageNum === stage.stageNum;
                   return (
@@ -483,8 +483,8 @@ export function ExplodedBatteryView() {
                       }}
                       className={`text-[10px] px-2.5 py-1 rounded-lg font-medium transition-all ${
                         isActive
-                          ? 'bg-[#133325] text-[#34D399] border border-[#1E4D38] font-bold'
-                          : 'text-[#62756E] hover:text-[#9BB3A8]'
+                          ? 'bg-emerald-500/20 text-[#34D399] border border-emerald-500/30 font-bold'
+                          : 'text-[#9BB3A8] hover:text-white'
                       }`}
                     >
                       Stage {stage.stageNum}
@@ -496,7 +496,7 @@ export function ExplodedBatteryView() {
 
             {/* Slider Scrubber */}
             <div className="flex items-center gap-3 w-full sm:flex-1 sm:max-w-md">
-              <span className="text-[10px] font-mono text-[#62756E] whitespace-nowrap">
+              <span className="text-[10px] font-mono text-[#9BB3A8] whitespace-nowrap">
                 001
               </span>
               <div className="relative flex-1 flex items-center">
@@ -506,7 +506,7 @@ export function ExplodedBatteryView() {
                   max={TOTAL_FRAMES}
                   value={currentFrame}
                   onChange={handleScrubberChange}
-                  className="w-full h-1.5 bg-[#162720] rounded-lg appearance-none cursor-pointer accent-[#21A879]"
+                  className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-[#21A879]"
                   aria-label="Exploded View Frame Scrubber"
                 />
               </div>

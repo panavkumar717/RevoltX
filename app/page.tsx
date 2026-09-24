@@ -3,23 +3,23 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-  Zap, 
-  ArrowRight, 
-  PlayCircle, 
-  ShieldCheck, 
-  Activity, 
-  Cpu, 
-  Thermometer, 
-  Gauge, 
-  RefreshCw, 
-  Recycle, 
-  Factory, 
-  User, 
-  CheckCircle2, 
-  QrCode, 
-  TrendingUp, 
-  Leaf, 
+import {
+  Zap,
+  ArrowRight,
+  PlayCircle,
+  ShieldCheck,
+  Activity,
+  Cpu,
+  Thermometer,
+  Gauge,
+  RefreshCw,
+  Recycle,
+  Factory,
+  User,
+  CheckCircle2,
+  QrCode,
+  TrendingUp,
+  Leaf,
   ChevronRight,
   ExternalLink,
   Layers,
@@ -36,91 +36,108 @@ import { ShinyText } from '../components/ui/ShinyText';
 import { AnimatedCounter } from '../components/ui/AnimatedCounter';
 import { HeroBackground } from '../components/ui/HeroBackground';
 import { ExplodedBatteryView } from '../components/ui/ExplodedBatteryView';
+import { FloatingDock } from '../components/ui/floating-dock';
+import { revoltxDockItems } from '../components/shared/dockItems';
+import Galaxy from '../components/ui/Galaxy';
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#F7FAF8] dark:bg-[#0B1310] flex flex-col selection:bg-[#DDF5EA] dark:selection:bg-[#133325] selection:text-[#137A58] dark:selection:text-[#34D399] transition-colors">
+    <div className="min-h-screen bg-transparent flex flex-col selection:bg-emerald-500/20 selection:text-emerald-300 transition-colors relative">
+      {/* Full-Page Fixed Non-Scrollable Interactive Galaxy Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <Galaxy
+          trackWindowMouse={true}
+          mouseInteraction={true}
+          mouseRepulsion={true}
+          repulsionStrength={2.5}
+          density={0.6}
+          glowIntensity={0.5}
+          saturation={0.0}
+          hueShift={0}
+          speed={0.8}
+          starSpeed={0.5}
+          twinkleIntensity={0.35}
+          transparent={true}
+        />
+      </div>
+
       <PublicNavbar />
 
       {/* ========================================================
           HERO SECTION with Interactive Lifecycle Flow
       ======================================================== */}
-      <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 border-b border-[#DDE7E2] dark:border-[#1E352B]">
-        {/* React Bits Interactive Particle Background & Grid (Clipped) */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <HeroBackground particleCount={32} />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#DDE7E2_1px,transparent_1px),linear-gradient(to_bottom,#DDE7E2_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1E352B_1px,transparent_1px),linear-gradient(to_bottom,#1E352B_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-35 dark:opacity-20" />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="relative min-h-[92vh] sm:min-h-screen flex flex-col justify-center items-center pt-24 pb-16 sm:pt-32 sm:pb-20 border-b border-black/5 dark:border-white/10 bg-transparent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center text-center">
           {/* Badge & Pill */}
-          <div className="flex flex-col items-center text-center">
-            <motion.div 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DDF5EA]/90 dark:bg-[#133325]/90 backdrop-blur-xs border border-[#BBEAD7] dark:border-[#1E4D38] text-xs font-semibold text-[#137A58] dark:text-[#34D399] mb-6 shadow-2xs hover:border-[#137A58] dark:hover:border-[#34D399] transition-colors"
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/15 text-xs font-semibold text-[#137A58] dark:text-[#34D399] mb-6 shadow-2xs hover:border-[#34D399] transition-colors"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-[#21A879] dark:text-[#34D399] animate-spin-slow" />
+            <ShinyText text="EU Battery Passport Ready • UL 1974 Circular Protocol" speed={3.5} className="text-xs" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#137A58] dark:bg-[#34D399] animate-ping" />
+            <span className="text-[#62756E] dark:text-[#9BB3A8] font-normal">v2.6 OS</span>
+          </motion.div>
+
+          {/* Headline with React Bits BlurText */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#10201B] dark:text-[#ECFDF5] max-w-4xl"
+          >
+            <BlurText text="Every Battery Has a" delay={60} className="inline-flex justify-center" />
+            {' '}
+            <span className="relative text-[#137A58] dark:text-[#21A879] inline-block font-extrabold ml-1">
+              Second Life.
+              <span className="absolute bottom-2 left-0 right-0 h-3 bg-[#C9EF72]/45 dark:bg-[#C9EF72]/20 -z-10 rounded-sm -rotate-1" />
+            </span>
+          </motion.div>
+
+          {/* Subhead */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 text-lg sm:text-xl text-[#62756E] dark:text-[#9BB3A8] max-w-2xl leading-relaxed"
+          >
+            ReVoltX creates a continuous intelligence layer for batteries — from manufacture to first life, deep health diagnostics, second life and closed-loop recycling.
+          </motion.p>
+
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-8 flex flex-wrap items-center justify-center gap-3.5"
+          >
+            <Link
+              href="/demo"
+              className="relative group inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#137A58] dark:bg-[#21A879] text-white font-semibold text-sm hover:bg-[#0E5B42] dark:hover:bg-[#1A8D65] shadow-sm hover:shadow-lg hover:shadow-[#137A58]/20 transition-all overflow-hidden"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#21A879] dark:text-[#34D399] animate-spin-slow" />
-              <ShinyText text="EU Battery Passport Ready • UL 1974 Circular Protocol" speed={3.5} className="text-xs" />
-              <span className="h-1.5 w-1.5 rounded-full bg-[#137A58] dark:bg-[#34D399] animate-ping" />
-              <span className="text-[#62756E] dark:text-[#9BB3A8] font-normal">v2.6 OS</span>
-            </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+              <PlayCircle className="w-4 h-4 text-[#C9EF72] group-hover:scale-110 transition-transform" />
+              <span>Launch Interactive Demo (90s)</span>
+              <ArrowRight className="w-4 h-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+            </Link>
 
-            {/* Headline with React Bits BlurText */}
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#10201B] dark:text-[#ECFDF5] max-w-4xl"
+            <Link
+              href="#hardware-view"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md text-[#10201B] dark:text-[#ECFDF5] font-semibold text-sm hover:bg-white/20 dark:hover:bg-white/10 hover:border-white/30 border border-white/15 shadow-2xs transition-all hover:scale-[1.02]"
             >
-              <BlurText text="Every Battery Has a" delay={60} className="inline-flex justify-center" />
-              {' '}
-              <span className="relative text-[#137A58] dark:text-[#21A879] inline-block font-extrabold ml-1">
-                Second Life.
-                <span className="absolute bottom-2 left-0 right-0 h-3 bg-[#C9EF72]/45 dark:bg-[#C9EF72]/20 -z-10 rounded-sm -rotate-1" />
-              </span>
-            </motion.div>
+              <span>Explore 3D Architecture</span>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
 
-            {/* Subhead */}
-            <motion.p 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 text-lg sm:text-xl text-[#62756E] dark:text-[#9BB3A8] max-w-2xl leading-relaxed"
-            >
-              ReVoltX creates a continuous intelligence layer for batteries — from manufacture to first life, deep health diagnostics, second life and closed-loop recycling.
-            </motion.p>
-
-            {/* Action Buttons */}
-            <motion.div 
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-8 flex flex-wrap items-center justify-center gap-3.5"
-            >
-              <Link
-                href="/demo"
-                className="relative group inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#137A58] dark:bg-[#21A879] text-white font-semibold text-sm hover:bg-[#0E5B42] dark:hover:bg-[#1A8D65] shadow-sm hover:shadow-lg hover:shadow-[#137A58]/20 transition-all overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
-                <PlayCircle className="w-4 h-4 text-[#C9EF72] group-hover:scale-110 transition-transform" />
-                <span>Launch Interactive Demo (90s)</span>
-                <ArrowRight className="w-4 h-4 text-white/80 group-hover:translate-x-1 transition-transform" />
-              </Link>
-
-              <Link
-                href="#how-it-works"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white dark:bg-[#111E18] text-[#10201B] dark:text-[#ECFDF5] font-semibold text-sm hover:bg-[#F0F5F2] dark:hover:bg-[#162720] hover:border-[#137A58] dark:hover:border-[#34D399] border border-[#DDE7E2] dark:border-[#1E352B] shadow-2xs transition-all hover:scale-[1.02]"
-              >
-                <span>Explore Platform Architecture</span>
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* ========================================================
-              3D Exploded Battery Hardware Architecture (Scroll-Driven)
-          ======================================================== */}
+      {/* ========================================================
+          3D Exploded Battery Hardware Architecture (Scroll-Driven)
+      ======================================================== */}
+      <section id="hardware-view" className="relative py-16 sm:py-20 border-b border-black/5 dark:border-white/10 bg-transparent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ExplodedBatteryView />
         </div>
       </section>
@@ -128,7 +145,7 @@ export default function LandingPage() {
       {/* ========================================================
           THE PROBLEM SECTION
       ======================================================== */}
-      <section id="problem" className="py-20 bg-white dark:bg-[#0E1713] border-b border-[#DDE7E2] dark:border-[#1E382D] transition-colors">
+      <section id="problem" className="py-20 bg-transparent border-b border-black/5 dark:border-white/10 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <span className="text-xs font-bold uppercase tracking-wider text-[#137A58] dark:text-[#34D399]">
@@ -144,7 +161,7 @@ export default function LandingPage() {
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <SpotlightCard
-              className="p-6 rounded-2xl bg-white dark:bg-[#111E18] border border-[#DDE7E2] dark:border-[#1E382D] shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-white/10 dark:bg-white/[0.03] border border-black/10 dark:border-white/10 backdrop-blur-md shadow-2xs hover:shadow-lg transition-all flex flex-col justify-between"
               beamColorFrom="#137A58"
               beamColorMid="#21A879"
               beamColorTo="#C9EF72"
@@ -160,7 +177,7 @@ export default function LandingPage() {
             </SpotlightCard>
 
             <SpotlightCard
-              className="p-6 rounded-2xl bg-white dark:bg-[#111E18] border border-[#DDE7E2] dark:border-[#1E382D] shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-white/10 dark:bg-white/[0.03] border border-black/10 dark:border-white/10 backdrop-blur-md shadow-2xs hover:shadow-lg transition-all flex flex-col justify-between"
               beamColorFrom="#D89A24"
               beamColorMid="#F59E0B"
               beamColorTo="#FEF08A"
@@ -177,7 +194,7 @@ export default function LandingPage() {
             </SpotlightCard>
 
             <SpotlightCard
-              className="p-6 rounded-2xl bg-white dark:bg-[#111E18] border border-[#DDE7E2] dark:border-[#1E382D] shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-white/10 dark:bg-white/[0.03] border border-black/10 dark:border-white/10 backdrop-blur-md shadow-2xs hover:shadow-lg transition-all flex flex-col justify-between"
               beamColorFrom="#4386C5"
               beamColorMid="#38BDF8"
               beamColorTo="#BAE6FD"
@@ -193,38 +210,13 @@ export default function LandingPage() {
               </div>
             </SpotlightCard>
           </div>
-
-          {/* ReVoltX Solution Callout */}
-          <SpotlightCard
-            className="mt-8 p-6 rounded-2xl bg-[#DDF5EA]/70 dark:bg-[#133325]/70 border border-[#BBEAD7] dark:border-[#1E4D38] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
-            beamColorFrom="#137A58"
-            beamColorMid="#21A879"
-            beamColorTo="#C9EF72"
-            borderRadius={16}
-          >
-            <div className="flex items-start sm:items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-white dark:bg-[#111E18] text-[#137A58] dark:text-[#34D399] shadow-2xs shrink-0">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <p className="text-xs sm:text-sm text-[#10201B] dark:text-[#ECFDF5] leading-relaxed">
-                <strong className="text-[#137A58] dark:text-[#34D399]">ReVoltX</strong> addresses this gap by creating a <strong className="text-[#10201B] dark:text-[#ECFDF5]">Digital Battery Passport</strong> that follows the battery across its lifecycle — from manufacturing and vehicle use to diagnostics, second-life repurposing, and final recycling.
-              </p>
-            </div>
-            <Link
-              href="/battery/RX-2026-892738"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] dark:bg-[#21A879] text-white text-xs font-semibold hover:bg-[#0E5B42] dark:hover:bg-[#1A8D65] shrink-0 transition-colors shadow-2xs group"
-            >
-              <QrCode className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform" />
-              <span>Explore Passport</span>
-            </Link>
-          </SpotlightCard>
         </div>
       </section>
 
       {/* ========================================================
           HOW REVOLTX WORKS (7 Continuous Lifecycle Steps)
       ======================================================== */}
-      <section id="how-it-works" className="py-20 bg-[#F7FAF8] dark:bg-[#0B1310] border-b border-[#DDE7E2] dark:border-[#1E382D]">
+      <section id="how-it-works" className="py-20 bg-transparent border-b border-black/5 dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto">
             <span className="text-xs font-bold uppercase tracking-wider text-[#137A58] dark:text-[#34D399]">
@@ -292,15 +284,15 @@ export default function LandingPage() {
             ].map((item, idx) => {
               const StepIcon = item.icon;
               return (
-                <SpotlightCard 
+                <SpotlightCard
                   key={item.step}
                   borderRadius={16}
                   beamDuration={5}
-                  className="p-5 rounded-2xl bg-white dark:bg-[#111E18] border border-[#DDE7E2] dark:border-[#1E382D] shadow-2xs hover:shadow-md transition-all flex flex-col justify-between group cursor-pointer"
+                  className="p-5 rounded-2xl bg-white/10 dark:bg-white/[0.03] border border-black/10 dark:border-white/10 backdrop-blur-md shadow-2xs hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer"
                 >
                   <div className="flex items-center justify-between text-[#62756E] dark:text-[#9BB3A8] mb-3">
                     <span className="font-mono text-xs font-bold text-[#137A58] dark:text-[#34D399]">{item.step}</span>
-                    <div className="p-2 rounded-lg bg-[#F0F5F2] dark:bg-[#162720] group-hover:bg-[#DDF5EA] dark:group-hover:bg-[#133325] group-hover:text-[#137A58] dark:group-hover:text-[#34D399] transition-colors">
+                    <div className="p-2 rounded-lg bg-white/10 dark:bg-white/5 border border-white/10 group-hover:bg-[#137A58]/20 group-hover:border-[#137A58]/40 group-hover:text-[#137A58] dark:group-hover:text-[#34D399] transition-colors">
                       <StepIcon className="w-4 h-4" />
                     </div>
                   </div>
@@ -316,7 +308,7 @@ export default function LandingPage() {
       {/* ========================================================
           SMART BATTERY DOCK HARDWARE SECTION
       ======================================================== */}
-      <section id="hardware" className="py-20 bg-white dark:bg-[#0E1713] border-b border-[#DDE7E2] dark:border-[#1E382D]">
+      <section id="hardware" className="py-20 bg-transparent border-b border-black/5 dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
             <span className="text-xs font-bold uppercase tracking-wider text-[#137A58] dark:text-[#34D399]">
@@ -333,7 +325,7 @@ export default function LandingPage() {
           <SpotlightCard
             borderRadius={24}
             beamDuration={6}
-            className="bg-white dark:bg-[#111E18] rounded-3xl p-2 sm:p-4 border border-[#DDE7E2] dark:border-[#1E382D] shadow-xs"
+            className="bg-white/10 dark:bg-white/[0.03] backdrop-blur-md rounded-3xl p-2 sm:p-4 border border-black/10 dark:border-white/10 shadow-xs"
           >
             <SmartDockVisualizer batteryId="RX-2026-892738" />
           </SpotlightCard>
@@ -353,7 +345,7 @@ export default function LandingPage() {
       {/* ========================================================
           THREE PORTALS SHOWCASE (Requirement 33)
       ======================================================== */}
-      <section id="portals" className="py-20 bg-[#F7FAF8] dark:bg-[#0B1310] border-b border-[#DDE7E2] dark:border-[#1E382D]">
+      <section id="portals" className="py-20 bg-transparent border-b border-black/5 dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs font-bold uppercase tracking-wider text-[#137A58] dark:text-[#34D399]">
@@ -375,13 +367,13 @@ export default function LandingPage() {
               beamColorFrom="#137A58"
               beamColorMid="#21A879"
               beamColorTo="#C9EF72"
-              className="p-7 rounded-3xl bg-white dark:bg-[#111E18] border border-[#DDE7E2] dark:border-[#1E382D] shadow-sm flex flex-col justify-between hover:shadow-md transition-all cursor-pointer"
+              className="p-7 rounded-3xl bg-white/10 dark:bg-white/[0.03] border border-black/10 dark:border-white/10 backdrop-blur-md shadow-sm flex flex-col justify-between hover:shadow-lg transition-all cursor-pointer"
             >
               <div>
-                <div className="p-3 rounded-2xl bg-[#DDF5EA] dark:bg-[#133325] text-[#137A58] dark:text-[#34D399] w-fit mb-5 shadow-2xs">
+                <div className="p-3 rounded-2xl bg-emerald-500/10 text-[#137A58] dark:text-[#34D399] border border-emerald-500/20 w-fit mb-5 shadow-2xs">
                   <Factory className="w-6 h-6" />
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#137A58] dark:text-[#34D399] bg-[#DDF5EA] dark:bg-[#133325] px-2.5 py-1 rounded-full">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#137A58] dark:text-[#34D399] bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">
                   Portal 1
                 </span>
                 <h3 className="text-xl font-bold text-[#10201B] dark:text-[#ECFDF5] mt-3">
@@ -411,7 +403,7 @@ export default function LandingPage() {
                 </ul>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-[#DDE7E2] dark:border-[#1E382D]">
+              <div className="mt-8 pt-6 border-t border-black/10 dark:border-white/10">
                 <Link
                   href="/login/manufacturer"
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#137A58] dark:bg-[#21A879] text-white text-xs font-bold hover:bg-[#0E5B42] dark:hover:bg-[#1A8D65] shadow-xs hover:shadow-sm transition-all group"
@@ -436,13 +428,13 @@ export default function LandingPage() {
               beamColorMid="#34D399"
               beamColorTo="#A7F3D0"
               spotlightColor="rgba(33, 168, 121, 0.18)"
-              className="p-7 rounded-3xl bg-white dark:bg-[#111E18] border border-[#DDE7E2] dark:border-[#1E382D] shadow-sm flex flex-col justify-between hover:shadow-md transition-all cursor-pointer"
+              className="p-7 rounded-3xl bg-white/10 dark:bg-white/[0.03] border border-black/10 dark:border-white/10 backdrop-blur-md shadow-sm flex flex-col justify-between hover:shadow-lg transition-all cursor-pointer"
             >
               <div>
-                <div className="p-3 rounded-2xl bg-[#EBF7F3] dark:bg-[#162720] text-[#21A879] dark:text-[#34D399] w-fit mb-5 shadow-2xs">
+                <div className="p-3 rounded-2xl bg-emerald-500/10 text-[#21A879] dark:text-[#34D399] border border-emerald-500/20 w-fit mb-5 shadow-2xs">
                   <User className="w-6 h-6" />
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#21A879] dark:text-[#34D399] bg-[#EBF7F3] dark:bg-[#162720] px-2.5 py-1 rounded-full">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#21A879] dark:text-[#34D399] bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">
                   Portal 2
                 </span>
                 <h3 className="text-xl font-bold text-[#10201B] dark:text-[#ECFDF5] mt-3">
@@ -472,7 +464,7 @@ export default function LandingPage() {
                 </ul>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-[#DDE7E2] dark:border-[#1E382D]">
+              <div className="mt-8 pt-6 border-t border-black/10 dark:border-white/10">
                 <Link
                   href="/login/owner"
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#21A879] dark:bg-[#34D399] text-white dark:text-[#0B1310] text-xs font-bold hover:bg-[#1A8D65] dark:hover:bg-[#21A879] shadow-xs hover:shadow-sm transition-all group"
@@ -497,13 +489,13 @@ export default function LandingPage() {
               beamColorMid="#84CC16"
               beamColorTo="#ECFCCB"
               spotlightColor="rgba(93, 124, 19, 0.18)"
-              className="p-7 rounded-3xl bg-white dark:bg-[#111E18] border border-[#DDE7E2] dark:border-[#1E382D] shadow-sm flex flex-col justify-between hover:shadow-md transition-all cursor-pointer"
+              className="p-7 rounded-3xl bg-white/10 dark:bg-white/[0.03] border border-black/10 dark:border-white/10 backdrop-blur-md shadow-sm flex flex-col justify-between hover:shadow-lg transition-all cursor-pointer"
             >
               <div>
-                <div className="p-3 rounded-2xl bg-[#F3F8E5] dark:bg-[#232F12] text-[#5D7C13] dark:text-[#A3E635] w-fit mb-5 shadow-2xs">
+                <div className="p-3 rounded-2xl bg-lime-500/10 text-[#5D7C13] dark:text-[#A3E635] border border-lime-500/20 w-fit mb-5 shadow-2xs">
                   <RefreshCw className="w-6 h-6" />
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#5D7C13] dark:text-[#A3E635] bg-[#F3F8E5] dark:bg-[#232F12] px-2.5 py-1 rounded-full">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#5D7C13] dark:text-[#A3E635] bg-lime-500/10 border border-lime-500/20 px-2.5 py-1 rounded-full">
                   Portal 3
                 </span>
                 <h3 className="text-xl font-bold text-[#10201B] dark:text-[#ECFDF5] mt-3">
@@ -533,7 +525,7 @@ export default function LandingPage() {
                 </ul>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-[#DDE7E2] dark:border-[#1E382D]">
+              <div className="mt-8 pt-6 border-t border-black/10 dark:border-white/10">
                 <Link
                   href="/login/circularity"
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#5D7C13] dark:bg-[#65A30D] text-white text-xs font-bold hover:bg-[#4E680F] dark:hover:bg-[#4D7C0F] shadow-xs hover:shadow-sm transition-all group"
@@ -556,7 +548,7 @@ export default function LandingPage() {
       {/* ========================================================
           CIRCULAR IMPACT & ENVIRONMENTAL METRICS
       ======================================================== */}
-      <section id="circularity" className="py-20 bg-white dark:bg-[#0E1713] border-b border-[#DDE7E2] dark:border-[#1E382D]">
+      <section id="circularity" className="py-20 bg-transparent border-b border-black/5 dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold uppercase tracking-wider text-[#137A58] dark:text-[#34D399]">
@@ -574,7 +566,7 @@ export default function LandingPage() {
             <SpotlightCard
               borderRadius={16}
               beamDuration={4.5}
-              className="p-6 rounded-2xl bg-white dark:bg-[#111E18] border border-[#DDE7E2] dark:border-[#1E382D] text-center shadow-2xs hover:shadow-md transition-all cursor-pointer"
+              className="p-6 rounded-2xl bg-white/10 dark:bg-white/[0.03] border border-black/10 dark:border-white/10 backdrop-blur-md text-center shadow-2xs hover:shadow-lg transition-all cursor-pointer"
             >
               <span className="text-3xl font-bold font-mono text-[#137A58] dark:text-[#34D399]">
                 <AnimatedCounter value={14.2} decimals={1} suffix=" MWh" />
@@ -590,7 +582,7 @@ export default function LandingPage() {
               beamColorMid="#34D399"
               beamColorTo="#A7F3D0"
               spotlightColor="rgba(33, 168, 121, 0.15)"
-              className="p-6 rounded-2xl bg-white dark:bg-[#111E18] border border-[#DDE7E2] dark:border-[#1E382D] text-center shadow-2xs hover:shadow-md transition-all cursor-pointer"
+              className="p-6 rounded-2xl bg-white/10 dark:bg-white/[0.03] border border-black/10 dark:border-white/10 backdrop-blur-md text-center shadow-2xs hover:shadow-lg transition-all cursor-pointer"
             >
               <span className="text-3xl font-bold font-mono text-[#21A879] dark:text-[#34D399]">
                 <AnimatedCounter value={1022} decimals={0} suffix=" Tons" />
@@ -606,7 +598,7 @@ export default function LandingPage() {
               beamColorMid="#F59E0B"
               beamColorTo="#FEF08A"
               spotlightColor="rgba(216, 154, 36, 0.15)"
-              className="p-6 rounded-2xl bg-white dark:bg-[#111E18] border border-[#DDE7E2] dark:border-[#1E382D] text-center shadow-2xs hover:shadow-md transition-all cursor-pointer"
+              className="p-6 rounded-2xl bg-white/10 dark:bg-white/[0.03] border border-black/10 dark:border-white/10 backdrop-blur-md text-center shadow-2xs hover:shadow-lg transition-all cursor-pointer"
             >
               <span className="text-3xl font-bold font-mono text-[#D89A24] dark:text-[#FBBF24]">
                 <AnimatedCounter value={96.4} decimals={1} suffix="%" />
@@ -621,7 +613,7 @@ export default function LandingPage() {
               beamColorFrom="#10201B"
               beamColorMid="#137A58"
               beamColorTo="#21A879"
-              className="p-6 rounded-2xl bg-white dark:bg-[#111E18] border border-[#DDE7E2] dark:border-[#1E382D] text-center shadow-2xs hover:shadow-md transition-all cursor-pointer"
+              className="p-6 rounded-2xl bg-white/10 dark:bg-white/[0.03] border border-black/10 dark:border-white/10 backdrop-blur-md text-center shadow-2xs hover:shadow-lg transition-all cursor-pointer"
             >
               <span className="text-3xl font-bold font-mono text-[#10201B] dark:text-[#34D399]">
                 <AnimatedCounter value={100} decimals={0} suffix="%" />
@@ -636,12 +628,11 @@ export default function LandingPage() {
       {/* ========================================================
           FINAL CTA SECTION
       ======================================================== */}
-      <section className="py-20 bg-[#F0F5F2] dark:bg-[#0B1310] relative overflow-hidden border-t border-[#DDE7E2] dark:border-[#1E382D]">
-        {/* Subtle decorative grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#DDE7E2_1px,transparent_1px),linear-gradient(to_bottom,#DDE7E2_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1E382D_1px,transparent_1px),linear-gradient(to_bottom,#1E382D_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-40 dark:opacity-20 pointer-events-none" />
+      <section className="py-20 bg-transparent relative overflow-hidden border-t border-black/5 dark:border-white/10">
+        <div className="absolute inset-0 pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <div className="inline-flex p-3 rounded-2xl bg-white dark:bg-[#111E18] shadow-xs text-[#137A58] dark:text-[#34D399] border border-transparent dark:border-[#1E382D] mb-6">
+          <div className="inline-flex p-3 rounded-2xl bg-white/10 dark:bg-white/5 shadow-xs text-[#137A58] dark:text-[#34D399] border border-white/10 mb-6">
             <Zap className="w-8 h-8 fill-current text-[#C9EF72] animate-bounce" />
           </div>
 
@@ -665,7 +656,7 @@ export default function LandingPage() {
 
             <Link
               href="/battery/RX-2026-892738"
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-2xl bg-white dark:bg-[#111E18] text-[#10201B] dark:text-[#ECFDF5] font-semibold text-sm hover:bg-[#F7FAF8] dark:hover:bg-[#162720] hover:border-[#137A58] border border-[#DDE7E2] dark:border-[#1E382D] shadow-2xs transition-all hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 px-6 py-4 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md text-[#10201B] dark:text-[#ECFDF5] font-semibold text-sm hover:bg-white/20 dark:hover:bg-white/10 hover:border-white/30 border border-white/15 shadow-2xs transition-all hover:scale-[1.02]"
             >
               <QrCode className="w-4 h-4 text-[#137A58] dark:text-[#34D399]" />
               <span>Scan Star Battery Passport</span>
@@ -673,6 +664,16 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Interactive Bottom Floating Dock */}
+      <div className="fixed bottom-6 inset-x-0 z-40 hidden sm:flex justify-center pointer-events-none">
+        <div className="pointer-events-auto">
+          <FloatingDock items={revoltxDockItems} />
+        </div>
+      </div>
+      <div className="fixed bottom-6 right-6 z-40 block sm:hidden">
+        <FloatingDock items={revoltxDockItems} />
+      </div>
 
       <PublicFooter />
     </div>

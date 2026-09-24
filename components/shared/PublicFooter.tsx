@@ -4,9 +4,9 @@ import { Zap, ShieldCheck, Heart } from 'lucide-react';
 
 export const PublicFooter: React.FC = () => {
   return (
-    <footer className="bg-white dark:bg-[#0B1310] border-t border-[#DDE7E2] dark:border-[#1E382D] text-xs text-[#62756E] dark:text-[#9BB3A8] pt-12 pb-8 transition-colors">
+    <footer className="bg-transparent border-t border-black/5 dark:border-white/10 text-xs text-[#62756E] dark:text-[#9BB3A8] pt-12 pb-8 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pb-10 border-b border-[#DDE7E2] dark:border-[#1E382D]">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pb-10 border-b border-black/5 dark:border-white/10">
           {/* Brand Col */}
           <div className="md:col-span-2 space-y-3">
             <Link href="/" className="flex items-center gap-2">

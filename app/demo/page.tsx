@@ -264,7 +264,7 @@ export default function DemoPage() {
     <div className="min-h-screen bg-[#F7FAF8] flex flex-col selection:bg-[#DDF5EA] selection:text-[#137A58]">
       <PublicNavbar />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 sm:pt-32 md:pt-36 md:pb-16">
         {/* Demo Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-[#DDE7E2] gap-4">
           <div>
