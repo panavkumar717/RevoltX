@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Wrench, Plus, CheckCircle2, Clock, AlertTriangle, UserCheck } from 'lucide-react';
+import { Wrench, Plus, CheckCircle2, Clock, AlertTriangle } from 'lucide-react';
 import { useReVoltX } from '../../../lib/store/batteryStore';
 import { ServiceStatus } from '../../../lib/types';
 
@@ -70,10 +70,8 @@ export default function ManufacturerServiceRequestsPage() {
               <tr className="border-b border-[#DDE7E2] text-[11px] uppercase font-bold text-[#62756E]">
                 <th className="pb-3 font-semibold">Request ID</th>
                 <th className="pb-3 font-semibold">Target Battery ID</th>
-                <th className="pb-3 font-semibold">Customer / Fleet</th>
                 <th className="pb-3 font-semibold">Reported Issue</th>
                 <th className="pb-3 font-semibold">Requested Date</th>
-                <th className="pb-3 font-semibold">Assigned Technician</th>
                 <th className="pb-3 font-semibold">Status</th>
               </tr>
             </thead>
@@ -86,22 +84,9 @@ export default function ManufacturerServiceRequestsPage() {
                       {req.batteryId}
                     </Link>
                   </td>
-                  <td className="py-3.5">
-                    <span className="font-semibold text-[#10201B] block">{req.customerName}</span>
-                    <span className="text-[10px] text-[#62756E]">{req.address}</span>
-                  </td>
                   <td className="py-3.5 max-w-xs text-[#10201B]">{req.issue}</td>
                   <td className="py-3.5 font-mono text-[#62756E]">
                     {new Date(req.requestedDate).toLocaleDateString()}
-                  </td>
-                  <td className="py-3.5">
-                    {req.technicianName ? (
-                      <span className="inline-flex items-center gap-1 font-semibold text-[#137A58]">
-                        <UserCheck className="w-3.5 h-3.5" /> {req.technicianName}
-                      </span>
-                    ) : (
-                      <span className="text-[#62756E] italic">Pending Assignment</span>
-                    )}
                   </td>
                   <td className="py-3.5">
                     <span className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${statusStyles[req.status] || 'bg-[#F0F5F2]'}`}>
