@@ -34,7 +34,7 @@ import { BorderBeam } from '../components/ui/BorderBeam';
 import { BlurText } from '../components/ui/BlurText';
 import { ShinyText } from '../components/ui/ShinyText';
 import { AnimatedCounter } from '../components/ui/AnimatedCounter';
-import { HeroBackground } from '../components/ui/HeroBackground';
+import { GreenBatteryBackground } from '../components/ui/GreenBatteryBackground';
 import { ExplodedBatteryView } from '../components/ui/ExplodedBatteryView';
 import { FloatingDock } from '../components/ui/floating-dock';
 import { revoltxDockItems } from '../components/shared/dockItems';
@@ -90,6 +90,11 @@ export default function LandingPage() {
           />
         </div>
       )}
+
+      {/* Full-Page Fixed Interactive Green Battery Background - Rendered in Light Mode */}
+      <div className="dark:hidden fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <GreenBatteryBackground active={!isDark} />
+      </div>
 
       <PublicNavbar />
 

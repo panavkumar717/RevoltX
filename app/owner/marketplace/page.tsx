@@ -22,10 +22,14 @@ export default function OwnerMarketplacePage() {
 
   // Filter available marketplace batteries (e.g. SOH >= 80% or new certified packs)
   const listings = batteries.filter(b => {
+    const query = search.toLowerCase();
     const matchesSearch = 
-      b.revoltXId.toLowerCase().includes(search.toLowerCase()) ||
-      b.manufacturerName.toLowerCase().includes(search.toLowerCase()) ||
-      b.chemistry.toLowerCase().includes(search.toLowerCase());
+      b.revoltXId.toLowerCase().includes(query) ||
+      b.manufacturerName.toLowerCase().includes(query) ||
+      b.chemistry.toLowerCase().includes(query) ||
+      (b.nasaDatasetId && b.nasaDatasetId.toLowerCase().includes(query)) ||
+      b.serialNumber.toLowerCase().includes(query) ||
+      (b.vehicleModel && b.vehicleModel.toLowerCase().includes(query));
 
     const matchesChem = chemistryFilter === 'ALL' || b.chemistry === chemistryFilter;
 

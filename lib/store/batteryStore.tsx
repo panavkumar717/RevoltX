@@ -40,12 +40,13 @@ interface BatteryContextType {
   updateBattery: (id: string, updates: Partial<Battery>, logEventTitle?: string, logEventDesc?: string) => void;
   createServiceRequest: (data: Omit<ServiceRequest, 'id' | 'status' | 'requestedDate'>) => ServiceRequest;
   updateServiceRequestStatus: (id: string, status: ServiceRequest['status'], technicianId?: string, notes?: string) => void;
+  addSecondLifeOpportunity: (data: Omit<SecondLifeOpportunity, 'id'>) => SecondLifeOpportunity;
   allocateSecondLifeOpportunity: (oppId: string, partnerName: string) => void;
   recordRecyclingMaterial: (record: Omit<RecyclingRecord, 'id' | 'receivedDate'>) => RecyclingRecord;
   resetToDemoData: () => void;
 }
 
-const STORAGE_KEY = 'revoltx_platform_state_v1';
+const STORAGE_KEY = 'revoltx_platform_state_v3';
 
 const BatteryContext = createContext<BatteryContextType | undefined>(undefined);
 
@@ -106,7 +107,12 @@ export const BatteryStoreProvider: React.FC<{ children: React.ReactNode }> = ({ 
     return batteries.find(b => 
       b.id.toLowerCase() === cleanId || 
       b.revoltXId.toLowerCase() === cleanId || 
-      b.serialNumber.toLowerCase() === cleanId
+      b.serialNumber.toLowerCase() === cleanId ||
+      (b.nasaDatasetId && b.nasaDatasetId.toLowerCase() === cleanId) ||
+      (cleanId === 'b0005' && b.id === 'rx-892738') ||
+      (cleanId === 'b0006' && b.id === 'rx-772190') ||
+      (cleanId === 'b0007' && b.id === 'rx-104921') ||
+      (cleanId === 'b0018' && b.id === 'rx-382910')
     );
   };
 
@@ -254,6 +260,16 @@ export const BatteryStoreProvider: React.FC<{ children: React.ReactNode }> = ({ 
     }));
   };
 
+  const addSecondLifeOpportunity = (data: Omit<SecondLifeOpportunity, 'id'>): SecondLifeOpportunity => {
+    const newId = `opp-${Math.floor(100 + Math.random() * 900)}`;
+    const newOpp: SecondLifeOpportunity = {
+      id: newId,
+      ...data
+    };
+    setOpportunities(prev => [newOpp, ...prev]);
+    return newOpp;
+  };
+
   const allocateSecondLifeOpportunity = (oppId: string, partnerName: string) => {
     let targetBatteryId = '';
     let targetApp = '';
@@ -337,6 +353,7 @@ export const BatteryStoreProvider: React.FC<{ children: React.ReactNode }> = ({ 
         updateBattery,
         createServiceRequest,
         updateServiceRequestStatus,
+        addSecondLifeOpportunity,
         allocateSecondLifeOpportunity,
         recordRecyclingMaterial,
         resetToDemoData

@@ -36,15 +36,15 @@ export default function OwnerAlertsPage() {
                   Action Recommended
                 </span>
                 <h3 className="text-sm font-bold text-[#10201B]">
-                  Accelerated Thermal Degradation Warning (38.4°C Peak)
+                  {battery.anomaly || 'Electrochemical Impedance & Thermal Warning'} ({battery.temperature}°C Peak)
                 </h3>
               </div>
             </div>
-            <span className="text-[10px] text-[#62756E] font-mono">Yesterday at 16:30</span>
+            <span className="text-[10px] text-[#62756E] font-mono">NASA ARC Protocol Validated</span>
           </div>
 
           <p className="text-xs text-[#62756E] leading-relaxed">
-            Your battery has logged 1,420 cycles and crossed the 72% SOH mark. ReVoltX recommends booking an on-site Smart Battery Dock health assessment to evaluate module cell balance and determine replacement trade-in timing.
+            Your battery has logged {battery.cycleCount} cycles and reached the {battery.currentSOH}% SOH threshold (NASA ARC B0005 aging curve). ReVoltX recommends booking an on-site Smart Battery Dock health assessment to evaluate module cell balance and determine second-life transition timing.
           </p>
 
           <div className="pt-2 flex flex-wrap items-center gap-3">

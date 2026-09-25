@@ -142,6 +142,39 @@ export default function BatteryPassportPage({
               <p className="text-xs font-bold font-mono text-[#10201B] mt-0.5">{battery.nominalVoltage} V Nominal</p>
             </div>
           </div>
+
+          {/* NASA Prognostics ARC Ground Truth telemetry banner */}
+          {battery.nasaDatasetId && (
+            <div className="mt-4 p-4 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] text-xs space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-[#0070F3] uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+                  <Activity className="w-3.5 h-3.5" />
+                  NASA Ames Prognostics Center of Excellence Ground Truth
+                </span>
+                <span className="font-mono font-bold text-[#0070F3] bg-white px-2 py-0.5 rounded-md border border-[#BFDBFE]">
+                  Unit: {battery.nasaDatasetId}
+                </span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 font-mono text-[11px]">
+                <div>
+                  <span className="text-[#62756E] block text-[10px]">Initial Capacity</span>
+                  <span className="font-bold text-[#10201B]">{battery.initialCapacityAh || 1.8565} Ah</span>
+                </div>
+                <div>
+                  <span className="text-[#62756E] block text-[10px]">Current Retention</span>
+                  <span className="font-bold text-[#10201B]">{battery.currentCapacityAh || 1.3251} Ah ({battery.currentSOH}%)</span>
+                </div>
+                <div>
+                  <span className="text-[#62756E] block text-[10px]">Electrolyte Res (Re)</span>
+                  <span className="font-bold text-[#10201B]">{battery.internalResistanceRe || 0.050} Ω</span>
+                </div>
+                <div>
+                  <span className="text-[#62756E] block text-[10px]">Charge Transfer (Rct)</span>
+                  <span className="font-bold text-[#10201B]">{battery.chargeTransferRct || 0.075} Ω</span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Health & RX Intelligence Section */}

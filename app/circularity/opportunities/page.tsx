@@ -77,7 +77,7 @@ export default function CircularityOpportunitiesPage() {
       {/* Grid of Opportunities */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredOpps.map(opp => {
-          const matchingBat = batteries.find(b => b.revoltXId === opp.batteryId);
+          const matchingBat = batteries.find(b => b.revoltXId === opp.batteryId || b.id === opp.batteryId || b.serialNumber === opp.batteryId);
 
           return (
             <div

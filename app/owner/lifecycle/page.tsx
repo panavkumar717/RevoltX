@@ -53,7 +53,7 @@ export default function OwnerLifecyclePage() {
             "Your battery may require replacement in approximately 12 months."
           </h3>
           <p className="text-xs text-[#62756E] mt-1 leading-relaxed">
-            With SOH at 72% and 384 cycles remaining in high-demand vehicle service, you will receive full trade-in value toward a certified replacement pack.
+            With SOH at {battery.currentSOH}% and {battery.rul} cycles remaining in high-demand vehicle service, you will receive full trade-in value toward a certified replacement pack.
           </p>
         </div>
 

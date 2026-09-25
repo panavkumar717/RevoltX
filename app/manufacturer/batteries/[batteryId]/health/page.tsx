@@ -61,6 +61,48 @@ export default function ManufacturerBatteryHealthPage({
             <RXScoreGauge score={battery.rxScore} size="lg" showDetails={true} />
           </div>
 
+          {battery.nasaDatasetId && (
+            <div className="bg-[#F8FAF9] p-5 rounded-3xl border border-[#DDE7E2] space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
+                  NASA ARC Ground Truth
+                </span>
+                <span className="text-xs font-mono font-bold bg-[#EFF6FF] text-[#0070F3] px-2 py-0.5 rounded-full border border-[#BFDBFE]">
+                  Cell {battery.nasaDatasetId}
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-3 text-xs">
+                <div className="p-3 bg-white rounded-xl border border-[#DDE7E2]">
+                  <p className="text-[10px] text-[#62756E]">Initial Capacity</p>
+                  <p className="text-sm font-bold font-mono text-[#10201B] mt-0.5">
+                    {battery.initialCapacityAh ?? 2.0} Ah
+                  </p>
+                </div>
+                <div className="p-3 bg-white rounded-xl border border-[#DDE7E2]">
+                  <p className="text-[10px] text-[#62756E]">Current Capacity</p>
+                  <p className="text-sm font-bold font-mono text-[#0070F3] mt-0.5">
+                    {battery.currentCapacityAh ?? battery.capacity} Ah
+                  </p>
+                </div>
+                <div className="p-3 bg-white rounded-xl border border-[#DDE7E2]">
+                  <p className="text-[10px] text-[#62756E]">EIS Re (Electrolyte)</p>
+                  <p className="text-sm font-bold font-mono text-[#10201B] mt-0.5">
+                    {battery.internalResistanceRe ? `${battery.internalResistanceRe} Ω` : 'N/A'}
+                  </p>
+                </div>
+                <div className="p-3 bg-white rounded-xl border border-[#DDE7E2]">
+                  <p className="text-[10px] text-[#62756E]">EIS Rct (Transfer)</p>
+                  <p className="text-sm font-bold font-mono text-[#10201B] mt-0.5">
+                    {battery.chargeTransferRct ? `${battery.chargeTransferRct} Ω` : 'N/A'}
+                  </p>
+                </div>
+              </div>
+              <p className="text-[11px] text-[#62756E]">
+                Empirical degradation curves logged across {battery.cycleCount} operational cycles at NASA Ames Prognostics Center of Excellence.
+              </p>
+            </div>
+          )}
+
           {battery.anomaly && (
             <div className="p-4 rounded-2xl bg-[#FEF6E7] border border-[#F8E0B0] text-xs space-y-1">
               <div className="flex items-center gap-1.5 font-bold text-[#10201B]">
