@@ -11,7 +11,7 @@ export default function InternalSecondLifePage() {
   return (
     <div className="space-y-6">
       <div className="pb-4 border-b border-[#DDE7E2]">
-        <span className="text-xs font-bold uppercase tracking-wider text-[#0284C7]">
+        <span className="text-xs font-bold uppercase tracking-wider text-[#5D7C13]">
           Circular Operations
         </span>
         <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -41,13 +41,13 @@ export default function InternalSecondLifePage() {
               {opportunities.map(opp => (
                 <tr key={opp.id} className="hover:bg-[#F7FAF8]">
                   <td className="py-3.5 font-mono font-bold text-[#10201B]">{opp.id}</td>
-                  <td className="py-3.5 font-mono font-bold text-[#0070F3]">{opp.batteryId}</td>
+                  <td className="py-3.5 font-mono font-bold text-[#137A58]">{opp.batteryId}</td>
                   <td className="py-3.5 font-semibold text-[#10201B]">{opp.targetApplication}</td>
                   <td className="py-3.5 font-mono">{opp.capacityKWh} kWh</td>
                   <td className="py-3.5 font-mono text-[#D89A24] font-bold">{opp.soh}%</td>
-                  <td className="py-3.5 font-mono font-bold text-[#0070F3]">{opp.rxScore}/100</td>
+                  <td className="py-3.5 font-mono font-bold text-[#137A58]">{opp.rxScore}/100</td>
                   <td className="py-3.5">
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#EFF6FF] text-[#0070F3]">
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#DDF5EA] text-[#137A58]">
                       {opp.status}
                     </span>
                   </td>

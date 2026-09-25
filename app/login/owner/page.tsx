@@ -41,11 +41,11 @@ export default function OwnerLoginPage() {
           {/* Brand & Portal Header */}
           <div className="mb-8">
             <Link href="/" className="inline-flex items-center gap-2.5 mb-6 group">
-              <div className="h-10 w-10 rounded-2xl bg-[#6366F1] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+              <div className="h-10 w-10 rounded-2xl bg-[#137A58] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
                 <Zap className="h-5 w-5 fill-current text-white" />
               </div>
               <span className="font-bold text-2xl tracking-tight text-zinc-900 dark:text-zinc-100">
-                REVolt<span className="text-[#6366F1] dark:text-[#818CF8]">X</span>
+                REVolt<span className="text-[#137A58] dark:text-[#34D399]">X</span>
               </span>
             </Link>
 
@@ -65,7 +65,7 @@ export default function OwnerLoginPage() {
                 value={identifier}
                 onChange={(e) => setIdentifier(e.target.value)}
                 required
-                className="w-full px-4 py-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#6366F1] shadow-2xs transition-all"
+                className="w-full px-4 py-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#137A58] shadow-2xs transition-all"
                 placeholder="Email or Mobile Phone"
               />
             </div>
@@ -76,7 +76,7 @@ export default function OwnerLoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-3.5 pr-12 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#6366F1] shadow-2xs transition-all"
+                className="w-full px-4 py-3.5 pr-12 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#137A58] shadow-2xs transition-all"
                 placeholder="Password"
               />
               <button
@@ -93,7 +93,7 @@ export default function OwnerLoginPage() {
               <button
                 type="button"
                 onClick={() => handleSignIn()}
-                className="text-xs font-medium text-zinc-400 hover:text-[#6366F1] dark:hover:text-[#818CF8] transition-colors"
+                className="text-xs font-medium text-zinc-400 hover:text-[#137A58] dark:hover:text-[#34D399] transition-colors"
               >
                 Recovery Password
               </button>
@@ -102,7 +102,7 @@ export default function OwnerLoginPage() {
             {/* Primary Sign In Button */}
             <button
               type="submit"
-              className="w-full mt-2 py-3.5 px-6 rounded-2xl bg-[#6366F1] hover:bg-[#4F46E5] text-white text-sm font-semibold shadow-lg shadow-indigo-500/25 transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
+              className="w-full mt-2 py-3.5 px-6 rounded-2xl bg-[#137A58] hover:bg-[#0E5B42] text-white text-sm font-semibold shadow-lg shadow-emerald-500/25 transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
             >
               <span>Sign In</span>
               <ArrowRight className="w-4 h-4" />
@@ -160,7 +160,7 @@ export default function OwnerLoginPage() {
             <button
               type="button"
               onClick={() => handleSignIn()}
-              className="w-full py-3 px-4 rounded-2xl bg-indigo-500/10 dark:bg-indigo-950/40 text-[#6366F1] dark:text-[#818CF8] text-xs font-bold border border-indigo-500/20 hover:bg-indigo-500/20 transition-all flex items-center justify-center gap-2 group"
+              className="w-full py-3 px-4 rounded-2xl bg-emerald-500/10 dark:bg-emerald-950/40 text-[#137A58] dark:text-[#34D399] text-xs font-bold border border-emerald-500/20 hover:bg-emerald-500/20 transition-all flex items-center justify-center gap-2 group"
             >
               <User className="w-4 h-4 group-hover:scale-110 transition-transform" />
               <span>Instant Demo Login as Sarah Jenkins (RX-2026-892738)</span>
@@ -180,7 +180,7 @@ export default function OwnerLoginPage() {
             portalTitle="Customer / Owner Portal"
             quote="Finally, all your battery health data in one place."
             subquote="Track real degradation, calculate secondary life, and book certified mobile health checks."
-            accentColor="#6366F1"
+            accentColor="#137A58"
           />
         </div>
 

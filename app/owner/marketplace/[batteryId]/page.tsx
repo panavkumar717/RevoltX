@@ -138,8 +138,8 @@ export default function OwnerMarketplaceDetailPage({
         {/* Purchase Action or Success Confirmation */}
         <div className="mt-8 pt-6 border-t border-[#DDE7E2]">
           {purchased ? (
-            <div className="p-6 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] text-center space-y-2">
-              <CheckCircle2 className="w-10 h-10 text-[#0070F3] mx-auto" />
+            <div className="p-6 rounded-2xl bg-[#DDF5EA] border border-[#BBEAD7] text-center space-y-2">
+              <CheckCircle2 className="w-10 h-10 text-[#137A58] mx-auto" />
               <h3 className="text-lg font-bold text-[#10201B]">
                 Battery Successfully Associated with Your Account!
               </h3>
@@ -149,7 +149,7 @@ export default function OwnerMarketplaceDetailPage({
               <div className="pt-3 flex justify-center gap-3">
                 <Link
                   href="/owner"
-                  className="px-5 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6]"
+                  className="px-5 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42]"
                 >
                   Go to My Battery Dashboard
                 </Link>
@@ -164,7 +164,7 @@ export default function OwnerMarketplaceDetailPage({
           ) : (
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-xs text-[#62756E]">
-                <Truck className="w-4 h-4 text-[#0070F3]" />
+                <Truck className="w-4 h-4 text-[#137A58]" />
                 <span>Includes certified freight delivery & installation by ReVoltX technician</span>
               </div>
 
@@ -178,7 +178,7 @@ export default function OwnerMarketplaceDetailPage({
                 <button
                   type="button"
                   onClick={handleBuy}
-                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
                 >
                   <ShoppingBag className="w-4 h-4" />
                   <span>Buy / Request Battery (${battery.marketPrice?.toLocaleString() || '1,800'})</span>

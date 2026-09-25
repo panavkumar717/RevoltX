@@ -42,11 +42,11 @@ export default function OwnerMarketplacePage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#DDE7E2]">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full border border-[#BFDBFE]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#137A58] bg-[#DDF5EA] px-2.5 py-0.5 rounded-full border border-[#BBEAD7]">
               ReVoltX Certified Marketplace
             </span>
             <span className="text-[11px] text-[#62756E] flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#0070F3]" /> 100% Laboratory Tested
+              <ShieldCheck className="w-3.5 h-3.5 text-[#137A58]" /> 100% Laboratory Tested
             </span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold text-[#10201B] mt-1">
@@ -57,7 +57,7 @@ export default function OwnerMarketplacePage() {
           </p>
         </div>
 
-        <div className="text-xs font-mono font-bold text-[#0070F3] bg-white px-3 py-1.5 rounded-xl border border-[#DDE7E2]">
+        <div className="text-xs font-mono font-bold text-[#137A58] bg-white px-3 py-1.5 rounded-xl border border-[#DDE7E2]">
           {listings.length} Certified Listings
         </div>
       </div>
@@ -71,7 +71,7 @@ export default function OwnerMarketplacePage() {
             placeholder="Search by battery ID, manufacturer, or chemistry..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0070F3]"
+            className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
           />
         </div>
 
@@ -94,17 +94,17 @@ export default function OwnerMarketplacePage() {
         {listings.map(item => (
           <div
             key={item.id}
-            className="bg-white rounded-3xl p-6 border border-[#DDE7E2] shadow-xs flex flex-col justify-between hover:border-[#0070F3] transition-all group"
+            className="bg-white rounded-3xl p-6 border border-[#DDE7E2] shadow-xs flex flex-col justify-between hover:border-[#137A58] transition-all group"
           >
             <div>
               {/* Header */}
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <span className="font-mono font-bold text-base text-[#10201B] group-hover:text-[#0070F3]">
+                    <span className="font-mono font-bold text-base text-[#10201B] group-hover:text-[#137A58]">
                       {item.revoltXId}
                     </span>
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#0070F3] bg-[#EFF6FF] px-2 py-0.5 rounded-full">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#137A58] bg-[#DDF5EA] px-2 py-0.5 rounded-full">
                       <ShieldCheck className="w-3 h-3" /> Certified
                     </span>
                   </div>
@@ -130,13 +130,13 @@ export default function OwnerMarketplacePage() {
                 </div>
                 <div>
                   <span className="text-[10px] uppercase font-bold text-[#62756E]">RX Score</span>
-                  <p className="text-xs font-bold font-mono text-[#0070F3] mt-0.5">{item.rxScore}/100</p>
+                  <p className="text-xs font-bold font-mono text-[#137A58] mt-0.5">{item.rxScore}/100</p>
                 </div>
               </div>
 
               <div className="mt-4 flex items-center justify-between text-xs">
                 <span className="text-[#62756E]">Verified State of Health:</span>
-                <span className="font-bold font-mono text-[#0070F3]">{item.currentSOH}%</span>
+                <span className="font-bold font-mono text-[#137A58]">{item.currentSOH}%</span>
               </div>
 
               <div className="mt-2 flex items-center justify-between text-xs">
@@ -149,7 +149,7 @@ export default function OwnerMarketplacePage() {
             <div className="mt-6 pt-4 border-t border-[#DDE7E2] flex items-center gap-2">
               <Link
                 href={`/owner/marketplace/${item.revoltXId}`}
-                className="flex-1 py-2.5 px-4 rounded-xl bg-[#0070F3] text-white text-xs font-bold text-center hover:bg-[#0058C6] shadow-xs transition-colors"
+                className="flex-1 py-2.5 px-4 rounded-xl bg-[#137A58] text-white text-xs font-bold text-center hover:bg-[#0E5B42] shadow-xs transition-colors"
               >
                 Buy Battery (${item.marketPrice?.toLocaleString() || '1,800'})
               </Link>
@@ -159,7 +159,7 @@ export default function OwnerMarketplacePage() {
                 className="p-2.5 rounded-xl border border-[#DDE7E2] text-[#62756E] hover:text-[#10201B] hover:bg-[#F0F5F2] transition-colors"
                 title="Inspect Digital Battery Passport"
               >
-                <QrCode className="w-4 h-4 text-[#0070F3]" />
+                <QrCode className="w-4 h-4 text-[#137A58]" />
               </Link>
             </div>
           </div>

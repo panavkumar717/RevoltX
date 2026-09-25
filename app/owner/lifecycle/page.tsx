@@ -23,7 +23,7 @@ export default function OwnerLifecyclePage() {
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#DDE7E2]">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
             Circular Economy Transparency
           </span>
           <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -36,7 +36,7 @@ export default function OwnerLifecyclePage() {
 
         <Link
           href="/owner/marketplace"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
         >
           <ShoppingBag className="w-3.5 h-3.5" />
           <span>Explore Replacements</span>
@@ -60,7 +60,7 @@ export default function OwnerLifecyclePage() {
         <div className="p-4 rounded-2xl bg-white border border-[#F8E0B0] text-xs space-y-2">
           <h4 className="font-bold text-[#10201B]">What Happens When Your Old Battery is Removed?</h4>
           <p className="text-[#62756E] leading-relaxed">
-            Your old battery continues to exist in the ReVoltX global database. It does <strong className="text-[#10201B]">NOT</strong> disappear. Its lifecycle record updates to <strong className="text-[#0070F3]">Second Life (Solar Energy Storage)</strong>, delivering another 3 to 5 years of clean renewable power to solar microgrids.
+            Your old battery continues to exist in the ReVoltX global database. It does <strong className="text-[#10201B]">NOT</strong> disappear. Its lifecycle record updates to <strong className="text-[#137A58]">Second Life (Solar Energy Storage)</strong>, delivering another 3 to 5 years of clean renewable power to solar microgrids.
           </p>
         </div>
       </div>
@@ -80,9 +80,9 @@ export default function OwnerLifecyclePage() {
       </div>
 
       {/* Environmental Contribution Card */}
-      <div className="p-6 rounded-3xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-between">
+      <div className="p-6 rounded-3xl bg-[#DDF5EA] border border-[#BBEAD7] flex items-center justify-between">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
             Your Circular Impact
           </span>
           <h4 className="text-base font-bold text-[#10201B] mt-0.5">
@@ -93,7 +93,7 @@ export default function OwnerLifecyclePage() {
           </p>
         </div>
 
-        <span className="text-3xl font-bold font-mono text-[#0070F3] hidden sm:block">
+        <span className="text-3xl font-bold font-mono text-[#137A58] hidden sm:block">
           96.4% Recyclable
         </span>
       </div>

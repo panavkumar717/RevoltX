@@ -9,13 +9,13 @@
   --secondary-surface: #F4F4F5;
   --muted: #71717A;
   --border: #E4E4E7;
-  --brand-primary: #0070F3;
-  --brand-secondary: #6366F1;
-  --brand-light: #EFF6FF;
-  --accent: #38BDF8;
+  --brand-primary: #137A58;
+  --brand-secondary: #21A879;
+  --brand-light: #DDF5EA;
+  --accent: #34D399;
   --warning: #F59E0B;
   --critical: #EF4444;
-  --info: #0070F3;
+  --info: #137A58;
 }
 
 .dark {
@@ -26,13 +26,13 @@
   --secondary-surface: rgba(255, 255, 255, 0.06);
   --muted: #A1A1AA;
   --border: rgba(255, 255, 255, 0.12);
-  --brand-primary: #0070F3;
-  --brand-secondary: #6366F1;
-  --brand-light: rgba(0, 112, 243, 0.12);
-  --accent: #38BDF8;
+  --brand-primary: #137A58;
+  --brand-secondary: #21A879;
+  --brand-light: rgba(19, 122, 88, 0.15);
+  --accent: #34D399;
   --warning: #F59E0B;
   --critical: #EF4444;
-  --info: #38BDF8;
+  --info: #34D399;
 }
 
 @theme {
@@ -65,7 +65,7 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Custom scrollbars for clean Vercel industrial aesthetic */
+/* Custom scrollbars for clean industrial aesthetic */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -89,11 +89,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0070F3;
+  background: #137A58;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #38BDF8;
+  background: #21A879;
 }
 
 /* Hide scrollbar utility */
@@ -199,17 +199,14 @@ body {
   background-color: #141414 !important;
 }
 
-.dark .bg-\[\#EEF2FF\],
-.dark [class*="bg-[#EEF2FF]"],
-.dark .bg-\[\#EFF6FF\],
-.dark [class*="bg-[#EFF6FF]"],
+.dark .bg-\[\#DDF5EA\],
+.dark [class*="bg-[#DDF5EA]"],
 .dark .bg-\[\#133325\] {
-  background-color: rgba(0, 112, 243, 0.12) !important;
+  background-color: rgba(19, 122, 88, 0.15) !important;
 }
 
-.dark .bg-\[\#F0F9FF\],
-.dark [class*="bg-[#F0F9FF]"] {
-  background-color: rgba(99, 102, 241, 0.12) !important;
+.dark .bg-\[\#EBF7F3\] {
+  background-color: rgba(33, 168, 121, 0.15) !important;
 }
 
 .dark .bg-\[\#FEF6E7\],
@@ -226,7 +223,7 @@ body {
 
 .dark .bg-\[\#EBF3FB\],
 .dark [class*="bg-[#EBF3FB]"] {
-  background-color: rgba(0, 112, 243, 0.08) !important;
+  background-color: rgba(19, 122, 88, 0.1) !important;
 }
 
 /* Text Colors */
@@ -239,24 +236,12 @@ body {
   color: #A1A1AA !important;
 }
 
-.dark .text-\[\#0070F3\] {
-  color: #38BDF8 !important;
+.dark .text-\[\#137A58\] {
+  color: #34D399 !important;
 }
 
-.dark .text-\[\#38BDF8\] {
-  color: #60A5FA !important;
-}
-
-.dark .text-\[\#38BDF8\] {
-  color: #38BDF8 !important;
-}
-
-.dark .text-\[\#0284C7\] {
-  color: #818CF8 !important;
-}
-
-.dark .text-\[\#38BDF8\] {
-  color: #A78BFA !important;
+.dark .text-\[\#21A879\] {
+  color: #34D399 !important;
 }
 
 .dark .text-\[\#D89A24\] {
@@ -268,7 +253,7 @@ body {
 }
 
 .dark .text-\[\#4386C5\] {
-  color: #60A5FA !important;
+  color: #34D399 !important;
 }
 
 /* Ensure action button white text stays crisp */
@@ -279,12 +264,12 @@ body {
 }
 
 /* Primary buttons in dark mode */
-.dark .bg-\[\#0070F3\] {
-  background-color: #0070F3 !important;
+.dark .bg-\[\#137A58\] {
+  background-color: #137A58 !important;
 }
 
-.dark .hover\:bg-\[\#0058C6\]:hover {
-  background-color: #0058C6 !important;
+.dark .hover\:bg-\[\#0E5B42\]:hover {
+  background-color: #0E5B42 !important;
 }
 
 /* Borders & Dividers */
@@ -292,12 +277,12 @@ body {
   border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-.dark .border-\[\#BFDBFE\] {
-  border-color: rgba(0, 112, 243, 0.25) !important;
+.dark .border-\[\#BBEAD7\] {
+  border-color: rgba(19, 122, 88, 0.25) !important;
 }
 
-.dark .border-\[\#BAE6FD\] {
-  border-color: rgba(99, 102, 241, 0.25) !important;
+.dark .border-\[\#DAECAE\] {
+  border-color: rgba(33, 168, 121, 0.25) !important;
 }
 
 .dark .border-\[\#F8E0B0\] {
@@ -346,7 +331,7 @@ body {
 .dark select:focus,
 .dark textarea:focus {
   background-color: #18181B !important;
-  border-color: #0070F3 !important;
+  border-color: #137A58 !important;
 }
 
 .dark input::placeholder,

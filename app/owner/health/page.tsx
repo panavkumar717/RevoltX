@@ -28,7 +28,7 @@ export default function OwnerHealthPage() {
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#DDE7E2]">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
             Health Intelligence for Owners
           </span>
           <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -41,7 +41,7 @@ export default function OwnerHealthPage() {
 
         <Link
           href="/owner/service"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
         >
           <Wrench className="w-3.5 h-3.5" />
           <span>Book Health Check</span>
@@ -51,7 +51,7 @@ export default function OwnerHealthPage() {
       {/* Human Explanation Highlight Card */}
       <div className="p-6 rounded-3xl bg-white border border-[#DDE7E2] shadow-sm space-y-4">
         <div className="flex items-start gap-3">
-          <div className="p-3 rounded-2xl bg-[#EFF6FF] text-[#0070F3]">
+          <div className="p-3 rounded-2xl bg-[#DDF5EA] text-[#137A58]">
             <HeartPulse className="w-6 h-6" />
           </div>
           <div>
@@ -82,8 +82,8 @@ export default function OwnerHealthPage() {
 
           <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2]">
             <span className="text-[10px] uppercase font-bold text-[#62756E]">Recommended Action</span>
-            <p className="text-xs font-bold text-[#0070F3] mt-1">{battery.recommendation || 'Regular Operation'}</p>
-            <span className="text-[10px] text-[#62756E]">ReVoltX Smart Dock verification</span>
+            <p className="text-xs font-bold text-[#137A58] mt-1">On-Site Health Check</p>
+            <span className="text-[10px] text-[#62756E]">ReVoltX technician visit</span>
           </div>
         </div>
       </div>
@@ -122,10 +122,10 @@ export default function OwnerHealthPage() {
       <div className="bg-white rounded-3xl p-6 border border-[#DDE7E2] shadow-xs space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="text-sm font-bold text-[#10201B] flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-[#0070F3]" />
+            <ShieldCheck className="w-4 h-4 text-[#137A58]" />
             <span>Tailored Battery Care Tips for Sarah</span>
           </h3>
-          <span className="text-[10px] font-mono font-bold text-[#0070F3] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full border border-[#BFDBFE]">
+          <span className="text-[10px] font-mono font-bold text-[#137A58] bg-[#DDF5EA] px-2.5 py-0.5 rounded-full border border-[#BBEAD7]">
             AI Proactive Protection
           </span>
         </div>
@@ -138,7 +138,7 @@ export default function OwnerHealthPage() {
               value: '0.8C Max',
               sub: 'Thermal Relief Protocol',
               description: 'Charging at 0.5C to 0.8C on AC overnight reduces cell thermal stress by up to 40% and preserves anode SEI layer integrity.',
-              badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Recommended</span>
+              badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7] font-bold">Recommended</span>
             },
             {
               label: 'STATE OF CHARGE',
@@ -146,7 +146,7 @@ export default function OwnerHealthPage() {
               value: '50% - 80%',
               sub: 'Storage Equilibrium',
               description: 'If parking your vehicle for more than 48 hours, keeping state-of-charge between 50% and 80% prevents transition metal dissolution.',
-              badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Best Practice</span>
+              badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7] font-bold">Best Practice</span>
             },
             {
               label: 'CLIMATE SYSTEM',
@@ -154,7 +154,7 @@ export default function OwnerHealthPage() {
               value: 'Pre-Heat / Cool',
               sub: 'Grid-Assisted Tempering',
               description: 'Condition the battery pack to 22°C before driving using wallbox current rather than draining onboard electrochemical energy.',
-              badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">+12% Range</span>
+              badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7] font-bold">+12% Range</span>
             },
             {
               label: 'RECUPERATION',
@@ -162,7 +162,7 @@ export default function OwnerHealthPage() {
               value: 'Adaptive Mode',
               sub: 'Kinetic Energy Reclaim',
               description: 'Smooth regenerative braking returns up to 28% of expended propulsion energy directly back into the pack without overheating cells.',
-              badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Efficiency</span>
+              badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7] font-bold">Efficiency</span>
             }
           ]}
           textAutoHide={false}
@@ -174,7 +174,7 @@ export default function OwnerHealthPage() {
           clickEffect={true}
           spotlightRadius={280}
           particleCount={10}
-          glowColor="0, 112, 243"
+          glowColor="19, 122, 88"
         />
       </div>
     </div>

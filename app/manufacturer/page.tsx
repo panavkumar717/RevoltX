@@ -55,7 +55,7 @@ export default function ManufacturerDashboardPage() {
       value: <AnimatedCounter value={10000} duration={1.2} />,
       sub: '+240 this month',
       description: 'High-density commercial pack telemetry synchronized across 14 operational regions.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">+2.4% MoM</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-[#137A58] dark:text-[#34D399] border border-emerald-500/20 font-bold">+2.4% MoM</span>
     },
     {
       label: 'NOMINAL FLEET',
@@ -63,15 +63,7 @@ export default function ManufacturerDashboardPage() {
       value: <AnimatedCounter value={8420} duration={1.4} />,
       sub: '84.2% Fleet Nominal',
       description: 'Impedance and thermal metrics well within factory tolerances without micro-shorts.',
-      badge: (
-        <span className="inline-flex items-center gap-1.5 text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 font-bold">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-          </span>
-          Grade A
-        </span>
-      )
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-[#137A58] dark:text-[#34D399] border border-emerald-500/20 font-bold">Grade A</span>
     },
     {
       label: 'ADVISORY QUEUE',
@@ -105,7 +97,7 @@ export default function ManufacturerDashboardPage() {
       value: <AnimatedCounter value={174} duration={1.7} />,
       sub: 'Ready for Stationary Duty',
       description: 'Packs retired from mobility duty certified for BESS and microgrid energy storage.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">2nd Life</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-[#137A58] dark:text-[#34D399] border border-emerald-500/20 font-bold">2nd Life</span>
     },
     {
       label: 'WARRANTY AI',
@@ -113,7 +105,7 @@ export default function ManufacturerDashboardPage() {
       value: <AnimatedCounter value={1.42} prefix="$" suffix="M" decimals={2} duration={1.8} />,
       sub: 'Predicted Failure Prevention',
       description: 'Predictive module-level repairs avoiding complete pack swaps and OEM recall exposure.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">ROI 4.8x</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-[#137A58] dark:text-[#34D399] border border-emerald-500/20 font-bold">ROI 4.8x</span>
     }
   ];
 
@@ -135,7 +127,7 @@ export default function ManufacturerDashboardPage() {
       >
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3] dark:text-[#38BDF8] bg-blue-500/10 px-2.5 py-0.5 rounded-full border border-blue-500/20">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#137A58] dark:text-[#34D399] bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
               XYZ Battery Corp. Global Fleet Command
             </span>
             <span className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 bg-white dark:bg-zinc-800 px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-700">
@@ -155,44 +147,37 @@ export default function ManufacturerDashboardPage() {
         </div>
 
         <div className="flex items-center gap-2.5">
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Link
-              href="/manufacturer/batteries/register"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-sm hover:shadow-blue-500/20 transition-all"
-            >
-              <PlusCircle className="w-4 h-4" />
-              <span>Register New Battery</span>
-            </Link>
-          </motion.div>
-
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Link
-              href="/manufacturer/fleet"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-xs font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 transition-colors shadow-2xs"
-            >
-              <span>Fleet View</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </motion.div>
+          <Link
+            href="/manufacturer/batteries/register"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
+          >
+            <PlusCircle className="w-4 h-4" />
+            <span>Register New Battery</span>
+          </Link>
+          <Link
+            href="/manufacturer/fleet"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-xs font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 transition-colors"
+          >
+            <span>Fleet View</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </motion.div>
 
       {/* Interactive Fleet Intelligence Magic Bento */}
-      <motion.div variants={itemVariants} className="relative z-10">
-        <MagicBento 
-          cards={bentoStats}
-          textAutoHide={false}
-          enableStars={true}
-          enableSpotlight={true}
-          enableBorderGlow={true}
-          enableTilt={true}
-          enableMagnetism={true}
-          clickEffect={true}
-          spotlightRadius={320}
-          particleCount={14}
-          glowColor="0, 112, 243"
-        />
-      </motion.div>
+      <MagicBento 
+        cards={bentoStats}
+        textAutoHide={false}
+        enableStars={true}
+        enableSpotlight={true}
+        enableBorderGlow={true}
+        enableTilt={true}
+        enableMagnetism={true}
+        clickEffect={true}
+        spotlightRadius={320}
+        particleCount={14}
+        glowColor="19, 122, 88"
+      />
 
       {/* Action Required Banner: Batteries Needing ReVoltX Inspection */}
       <motion.div 
@@ -222,7 +207,7 @@ export default function ManufacturerDashboardPage() {
           </div>
           <Link
             href="/manufacturer/service-requests"
-            className="text-xs font-semibold text-[#0070F3] dark:text-[#38BDF8] hover:underline flex items-center gap-1 group"
+            className="text-xs font-semibold text-[#137A58] dark:text-[#34D399] hover:underline"
           >
             <span>Manage All Service Requests</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -252,23 +237,19 @@ export default function ManufacturerDashboardPage() {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href="/manufacturer/batteries/RX-2026-892738"
-                className="px-3 py-1.5 rounded-xl bg-white dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-xs font-semibold text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700 transition-colors shadow-2xs"
-              >
-                Examine Telemetry
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href="/manufacturer/service-requests"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-sm hover:shadow-blue-500/20 transition-all"
-              >
-                <Wrench className="w-3.5 h-3.5" />
-                <span>Request ReVoltX Health Assessment</span>
-              </Link>
-            </motion.div>
+            <Link
+              href="/manufacturer/batteries/RX-2026-892738"
+              className="px-3 py-1.5 rounded-xl bg-white dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-xs font-semibold text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700 transition-colors"
+            >
+              Examine Telemetry
+            </Link>
+            <Link
+              href="/manufacturer/service-requests"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] transition-colors"
+            >
+              <Wrench className="w-3.5 h-3.5" />
+              <span>Request ReVoltX Health Assessment</span>
+            </Link>
           </div>
         </motion.div>
       </motion.div>
@@ -291,15 +272,13 @@ export default function ManufacturerDashboardPage() {
             </p>
           </div>
 
-          <motion.div whileHover={{ x: 2 }}>
-            <Link
-              href="/manufacturer/batteries"
-              className="text-xs font-semibold text-[#0070F3] dark:text-[#38BDF8] hover:underline flex items-center gap-1"
-            >
-              <span>View All Assets ({batteries.length})</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </motion.div>
+          <Link
+            href="/manufacturer/batteries"
+            className="text-xs font-semibold text-[#137A58] dark:text-[#34D399] hover:underline flex items-center gap-1"
+          >
+            <span>View All Assets ({batteries.length})</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
 
         {/* Table */}
@@ -328,24 +307,19 @@ export default function ManufacturerDashboardPage() {
                   className="transition-colors group"
                 >
                   <td className="py-3 font-mono font-bold text-zinc-900 dark:text-zinc-100">
-                    <Link href={`/manufacturer/batteries/${b.revoltXId}`} className="hover:text-[#0070F3] dark:hover:text-[#38BDF8] flex items-center gap-1.5">
-                      <span>{b.revoltXId}</span>
-                      {b.nasaDatasetId && (
-                        <span className="text-[10px] font-sans font-semibold text-[#0070F3] dark:text-[#38BDF8] bg-blue-500/10 px-1.5 py-0.2 rounded border border-blue-500/20">
-                          {b.nasaDatasetId}
-                        </span>
-                      )}
+                    <Link href={`/manufacturer/batteries/${b.revoltXId}`} className="hover:text-[#137A58] dark:hover:text-[#34D399]">
+                      {b.revoltXId}
                     </Link>
                     <span className="block text-[10px] text-zinc-500 dark:text-zinc-400 font-normal">{b.serialNumber}</span>
                   </td>
                   <td className="py-3 font-medium text-zinc-800 dark:text-zinc-200">{b.chemistry} ({b.capacity} Ah)</td>
                   <td className="py-3">
-                    <span className={`font-mono font-bold ${b.currentSOH >= 80 ? 'text-[#0070F3] dark:text-[#38BDF8]' : b.currentSOH >= 65 ? 'text-amber-500' : 'text-red-500'}`}>
+                    <span className={`font-mono font-bold ${b.currentSOH >= 80 ? 'text-[#137A58] dark:text-[#34D399]' : b.currentSOH >= 65 ? 'text-amber-500' : 'text-red-500'}`}>
                       {b.currentSOH}%
                     </span>
                   </td>
                   <td className="py-3 font-mono text-zinc-800 dark:text-zinc-200">{b.rul} cyc</td>
-                  <td className="py-3 font-mono font-bold text-[#0070F3] dark:text-[#38BDF8]">{b.rxScore}/100</td>
+                  <td className="py-3 font-mono font-bold text-[#137A58] dark:text-[#34D399]">{b.rxScore}/100</td>
                   <td className="py-3">
                     <BatteryStatusBadge risk={b.risk} size="sm" />
                   </td>
@@ -362,7 +336,7 @@ export default function ManufacturerDashboardPage() {
                       </Link>
                       <Link
                         href={`/battery/${b.revoltXId}`}
-                        className="text-zinc-400 hover:text-[#0070F3] dark:hover:text-[#38BDF8] p-1 rounded hover:bg-blue-500/10 transition-colors"
+                        className="text-zinc-400 hover:text-[#137A58] dark:hover:text-[#34D399]"
                         title="Open Digital Battery Passport"
                       >
                         <ArrowRight className="w-3.5 h-3.5" />

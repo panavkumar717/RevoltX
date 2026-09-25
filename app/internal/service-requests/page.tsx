@@ -29,7 +29,7 @@ export default function InternalServiceRequestsPage() {
 
         <Link
           href="/internal/testing"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
         >
           <Wrench className="w-4 h-4" />
           <span>Launch Smart Dock Bench</span>
@@ -84,14 +84,14 @@ export default function InternalServiceRequestsPage() {
                       {req.id}
                     </Link>
                   </td>
-                  <td className="py-3.5 font-mono font-bold text-[#0070F3]">
+                  <td className="py-3.5 font-mono font-bold text-[#137A58]">
                     {req.batteryId}
                   </td>
                   <td className="py-3.5 font-semibold text-[#10201B]">{req.customerName}</td>
                   <td className="py-3.5 text-[#62756E] max-w-xs truncate">{req.address}</td>
                   <td className="py-3.5">
                     {req.technicianName ? (
-                      <span className="font-semibold text-[#0070F3]">{req.technicianName}</span>
+                      <span className="font-semibold text-[#137A58]">{req.technicianName}</span>
                     ) : (
                       <select
                         onChange={e => updateServiceRequestStatus(req.id, 'Technician Assigned', e.target.value)}
@@ -106,7 +106,7 @@ export default function InternalServiceRequestsPage() {
                     )}
                   </td>
                   <td className="py-3.5">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#EFF6FF] text-[#0070F3] border border-[#BFDBFE]">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7]">
                       {req.status}
                     </span>
                   </td>

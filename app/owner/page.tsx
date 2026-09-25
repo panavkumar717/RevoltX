@@ -67,7 +67,7 @@ export default function OwnerDashboardPage() {
       ),
       sub: battery.rxScore >= 80 ? 'Grade A (Prime Mobile)' : battery.rxScore >= 60 ? 'Grade B+ (Stationary Ready)' : 'Grade C (Recycle Candidate)',
       description: 'Based on multi-cycle impedance tests, voltage consistency, and thermal stability.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">Grade {battery.rxScore >= 80 ? 'A' : battery.rxScore >= 60 ? 'B+' : 'C'}</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-[#137A58] dark:text-[#34D399] border border-emerald-500/20 font-bold">Grade B+</span>
     },
     {
       label: 'STATE OF HEALTH',
@@ -92,7 +92,7 @@ export default function OwnerDashboardPage() {
       value: <AnimatedCounter value={battery.rul} suffix=" cycles" duration={1.4} />,
       sub: `~${(battery.rul / 365).toFixed(1)} yrs courier service`,
       description: 'Calculated using AI cycle extrapolation under current daily driving & charge patterns.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">Active</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-[#137A58] dark:text-[#34D399] border border-emerald-500/20 font-bold">Active</span>
     },
     {
       label: 'RESIDUAL VALUE',
@@ -100,7 +100,7 @@ export default function OwnerDashboardPage() {
       value: <AnimatedCounter value={battery.marketPrice || 1850} prefix="$" duration={1.5} />,
       sub: 'Guaranteed Buyback Floor',
       description: 'Certified second-life stationary buyers will bid directly for your pack upon vehicle retirement.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">Secured</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-[#137A58] dark:text-[#34D399] border border-emerald-500/20 font-bold">Secured</span>
     },
     {
       label: 'CIRCULAR IMPACT',
@@ -108,7 +108,7 @@ export default function OwnerDashboardPage() {
       value: <AnimatedCounter value={4.8} suffix=" tCO2e" decimals={1} duration={1.6} />,
       sub: 'Lifecycle Footprint Prevented',
       description: 'Repurposing this battery for solar buffer duty offsets mining 180kg of virgin raw minerals.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">Eco Score 94</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-[#137A58] dark:text-[#34D399] border border-emerald-500/20 font-bold">Eco Score 94</span>
     },
     {
       label: 'DIAGNOSTICS & ACTIONS',
@@ -116,7 +116,7 @@ export default function OwnerDashboardPage() {
       value: 'Certified',
       sub: 'Next Inspection in 30 Days',
       description: 'Schedule a certified ReVoltX technician dock assessment or explore replacement packs.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">Available</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-[#137A58] dark:text-[#34D399] border border-emerald-500/20 font-bold">Available</span>
     }
   ];
 
@@ -140,26 +140,11 @@ export default function OwnerDashboardPage() {
 
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 relative z-10">
           <div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3] dark:text-[#38BDF8] bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-full">
-                Connected Vehicle Battery
-              </span>
-              <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-                </span>
-                Live Synchronized
-              </span>
-            </div>
-            <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mt-2 flex items-center gap-2">
-              <span>My Battery:</span>
-              <span className="font-mono text-[#0070F3] dark:text-[#38BDF8]">{battery.revoltXId}</span>
-              {battery.nasaDatasetId && (
-                <span className="text-xs font-mono font-bold bg-[#EFF6FF] dark:bg-blue-950/50 text-[#0070F3] dark:text-[#38BDF8] px-2 py-0.5 rounded-lg border border-blue-500/20">
-                  NASA ARC {battery.nasaDatasetId}
-                </span>
-              )}
+            <span className="text-xs font-bold uppercase tracking-wider text-[#137A58] dark:text-[#34D399] bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">
+              Connected Vehicle Battery
+            </span>
+            <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mt-2">
+              My Battery: <span className="font-mono">{battery.revoltXId}</span>
             </h1>
             <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1 font-medium">
               Installed in {battery.vehicleModel} • Registered to Sarah Jenkins
@@ -168,15 +153,13 @@ export default function OwnerDashboardPage() {
 
           <div className="flex items-center gap-2">
             <BatteryStatusBadge risk={battery.risk} size="md" />
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-              <Link
-                href={`/battery/${battery.revoltXId}`}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-xs font-semibold text-zinc-900 dark:text-zinc-100 transition-colors shadow-2xs"
-              >
-                <QrCode className="w-4 h-4 text-[#0070F3] dark:text-[#38BDF8]" />
-                <span>Digital Passport</span>
-              </Link>
-            </motion.div>
+            <Link
+              href={`/battery/${battery.revoltXId}`}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-xs font-semibold text-zinc-900 dark:text-zinc-100 transition-colors"
+            >
+              <QrCode className="w-4 h-4 text-[#137A58] dark:text-[#34D399]" />
+              <span>Digital Passport</span>
+            </Link>
           </div>
         </div>
 
@@ -193,7 +176,7 @@ export default function OwnerDashboardPage() {
             clickEffect={true}
             spotlightRadius={300}
             particleCount={12}
-            glowColor="0, 112, 243"
+            glowColor="19, 122, 88"
           />
         </div>
       </motion.div>
@@ -226,26 +209,22 @@ export default function OwnerDashboardPage() {
           </div>
         </div>
 
-        <div className="pt-2 flex flex-wrap items-center gap-3 relative z-10">
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-            <Link
-              href="/owner/service"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-sm hover:shadow-blue-500/20 transition-all"
-            >
-              <Wrench className="w-3.5 h-3.5" />
-              <span>Book Battery Health Check</span>
-            </Link>
-          </motion.div>
+        <div className="pt-2 flex flex-wrap items-center gap-3">
+          <Link
+            href="/owner/service"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
+          >
+            <Wrench className="w-3.5 h-3.5" />
+            <span>Book Battery Health Check</span>
+          </Link>
 
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-            <Link
-              href="/owner/marketplace"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-xs font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 transition-colors shadow-2xs"
-            >
-              <ShoppingBag className="w-3.5 h-3.5 text-[#0070F3] dark:text-[#38BDF8]" />
-              <span>Explore Replacement Batteries</span>
-            </Link>
-          </motion.div>
+          <Link
+            href="/owner/marketplace"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-xs font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 transition-colors"
+          >
+            <ShoppingBag className="w-3.5 h-3.5 text-[#137A58] dark:text-[#34D399]" />
+            <span>Explore Replacement Batteries</span>
+          </Link>
         </div>
       </motion.div>
 
@@ -299,9 +278,8 @@ export default function OwnerDashboardPage() {
               Where Your Battery Sits in the Circular Loop
             </h3>
           </div>
-          <Link href="/owner/lifecycle" className="text-xs font-semibold text-[#0070F3] dark:text-[#38BDF8] hover:underline flex items-center gap-1 group">
-            <span>View Roadmap</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+          <Link href="/owner/lifecycle" className="text-xs font-semibold text-[#137A58] dark:text-[#34D399] hover:underline">
+            View Roadmap →
           </Link>
         </div>
 

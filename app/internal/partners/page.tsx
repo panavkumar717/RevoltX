@@ -115,7 +115,7 @@ export default function InternalPartnersPage() {
           >
             <div>
               <div className="flex items-start justify-between">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#0070F3] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#137A58] bg-[#DDF5EA] px-2.5 py-0.5 rounded-full">
                   {p.type}
                 </span>
                 <span className="text-[11px] font-mono text-[#62756E]">{p.id}</span>
@@ -137,7 +137,7 @@ export default function InternalPartnersPage() {
             </div>
 
             <div className="pt-2 flex items-center justify-between text-xs">
-              <span className="inline-flex items-center gap-1 font-semibold text-[#0070F3]">
+              <span className="inline-flex items-center gap-1 font-semibold text-[#137A58]">
                 <ShieldCheck className="w-3.5 h-3.5" /> {p.status}
               </span>
               <span className="text-[#62756E]">Verified Partner</span>

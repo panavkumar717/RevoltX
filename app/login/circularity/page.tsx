@@ -42,11 +42,11 @@ export default function CircularityLoginPage() {
           {/* Brand & Portal Header */}
           <div className="mb-8">
             <Link href="/" className="inline-flex items-center gap-2.5 mb-6 group">
-              <div className="h-10 w-10 rounded-2xl bg-[#0284C7] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+              <div className="h-10 w-10 rounded-2xl bg-[#137A58] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
                 <Zap className="h-5 w-5 fill-current text-white" />
               </div>
               <span className="font-bold text-2xl tracking-tight text-zinc-900 dark:text-zinc-100">
-                REVolt<span className="text-[#0284C7] dark:text-[#38BDF8]">X</span>
+                REVolt<span className="text-[#137A58] dark:text-[#34D399]">X</span>
               </span>
             </Link>
 
@@ -66,7 +66,7 @@ export default function CircularityLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#0284C7] shadow-2xs transition-all"
+                className="w-full px-4 py-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#137A58] shadow-2xs transition-all"
                 placeholder="Partner Corporate Email"
               />
             </div>
@@ -77,7 +77,7 @@ export default function CircularityLoginPage() {
                 value={partnerId}
                 onChange={(e) => setPartnerId(e.target.value)}
                 required
-                className="w-full px-4 py-3.5 pr-11 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#0284C7] shadow-2xs transition-all"
+                className="w-full px-4 py-3.5 pr-11 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#137A58] shadow-2xs transition-all"
                 placeholder="Circularity Partner ID"
               />
               <Building className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400 pointer-events-none" />
@@ -89,7 +89,7 @@ export default function CircularityLoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-3.5 pr-12 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#0284C7] shadow-2xs transition-all"
+                className="w-full px-4 py-3.5 pr-12 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#137A58] shadow-2xs transition-all"
                 placeholder="Password"
               />
               <button
@@ -106,7 +106,7 @@ export default function CircularityLoginPage() {
               <button
                 type="button"
                 onClick={() => handleSignIn()}
-                className="text-xs font-medium text-zinc-400 hover:text-[#0284C7] dark:hover:text-[#38BDF8] transition-colors"
+                className="text-xs font-medium text-zinc-400 hover:text-[#137A58] dark:hover:text-[#34D399] transition-colors"
               >
                 Recovery Password
               </button>
@@ -115,7 +115,7 @@ export default function CircularityLoginPage() {
             {/* Primary Sign In Button */}
             <button
               type="submit"
-              className="w-full mt-2 py-3.5 px-6 rounded-2xl bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-semibold shadow-lg shadow-sky-500/25 transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
+              className="w-full mt-2 py-3.5 px-6 rounded-2xl bg-[#137A58] hover:bg-[#0E5B42] text-white text-sm font-semibold shadow-lg shadow-emerald-500/25 transition-all hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
             >
               <span>Sign In</span>
               <ArrowRight className="w-4 h-4" />
@@ -173,7 +173,7 @@ export default function CircularityLoginPage() {
             <button
               type="button"
               onClick={() => handleSignIn()}
-              className="w-full py-3 px-4 rounded-2xl bg-sky-500/10 dark:bg-sky-950/40 text-[#0284C7] dark:text-[#38BDF8] text-xs font-bold border border-sky-500/20 hover:bg-sky-500/20 transition-all flex items-center justify-center gap-2 group"
+              className="w-full py-3 px-4 rounded-2xl bg-emerald-500/10 dark:bg-emerald-950/40 text-[#137A58] dark:text-[#34D399] text-xs font-bold border border-emerald-500/20 hover:bg-emerald-500/20 transition-all flex items-center justify-center gap-2 group"
             >
               <RefreshCw className="w-4 h-4 group-hover:scale-110 transition-transform" />
               <span>Instant Demo Login as EcoVolt Solutions</span>
@@ -193,7 +193,7 @@ export default function CircularityLoginPage() {
             portalTitle="Circularity Partner Portal"
             quote="Connecting retired batteries with their next purpose."
             subquote="Source stationary solar storage assets and calculate critical mineral recovery yields."
-            accentColor="#0284C7"
+            accentColor="#137A58"
           />
         </div>
 
