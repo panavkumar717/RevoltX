@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { 
   RefreshCw, 
   Recycle, 
@@ -12,11 +13,35 @@ import {
   ShieldCheck, 
   Layers,
   CheckCircle2,
-  Cpu
+  Cpu,
+  Radio
 } from 'lucide-react';
 import { useReVoltX } from '../../lib/store/batteryStore';
 import { BatteryStatusBadge } from '../../components/ui/BatteryStatusBadge';
 import MagicBento, { MagicBentoCardItem } from '../../components/ui/MagicBento';
+import { AnimatedCounter } from '../../components/ui/AnimatedCounter';
+import { BorderBeam } from '../../components/ui/BorderBeam';
+import { ShinyText } from '../../components/ui/ShinyText';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.05
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.5, ease: 'easeOut' as const } 
+  }
+};
 
 export default function CircularityDashboardPage() {
   const { opportunities, recyclingRecords, batteries } = useReVoltX();
@@ -25,15 +50,23 @@ export default function CircularityDashboardPage() {
     {
       label: 'CERTIFIED INVENTORY',
       title: 'Available 2nd-Life Packs',
-      value: '174 Packs',
+      value: <AnimatedCounter value={174} suffix=" Packs" duration={1.2} />,
       sub: 'Certified for Stationary Duty',
       description: 'Retired mobility packs screened by automated impedance testing for ESS, telecom & microgrid deployment.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Ready</span>
+      badge: (
+        <span className="inline-flex items-center gap-1.5 text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#0070F3]"></span>
+          </span>
+          Ready
+        </span>
+      )
     },
     {
       label: 'ENERGY RESERVE',
       title: 'Potential Storage Capacity',
-      value: '14.2 MWh',
+      value: <AnimatedCounter value={14.2} suffix=" MWh" decimals={1} duration={1.4} />,
       sub: 'Stationary Buffer Pool',
       description: 'Total cumulative second-life capacity available for peak shaving and renewable solar grid buffering.',
       badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">14,200 kWh</span>
@@ -41,15 +74,20 @@ export default function CircularityDashboardPage() {
     {
       label: 'QUALIFICATION DOCK',
       title: 'Second-Life Candidates',
-      value: '48 Pending',
+      value: <AnimatedCounter value={48} suffix=" Pending" duration={1.5} />,
       sub: 'Completing Smart Dock Tests',
       description: 'Incoming packs undergoing automated electrochemical impedance spectroscopy and cell balance validation.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">In Testing</span>
+      badge: (
+        <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">
+          <span className="h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+          In Testing
+        </span>
+      )
     },
     {
       label: 'RESOURCE RECOVERY',
       title: 'Recycling Candidates',
-      value: '26 Packs',
+      value: <AnimatedCounter value={26} suffix=" Packs" duration={1.6} />,
       sub: 'SOH < 50% End of Life',
       description: 'Severely degraded packs routed to automated mechanical shredding and hydrometallurgical leaching.',
       badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-red-500/10 text-red-500 border border-red-500/20 font-bold">Recycler Hub</span>
@@ -57,7 +95,7 @@ export default function CircularityDashboardPage() {
     {
       label: 'MINERAL PURITY',
       title: 'Material Recovery Yield',
-      value: '96.4% Li/Ni',
+      value: <AnimatedCounter value={96.4} suffix="% Li/Ni" decimals={1} duration={1.7} />,
       sub: 'Purified Black Mass Grade',
       description: 'Closed-loop extraction recovering battery-grade lithium carbonate, nickel sulfate, and cobalt.',
       badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Certified 99.8%</span>
@@ -65,7 +103,7 @@ export default function CircularityDashboardPage() {
     {
       label: 'CIRCULAR IMPACT',
       title: 'Lifecycle Decarbonization',
-      value: '1,280 tCO2e',
+      value: <AnimatedCounter value={1280} suffix=" tCO2e" duration={1.8} />,
       sub: 'Avoided Raw Mining Emissions',
       description: 'Verified carbon reduction credits generated by extending pack operational lifetime by 8-10 years.',
       badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">ESG Gold</span>
@@ -73,9 +111,21 @@ export default function CircularityDashboardPage() {
   ];
 
   return (
-    <div className="space-y-6">
+    <motion.div 
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="space-y-6 relative"
+    >
+      {/* Ambient background glow orbs */}
+      <div className="pointer-events-none absolute -top-20 -right-20 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute top-1/3 -left-20 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
+
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#DDE7E2]">
+      <motion.div 
+        variants={itemVariants}
+        className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#DDE7E2] relative z-10"
+      >
         <div>
           <div className="flex items-center gap-2">
             <span className="text-xs font-bold uppercase tracking-wider text-[#0284C7] bg-[#F0F9FF] px-2.5 py-0.5 rounded-full border border-[#BAE6FD]">
@@ -85,8 +135,12 @@ export default function CircularityDashboardPage() {
               Stationary Storage • Telecom • Hydrometallurgical Recyclers
             </span>
           </div>
-          <h1 className="text-2xl font-bold text-[#10201B] mt-1.5">
-            Second-Life & Resource Recovery Intelligence
+          <h1 className="text-2xl font-bold text-[#10201B] mt-1.5 flex items-center gap-2">
+            <span>Second-Life & Resource Recovery Intelligence</span>
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+            </span>
           </h1>
           <p className="text-xs text-[#62756E]">
             Discover qualified retired mobility batteries and allocate raw critical minerals.
@@ -94,73 +148,102 @@ export default function CircularityDashboardPage() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/circularity/opportunities"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Browse Opportunities</span>
-          </Link>
-          <Link
-            href="/circularity/recycling"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white text-[#10201B] text-xs font-semibold hover:bg-[#F0F5F2] border border-[#DDE7E2] transition-colors"
-          >
-            <Recycle className="w-3.5 h-3.5 text-[#D94B4B]" />
-            <span>Recycler Hub</span>
-          </Link>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="/circularity/opportunities"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-sm hover:shadow-blue-500/20 transition-all"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Browse Opportunities</span>
+            </Link>
+          </motion.div>
+
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="/circularity/recycling"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white text-[#10201B] text-xs font-semibold hover:bg-[#F0F5F2] border border-[#DDE7E2] transition-colors shadow-2xs"
+            >
+              <Recycle className="w-3.5 h-3.5 text-[#D94B4B]" />
+              <span>Recycler Hub</span>
+            </Link>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Interactive Circularity Magic Bento */}
-      <MagicBento 
-        cards={circularityBentoCards}
-        textAutoHide={false}
-        enableStars={true}
-        enableSpotlight={true}
-        enableBorderGlow={true}
-        enableTilt={true}
-        enableMagnetism={true}
-        clickEffect={true}
-        spotlightRadius={320}
-        particleCount={14}
-        glowColor="0, 112, 243"
-      />
+      <motion.div variants={itemVariants} className="relative z-10">
+        <MagicBento 
+          cards={circularityBentoCards}
+          textAutoHide={false}
+          enableStars={true}
+          enableSpotlight={true}
+          enableBorderGlow={true}
+          enableTilt={true}
+          enableMagnetism={true}
+          clickEffect={true}
+          spotlightRadius={320}
+          particleCount={14}
+          glowColor="0, 112, 243"
+        />
+      </motion.div>
 
       {/* Recommended Opportunities List */}
-      <div className="bg-white rounded-3xl p-6 border border-[#DDE7E2] shadow-xs space-y-4">
-        <div className="flex items-center justify-between">
+      <motion.div 
+        variants={itemVariants}
+        className="bg-white rounded-3xl p-6 border border-[#DDE7E2] shadow-sm space-y-4 relative overflow-hidden group"
+      >
+        <BorderBeam size={160} duration={8} colorFrom="#0070F3" colorMid="#38BDF8" colorTo="#0284C7" hoverOnly={true} />
+
+        <div className="flex items-center justify-between relative z-10">
           <div>
-            <h3 className="text-base font-bold text-[#10201B]">
-              Recommended Second-Life Opportunities
+            <h3 className="text-base font-bold text-[#10201B] flex items-center gap-2">
+              <span>Recommended Second-Life Opportunities</span>
+              <span className="text-xs font-normal text-[#62756E] bg-[#F0F5F2] px-2 py-0.5 rounded-full">
+                {opportunities.length} Active
+              </span>
             </h3>
             <p className="text-xs text-[#62756E]">
               Ranked by electrochemical compatibility and target application suitability.
             </p>
           </div>
 
-          <Link
-            href="/circularity/opportunities"
-            className="text-xs font-semibold text-[#0070F3] hover:underline flex items-center gap-1"
-          >
-            <span>View All Opportunities</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          <motion.div whileHover={{ x: 2 }}>
+            <Link
+              href="/circularity/opportunities"
+              className="text-xs font-semibold text-[#0070F3] hover:underline flex items-center gap-1 group/link"
+            >
+              <span>View All Opportunities</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
+            </Link>
+          </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {opportunities.map(opp => (
-            <div
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative z-10">
+          {opportunities.map((opp, idx) => (
+            <motion.div
               key={opp.id}
-              className="p-5 rounded-2xl bg-[#F7FAF8] border border-[#DDE7E2] flex flex-col justify-between hover:border-[#0070F3] transition-colors"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.06, duration: 0.35 }}
+              whileHover={{ y: -4, scale: 1.015 }}
+              className="p-5 rounded-2xl bg-[#F7FAF8] border border-[#DDE7E2] flex flex-col justify-between hover:border-[#0070F3] hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-200"
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono font-bold text-xs text-[#10201B]">
-                    {opp.batteryId}
-                  </span>
-                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                    opp.status === 'Available' ? 'bg-[#EFF6FF] text-[#0070F3]' : 'bg-[#F0F5F2] text-[#62756E]'
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-mono font-bold text-xs text-[#10201B]">
+                      {opp.batteryId}
+                    </span>
+                  </div>
+                  <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                    opp.status === 'Available' ? 'bg-[#EFF6FF] text-[#0070F3] border border-blue-500/20' : 'bg-[#F0F5F2] text-[#62756E]'
                   }`}>
+                    {opp.status === 'Available' && (
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#0070F3]"></span>
+                      </span>
+                    )}
                     {opp.status}
                   </span>
                 </div>
@@ -184,21 +267,24 @@ export default function CircularityDashboardPage() {
 
               <div className="mt-4 pt-3 border-t border-[#DDE7E2] flex items-center justify-between">
                 <span className="font-mono font-bold text-xs text-[#10201B]">
-                  ${opp.economicValueUsd}
+                  ${opp.economicValueUsd?.toLocaleString() || opp.economicValueUsd}
                 </span>
 
-                <Link
-                  href={`/circularity/opportunities/${opp.batteryId}`}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#0070F3] hover:underline"
-                >
-                  <span>Inspect & Claim</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link
+                    href={`/circularity/opportunities/${opp.batteryId}`}
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#0070F3] hover:underline"
+                  >
+                    <span>Inspect & Claim</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
+
