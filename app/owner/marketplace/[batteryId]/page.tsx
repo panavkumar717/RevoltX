@@ -48,24 +48,26 @@ export default function OwnerMarketplaceDetailPage({
   const netPrice = Math.max(0, listPrice - tradeInCredit);
 
   const handleBuy = () => {
-    // 1. Update battery owner to Sarah Jenkins in shared database
+    const buyerDisplayName = currentUser?.name || 'Authorized Customer';
+
+    // 1. Update battery owner in shared database
     updateBattery(
       battery.id,
       {
-        ownerId: 'usr-sarah',
-        ownerName: currentUser?.name || 'Sarah Jenkins',
+        ownerId: currentUser?.email || 'usr-cust',
+        ownerName: buyerDisplayName,
         status: 'Active',
         lifecycleStage: 'FIRST_LIFE'
       },
       'Purchased via ReVoltX Marketplace',
-      `Ownership transferred to ${currentUser?.name || 'Sarah Jenkins'}. Scheduled for mobile delivery and installation.`
+      `Ownership transferred to ${buyerDisplayName}. Scheduled for mobile delivery and installation.`
     );
 
     // 2. Generate tracking and dispatch service request to internal operations
     const trackingCode = `REV-DLV-${Math.floor(10000 + Math.random() * 90000)}`;
     const newReq = createServiceRequest({
       batteryId: battery.revoltXId,
-      customerName: currentUser?.name || 'Sarah Jenkins',
+      customerName: buyerDisplayName,
       phone: '+1 (555) 392-8819',
       address: '742 Evergreen Terrace, Sector 4, Silicon District',
       issue: `New Battery Purchase & Delivery: Pack ${battery.revoltXId} (${battery.chemistry}, ${battery.currentSOH}% SOH). Swap with customer trade-in unit RX-2026-892738. Delivery tomorrow 10:00 AM. Tracking: ${trackingCode}`
@@ -132,7 +134,7 @@ export default function OwnerMarketplaceDetailPage({
               ${listPrice.toLocaleString()}
             </span>
             <span className="text-[11px] text-[#137A58] font-bold block mt-0.5">
-              Net with Sarah&apos;s Trade-in: ${netPrice.toLocaleString()}
+              Net with Pack Trade-in: ${netPrice.toLocaleString()}
             </span>
           </div>
         </div>
@@ -241,7 +243,7 @@ export default function OwnerMarketplaceDetailPage({
                 </span>
                 <div className="flex items-center gap-2 text-[#137A58]">
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>Order Verified & Passport Transferred to Sarah Jenkins</span>
+                  <span>Order Verified & Passport Transferred to Registered Owner</span>
                 </div>
                 <div className="flex items-center gap-2 text-[#137A58]">
                   <CheckCircle2 className="w-4 h-4" />
@@ -286,7 +288,7 @@ export default function OwnerMarketplaceDetailPage({
               <div className="flex items-center gap-2 text-xs text-[#62756E]">
                 <Truck className="w-4 h-4 text-[#137A58]" />
                 <span>
-                  Includes freight delivery to Sarah Jenkins (742 Evergreen Ter) & on-site Smart Dock swap
+                  Includes nationwide freight delivery & on-site Smart Dock swap
                 </span>
               </div>
 

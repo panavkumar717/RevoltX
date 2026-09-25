@@ -53,6 +53,12 @@ export default function OwnerHealthPage() {
     setBookedRequest(req);
 
     try {
+      localStorage.setItem('revoltx_sarah_diagnosis_requested', 'true');
+    } catch {
+      // Storage fallback
+    }
+
+    try {
       confetti({
         particleCount: 80,
         spread: 70,

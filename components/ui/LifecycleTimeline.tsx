@@ -9,6 +9,7 @@ interface LifecycleTimelineProps {
   events?: LifecycleEvent[];
   orientation?: 'horizontal' | 'vertical';
   showDetails?: boolean;
+  maxStage?: LifecycleStage;
 }
 
 const STAGES: { key: LifecycleStage; label: string; short: string; description: string }[] = [
@@ -27,16 +28,20 @@ export const LifecycleTimeline: React.FC<LifecycleTimelineProps> = ({
   currentStage,
   events = [],
   orientation = 'horizontal',
-  showDetails = true
+  showDetails = true,
+  maxStage
 }) => {
-  const currentIndex = STAGES.findIndex(s => s.key === currentStage);
+  const maxIdx = maxStage ? STAGES.findIndex(s => s.key === maxStage) : STAGES.length - 1;
+  const stagesToRender = maxIdx >= 0 ? STAGES.slice(0, maxIdx + 1) : STAGES;
+  const currentIndex = stagesToRender.findIndex(s => s.key === currentStage);
+  const effectiveCurrentIndex = currentIndex >= 0 ? currentIndex : stagesToRender.length - 1;
 
   if (orientation === 'vertical') {
     return (
       <div className="relative pl-6 space-y-6 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-[#DDE7E2]">
-        {STAGES.map((stage, idx) => {
-          const isPassed = idx < currentIndex;
-          const isCurrent = idx === currentIndex;
+        {stagesToRender.map((stage, idx) => {
+          const isPassed = idx < effectiveCurrentIndex;
+          const isCurrent = idx === effectiveCurrentIndex;
           const matchingEvent = events.find(e => e.stage === stage.key);
 
           return (
@@ -105,13 +110,13 @@ export const LifecycleTimeline: React.FC<LifecycleTimelineProps> = ({
           <div className="absolute left-8 right-8 top-4 h-0.5 bg-[#DDE7E2] -z-0" />
           <div 
             className="absolute left-8 top-4 h-0.5 bg-[#137A58] transition-all duration-700 -z-0" 
-            style={{ width: `${Math.max(0, (currentIndex / (STAGES.length - 1)) * 100)}%` }}
+            style={{ width: `${Math.max(0, (effectiveCurrentIndex / Math.max(1, stagesToRender.length - 1)) * 100)}%` }}
           />
 
-          {STAGES.map((stage, idx) => {
-            const isPassed = idx < currentIndex;
-            const isCurrent = idx === currentIndex;
-            const isUpcoming = idx > currentIndex;
+          {stagesToRender.map((stage, idx) => {
+            const isPassed = idx < effectiveCurrentIndex;
+            const isCurrent = idx === effectiveCurrentIndex;
+            const isUpcoming = idx > effectiveCurrentIndex;
 
             return (
               <div key={stage.key} className="relative z-10 flex flex-col items-center text-center group cursor-default">
@@ -158,18 +163,18 @@ export const LifecycleTimeline: React.FC<LifecycleTimelineProps> = ({
               <div className="flex items-center gap-2">
                 <span className="text-xs uppercase tracking-wider font-semibold text-[#62756E]">Current Lifecycle Phase</span>
                 <span className="text-xs font-bold text-[#137A58] bg-white px-2 py-0.5 rounded border border-[#DDE7E2]">
-                  {STAGES[currentIndex]?.label || currentStage}
+                  {stagesToRender[effectiveCurrentIndex]?.label || currentStage}
                 </span>
               </div>
               <p className="text-sm font-medium text-[#10201B] mt-0.5">
-                {STAGES[currentIndex]?.description || 'Continuous tracking active.'}
+                {stagesToRender[effectiveCurrentIndex]?.description || 'Continuous tracking active.'}
               </p>
             </div>
           </div>
           <div className="text-right">
             <span className="text-xs text-[#62756E] block">Lifecycle Progress</span>
             <span className="text-sm font-bold font-mono text-[#137A58]">
-              {Math.round(((currentIndex + 1) / STAGES.length) * 100)}% Complete
+              {Math.round(((effectiveCurrentIndex + 1) / stagesToRender.length) * 100)}% Complete
             </span>
           </div>
         </div>

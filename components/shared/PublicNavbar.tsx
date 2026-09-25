@@ -17,7 +17,8 @@ import {
   Activity,
   Recycle,
   QrCode,
-  Sparkles
+  Sparkles,
+  ShoppingBag
 } from 'lucide-react';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { MenuItem, ProductItem, HoveredLink } from '../ui/navbar-menu';
@@ -104,6 +105,10 @@ export const PublicNavbar: React.FC = () => {
                 <User className="w-3.5 h-3.5 text-[#21A879] dark:text-[#34D399]" />
                 <span>Customer / Owner Portal</span>
               </HoveredLink>
+              <HoveredLink href="/owner/marketplace" className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-white/10 dark:hover:bg-white/5 transition-colors">
+                <ShoppingBag className="w-3.5 h-3.5 text-[#137A58] dark:text-[#34D399]" />
+                <span>Certified Marketplace (No Login)</span>
+              </HoveredLink>
               <HoveredLink href="/login/circularity" className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-white/10 dark:hover:bg-white/5 transition-colors">
                 <RefreshCw className="w-3.5 h-3.5 text-[#5D7C13] dark:text-[#A3E635]" />
                 <span>Circularity Partner Portal</span>
@@ -144,6 +149,16 @@ export const PublicNavbar: React.FC = () => {
 
         {/* Right: Actions & Theme Toggle */}
         <div className="flex items-center gap-2 sm:gap-3">
+          {/* Direct Marketplace Button (No Login Required) */}
+          <Link
+            href="/marketplace"
+            className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#137A58] dark:bg-[#21A879] text-white text-xs sm:text-sm font-semibold hover:bg-[#0E5B42] dark:hover:bg-[#1A8D65] shadow-xs hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all shrink-0"
+            title="Browse Public Certified Battery Marketplace"
+          >
+            <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#C9EF72] dark:text-[#0B1310]" />
+            <span>Marketplace</span>
+          </Link>
+
           {/* Dark Mode Theme Toggle */}
           <ThemeToggle />
 
@@ -227,6 +242,18 @@ export const PublicNavbar: React.FC = () => {
                 <span>Circularity Partner Sign In</span>
               </Link>
             </div>
+
+            <Link
+              href="/marketplace"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-[#137A58] dark:bg-[#21A879] text-white font-bold text-xs shadow-xs"
+            >
+              <span className="flex items-center gap-2">
+                <ShoppingBag className="w-4 h-4 text-[#C9EF72] dark:text-[#0B1310]" />
+                <span>Certified Marketplace (Public)</span>
+              </span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
 
             <Link
               href="/demo"

@@ -28,7 +28,7 @@ import { useReVoltX } from '../../../lib/store/batteryStore';
 import { BatteryStatusBadge } from '../../../components/ui/BatteryStatusBadge';
 
 export default function OwnerMarketplacePage() {
-  const { batteries, getBattery, createServiceRequest, updateBattery } = useReVoltX();
+  const { batteries, getBattery, createServiceRequest, updateBattery, currentUser } = useReVoltX();
   const [search, setSearch] = useState('');
   const [chemistryFilter, setChemistryFilter] = useState('ALL');
 
@@ -38,6 +38,7 @@ export default function OwnerMarketplacePage() {
 
   // Selected battery for checkout / delivery modal
   const [selectedBattery, setSelectedBattery] = useState<any | null>(null);
+  const [customerName, setCustomerName] = useState(currentUser?.name || 'Authorized Customer');
   const [deliveryDate, setDeliveryDate] = useState('Tomorrow (10:00 AM - 1:00 PM)');
   const [deliveryAddress, setDeliveryAddress] = useState('742 Evergreen Terrace, Sector 4, Silicon District');
   const [customerPhone, setCustomerPhone] = useState('+1 (555) 392-8819');
@@ -74,20 +75,20 @@ export default function OwnerMarketplacePage() {
     updateBattery(
       selectedBattery.id,
       {
-        ownerId: 'usr-sarah',
-        ownerName: 'Sarah Jenkins',
+        ownerId: currentUser?.email || 'usr-cust',
+        ownerName: customerName,
         status: 'Active',
         lifecycleStage: 'FIRST_LIFE'
       },
       'Purchased via ReVoltX Certified Marketplace',
-      `Ownership transferred to Sarah Jenkins. Delivery scheduled. Old battery trade-in initiated.`
+      `Ownership transferred to ${customerName}. Delivery scheduled. Old battery trade-in initiated.`
     );
 
     // 2. Dispatch a service request to Operations Fleet Dispatch
     const trackingCode = `REV-DLV-${Math.floor(10000 + Math.random() * 90000)}`;
     const newReq = createServiceRequest({
       batteryId: selectedBattery.revoltXId,
-      customerName: 'Sarah Jenkins',
+      customerName: customerName,
       phone: customerPhone,
       address: deliveryAddress,
       issue: `New Battery Purchase & Delivery: Pack ${selectedBattery.revoltXId} (${selectedBattery.chemistry}, ${selectedBattery.currentSOH}% SOH). Swap with trade-in asset RX-2026-892738. Delivery window: ${deliveryDate}. Tracking: ${trackingCode}.`
@@ -274,7 +275,7 @@ export default function OwnerMarketplacePage() {
                 {/* Trade-In Price Calculation */}
                 <div className="mt-3 p-2.5 rounded-xl bg-[#DDF5EA]/50 border border-[#BBEAD7] flex items-center justify-between text-xs">
                   <span className="text-[#137A58] font-medium flex items-center gap-1">
-                    <Zap className="w-3.5 h-3.5" /> With Sarah&apos;s Trade-In:
+                    <Zap className="w-3.5 h-3.5" /> With Pack Trade-In:
                   </span>
                   <span className="font-mono font-bold text-[#10201B]">
                     {tradeInSurplus > 0 ? (
@@ -398,7 +399,7 @@ export default function OwnerMarketplacePage() {
                     </div>
                     <div className="flex items-center gap-2 text-[#137A58]">
                       <CheckCircle2 className="w-4 h-4 shrink-0" />
-                      <span className="font-medium">2. Digital Passport Transferred to Sarah Jenkins</span>
+                      <span className="font-medium">2. Digital Passport Transferred to Registered Owner</span>
                     </div>
                     <div className="flex items-center gap-2 text-[#137A58]">
                       <CheckCircle2 className="w-4 h-4 shrink-0" />
@@ -490,9 +491,9 @@ export default function OwnerMarketplacePage() {
                     </label>
                     <input
                       type="text"
-                      disabled
-                      value="Sarah Jenkins"
-                      className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F0F5F2] text-xs font-semibold text-[#10201B]"
+                      value={customerName}
+                      onChange={e => setCustomerName(e.target.value)}
+                      className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-white text-xs font-semibold text-[#10201B] focus:outline-none focus:ring-2 focus:ring-[#137A58]"
                     />
                   </div>
 

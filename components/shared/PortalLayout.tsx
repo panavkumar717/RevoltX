@@ -62,7 +62,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
       badge: 'Consumer Tier',
       badgeColor: 'bg-[#EBF7F3] text-[#21A879] border-[#C5ECD9]',
       icon: User,
-      defaultOrg: 'Sarah Jenkins (EV Asset #892738)',
+      defaultOrg: 'ReVoltX Verified Client',
       homeHref: '/owner'
     },
     circularity: {
@@ -202,19 +202,31 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
             </div>
 
             {/* Current Session Badge */}
-            <div className="flex items-center gap-2 pl-2 border-l border-[#DDE7E2]">
-              <div className="h-8 w-8 rounded-full bg-[#137A58] text-white flex items-center justify-center font-bold text-xs">
-                {currentUser?.name?.charAt(0) || 'U'}
+            {currentUser ? (
+              <div className="flex items-center gap-2 pl-2 border-l border-[#DDE7E2]">
+                <div className="h-8 w-8 rounded-full bg-[#137A58] text-white flex items-center justify-center font-bold text-xs">
+                  {currentUser.name?.charAt(0) || 'U'}
+                </div>
+                <div className="hidden xl:flex flex-col text-left">
+                  <span className="text-xs font-bold text-[#10201B] leading-none">
+                    {currentUser.name}
+                  </span>
+                  <span className="text-[10px] text-[#62756E] mt-0.5">
+                    {currentUser.orgName || portalConfig.defaultOrg}
+                  </span>
+                </div>
               </div>
-              <div className="hidden xl:flex flex-col text-left">
-                <span className="text-xs font-bold text-[#10201B] leading-none">
-                  {currentUser?.name || 'Authorized User'}
-                </span>
-                <span className="text-[10px] text-[#62756E] mt-0.5">
-                  {currentUser?.orgName || portalConfig.defaultOrg}
-                </span>
+            ) : (
+              <div className="flex items-center gap-2 pl-2 border-l border-[#DDE7E2]">
+                <Link
+                  href="/login/owner"
+                  className="px-3 py-1.5 rounded-xl bg-[#137A58] text-white text-xs font-semibold hover:bg-[#0E5B42] transition-colors shadow-2xs flex items-center gap-1.5"
+                >
+                  <User className="w-3.5 h-3.5" />
+                  <span>Sign In</span>
+                </Link>
               </div>
-            </div>
+            )}
 
             {/* Mobile Nav Toggle */}
             <button
