@@ -209,7 +209,7 @@ export default function ManufacturerDashboardPage() {
             href="/manufacturer/service-requests"
             className="text-xs font-semibold text-[#137A58] dark:text-[#34D399] hover:underline"
           >
-            <span>Manage All Service Requests</span>
+            <span>Issues Reported</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
@@ -248,7 +248,7 @@ export default function ManufacturerDashboardPage() {
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] transition-colors"
             >
               <Wrench className="w-3.5 h-3.5" />
-              <span>Request ReVoltX Health Assessment</span>
+              <span>Issues Reported</span>
             </Link>
           </div>
         </motion.div>

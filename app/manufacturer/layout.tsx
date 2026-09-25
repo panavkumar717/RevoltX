@@ -18,7 +18,7 @@ const MANUFACTURER_NAV: NavItem[] = [
   { label: 'Batteries', href: '/manufacturer/batteries', icon: BatteryMedium, badge: 6 },
   { label: 'Fleet Assets', href: '/manufacturer/fleet', icon: Truck },
   { label: 'Register Battery', href: '/manufacturer/batteries/register', icon: PlusCircle },
-  { label: 'Service Requests', href: '/manufacturer/service-requests', icon: Wrench, badge: 3 },
+  { label: 'Issues Reported', href: '/manufacturer/service-requests', icon: Wrench, badge: 3 },
   { label: 'Reports & ESG', href: '/manufacturer/reports', icon: FileText },
   { label: 'Digital Passport', href: '/battery/RX-2026-892738', icon: QrCode }
 ];
