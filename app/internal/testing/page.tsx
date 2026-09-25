@@ -25,6 +25,7 @@ import { SmartDockVisualizer } from '../../../components/ui/SmartDockVisualizer'
 import { TelemetryChart } from '../../../components/ui/TelemetryChart';
 import { RXScoreGauge } from '../../../components/ui/RXScoreGauge';
 import { DecisionCard } from '../../../components/ui/DecisionCard';
+import { classifyBatteryDeterministic, AIPredictionResult } from '../../../lib/ai/rxEngine';
 
 export default function SmartDockTestingPage() {
   const { batteries, updateBattery, updateServiceRequestStatus, addSecondLifeOpportunity, recordRecyclingMaterial } = useReVoltX();
@@ -34,6 +35,7 @@ export default function SmartDockTestingPage() {
   const [aiStage, setAiStage] = useState(0);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [decisionOutcome, setDecisionOutcome] = useState<'CONTINUE_USE' | 'SECOND_LIFE' | 'RECYCLE'>('SECOND_LIFE');
+  const [aiPrediction, setAiPrediction] = useState<AIPredictionResult | null>(null);
   const [syncedToCloud, setSyncedToCloud] = useState(false);
 
   const AI_STAGES = [
@@ -65,10 +67,45 @@ export default function SmartDockTestingPage() {
     }
   }, [step, isAnalyzing, aiStage]);
 
-  const handleStartIntelligence = () => {
+  const handleStartIntelligence = async () => {
     setAiStage(0);
     setIsAnalyzing(true);
     setStep(5);
+
+    const b = batteries.find(x => x.revoltXId === selectedBatteryId || x.id === selectedBatteryId);
+    const inputData = {
+      revoltXId: selectedBatteryId,
+      chemistry: b?.chemistry || 'LFP',
+      currentSOH: b?.currentSOH || 71.4,
+      rul: b?.rul || 384,
+      internalResistanceRe: b?.internalResistanceRe || 0.052,
+      chargeTransferRct: b?.chargeTransferRct || 0.078,
+      temperature: b?.temperature || 26.5,
+      capacityAh: b?.capacity || 60,
+      nominalVoltage: b?.nominalVoltage || 48
+    };
+
+    try {
+      const res = await fetch('/api/ai/predict', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(inputData)
+      });
+      if (res.ok) {
+        const json = await res.json();
+        if (json.data) {
+          setAiPrediction(json.data);
+          setDecisionOutcome(json.data.decision);
+          return;
+        }
+      }
+    } catch {
+      // Fallback
+    }
+
+    const fallback = classifyBatteryDeterministic(inputData);
+    setAiPrediction(fallback);
+    setDecisionOutcome(fallback.decision);
   };
 
   const handleApplyDecision = (pathway: 'CONTINUE_USE' | 'SECOND_LIFE' | 'RECYCLE') => {
@@ -541,16 +578,29 @@ export default function SmartDockTestingPage() {
       {/* STEP 7: Decision Engine & Database Update */}
       {step === 7 && (
         <div className="space-y-6">
+          {aiPrediction && (
+            <DecisionCard
+              decision={aiPrediction.decision}
+              recommendation={aiPrediction.recommendedApplication}
+              application={aiPrediction.recommendedApplication}
+              soh={71.4}
+              rul={384}
+              rxScore={aiPrediction.rxScore}
+              batteryId={selectedBatteryId}
+              predictionData={aiPrediction}
+            />
+          )}
+
           <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#DDE7E2] shadow-sm space-y-6">
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-[#137A58]">
-                Step 7 of 7 (Decision Engine)
+                Step 7 of 7 (Decision Engine Validation)
               </span>
               <h2 className="text-xl font-bold text-[#10201B] mt-1">
-                Select Lifecycle Routing Pathway
+                Technician Sign-Off & Lifecycle Routing
               </h2>
               <p className="text-xs text-[#62756E]">
-                Selecting a pathway writes to the single source of truth across all 3 portals and the public Digital Battery Passport.
+                Confirm the AI classification or apply an override before writing to the permanent Digital Battery Passport registry.
               </p>
             </div>
 

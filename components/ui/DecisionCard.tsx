@@ -1,6 +1,21 @@
-import React from 'react';
-import { ArrowRight, Recycle, RefreshCw, CheckCircle2, ShieldCheck, AlertCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { 
+  ArrowRight, 
+  Recycle, 
+  RefreshCw, 
+  CheckCircle2, 
+  ShieldCheck, 
+  AlertCircle,
+  Sparkles,
+  ChevronDown,
+  ChevronUp,
+  Cpu,
+  Layers,
+  Zap,
+  TrendingDown
+} from 'lucide-react';
 import Link from 'next/link';
+import { AIPredictionResult } from '../../lib/ai/rxEngine';
 
 interface DecisionCardProps {
   decision: 'CONTINUE_USE' | 'SECOND_LIFE' | 'RECYCLE';
@@ -11,6 +26,7 @@ interface DecisionCardProps {
   rxScore: number;
   anomaly?: string;
   batteryId: string;
+  predictionData?: AIPredictionResult | null;
 }
 
 export const DecisionCard: React.FC<DecisionCardProps> = ({
@@ -21,8 +37,11 @@ export const DecisionCard: React.FC<DecisionCardProps> = ({
   rul,
   rxScore,
   anomaly,
-  batteryId
+  batteryId,
+  predictionData
 }) => {
+  const [showDetailedReasoning, setShowDetailedReasoning] = useState(false);
+
   const configs = {
     CONTINUE_USE: {
       title: 'Pathway: Continue First-Life Operation',
@@ -56,26 +75,41 @@ export const DecisionCard: React.FC<DecisionCardProps> = ({
   const Icon = configs.icon;
 
   return (
-    <div className={`rounded-2xl p-6 border ${configs.bg} ${configs.border} shadow-xs`}>
+    <div className={`rounded-3xl p-6 border ${configs.bg} ${configs.border} shadow-xs space-y-4`}>
+      {/* Header bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-black/10 gap-3">
         <div className="flex items-center gap-3">
-          <div className={`p-2.5 rounded-xl bg-white shadow-xs ${configs.textColor}`}>
+          <div className={`p-2.5 rounded-2xl bg-white shadow-xs ${configs.textColor}`}>
             <Icon className="w-6 h-6" />
           </div>
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#62756E]">
-              ReVoltX AI Decision Engine
-            </span>
-            <h3 className="text-lg font-bold text-[#10201B]">{configs.title}</h3>
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#62756E]">
+                ReVoltX AI Decision Engine
+              </span>
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/80 text-[#137A58] border border-black/10">
+                <Sparkles className="w-3 h-3 text-[#137A58]" />
+                {predictionData?.modelSignature || 'Gemini 2.5 Flash + Physics v4'}
+              </span>
+            </div>
+            <h3 className="text-lg font-bold text-[#10201B] mt-0.5">{configs.title}</h3>
           </div>
         </div>
 
-        <span className={`inline-block px-3.5 py-1.5 rounded-full text-xs font-bold bg-white shadow-xs border ${configs.textColor}`}>
-          {configs.badge}
-        </span>
+        <div className="flex items-center gap-2">
+          {predictionData && (
+            <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-white shadow-2xs text-[#10201B]">
+              {predictionData.confidence}% Confidence
+            </span>
+          )}
+          <span className={`inline-block px-3.5 py-1.5 rounded-full text-xs font-bold bg-white shadow-xs border ${configs.textColor}`}>
+            {configs.badge}
+          </span>
+        </div>
       </div>
 
-      <div className="mt-4">
+      {/* Main recommendation text */}
+      <div>
         <p className="text-sm font-medium text-[#10201B] leading-relaxed">
           {recommendation || configs.description}
         </p>
@@ -91,8 +125,45 @@ export const DecisionCard: React.FC<DecisionCardProps> = ({
         )}
       </div>
 
+      {/* Probability Distribution Bar (if prediction data present) */}
+      {predictionData && (
+        <div className="p-3.5 rounded-2xl bg-white/90 border border-black/5 space-y-2">
+          <div className="flex items-center justify-between text-xs">
+            <span className="font-bold text-[#10201B] flex items-center gap-1.5">
+              <Cpu className="w-3.5 h-3.5 text-[#137A58]" />
+              Classification Probabilities
+            </span>
+            <span className="text-[11px] font-mono text-[#62756E]">UL 1974 Thresholds</span>
+          </div>
+
+          <div className="h-3 w-full rounded-full bg-black/10 overflow-hidden flex">
+            <div 
+              style={{ width: `${predictionData.probabilities.continueUse}%` }} 
+              className="bg-[#137A58] h-full" 
+              title={`First Life: ${predictionData.probabilities.continueUse}%`}
+            />
+            <div 
+              style={{ width: `${predictionData.probabilities.secondLife}%` }} 
+              className="bg-[#5D7C13] h-full" 
+              title={`Second Life: ${predictionData.probabilities.secondLife}%`}
+            />
+            <div 
+              style={{ width: `${predictionData.probabilities.recycle}%` }} 
+              className="bg-[#D94B4B] h-full" 
+              title={`Recycle: ${predictionData.probabilities.recycle}%`}
+            />
+          </div>
+
+          <div className="flex items-center justify-between text-[11px] pt-1 font-mono">
+            <span className="text-[#137A58] font-bold">1st Life: {predictionData.probabilities.continueUse}%</span>
+            <span className="text-[#5D7C13] font-bold">2nd Life: {predictionData.probabilities.secondLife}%</span>
+            <span className="text-[#D94B4B] font-bold">Recycle: {predictionData.probabilities.recycle}%</span>
+          </div>
+        </div>
+      )}
+
       {/* Decision metrics summary */}
-      <div className="mt-4 grid grid-cols-3 gap-2 p-3 bg-white/90 rounded-xl border border-black/5 text-center">
+      <div className="grid grid-cols-3 gap-2 p-3 bg-white/90 rounded-2xl border border-black/5 text-center">
         <div>
           <span className="text-[10px] text-[#62756E] uppercase font-semibold">Current SOH</span>
           <p className="text-base font-bold font-mono text-[#10201B]">{soh}%</p>
@@ -107,16 +178,56 @@ export const DecisionCard: React.FC<DecisionCardProps> = ({
         </div>
       </div>
 
+      {/* Expandable Gemini Reasoning */}
+      {predictionData?.electrochemicalDiagnosis && (
+        <div className="pt-1">
+          <button
+            type="button"
+            onClick={() => setShowDetailedReasoning(!showDetailedReasoning)}
+            className="flex items-center justify-between w-full p-2.5 rounded-xl bg-white/60 hover:bg-white text-xs font-semibold text-[#10201B] transition-colors"
+          >
+            <span className="flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-[#137A58]" />
+              <span>Gemini Electrochemical Reasoning & Failure Mechanisms</span>
+            </span>
+            {showDetailedReasoning ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          </button>
+
+          {showDetailedReasoning && (
+            <div className="mt-2 p-3.5 rounded-xl bg-white border border-black/5 space-y-2 text-xs animate-in fade-in duration-150">
+              <p className="text-[#10201B] leading-relaxed">
+                {predictionData.electrochemicalDiagnosis}
+              </p>
+              
+              {predictionData.degradationMechanisms && predictionData.degradationMechanisms.length > 0 && (
+                <div className="pt-2 border-t border-black/5">
+                  <span className="text-[11px] font-bold text-[#62756E] block mb-1">
+                    Identified Degradation Mechanisms:
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {predictionData.degradationMechanisms.map((mech, i) => (
+                      <span key={i} className="px-2 py-0.5 rounded-md bg-[#F0F5F2] text-[#10201B] text-[10px] font-medium border border-[#DDE7E2]">
+                        {mech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Standards & Compliance Disclaimer */}
-      <div className="mt-4 flex items-start gap-2 text-[11px] text-[#62756E]">
+      <div className="flex items-start gap-2 text-[11px] text-[#62756E]">
         <ShieldCheck className="w-3.5 h-3.5 text-[#137A58] shrink-0 mt-0.5" />
         <p>
-          <strong>Qualification Notice:</strong> Algorithmic recommendations indicate candidate eligibility. Actual secondary deployment requires physical compliance testing under UL 1974 / IEC 62933 standards prior to operational deployment.
+          <strong>Regulatory Notice:</strong> AI predictions evaluate candidate suitability. Final physical repurposing requires compliant testing under UL 1974 and EU Battery Regulation (EU 2023/1542).
         </p>
       </div>
 
       {/* Direct Links based on decision */}
-      <div className="mt-5 flex flex-wrap items-center gap-3 pt-4 border-t border-black/10">
+      <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-black/10">
         {decision === 'SECOND_LIFE' && (
           <Link
             href="/circularity/opportunities"
