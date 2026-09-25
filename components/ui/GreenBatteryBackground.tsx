@@ -5,6 +5,8 @@ import React, { useEffect, useRef } from 'react';
 interface GreenBatteryBackgroundProps {
   className?: string;
   active?: boolean;
+  blurAmount?: number;
+  showFrostedOverlay?: boolean;
 }
 
 interface BatteryCell {
@@ -63,7 +65,12 @@ interface EnergyPulse {
  * - High-DPI canvas rendering with smooth delta-time physics and mouse parallax
  * - Carefully tuned emerald, mint, and forest green palette for maximum readability and luxury aesthetic
  */
-export function GreenBatteryBackground({ className = '', active = true }: GreenBatteryBackgroundProps) {
+export function GreenBatteryBackground({
+  className = '',
+  active = true,
+  blurAmount = 5,
+  showFrostedOverlay = true
+}: GreenBatteryBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -431,6 +438,20 @@ export function GreenBatteryBackground({ className = '', active = true }: GreenB
 
   return (
     <div className={`pointer-events-none fixed inset-0 z-0 h-full w-full overflow-hidden transition-opacity duration-700 ${className}`}>
+      {/* Soft Luxury Green Ambient Blurred Orbs */}
+      <div
+        className="absolute -top-32 -left-32 w-[550px] h-[550px] rounded-full bg-emerald-400/25 blur-[100px] pointer-events-none animate-pulse"
+        style={{ animationDuration: '8s' }}
+      />
+      <div
+        className="absolute top-1/3 -right-32 w-[600px] h-[600px] rounded-full bg-teal-400/20 blur-[110px] pointer-events-none animate-pulse"
+        style={{ animationDuration: '10s' }}
+      />
+      <div
+        className="absolute bottom-10 left-1/4 w-[520px] h-[520px] rounded-full bg-green-500/20 blur-[95px] pointer-events-none animate-pulse"
+        style={{ animationDuration: '9s' }}
+      />
+
       {/* Soft Luxury Green Mesh Underlayer */}
       <div
         className="absolute inset-0 opacity-40 mix-blend-multiply pointer-events-none"
@@ -444,10 +465,21 @@ export function GreenBatteryBackground({ className = '', active = true }: GreenB
           backgroundSize: '100% 100%, 100% 100%, 48px 48px, 48px 48px'
         }}
       />
+
+      {/* Animated Canvas with Gaussian Blur Filter */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 h-full w-full pointer-events-none"
+        className="absolute inset-0 h-full w-full pointer-events-none transition-all duration-500"
+        style={{
+          filter: blurAmount > 0 ? `blur(${blurAmount}px)` : 'none',
+          transform: blurAmount > 0 ? 'scale(1.05)' : 'none',
+        }}
       />
+
+      {/* Frosted Glass Diffusion Overlay for Smooth Luxury Feel */}
+      {showFrostedOverlay && (
+        <div className="absolute inset-0 backdrop-blur-[6px] bg-white/20 pointer-events-none" />
+      )}
     </div>
   );
 }
