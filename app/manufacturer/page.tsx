@@ -256,15 +256,16 @@ export default function ManufacturerDashboardPage() {
 
       {/* Registered Battery Catalog Preview */}
       <motion.div 
+        id="registry"
         variants={itemVariants}
-        className="bg-white dark:bg-zinc-900/80 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4 relative overflow-hidden"
+        className="bg-white dark:bg-zinc-900/80 rounded-3xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4 relative overflow-hidden scroll-mt-20"
       >
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
               <span>Registered Battery Asset Registry</span>
-              <span className="text-xs font-normal text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded-full">
-                NASA Aging Benchmarked
+              <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                {batteries.length} Verified Assets
               </span>
             </h3>
             <p className="text-xs text-zinc-500 dark:text-zinc-400">
@@ -304,12 +305,24 @@ export default function ManufacturerDashboardPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.04, duration: 0.3 }}
                   whileHover={{ backgroundColor: 'rgba(0, 112, 243, 0.03)', x: 2 }}
-                  className="transition-colors group"
+                  className={`transition-colors group ${b.lifecycleStage === 'REGISTERED' ? 'bg-emerald-500/[0.04] dark:bg-emerald-950/20' : ''}`}
                 >
                   <td className="py-3 font-mono font-bold text-zinc-900 dark:text-zinc-100">
-                    <Link href={`/manufacturer/batteries/${b.revoltXId}`} className="hover:text-[#137A58] dark:hover:text-[#34D399]">
-                      {b.revoltXId}
-                    </Link>
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <Link href={`/manufacturer/batteries/${b.revoltXId}`} className="hover:text-[#137A58] dark:hover:text-[#34D399]">
+                        {b.revoltXId}
+                      </Link>
+                      {b.nasaDatasetId && (
+                        <span className="text-[10px] font-sans font-semibold text-[#137A58] dark:text-[#34D399] bg-emerald-500/10 px-1.5 py-0.2 rounded border border-emerald-500/20">
+                          {b.nasaDatasetId}
+                        </span>
+                      )}
+                      {b.lifecycleStage === 'REGISTERED' && (
+                        <span className="text-[10px] font-sans font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/15 px-1.5 py-0.2 rounded-full border border-emerald-500/30 animate-pulse">
+                          Newly Registered
+                        </span>
+                      )}
+                    </div>
                     <span className="block text-[10px] text-zinc-500 dark:text-zinc-400 font-normal">{b.serialNumber}</span>
                   </td>
                   <td className="py-3 font-medium text-zinc-800 dark:text-zinc-200">{b.chemistry} ({b.capacity} Ah)</td>

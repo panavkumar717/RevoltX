@@ -433,17 +433,24 @@ export default function RegisterBatteryPage() {
 
             <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
               <Link
-                href={`/battery/${generatedId}`}
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
+                href="/manufacturer#registry"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-sm hover:shadow-blue-500/20 transition-all"
               >
-                <QrCode className="w-4 h-4" />
+                <span>View in Asset Registry</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href={`/battery/${generatedId}`}
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-xs font-semibold hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
+              >
+                <QrCode className="w-4 h-4 text-[#0070F3]" />
                 <span>Open Digital Battery Passport</span>
               </Link>
               <Link
                 href="/manufacturer/batteries"
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white text-[#10201B] text-xs font-semibold hover:bg-[#F0F5F2] border border-[#DDE7E2] transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 text-xs font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 transition-colors"
               >
-                <span>Return to Fleet Catalog</span>
+                <span>Full Fleet Catalog</span>
               </Link>
             </div>
           </div>

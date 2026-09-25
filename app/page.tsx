@@ -91,9 +91,9 @@ export default function LandingPage() {
         </div>
       )}
 
-      {/* Full-Page Fixed Interactive Green Battery Background - Rendered in Light Mode with Luxury Blur */}
+      {/* Full-Page Fixed Interactive Green Battery Background - Rendered in Light Mode without Blur */}
       <div className="dark:hidden fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <GreenBatteryBackground active={!isDark} blurAmount={12} showFrostedOverlay={true} />
+        <GreenBatteryBackground active={!isDark} blurAmount={0} showFrostedOverlay={false} />
       </div>
 
       <PublicNavbar />

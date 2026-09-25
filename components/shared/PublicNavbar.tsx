@@ -30,7 +30,7 @@ export const PublicNavbar: React.FC = () => {
     <header className="fixed top-3.5 sm:top-5 inset-x-0 z-50 mx-auto w-[94%] max-w-6xl transition-all duration-300">
       <nav
         onMouseLeave={() => setActive(null)}
-        className="relative rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-black/40 backdrop-blur-xl shadow-lg dark:shadow-[0_8px_30px_rgba(0,0,0,0.6)] flex items-center justify-between px-4 sm:px-6 py-2 sm:py-2.5 transition-colors"
+        className="relative rounded-full border border-white/60 dark:border-white/15 bg-white/45 dark:bg-zinc-950/40 backdrop-blur-2xl backdrop-saturate-150 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.06),inset_0_1px_1px_0_rgba(255,255,255,0.85)] dark:shadow-[0_10px_35px_-5px_rgba(0,0,0,0.5),inset_0_1px_1px_0_rgba(255,255,255,0.15)] flex items-center justify-between px-4 sm:px-6 py-2 sm:py-2.5 transition-all duration-300"
       >
         {/* Left: Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 group shrink-0">
@@ -161,7 +161,7 @@ export const PublicNavbar: React.FC = () => {
 
       {/* Mobile Glassmorphism Dropdown Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden mt-2 p-4 rounded-3xl bg-white/90 dark:bg-black/80 backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-2xl space-y-3 animate-in fade-in slide-in-from-top-2 duration-150">
+        <div className="lg:hidden mt-2 p-4 rounded-3xl bg-white/60 dark:bg-zinc-950/60 backdrop-blur-2xl backdrop-saturate-150 border border-white/60 dark:border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.1),inset_0_1px_1px_0_rgba(255,255,255,0.85)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_1px_0_rgba(255,255,255,0.15)] space-y-3 animate-in fade-in slide-in-from-top-2 duration-150">
           <div className="space-y-1 text-sm font-medium">
             <Link
               href="/#problem"

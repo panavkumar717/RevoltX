@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import confetti from 'canvas-confetti';
 import { 
   HeartPulse, 
   HelpCircle, 
@@ -12,7 +13,13 @@ import {
   Wrench, 
   ArrowRight,
   ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  X,
+  Calendar,
+  Clock,
+  MapPin,
+  User,
+  Phone
 } from 'lucide-react';
 import { useReVoltX } from '../../../lib/store/batteryStore';
 import { RXScoreGauge } from '../../../components/ui/RXScoreGauge';
@@ -21,8 +28,40 @@ import { TelemetryChart } from '../../../components/ui/TelemetryChart';
 import MagicBento, { MagicBentoCardItem } from '../../../components/ui/MagicBento';
 
 export default function OwnerHealthPage() {
-  const { getBattery } = useReVoltX();
+  const { getBattery, createServiceRequest } = useReVoltX();
   const battery = getBattery('RX-2026-892738')!;
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [customerName, setCustomerName] = useState('Sarah Jenkins');
+  const [phone, setPhone] = useState('+1 (555) 392-8819');
+  const [address, setAddress] = useState('742 Evergreen Terrace, Sector 4, Silicon District');
+  const [preferredDate, setPreferredDate] = useState('2026-09-26');
+  const [preferredTime, setPreferredTime] = useState('10:00 AM');
+  const [notes, setNotes] = useState('Routine on-site Smart Dock validation for NASA ARC B0005 cell matrix (71.4% SOH).');
+  const [bookedRequest, setBookedRequest] = useState<any>(null);
+
+  const handleBookCheck = (e: React.FormEvent) => {
+    e.preventDefault();
+    const req = createServiceRequest({
+      batteryId: battery.revoltXId,
+      customerName,
+      phone,
+      address,
+      issue: `Owner Health Check Diagnostics: ${notes} (Preferred: ${preferredDate} at ${preferredTime})`
+    });
+
+    setBookedRequest(req);
+
+    try {
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    } catch {
+      // Confetti fallback
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
@@ -39,14 +78,184 @@ export default function OwnerHealthPage() {
           </p>
         </div>
 
-        <Link
-          href="/owner/service"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
+        <button
+          type="button"
+          onClick={() => {
+            setBookedRequest(null);
+            setIsModalOpen(true);
+          }}
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors cursor-pointer"
         >
           <Wrench className="w-3.5 h-3.5" />
           <span>Book Health Check</span>
-        </Link>
+        </button>
       </div>
+
+      {/* Interactive Booking Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-in fade-in duration-150">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full border border-[#DDE7E2] shadow-2xl relative space-y-5">
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-5 right-5 p-1 rounded-full text-[#62756E] hover:text-[#10201B] hover:bg-[#F0F5F2]"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {bookedRequest ? (
+              <div className="text-center py-4 space-y-3">
+                <div className="w-12 h-12 rounded-full bg-[#DDF5EA] text-[#137A58] flex items-center justify-center mx-auto">
+                  <CheckCircle2 className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-bold text-[#10201B]">
+                  Health Check Confirmed!
+                </h3>
+                <p className="text-xs text-[#62756E] max-w-sm mx-auto">
+                  Request <strong className="font-mono text-[#137A58]">{bookedRequest.id}</strong> for <strong className="text-[#10201B]">{customerName}</strong> (Battery <strong className="font-mono">{battery.revoltXId}</strong>) has been logged directly into ReVoltX Operations dispatch.
+                </p>
+
+                <div className="p-3 bg-[#F7FAF8] rounded-xl border border-[#DDE7E2] text-xs text-left space-y-1">
+                  <div className="flex justify-between">
+                    <span className="text-[#62756E]">Customer Name:</span>
+                    <span className="font-bold text-[#10201B]">{customerName}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#62756E]">Battery Target:</span>
+                    <span className="font-mono font-bold text-[#137A58]">{battery.revoltXId} (NASA B0005)</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#62756E]">Scheduled Time:</span>
+                    <span className="font-semibold text-[#10201B]">{preferredDate} • {preferredTime}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#62756E]">Assigned Van:</span>
+                    <span className="font-semibold text-[#10201B]">Mobile Smart Dock #02 (Marco Vance)</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5">
+                  <Link
+                    href="/internal/service-requests"
+                    onClick={() => setIsModalOpen(false)}
+                    className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] transition-colors"
+                  >
+                    View in Operations Service Queue →
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setIsModalOpen(false)}
+                    className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-[#DDE7E2] text-xs font-semibold text-[#10201B] hover:bg-[#F0F5F2]"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleBookCheck} className="space-y-4">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
+                    Certified Field Diagnostics
+                  </span>
+                  <h3 className="text-xl font-bold text-[#10201B] mt-0.5">
+                    Schedule On-Site Smart Dock Inspection
+                  </h3>
+                  <p className="text-xs text-[#62756E]">
+                    A technician will test your pack with portable electrochemical impedance spectroscopy.
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-2xl bg-[#DDF5EA] border border-[#BBEAD7] text-xs flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] text-[#137A58] font-bold uppercase">Connected Battery</span>
+                    <p className="font-mono font-bold text-[#10201B]">{battery.revoltXId} (NASA ARC B0005)</p>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-[10px] text-[#137A58] font-bold uppercase">Current SOH</span>
+                    <p className="font-mono font-bold text-[#137A58]">{battery.currentSOH}% (RX {battery.rxScore}/100)</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3 text-xs">
+                  <div>
+                    <label className="block font-semibold text-[#10201B] mb-1">Customer / Vehicle Owner Name</label>
+                    <div className="relative">
+                      <User className="w-4 h-4 text-[#62756E] absolute left-3 top-2.5" />
+                      <input
+                        type="text"
+                        required
+                        value={customerName}
+                        onChange={e => setCustomerName(e.target.value)}
+                        className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block font-semibold text-[#10201B] mb-1">Phone Number</label>
+                      <div className="relative">
+                        <Phone className="w-4 h-4 text-[#62756E] absolute left-3 top-2.5" />
+                        <input
+                          type="text"
+                          required
+                          value={phone}
+                          onChange={e => setPhone(e.target.value)}
+                          className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block font-semibold text-[#10201B] mb-1">Preferred Date</label>
+                      <div className="relative">
+                        <Calendar className="w-4 h-4 text-[#62756E] absolute left-3 top-2.5" />
+                        <input
+                          type="date"
+                          required
+                          value={preferredDate}
+                          onChange={e => setPreferredDate(e.target.value)}
+                          className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block font-semibold text-[#10201B] mb-1">Service Location / Address</label>
+                    <div className="relative">
+                      <MapPin className="w-4 h-4 text-[#62756E] absolute left-3 top-2.5" />
+                      <input
+                        type="text"
+                        required
+                        value={address}
+                        onChange={e => setAddress(e.target.value)}
+                        className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex items-center justify-end gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => setIsModalOpen(false)}
+                    className="px-4 py-2 rounded-xl text-xs font-semibold text-[#62756E] hover:text-[#10201B]"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-5 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs cursor-pointer"
+                  >
+                    Confirm & Dispatch Health Check
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Human Explanation Highlight Card */}
       <div className="p-6 rounded-3xl bg-white border border-[#DDE7E2] shadow-sm space-y-4">

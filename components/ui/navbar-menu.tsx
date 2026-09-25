@@ -44,7 +44,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active"
-                className="bg-white/90 dark:bg-black/85 backdrop-blur-2xl rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-2xl"
+                className="bg-white/70 dark:bg-zinc-950/70 backdrop-blur-2xl backdrop-saturate-150 rounded-2xl overflow-hidden border border-white/60 dark:border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.1),inset_0_1px_1px_0_rgba(255,255,255,0.85)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_1px_0_rgba(255,255,255,0.15)]"
               >
                 <motion.div layout className="w-max h-full p-4">
                   {children}
@@ -71,7 +71,7 @@ export const Menu = ({
     <nav
       onMouseLeave={() => setActive(null)}
       className={cn(
-        "relative rounded-full border border-[#DDE7E2] dark:border-[#1E382D] bg-white/90 dark:bg-[#0B1310]/90 backdrop-blur-xl shadow-lg flex items-center justify-between px-5 sm:px-7 py-2.5 sm:py-3 transition-colors",
+        "relative rounded-full border border-white/60 dark:border-white/15 bg-white/45 dark:bg-zinc-950/40 backdrop-blur-2xl backdrop-saturate-150 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.06),inset_0_1px_1px_0_rgba(255,255,255,0.85)] dark:shadow-[0_10px_35px_-5px_rgba(0,0,0,0.5),inset_0_1px_1px_0_rgba(255,255,255,0.15)] flex items-center justify-between px-5 sm:px-7 py-2.5 sm:py-3 transition-colors",
         className
       )}
     >
