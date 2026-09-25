@@ -35,9 +35,10 @@ export async function POST(req: NextRequest) {
     // 3. Query Gemini for deep LLM electrochemical diagnostics
     try {
       const prompt = buildGeminiPrompt(body, baseline);
+      const modelName = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
       
       const geminiRes = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiApiKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${geminiApiKey}`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -48,7 +49,7 @@ export async function POST(req: NextRequest) {
               responseMimeType: 'application/json'
             }
           }),
-          signal: AbortSignal.timeout(8000)
+          signal: AbortSignal.timeout(15000)
         }
       );
 
@@ -68,18 +69,18 @@ export async function POST(req: NextRequest) {
             degradationMechanisms: parsed.degradationMechanisms || baseline.degradationMechanisms,
             complianceNotes: parsed.complianceNotes || baseline.complianceNotes,
             estimatedMarketValue: parsed.estimatedMarketValue || baseline.estimatedMarketValue,
-            modelSignature: 'Gemini-2.5-Flash + ReVoltX-EIS-Hybrid-v4'
+            modelSignature: 'Gemini-3.8 + ReVoltX-EIS-Hybrid-v4'
           };
 
           return NextResponse.json({
             success: true,
-            source: 'gemini_flash',
+            source: 'gemini_3.8',
             data: enrichedResult
           });
         }
       }
     } catch (err) {
-      console.warn('Gemini API call timed out or failed, falling back to deterministic model:', err);
+      console.warn('Gemini 3.8 API call timed out or failed, falling back to deterministic model:', err);
     }
 
     // Graceful fallback to baseline

@@ -89,7 +89,7 @@ export const DecisionCard: React.FC<DecisionCardProps> = ({
               </span>
               <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/80 text-[#137A58] border border-black/10">
                 <Sparkles className="w-3 h-3 text-[#137A58]" />
-                {predictionData?.modelSignature || 'Gemini 2.5 Flash + Physics v4'}
+                {predictionData?.modelSignature || 'Gemini 3.8 + Physics v4'}
               </span>
             </div>
             <h3 className="text-lg font-bold text-[#10201B] mt-0.5">{configs.title}</h3>

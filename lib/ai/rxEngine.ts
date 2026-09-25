@@ -224,7 +224,7 @@ export function classifyBatteryDeterministic(input: BatteryInputFeatures): AIPre
 }
 
 /**
- * Builds the strict system prompt for Google Gemini 2.5 Flash
+ * Builds the strict system prompt for Google Gemini 3.8
  */
 export function buildGeminiPrompt(input: BatteryInputFeatures, deterministicResult: AIPredictionResult): string {
   return `You are the ReVoltX Battery Intelligence Engine, an expert electrochemical engineer and battery lifecycle diagnostician compliant with EU Battery Regulation (EU 2023/1542) and UL 1974.
@@ -249,6 +249,6 @@ Return ONLY valid JSON (no markdown formatting, no code fences, just the raw JSO
   "degradationMechanisms": ["Mechanism 1", "Mechanism 2", "Mechanism 3"],
   "complianceNotes": ["Compliance bullet 1", "Compliance bullet 2"],
   "estimatedMarketValue": number (in USD),
-  "modelSignature": "Gemini-2.5-Flash + ReVoltX-EIS-Engine"
+  "modelSignature": "Gemini-3.8 + ReVoltX-EIS-Engine"
 }`;
 }

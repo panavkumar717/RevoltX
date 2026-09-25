@@ -146,7 +146,7 @@ export default function InternalIntelligencePage() {
               ROS Intelligence Lab
             </span>
             <span className="text-xs text-[#62756E] flex items-center gap-1 font-medium">
-              <Sparkles className="w-3.5 h-3.5 text-[#137A58]" /> Gemini 2.5 Flash + Electrochemical Physics
+              <Sparkles className="w-3.5 h-3.5 text-[#137A58]" /> Gemini 3.8 + Electrochemical Physics
             </span>
           </div>
           <h1 className="text-2xl font-bold text-[#10201B] mt-1">
