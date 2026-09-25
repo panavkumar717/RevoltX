@@ -239,7 +239,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
       {/* Main layout with sidebar + content */}
       <div className="flex-1 flex max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 gap-6">
         {/* Desktop Sidebar Navigation */}
-        <aside className="hidden md:flex flex-col w-60 shrink-0 space-y-6">
+        <aside className="hidden md:flex flex-col w-60 shrink-0 sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto pr-1 space-y-6">
           {/* Portal Profile Card */}
           <div className="p-4 rounded-2xl bg-white border border-[#DDE7E2] shadow-2xs">
             <span className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border ${portalConfig.badgeColor}`}>
