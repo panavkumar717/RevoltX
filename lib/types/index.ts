@@ -109,6 +109,14 @@ export interface Battery {
   lifecycleEvents: LifecycleEvent[];
   serviceHistory: ServiceRecord[];
   recentTelemetry: TelemetryPoint[];
+  
+  // NASA ARC Prognostics Dataset Ground Truth
+  nasaDatasetId?: string;
+  initialCapacityAh?: number;
+  currentCapacityAh?: number;
+  internalResistanceRe?: number;
+  chargeTransferRct?: number;
+  capacityHistory?: Array<{ cycle: number; capacity: number; soh: number }>;
 }
 
 export interface ServiceRequest {

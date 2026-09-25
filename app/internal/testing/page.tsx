@@ -27,7 +27,7 @@ import { RXScoreGauge } from '../../../components/ui/RXScoreGauge';
 import { DecisionCard } from '../../../components/ui/DecisionCard';
 
 export default function SmartDockTestingPage() {
-  const { batteries, updateBattery, updateServiceRequestStatus } = useReVoltX();
+  const { batteries, updateBattery, updateServiceRequestStatus, addSecondLifeOpportunity, recordRecyclingMaterial } = useReVoltX();
 
   const [step, setStep] = useState(1);
   const [selectedBatteryId, setSelectedBatteryId] = useState('RX-2026-892738');
@@ -74,15 +74,17 @@ export default function SmartDockTestingPage() {
   const handleApplyDecision = (pathway: 'CONTINUE_USE' | 'SECOND_LIFE' | 'RECYCLE') => {
     setDecisionOutcome(pathway);
 
+    const batteryObj = batteries.find(b => b.revoltXId === selectedBatteryId || b.id === selectedBatteryId);
+
     // Update central database single source of truth!
     updateBattery(
       selectedBatteryId,
       {
-        currentSOH: 72,
+        currentSOH: 71.4,
         rul: 384,
         rxScore: 78,
         risk: 'Moderate',
-        anomaly: 'Accelerated thermal degradation detected during rapid charging',
+        anomaly: 'Electrochemical impedance growth detected (Re: 0.050Ω, Rct: 0.075Ω)',
         recommendation: pathway === 'SECOND_LIFE' 
           ? 'Potentially suitable for stationary solar storage assessment.'
           : pathway === 'CONTINUE_USE'
@@ -93,11 +95,41 @@ export default function SmartDockTestingPage() {
         status: pathway === 'RECYCLE' ? 'Decommissioned' : 'Active'
       },
       'Smart Battery Dock Deep Health Assessment Complete',
-      `Assessment complete by Technician Alex Rivera. SOH: 72%, RUL: 384 cycles, RX Score: 78. AI Decision Pathway: ${pathway}.`
+      `Assessment complete by Technician Alex Rivera. NASA ARC B0005: SOH 71.4%, RUL 384 cycles, RX Score 78. AI Decision Pathway: ${pathway}.`
     );
 
+    // If second life, automatically create a verified marketplace opportunity for Circularity Partners
+    if (pathway === 'SECOND_LIFE') {
+      addSecondLifeOpportunity({
+        batteryId: selectedBatteryId,
+        title: `Commercial Solar Microgrid Storage Module (${batteryObj?.vehicleModel || 'NASA ARC Cell'})`,
+        targetApplication: 'Solar Energy Storage',
+        capacityKWh: 3.07,
+        soh: 71.4,
+        rulCycles: 384,
+        rxScore: 78,
+        compatibilityRating: 95,
+        status: 'Available',
+        estimatedUsefulYears: 3.8,
+        economicValueUsd: 1450
+      });
+    } else if (pathway === 'RECYCLE') {
+      recordRecyclingMaterial({
+        batteryId: selectedBatteryId,
+        recyclerName: 'GreenLithium Closed-Loop Materials AG',
+        status: 'Disassembly',
+        lithiumRecoveryKg: 1.84,
+        nickelRecoveryKg: 8.62,
+        cobaltRecoveryKg: 2.15,
+        copperRecoveryKg: 5.40,
+        aluminumRecoveryKg: 9.10,
+        recoveryEfficiencyPct: 96.4,
+        notes: `Automated Smart Dock dispatch. End of functional life verified.`
+      });
+    }
+
     // Update service request SR-89201 to Assessment Complete
-    updateServiceRequestStatus('SR-89201', 'Assessment Complete', 'tech-01', 'Smart dock test complete. SOH 72%.');
+    updateServiceRequestStatus('SR-89201', 'Assessment Complete', 'tech-01', 'Smart dock test complete. NASA ARC B0005 SOH 71.4%.');
 
     setSyncedToCloud(true);
     setStep(7);

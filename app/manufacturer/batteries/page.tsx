@@ -15,6 +15,7 @@ export default function ManufacturerBatteriesPage() {
     const matchesSearch = 
       b.revoltXId.toLowerCase().includes(search.toLowerCase()) ||
       b.serialNumber.toLowerCase().includes(search.toLowerCase()) ||
+      (b.nasaDatasetId && b.nasaDatasetId.toLowerCase().includes(search.toLowerCase())) ||
       (b.vehicleModel && b.vehicleModel.toLowerCase().includes(search.toLowerCase())) ||
       (b.ownerName && b.ownerName.toLowerCase().includes(search.toLowerCase()));
 

@@ -35,15 +35,15 @@ import { QRCodeWidget } from '../../components/ui/QRCodeWidget';
 const DEMO_STAGES = [
   {
     step: 1,
-    title: '1. Battery Manufactured at Gigafactory',
+    title: '1. Battery Manufactured at Gigafactory (NASA ARC Ground Truth)',
     phase: 'MANUFACTURE',
     actor: 'XYZ Battery Corp. (Berlin)',
-    description: 'A 60 Ah Lithium Iron Phosphate (LFP) 16S2P prismatic pack is fabricated and quality-certified.',
+    description: 'A 60 Ah Lithium Iron Phosphate (LFP) 16S2P prismatic pack is fabricated (validated against NASA ARC B0005 cell matrix baseline of 1.8565 Ah).',
     data: {
-      serialNumber: 'BAT-892738',
+      serialNumber: 'BAT-NASA-B0005',
       initialSOH: '100%',
       nominalVoltage: '51.2 V',
-      capacity: '60 Ah',
+      capacity: '60 Ah (1.8565 Ah cell baseline)',
       chemistry: 'LFP'
     }
   },
@@ -52,9 +52,10 @@ const DEMO_STAGES = [
     title: '2. ReVoltX Minting Digital Battery Passport',
     phase: 'DIGITAL IDENTITY',
     actor: 'ReVoltX Registry Engine',
-    description: 'Cryptographic digital twin is created. Unique universal identifier RX-2026-892738 is assigned.',
+    description: 'Cryptographic digital twin is created. Unique universal identifier RX-2026-892738 is assigned with NASA dataset lineage.',
     data: {
       revoltXId: 'RX-2026-892738',
+      nasaDatasetUnit: 'NASA ARC B0005',
       euDirective: 'EU 2023/1542 Certified',
       carbonFootprint: '64 kg CO2e/kWh',
       qrAttached: 'Laser-Etched QR Code Generated'
@@ -90,12 +91,12 @@ const DEMO_STAGES = [
     title: '5. IoT Health Monitoring During First Life',
     phase: 'HEALTH_MONITORING',
     actor: 'ReVoltX Telemetry Core',
-    description: 'Continuous telematics log 1,420 duty cycles over 3 years of daily courier service.',
+    description: 'Continuous telematics log 616 operating cycles (168 discharge cycles) matching NASA ARC aging curve.',
     data: {
-      operatingHours: '14,200 hrs',
-      cycles: '1,420 cycles',
+      operatingCycles: '616 total operations',
+      dischargeCycles: '168 discharges',
       distanceTraveled: '84,500 km',
-      soh: '82%'
+      soh: '82% (interim cycle 85)'
     }
   },
   {
@@ -103,11 +104,12 @@ const DEMO_STAGES = [
     title: '6. Battery Health Drops & Anomaly Detected',
     phase: 'HEALTH_MONITORING',
     actor: 'ReVoltX Edge AI',
-    description: 'SOH decreases to 72%. Anomaly: Accelerated thermal rise during fast charging detected.',
+    description: 'SOH decreases to 71.4% (capacity: 1.3251 Ah). EIS impedance shows Re=0.050Ω, Rct=0.075Ω.',
     data: {
-      currentSOH: '72% (Threshold < 80% crossed)',
-      rul: '384 cycles remaining in mobility',
-      anomaly: 'Accelerated thermal degradation (38.4°C peak)',
+      currentSOH: '71.4% (automotive threshold crossed)',
+      measuredCapacity: '1.3251 Ah (baseline: 1.8565 Ah)',
+      rul: '384 cycles remaining for second-life',
+      anomaly: 'Electrochemical impedance growth (38.4°C peak)',
       risk: 'Moderate'
     }
   },
@@ -133,7 +135,7 @@ const DEMO_STAGES = [
     data: {
       technician: 'Alex Rivera',
       specialty: 'EV Pack Diagnostics',
-      tooling: 'Smart Battery Dock v2 (Low-Voltage Safe demonstrator)',
+      tooling: 'Smart Battery Dock v2 (NASA ARC Protocol Safe)',
       status: 'Dock Connected to Pack'
     }
   },
@@ -157,9 +159,9 @@ const DEMO_STAGES = [
     actor: 'ReVoltX Cloud Broker',
     description: 'High-speed electrochemical waveforms stream directly to ReVoltX Cloud at 250ms sampling rate.',
     data: {
-      voltageWaveform: '51.2 V steady',
-      internalResistance: '14.2 mΩ (nominal for LFP)',
-      cellBalanceDelta: '12 mV (tight balance)'
+      voltageWaveform: '51.2 V steady (2.0A CC discharge)',
+      electrolyteResistance: 'Re: 0.0500 Ω',
+      chargeTransferResistance: 'Rct: 0.0748 Ω'
     }
   },
   {
@@ -169,8 +171,8 @@ const DEMO_STAGES = [
     actor: 'ReVoltX Decision Engine',
     description: 'Deep neural model runs 7 diagnostic stages: degradation slope, thermal dissipation, SOH, RUL, and second-life margin.',
     data: {
-      model: 'LFP-EIS-Hybrid-v4',
-      calculatedSOH: '72%',
+      model: 'NASA-ARC-EIS-Hybrid-v4',
+      calculatedSOH: '71.4%',
       remainingUsefulLife: '384 cycles',
       rxScore: '78 / 100'
     }

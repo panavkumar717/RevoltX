@@ -59,10 +59,10 @@ export default function OwnerHealthPage() {
               Current Status Assessment
             </span>
             <h3 className="text-lg font-bold text-[#10201B] mt-0.5">
-              "Your battery has been running warmer than expected. ReVoltX is monitoring this trend."
+              "{battery.humanAnomalyExplanation || 'Your battery is operating within normal diagnostic parameters.'}"
             </h3>
             <p className="text-xs text-[#62756E] mt-2 leading-relaxed">
-              During high-demand driving and DC fast-charging sessions, the core battery temperature reached <strong className="text-[#10201B]">38.4°C</strong>. While this is within safety limits, it causes faster wear on the internal cells. Your State of Health is currently <strong className="text-[#10201B]">72%</strong>.
+              During high-demand driving and charging sessions, the core battery temperature reached <strong className="text-[#10201B]">{battery.temperature}°C</strong>. Internal EIS impedance: Re={battery.internalResistanceRe || 0.050}Ω, Rct={battery.chargeTransferRct || 0.075}Ω. Your State of Health is currently <strong className="text-[#10201B]">{battery.currentSOH}%</strong>.
             </p>
           </div>
         </div>
@@ -70,20 +70,20 @@ export default function OwnerHealthPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-[#DDE7E2]">
           <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2]">
             <span className="text-[10px] uppercase font-bold text-[#62756E]">Technical Metric</span>
-            <p className="text-xs font-bold text-[#10201B] mt-1">Accelerated Thermal Rise</p>
-            <span className="text-[10px] text-[#62756E]">Module 2 hotspot detected</span>
+            <p className="text-xs font-bold text-[#10201B] mt-1">{battery.anomaly || 'Nominal Aging Curve'}</p>
+            <span className="text-[10px] text-[#62756E]">NASA ARC {battery.nasaDatasetId || 'B0005'} Telemetry</span>
           </div>
 
           <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2]">
             <span className="text-[10px] uppercase font-bold text-[#62756E]">Impact on Your EV</span>
             <p className="text-xs font-bold text-[#10201B] mt-1">Slight Range Reduction</p>
-            <span className="text-[10px] text-[#62756E]">~18% lower range per charge</span>
+            <span className="text-[10px] text-[#62756E]">~{Math.round(100 - battery.currentSOH)}% capacity fade</span>
           </div>
 
           <div className="p-3 rounded-xl bg-[#F7FAF8] border border-[#DDE7E2]">
             <span className="text-[10px] uppercase font-bold text-[#62756E]">Recommended Action</span>
-            <p className="text-xs font-bold text-[#0070F3] mt-1">On-Site Health Check</p>
-            <span className="text-[10px] text-[#62756E]">ReVoltX technician visit</span>
+            <p className="text-xs font-bold text-[#0070F3] mt-1">{battery.recommendation || 'Regular Operation'}</p>
+            <span className="text-[10px] text-[#62756E]">ReVoltX Smart Dock verification</span>
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function OwnerHealthPage() {
               Battery Intelligence Rating
             </span>
             <h3 className="text-sm font-bold text-[#10201B] mt-0.5">
-              RX Score: 78 / 100
+              RX Score: {battery.rxScore} / 100
             </h3>
           </div>
 

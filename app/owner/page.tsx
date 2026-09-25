@@ -22,38 +22,50 @@ import { LifecycleTimeline } from '../../components/ui/LifecycleTimeline';
 import MagicBento, { MagicBentoCardItem } from '../../components/ui/MagicBento';
 
 export default function OwnerDashboardPage() {
-  const { getBattery } = useReVoltX();
-  const battery = getBattery('RX-2026-892738')!;
+  const { getBattery, batteries } = useReVoltX();
+  const battery = getBattery('RX-2026-892738') || batteries[0];
+
+  const nominalKWh = battery.capacity && battery.nominalVoltage
+    ? ((battery.capacity * battery.nominalVoltage) / 1000).toFixed(1)
+    : '88.0';
+
+  const usableKWh = (parseFloat(nominalKWh) * (battery.currentSOH / 100)).toFixed(1);
 
   const ownerBentoCards: MagicBentoCardItem[] = [
     {
       label: 'REVOLTX SCORE',
       title: 'Health & Balance Rating',
       value: `${battery.rxScore} / 100`,
-      sub: 'Solid Second-Life Grade',
+      sub: battery.rxScore >= 80 ? 'Grade A (Prime Mobile)' : battery.rxScore >= 60 ? 'Grade B+ (Stationary Ready)' : 'Grade C (Recycle Candidate)',
       description: 'Based on multi-cycle impedance tests, voltage consistency, and thermal stability.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">Grade B+</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">Grade {battery.rxScore >= 80 ? 'A' : battery.rxScore >= 60 ? 'B+' : 'C'}</span>
     },
     {
       label: 'STATE OF HEALTH',
       title: 'Remaining Capacity',
       value: `${battery.currentSOH}%`,
-      sub: 'Attention Recommended',
-      description: 'Nominal baseline 88kWh. Current usable retention is 63.4kWh.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20 font-bold">Inspection</span>
+      sub: battery.currentSOH < 75 ? 'Second-Life Recommended' : 'Optimal Operating Range',
+      description: `Nominal baseline ${nominalKWh} kWh. Current usable retention is ${usableKWh} kWh (${battery.currentCapacityAh ?? battery.capacity} Ah).`,
+      badge: <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold ${
+        battery.currentSOH < 75 
+          ? 'bg-amber-500/10 text-amber-500 border border-amber-500/20' 
+          : 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20'
+      }`}>
+        {battery.currentSOH < 75 ? 'Transition Due' : 'Healthy'}
+      </span>
     },
     {
       label: 'REMAINING LIFE',
       title: 'Expected Useful Life',
       value: `${battery.rul} cycles`,
-      sub: '~1.2 yrs courier service',
+      sub: `~${(battery.rul / 365).toFixed(1)} yrs courier service`,
       description: 'Calculated using AI cycle extrapolation under current daily driving & charge patterns.',
       badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] dark:text-[#38BDF8] border border-blue-500/20 font-bold">Active</span>
     },
     {
       label: 'RESIDUAL VALUE',
       title: 'Estimated Trade-In Credit',
-      value: '$1,850',
+      value: `$${battery.marketPrice?.toLocaleString() || '1,850'}`,
       sub: 'Guaranteed Buyback Floor',
       description: 'Certified second-life stationary buyers will bid directly for your pack upon vehicle retirement.',
       badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">Secured</span>
