@@ -40,15 +40,15 @@ export default function InternalRecyclingPage() {
               {recyclingRecords.map(rec => (
                 <tr key={rec.id} className="hover:bg-[#F7FAF8]">
                   <td className="py-3.5 font-mono font-bold text-[#10201B]">#{rec.id}</td>
-                  <td className="py-3.5 font-mono text-[#0070F3] font-bold">{rec.batteryId}</td>
+                  <td className="py-3.5 font-mono text-[#137A58] font-bold">{rec.batteryId}</td>
                   <td className="py-3.5 font-semibold text-[#10201B]">{rec.recyclerName}</td>
                   <td className="py-3.5 font-mono text-[#62756E]">{rec.receivedDate}</td>
                   <td className="py-3.5 font-mono text-[#10201B]">
                     {rec.lithiumRecoveryKg}kg Li • {rec.nickelRecoveryKg}kg Ni • {rec.cobaltRecoveryKg}kg Co
                   </td>
-                  <td className="py-3.5 font-mono font-bold text-[#0070F3]">{rec.recoveryEfficiencyPct}%</td>
+                  <td className="py-3.5 font-mono font-bold text-[#137A58]">{rec.recoveryEfficiencyPct}%</td>
                   <td className="py-3.5">
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#EFF6FF] text-[#0070F3]">
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#DDF5EA] text-[#137A58]">
                       {rec.status}
                     </span>
                   </td>

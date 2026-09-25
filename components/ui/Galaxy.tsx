@@ -99,29 +99,17 @@ vec3 StarLayer(vec2 uv) {
       float glossLocal = tri(uStarSpeed / (PERIOD * seed + 1.0));
       float flareSize = smoothstep(0.9, 1.0, size) * glossLocal;
 
-      // Professional Vercel celestial palette: Sapphire, Electric Blue, Violet, Sky Cyan, Warm Amber, Diamond White (Zero Green)
-      float hSeed = Hash21(si + vec2(17.43, 73.19));
-      float starHue;
-      if (hSeed < 0.38) {
-        starHue = 0.56 + hSeed * 0.2; // 0.56 - 0.64: Electric Blue & Sapphire
-      } else if (hSeed < 0.72) {
-        starHue = 0.70 + (hSeed - 0.38) * 0.35; // 0.70 - 0.82: Indigo, Violet, Royal Purple
-      } else if (hSeed < 0.88) {
-        starHue = 0.50 + (hSeed - 0.72) * 0.25; // 0.50 - 0.54: Ice Blue & Sky Cyan
-      } else {
-        starHue = 0.08 + (hSeed - 0.88) * 0.25; // 0.08 - 0.11: Soft Warm Amber
-      }
-      starHue = fract(starHue + uHueShift / 360.0);
-
+      // Assign diverse, vibrant spectral colors to each individual star (cyan, sapphire, emerald, gold, amber, violet, ruby, rose)
+      float starHue = fract(Hash21(si + vec2(17.43, 73.19)) + uHueShift / 360.0);
       float satSeed = Hash21(si + vec2(31.84, 11.57));
-      float starSat = mix(0.40, 0.95, satSeed) * uSaturation;
+      float starSat = mix(0.45, 1.0, satSeed) * uSaturation;
       
       vec3 base = hsv2rgb(vec3(starHue, starSat, 1.0));
       
-      // Preserve a generous fraction (~28%) of stars as sparkling diamond white
+      // Preserve a small fraction (~15%) of stars as sparkling diamond white
       float whiteChance = Hash21(si + vec2(9.21, 64.33));
-      if (whiteChance > 0.72) {
-        base = mix(base, vec3(1.0), 0.9);
+      if (whiteChance > 0.85) {
+        base = mix(base, vec3(1.0), 0.85);
       }
 
       vec2 pad = vec2(tris(seed * 34.0 + uTime * uSpeed / 10.0), tris(seed * 38.0 + uTime * uSpeed / 30.0)) - 0.5;

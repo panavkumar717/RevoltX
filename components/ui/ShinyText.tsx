@@ -30,7 +30,7 @@ export function ShinyText({
       } ${className}`}
       style={{
         backgroundImage:
-          'linear-gradient(120deg, currentColor 0%, currentColor 35%, #38BDF8 50%, #0070F3 65%, currentColor 80%, currentColor 100%)',
+          'linear-gradient(120deg, currentColor 0%, currentColor 35%, #21A879 50%, #C9EF72 65%, currentColor 80%, currentColor 100%)',
         backgroundSize: '200% 100%',
         WebkitBackgroundClip: 'text',
         animationDuration,

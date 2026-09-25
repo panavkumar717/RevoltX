@@ -1,10 +1,13 @@
 :root {
-  --hue: 212;
+  --hue: 158;
   --sat: 100%;
   --white: hsl(0, 0%, 100%);
-  --blue-primary: rgba(0, 112, 243, 1);
-  --blue-glow: rgba(0, 112, 243, 0.2);
-  --blue-border: rgba(0, 112, 243, 0.8);
+  --blue-primary: rgba(19, 122, 88, 1);
+  --blue-glow: rgba(19, 122, 88, 0.2);
+  --blue-border: rgba(19, 122, 88, 0.8);
+  --green-primary: rgba(19, 122, 88, 1);
+  --green-glow: rgba(19, 122, 88, 0.2);
+  --green-border: rgba(19, 122, 88, 0.8);
   --border-color: rgba(255, 255, 255, 0.1);
   --background-dark: #0A0A0A;
   color-scheme: light dark;
@@ -38,7 +41,7 @@
   --glow-y: 50%;
   --glow-intensity: 0;
   --glow-radius: 260px;
-  --glow-color: 0, 112, 243;
+  --glow-color: 19, 122, 88;
 }
 
 :root:not(.dark) .magic-bento-card {
@@ -202,8 +205,8 @@
 
 .magic-bento-card--border-glow:hover {
   box-shadow:
-    0 8px 30px rgba(0, 112, 243, 0.2),
-    0 0 35px rgba(var(--glow-color, 0, 112, 243), 0.25);
+    0 8px 30px rgba(19, 122, 88, 0.2),
+    0 0 35px rgba(var(--glow-color, 19, 122, 88), 0.25);
 }
 
 .particle-container {

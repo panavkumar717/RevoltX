@@ -14,7 +14,7 @@ export function LoginHeroArtwork({
   portalTitle = "ReVoltX Passport OS",
   quote = "Finally, all your battery intelligence in one place.",
   subquote = "Real-time telemetry, automated health assessment, and closed-loop circularity.",
-  accentColor = "#0070F3"
+  accentColor = "#137A58"
 }: LoginHeroArtworkProps) {
   const [slide, setSlide] = useState(0);
 
@@ -76,12 +76,12 @@ export function LoginHeroArtwork({
         />
         <path
           d="M80 430 C180 380 340 400 480 360 C530 350 550 360 550 440 C460 480 300 500 120 480 Z"
-          fill="#818CF8"
+          fill="#21A879"
           fillOpacity="0.45"
         />
         <path
           d="M160 420 C250 370 380 390 490 350 C460 430 340 460 180 450 Z"
-          fill="#C7D2FE"
+          fill="#A7F3D0"
           fillOpacity="0.75"
         />
 
@@ -124,7 +124,7 @@ export function LoginHeroArtwork({
       {/* Top Branding Pill */}
       <div className="relative z-20 flex items-center justify-between">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold shadow-lg">
-          <Sparkles className="w-3.5 h-3.5 text-[#38BDF8]" />
+          <Sparkles className="w-3.5 h-3.5 text-[#34D399]" />
           <span>{current.badge}</span>
         </div>
         <div className="text-white/60 text-xs font-mono font-medium">

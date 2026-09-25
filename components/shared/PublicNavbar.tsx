@@ -34,11 +34,11 @@ export const PublicNavbar: React.FC = () => {
       >
         {/* Left: Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-          <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#0070F3] flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform">
-            <Zap className="h-4 w-4 sm:h-5 sm:w-5 fill-current text-white" />
+          <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#137A58] dark:bg-[#21A879] flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform">
+            <Zap className="h-4 w-4 sm:h-5 sm:w-5 fill-current text-[#C9EF72] dark:text-[#0B1310]" />
           </div>
-          <span className="font-bold text-lg sm:text-xl tracking-tight text-[#10201B] dark:text-[#EDEDED]">
-            REVolt<span className="text-[#0070F3] dark:text-[#38BDF8]">X</span>
+          <span className="font-bold text-lg sm:text-xl tracking-tight text-[#10201B] dark:text-[#ECFDF5]">
+            REVolt<span className="text-[#137A58] dark:text-[#21A879]">X</span>
           </span>
         </Link>
 
@@ -46,19 +46,19 @@ export const PublicNavbar: React.FC = () => {
         <div className="hidden lg:flex items-center space-x-1 sm:space-x-2">
           <MenuItem setActive={setActive} active={active} item="The Problem">
             <div className="flex flex-col space-y-2 text-sm w-72">
-              <HoveredLink href="/#problem" className="font-bold text-sm text-[#10201B] dark:text-[#EDEDED]">
+              <HoveredLink href="/#problem" className="font-bold text-sm text-[#10201B] dark:text-[#ECFDF5]">
                 15M-Ton Battery Cliff
               </HoveredLink>
               <p className="text-[11px] text-[#62756E] dark:text-[#9BB3A8] leading-snug">
                 Why 70%+ of EV batteries are prematurely shredded when they still retain 70-80% capacity.
               </p>
-              <div className="pt-2 border-t border-[#DDE7E2] dark:border-white/10 grid grid-cols-2 gap-2 text-[11px]">
-                <div className="p-2 rounded-lg bg-[#F0F5F2] dark:bg-white/5">
-                  <span className="font-bold text-[#0070F3] dark:text-[#38BDF8] block font-mono">$120B</span>
+              <div className="pt-2 border-t border-[#DDE7E2] dark:border-[#1E382D] grid grid-cols-2 gap-2 text-[11px]">
+                <div className="p-2 rounded-lg bg-[#F0F5F2] dark:bg-[#162720]">
+                  <span className="font-bold text-[#137A58] dark:text-[#34D399] block font-mono">$120B</span>
                   <span className="text-[#62756E] dark:text-[#9BB3A8]">Trapped Value</span>
                 </div>
-                <div className="p-2 rounded-lg bg-[#F0F5F2] dark:bg-white/5">
-                  <span className="font-bold text-[#6366F1] dark:text-[#818CF8] block font-mono">0 Silos</span>
+                <div className="p-2 rounded-lg bg-[#F0F5F2] dark:bg-[#162720]">
+                  <span className="font-bold text-[#21A879] dark:text-[#34D399] block font-mono">0 Silos</span>
                   <span className="text-[#62756E] dark:text-[#9BB3A8]">Data Continuity</span>
                 </div>
               </div>
@@ -97,20 +97,20 @@ export const PublicNavbar: React.FC = () => {
           <MenuItem setActive={setActive} active={active} item="Portals">
             <div className="flex flex-col space-y-1.5 text-sm w-72">
               <HoveredLink href="/login/manufacturer" className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-white/10 dark:hover:bg-white/5 transition-colors">
-                <Factory className="w-3.5 h-3.5 text-[#0070F3] dark:text-[#38BDF8]" />
+                <Factory className="w-3.5 h-3.5 text-[#137A58] dark:text-[#34D399]" />
                 <span>Manufacturer & Fleet Portal</span>
               </HoveredLink>
               <HoveredLink href="/login/owner" className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-white/10 dark:hover:bg-white/5 transition-colors">
-                <User className="w-3.5 h-3.5 text-[#6366F1] dark:text-[#818CF8]" />
+                <User className="w-3.5 h-3.5 text-[#21A879] dark:text-[#34D399]" />
                 <span>Customer / Owner Portal</span>
               </HoveredLink>
               <HoveredLink href="/login/circularity" className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-white/10 dark:hover:bg-white/5 transition-colors">
-                <RefreshCw className="w-3.5 h-3.5 text-[#0284C7] dark:text-[#38BDF8]" />
+                <RefreshCw className="w-3.5 h-3.5 text-[#5D7C13] dark:text-[#A3E635]" />
                 <span>Circularity Partner Portal</span>
               </HoveredLink>
               <div className="my-1 border-t border-black/10 dark:border-white/10" />
               <HoveredLink href="/login/internal" className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-white/10 dark:hover:bg-white/5 transition-colors">
-                <ShieldAlert className="w-3.5 h-3.5 text-[#F59E0B] dark:text-[#FBBF24]" />
+                <ShieldAlert className="w-3.5 h-3.5 text-[#D89A24] dark:text-[#FBBF24]" />
                 <span>ReVoltX Ops Console</span>
               </HoveredLink>
             </div>
@@ -118,7 +118,7 @@ export const PublicNavbar: React.FC = () => {
 
           <MenuItem setActive={setActive} active={active} item="Circularity">
             <div className="flex flex-col space-y-2 text-sm w-64">
-              <HoveredLink href="/#circularity" className="font-bold text-sm text-[#10201B] dark:text-[#EDEDED]">
+              <HoveredLink href="/#circularity" className="font-bold text-sm text-[#10201B] dark:text-[#ECFDF5]">
                 Environmental Impact
               </HoveredLink>
               <HoveredLink href="/circularity/impact">
@@ -135,7 +135,7 @@ export const PublicNavbar: React.FC = () => {
 
           <Link
             href="/demo"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#0070F3] dark:text-[#38BDF8] hover:bg-blue-500/10 dark:hover:bg-blue-500/20 px-3.5 py-1.5 rounded-full transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#137A58] dark:text-[#34D399] hover:bg-[#DDF5EA] dark:hover:bg-[#133325] px-3.5 py-1.5 rounded-full transition-colors"
           >
             <PlayCircle className="w-3.5 h-3.5" />
             <span>Live Demo</span>
@@ -151,7 +151,7 @@ export const PublicNavbar: React.FC = () => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 rounded-full text-[#10201B] dark:text-[#F8FAFC] hover:bg-[#F0F5F2] dark:hover:bg-[#162720] lg:hidden transition-colors"
+            className="p-1.5 rounded-full text-[#10201B] dark:text-[#ECFDF5] hover:bg-[#F0F5F2] dark:hover:bg-[#162720] lg:hidden transition-colors"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
@@ -166,35 +166,35 @@ export const PublicNavbar: React.FC = () => {
             <Link
               href="/#problem"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-xl text-[#10201B] dark:text-[#F8FAFC] hover:bg-[#F0F5F2] dark:hover:bg-[#162720]"
+              className="block px-3 py-2 rounded-xl text-[#10201B] dark:text-[#ECFDF5] hover:bg-[#F0F5F2] dark:hover:bg-[#162720]"
             >
               The Problem
             </Link>
             <Link
               href="/#how-it-works"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-xl text-[#10201B] dark:text-[#F8FAFC] hover:bg-[#F0F5F2] dark:hover:bg-[#162720]"
+              className="block px-3 py-2 rounded-xl text-[#10201B] dark:text-[#ECFDF5] hover:bg-[#F0F5F2] dark:hover:bg-[#162720]"
             >
               Architecture & Lifecycle
             </Link>
             <Link
               href="/#hardware"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-xl text-[#10201B] dark:text-[#F8FAFC] hover:bg-[#F0F5F2] dark:hover:bg-[#162720]"
+              className="block px-3 py-2 rounded-xl text-[#10201B] dark:text-[#ECFDF5] hover:bg-[#F0F5F2] dark:hover:bg-[#162720]"
             >
               Smart Battery Dock
             </Link>
             <Link
               href="/#portals"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-xl text-[#10201B] dark:text-[#F8FAFC] hover:bg-[#F0F5F2] dark:hover:bg-[#162720]"
+              className="block px-3 py-2 rounded-xl text-[#10201B] dark:text-[#ECFDF5] hover:bg-[#F0F5F2] dark:hover:bg-[#162720]"
             >
               Three Business Portals
             </Link>
             <Link
               href="/#circularity"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-xl text-[#10201B] dark:text-[#F8FAFC] hover:bg-[#F0F5F2] dark:hover:bg-[#162720]"
+              className="block px-3 py-2 rounded-xl text-[#10201B] dark:text-[#ECFDF5] hover:bg-[#F0F5F2] dark:hover:bg-[#162720]"
             >
               Circularity Impact
             </Link>
@@ -205,25 +205,25 @@ export const PublicNavbar: React.FC = () => {
               <Link
                 href="/login/manufacturer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs text-[#10201B] dark:text-[#F8FAFC] hover:bg-white/10 dark:hover:bg-white/5"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs text-[#10201B] dark:text-[#ECFDF5] hover:bg-white/10 dark:hover:bg-white/5"
               >
-                <Factory className="w-3.5 h-3.5 text-[#0070F3] dark:text-[#38BDF8]" />
+                <Factory className="w-3.5 h-3.5 text-[#137A58] dark:text-[#34D399]" />
                 <span>Manufacturer & Fleet Sign In</span>
               </Link>
               <Link
                 href="/login/owner"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs text-[#10201B] dark:text-[#F8FAFC] hover:bg-white/10 dark:hover:bg-white/5"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs text-[#10201B] dark:text-[#ECFDF5] hover:bg-white/10 dark:hover:bg-white/5"
               >
-                <User className="w-3.5 h-3.5 text-[#38BDF8] dark:text-[#38BDF8]" />
+                <User className="w-3.5 h-3.5 text-[#21A879] dark:text-[#34D399]" />
                 <span>Customer / Owner Sign In</span>
               </Link>
               <Link
                 href="/login/circularity"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs text-[#10201B] dark:text-[#F8FAFC] hover:bg-white/10 dark:hover:bg-white/5"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs text-[#10201B] dark:text-[#ECFDF5] hover:bg-white/10 dark:hover:bg-white/5"
               >
-                <RefreshCw className="w-3.5 h-3.5 text-[#0284C7] dark:text-[#38BDF8]" />
+                <RefreshCw className="w-3.5 h-3.5 text-[#5D7C13] dark:text-[#A3E635]" />
                 <span>Circularity Partner Sign In</span>
               </Link>
             </div>
@@ -231,7 +231,7 @@ export const PublicNavbar: React.FC = () => {
             <Link
               href="/demo"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-[#EFF6FF] dark:bg-[#133325] text-[#0070F3] dark:text-[#38BDF8] font-bold"
+              className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-[#DDF5EA] dark:bg-[#133325] text-[#137A58] dark:text-[#34D399] font-bold"
             >
               <span>Launch Live Demo</span>
               <ArrowRight className="w-4 h-4" />

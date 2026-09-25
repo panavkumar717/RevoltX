@@ -57,7 +57,7 @@ export default function OwnerServiceBookingPage() {
     <div className="max-w-3xl mx-auto space-y-6">
       <div className="flex items-center justify-between pb-4 border-b border-[#DDE7E2]">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
             Certified Field Service
           </span>
           <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -94,9 +94,9 @@ export default function OwnerServiceBookingPage() {
               key={lbl}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl whitespace-nowrap transition-colors ${
                 isCurrent
-                  ? 'bg-[#0070F3] text-white font-bold'
+                  ? 'bg-[#137A58] text-white font-bold'
                   : isPassed
-                  ? 'bg-[#EFF6FF] text-[#0070F3]'
+                  ? 'bg-[#DDF5EA] text-[#137A58]'
                   : 'bg-[#F0F5F2] text-[#62756E]'
               }`}
             >
@@ -114,16 +114,16 @@ export default function OwnerServiceBookingPage() {
             <h2 className="text-base font-bold text-[#10201B]">
               Step 1: Select Battery for Inspection
             </h2>
-            <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#0070F3] flex items-center justify-between">
+            <div className="p-4 rounded-2xl bg-[#DDF5EA] border border-[#137A58] flex items-center justify-between">
               <div>
                 <span className="font-mono font-bold text-sm text-[#10201B]">
                   RX-2026-892738 (LFP 60Ah)
                 </span>
-                <p className="text-xs text-[#0070F3] mt-0.5">
+                <p className="text-xs text-[#137A58] mt-0.5">
                   EcoRider V3 Courier • Current SOH: 72% • RX Score: 78
                 </p>
               </div>
-              <span className="h-5 w-5 rounded-full bg-[#0070F3] text-white flex items-center justify-center text-xs">
+              <span className="h-5 w-5 rounded-full bg-[#137A58] text-white flex items-center justify-center text-xs">
                 ✓
               </span>
             </div>
@@ -163,13 +163,13 @@ export default function OwnerServiceBookingPage() {
                   onClick={() => setSelectedService(s.id)}
                   className={`p-4 rounded-2xl border cursor-pointer transition-all ${
                     selectedService === s.id
-                      ? 'bg-[#EFF6FF] border-[#0070F3] ring-2 ring-[#BFDBFE]'
+                      ? 'bg-[#DDF5EA] border-[#137A58] ring-2 ring-[#BBEAD7]'
                       : 'bg-[#F7FAF8] border-[#DDE7E2] hover:bg-white'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <h4 className="text-xs font-bold text-[#10201B]">{s.title}</h4>
-                    <span className="text-[11px] font-bold text-[#0070F3]">{s.price}</span>
+                    <span className="text-[11px] font-bold text-[#137A58]">{s.price}</span>
                   </div>
                   <p className="text-xs text-[#62756E] mt-1">{s.desc}</p>
                 </div>
@@ -267,7 +267,7 @@ export default function OwnerServiceBookingPage() {
         {/* STEP 5: Confirmed */}
         {step === 5 && (
           <div className="text-center py-4 space-y-4">
-            <div className="p-3 rounded-full bg-[#EFF6FF] text-[#0070F3] w-fit mx-auto animate-bounce">
+            <div className="p-3 rounded-full bg-[#DDF5EA] text-[#137A58] w-fit mx-auto animate-bounce">
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
@@ -281,7 +281,7 @@ export default function OwnerServiceBookingPage() {
             <div className="p-4 rounded-2xl bg-[#F0F5F2] border border-[#DDE7E2] max-w-sm mx-auto text-xs text-left space-y-1">
               <div className="flex justify-between">
                 <span className="text-[#62756E]">Status:</span>
-                <span className="font-bold text-[#0070F3]">Requested (Priority Dispatch)</span>
+                <span className="font-bold text-[#137A58]">Requested (Priority Dispatch)</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[#62756E]">Scheduled Date:</span>
@@ -296,7 +296,7 @@ export default function OwnerServiceBookingPage() {
             <div className="pt-3 flex justify-center gap-3">
               <Link
                 href="/owner"
-                className="px-5 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6]"
+                className="px-5 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42]"
               >
                 Return to My Battery Dashboard
               </Link>
@@ -322,7 +322,7 @@ export default function OwnerServiceBookingPage() {
                 if (step < 4) setStep(prev => prev + 1);
                 else handleSubmit();
               }}
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] transition-colors"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] transition-colors"
             >
               <span>{step === 4 ? 'Confirm & Book Appointment' : 'Next Step'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -345,13 +345,13 @@ export default function OwnerServiceBookingPage() {
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="font-mono font-bold text-[#10201B]">{r.id}</span>
-                    <span className="px-2 py-0.5 rounded-full font-bold text-[10px] bg-[#EFF6FF] text-[#0070F3] border border-[#BFDBFE]">
+                    <span className="px-2 py-0.5 rounded-full font-bold text-[10px] bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7]">
                       {r.status}
                     </span>
                   </div>
                   <p className="text-[#62756E] mt-1">{r.issue}</p>
                   {r.technicianName && (
-                    <p className="text-[#0070F3] font-semibold text-[11px] mt-0.5">
+                    <p className="text-[#137A58] font-semibold text-[11px] mt-0.5">
                       Technician Assigned: {r.technicianName}
                     </p>
                   )}

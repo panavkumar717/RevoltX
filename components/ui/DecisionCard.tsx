@@ -27,18 +27,18 @@ export const DecisionCard: React.FC<DecisionCardProps> = ({
     CONTINUE_USE: {
       title: 'Pathway: Continue First-Life Operation',
       badge: 'CONTINUE USE',
-      bg: 'bg-blue-500/10',
-      border: 'border-blue-500/20',
-      textColor: 'text-[#0070F3]',
+      bg: 'bg-[#DDF5EA]',
+      border: 'border-[#BBEAD7]',
+      textColor: 'text-[#137A58]',
       icon: CheckCircle2,
       description: 'Capacity retention and cell impedance satisfy high-stress mobility criteria. Continue regular duty with standard thermal monitoring.'
     },
     SECOND_LIFE: {
       title: 'Pathway: Secondary Life Assessment Candidate',
       badge: 'SECOND LIFE',
-      bg: 'bg-indigo-500/10',
-      border: 'border-indigo-500/20',
-      textColor: 'text-[#6366F1]',
+      bg: 'bg-[#F3F8E5]',
+      border: 'border-[#DAECAE]',
+      textColor: 'text-[#5D7C13]',
       icon: RefreshCw,
       description: `Potentially suitable for secondary-life assessment. Recommended target application: ${application}.`
     },
@@ -103,13 +103,13 @@ export const DecisionCard: React.FC<DecisionCardProps> = ({
         </div>
         <div>
           <span className="text-[10px] text-[#62756E] uppercase font-semibold">RX Score</span>
-          <p className="text-base font-bold font-mono text-[#0070F3]">{rxScore}/100</p>
+          <p className="text-base font-bold font-mono text-[#137A58]">{rxScore}/100</p>
         </div>
       </div>
 
       {/* Standards & Compliance Disclaimer */}
       <div className="mt-4 flex items-start gap-2 text-[11px] text-[#62756E]">
-        <ShieldCheck className="w-3.5 h-3.5 text-[#0070F3] shrink-0 mt-0.5" />
+        <ShieldCheck className="w-3.5 h-3.5 text-[#137A58] shrink-0 mt-0.5" />
         <p>
           <strong>Qualification Notice:</strong> Algorithmic recommendations indicate candidate eligibility. Actual secondary deployment requires physical compliance testing under UL 1974 / IEC 62933 standards prior to operational deployment.
         </p>
@@ -120,7 +120,7 @@ export const DecisionCard: React.FC<DecisionCardProps> = ({
         {decision === 'SECOND_LIFE' && (
           <Link
             href="/circularity/opportunities"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-semibold hover:bg-[#0058C6] transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-semibold hover:bg-[#0E5B42] transition-colors"
           >
             View in Circularity Marketplace <ArrowRight className="w-3.5 h-3.5" />
           </Link>

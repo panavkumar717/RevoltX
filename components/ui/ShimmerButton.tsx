@@ -18,7 +18,7 @@ interface ShimmerButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
  * Renders a high-tech button with dynamic perimeter light flow and tactile press animation.
  */
 export function ShimmerButton({
-  shimmerColor = '#0070F3',
+  shimmerColor = '#C9EF72',
   shimmerSize = '0.05em',
   shimmerDuration = '3s',
   borderRadius = '16px',

@@ -6,7 +6,7 @@ import './MagicBento.css';
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
-const DEFAULT_GLOW_COLOR = '0, 112, 243'; // Vercel Electric Blue
+const DEFAULT_GLOW_COLOR = '19, 122, 88'; // ReVoltX Emerald Green
 const MOBILE_BREAKPOINT = 768;
 
 export interface MagicBentoCardItem {

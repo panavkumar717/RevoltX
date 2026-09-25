@@ -92,7 +92,7 @@ export default function RegisterBatteryPage() {
       {/* Wizard Header */}
       <div className="flex items-center justify-between pb-4 border-b border-[#DDE7E2]">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
             Battery Registration Engine
           </span>
           <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -130,9 +130,9 @@ export default function RegisterBatteryPage() {
               key={lbl}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-colors whitespace-nowrap ${
                 isCurrent 
-                  ? 'bg-[#0070F3] text-white font-bold' 
+                  ? 'bg-[#137A58] text-white font-bold' 
                   : isPassed 
-                  ? 'bg-[#EFF6FF] text-[#0070F3]' 
+                  ? 'bg-[#DDF5EA] text-[#137A58]' 
                   : 'bg-[#F0F5F2] text-[#62756E]'
               }`}
             >
@@ -164,7 +164,7 @@ export default function RegisterBatteryPage() {
                   type="text"
                   value={formData.manufacturerName}
                   onChange={e => setFormData({ ...formData, manufacturerName: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs font-medium text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0070F3]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs font-medium text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
                 />
               </div>
 
@@ -176,7 +176,7 @@ export default function RegisterBatteryPage() {
                   type="text"
                   value={formData.serialNumber}
                   onChange={e => setFormData({ ...formData, serialNumber: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs font-mono font-medium text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0070F3]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs font-mono font-medium text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
                 />
               </div>
 
@@ -187,7 +187,7 @@ export default function RegisterBatteryPage() {
                 <select
                   value={formData.chemistry}
                   onChange={e => setFormData({ ...formData, chemistry: e.target.value as any })}
-                  className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs font-medium text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0070F3]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs font-medium text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
                 >
                   <option value="LFP">LFP (Lithium Iron Phosphate)</option>
                   <option value="NMC">NMC (Nickel Manganese Cobalt)</option>
@@ -204,7 +204,7 @@ export default function RegisterBatteryPage() {
                   type="number"
                   value={formData.capacity}
                   onChange={e => setFormData({ ...formData, capacity: Number(e.target.value) })}
-                  className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs font-mono font-medium text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0070F3]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs font-mono font-medium text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
                 />
               </div>
 
@@ -216,7 +216,7 @@ export default function RegisterBatteryPage() {
                   type="date"
                   value={formData.manufactureDate}
                   onChange={e => setFormData({ ...formData, manufactureDate: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs font-mono font-medium text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0070F3]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs font-mono font-medium text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
                 />
               </div>
 
@@ -228,7 +228,7 @@ export default function RegisterBatteryPage() {
                   type="text"
                   value={formData.packConfiguration}
                   onChange={e => setFormData({ ...formData, packConfiguration: e.target.value })}
-                  className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs font-medium text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0070F3]"
+                  className="w-full px-3 py-2 rounded-xl border border-[#DDE7E2] bg-[#F7FAF8] text-xs font-medium text-[#10201B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#137A58]"
                 />
               </div>
             </div>
@@ -257,7 +257,7 @@ export default function RegisterBatteryPage() {
                     onChange={e => setFormData({ ...formData, initialSOH: Number(e.target.value) })}
                     className="w-24 px-3 py-1.5 rounded-lg border border-[#DDE7E2] bg-white font-mono font-bold text-sm"
                   />
-                  <span className="text-xs font-bold text-[#0070F3]">% (Nominal 100%)</span>
+                  <span className="text-xs font-bold text-[#137A58]">% (Nominal 100%)</span>
                 </div>
               </div>
 
@@ -314,7 +314,7 @@ export default function RegisterBatteryPage() {
         {/* STEP 3: Create ReVoltX ID */}
         {step === 3 && (
           <div className="space-y-4 text-center py-4">
-            <div className="p-3 rounded-2xl bg-[#EFF6FF] text-[#0070F3] w-fit mx-auto">
+            <div className="p-3 rounded-2xl bg-[#DDF5EA] text-[#137A58] w-fit mx-auto">
               <Cpu className="w-8 h-8" />
             </div>
             <h2 className="text-lg font-bold text-[#10201B]">
@@ -328,7 +328,7 @@ export default function RegisterBatteryPage() {
               <span className="text-[10px] uppercase font-bold tracking-widest text-[#62756E] block">
                 Assigned Universal Identifier
               </span>
-              <p className="text-2xl font-bold font-mono text-[#0070F3] mt-1">
+              <p className="text-2xl font-bold font-mono text-[#137A58] mt-1">
                 {generatedId}
               </p>
               <span className="text-[11px] text-[#62756E] mt-1 block">
@@ -342,7 +342,7 @@ export default function RegisterBatteryPage() {
         {step === 4 && (
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-[#0070F3]" />
+              <ShieldCheck className="w-5 h-5 text-[#137A58]" />
               <h2 className="text-base font-bold text-[#10201B]">
                 Step 4: Minting Digital Battery Passport
               </h2>
@@ -362,11 +362,11 @@ export default function RegisterBatteryPage() {
               </div>
               <div className="flex justify-between py-1 border-b border-[#DDE7E2]">
                 <span className="text-[#62756E]">Recyclability Target</span>
-                <span className="font-mono text-[#0070F3] font-bold">96.4% Critical Minerals</span>
+                <span className="font-mono text-[#137A58] font-bold">96.4% Critical Minerals</span>
               </div>
               <div className="flex justify-between py-1">
                 <span className="text-[#62756E]">Cryptographic Seal</span>
-                <span className="font-mono text-[11px] text-[#0070F3]">SHA-256 Validated</span>
+                <span className="font-mono text-[11px] text-[#137A58]">SHA-256 Validated</span>
               </div>
             </div>
           </div>
@@ -396,12 +396,12 @@ export default function RegisterBatteryPage() {
         {/* STEP 6: Confirmation Celebration */}
         {step === 6 && (
           <div className="space-y-5 text-center py-4">
-            <div className="p-3 rounded-full bg-[#EFF6FF] text-[#0070F3] w-fit mx-auto animate-bounce">
+            <div className="p-3 rounded-full bg-[#DDF5EA] text-[#137A58] w-fit mx-auto animate-bounce">
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
                 Success
               </span>
               <h2 className="text-2xl font-bold text-[#10201B]">
@@ -423,18 +423,18 @@ export default function RegisterBatteryPage() {
               </div>
               <div className="flex justify-between">
                 <span className="text-[#62756E]">Initial Health:</span>
-                <span className="font-mono text-[#0070F3] font-bold">100% SOH (RX Score 98)</span>
+                <span className="font-mono text-[#137A58] font-bold">100% SOH (RX Score 98)</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[#62756E]">Passport URL:</span>
-                <span className="font-mono text-[#0070F3]">/battery/{generatedId}</span>
+                <span className="font-mono text-[#137A58]">/battery/{generatedId}</span>
               </div>
             </div>
 
             <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href={`/battery/${generatedId}`}
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
               >
                 <QrCode className="w-4 h-4" />
                 <span>Open Digital Battery Passport</span>
@@ -464,7 +464,7 @@ export default function RegisterBatteryPage() {
             <button
               type="button"
               onClick={handleNext}
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
             >
               <span>{step === 5 ? 'Confirm & Register Battery' : 'Next Step'}</span>
               <ArrowRight className="w-3.5 h-3.5" />

@@ -17,7 +17,7 @@ export default function OwnerPassportViewPage() {
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex items-center justify-between pb-4 border-b border-[#DDE7E2]">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
             Digital Battery Passport
           </span>
           <h1 className="text-2xl font-bold font-mono text-[#10201B] mt-1">
@@ -30,7 +30,7 @@ export default function OwnerPassportViewPage() {
 
         <Link
           href={`/battery/${battery.revoltXId}`}
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
         >
           <ExternalLink className="w-3.5 h-3.5" />
           <span>Open Public Mobile View</span>

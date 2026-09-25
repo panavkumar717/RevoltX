@@ -52,7 +52,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
     manufacturer: {
       name: 'Manufacturer & Fleet Portal',
       badge: 'Partner Tier',
-      badgeColor: 'bg-blue-500/10 text-[#0070F3] border-blue-500/20',
+      badgeColor: 'bg-[#DDF5EA] text-[#137A58] border-[#BBEAD7]',
       icon: Factory,
       defaultOrg: 'XYZ Battery Corp.',
       homeHref: '/manufacturer'
@@ -60,7 +60,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
     owner: {
       name: 'Customer / Owner Portal',
       badge: 'Consumer Tier',
-      badgeColor: 'bg-indigo-500/10 text-[#6366F1] border-indigo-500/20',
+      badgeColor: 'bg-[#EBF7F3] text-[#21A879] border-[#C5ECD9]',
       icon: User,
       defaultOrg: 'Sarah Jenkins (EV Asset #892738)',
       homeHref: '/owner'
@@ -68,7 +68,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
     circularity: {
       name: 'Circularity Partner Portal',
       badge: 'Circularity Tier',
-      badgeColor: 'bg-sky-500/10 text-[#0284C7] border-sky-500/20',
+      badgeColor: 'bg-[#F3F8E5] text-[#5D7C13] border-[#DAECAE]',
       icon: RefreshCw,
       defaultOrg: 'EcoVolt Solutions & GreenLithium AG',
       homeHref: '/circularity'
@@ -99,11 +99,11 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
           {/* Left: Brand + Portal Switcher */}
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="h-8 w-8 rounded-lg bg-[#0070F3] flex items-center justify-center text-white shadow-2xs">
-                <Zap className="h-4 w-4 fill-current text-white" />
+              <div className="h-8 w-8 rounded-lg bg-[#137A58] flex items-center justify-center text-white shadow-2xs">
+                <Zap className="h-4 w-4 fill-current text-[#C9EF72]" />
               </div>
               <span className="font-bold text-lg text-[#10201B] hidden sm:inline">
-                REVolt<span className="text-[#0070F3]">X</span>
+                REVolt<span className="text-[#137A58]">X</span>
               </span>
             </Link>
 
@@ -117,7 +117,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
                 onBlur={() => setTimeout(() => setPortalDropdownOpen(false), 200)}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#F0F5F2] hover:bg-[#E2EBE6] text-xs font-semibold text-[#10201B] border border-[#DDE7E2] transition-colors"
               >
-                <Icon className="w-3.5 h-3.5 text-[#0070F3]" />
+                <Icon className="w-3.5 h-3.5 text-[#137A58]" />
                 <span>{portalConfig.name}</span>
                 <ChevronDown className="w-3.5 h-3.5 text-[#62756E]" />
               </button>
@@ -130,7 +130,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
                   <Link
                     href="/manufacturer"
                     className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
-                      portalType === 'manufacturer' ? 'bg-[#EFF6FF] text-[#0070F3] font-semibold' : 'text-[#10201B] hover:bg-[#F0F5F2]'
+                      portalType === 'manufacturer' ? 'bg-[#DDF5EA] text-[#137A58] font-semibold' : 'text-[#10201B] hover:bg-[#F0F5F2]'
                     }`}
                   >
                     <Factory className="w-4 h-4" />
@@ -139,7 +139,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
                   <Link
                     href="/owner"
                     className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
-                      portalType === 'owner' ? 'bg-[#EFF6FF] text-[#0070F3] font-semibold' : 'text-[#10201B] hover:bg-[#F0F5F2]'
+                      portalType === 'owner' ? 'bg-[#DDF5EA] text-[#137A58] font-semibold' : 'text-[#10201B] hover:bg-[#F0F5F2]'
                     }`}
                   >
                     <User className="w-4 h-4" />
@@ -148,7 +148,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
                   <Link
                     href="/circularity"
                     className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
-                      portalType === 'circularity' ? 'bg-[#EFF6FF] text-[#0070F3] font-semibold' : 'text-[#10201B] hover:bg-[#F0F5F2]'
+                      portalType === 'circularity' ? 'bg-[#DDF5EA] text-[#137A58] font-semibold' : 'text-[#10201B] hover:bg-[#F0F5F2]'
                     }`}
                   >
                     <RefreshCw className="w-4 h-4" />
@@ -188,7 +188,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
               className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-[#F0F5F2] hover:bg-[#DDE7E2] text-[#10201B] transition-colors"
               title="View Public Passport for star battery RX-2026-892738"
             >
-              <QrCode className="w-3.5 h-3.5 text-[#0070F3]" />
+              <QrCode className="w-3.5 h-3.5 text-[#137A58]" />
               <span className="hidden md:inline">Passport</span>
             </Link>
 
@@ -196,14 +196,14 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
             <ThemeToggle />
 
             {/* Live Synchronized Badge */}
-            <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 text-[11px] font-semibold">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#0070F3] animate-pulse" />
+            <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7] text-[11px] font-semibold">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#137A58] animate-pulse" />
               <span>Database Sync Active</span>
             </div>
 
             {/* Current Session Badge */}
             <div className="flex items-center gap-2 pl-2 border-l border-[#DDE7E2]">
-              <div className="h-8 w-8 rounded-full bg-[#0070F3] text-white flex items-center justify-center font-bold text-xs">
+              <div className="h-8 w-8 rounded-full bg-[#137A58] text-white flex items-center justify-center font-bold text-xs">
                 {currentUser?.name?.charAt(0) || 'U'}
               </div>
               <div className="hidden xl:flex flex-col text-left">
@@ -231,7 +231,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
       {/* Reset confirmation toast */}
       {resetToast && (
         <div className="fixed bottom-6 right-6 z-50 bg-[#10201B] text-white px-4 py-3 rounded-xl shadow-xl flex items-center gap-2 text-xs animate-in fade-in slide-in-from-bottom-3 duration-200">
-          <Check className="w-4 h-4 text-[#0070F3]" />
+          <Check className="w-4 h-4 text-[#C9EF72]" />
           <span>Battery database successfully reset to pristine demo values.</span>
         </div>
       )}
@@ -265,7 +265,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
                   href={item.href}
                   className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
                     isActive
-                      ? 'bg-[#0070F3] text-white shadow-xs'
+                      ? 'bg-[#137A58] text-white shadow-xs'
                       : 'text-[#62756E] hover:text-[#10201B] hover:bg-white border border-transparent hover:border-[#DDE7E2]'
                   }`}
                 >
@@ -290,7 +290,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
           <div className="mt-auto pt-6 border-t border-[#DDE7E2] space-y-2">
             <Link
               href="/demo"
-              className="flex items-center justify-between p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-[#0070F3] hover:bg-blue-500/20 transition-colors"
+              className="flex items-center justify-between p-3 rounded-xl bg-[#DDF5EA] border border-[#BBEAD7] text-xs font-semibold text-[#137A58] hover:bg-[#cceedf] transition-colors"
             >
               <span>Judge Interactive Demo</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -332,7 +332,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
                       href={item.href}
                       onClick={() => setMobileNavOpen(false)}
                       className={`flex items-center justify-between p-3 rounded-xl text-xs font-semibold ${
-                        isActive ? 'bg-[#0070F3] text-white' : 'text-[#10201B] hover:bg-[#F0F5F2]'
+                        isActive ? 'bg-[#137A58] text-white' : 'text-[#10201B] hover:bg-[#F0F5F2]'
                       }`}
                     >
                       <div className="flex items-center gap-2.5">

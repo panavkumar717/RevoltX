@@ -42,10 +42,10 @@ export default function InternalLoginPage() {
           <div className="mb-8">
             <Link href="/" className="inline-flex items-center gap-2.5 mb-6 group">
               <div className="h-10 w-10 rounded-2xl bg-zinc-900 dark:bg-zinc-800 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform border border-zinc-700">
-                <Zap className="h-5 w-5 fill-current text-[#0070F3]" />
+                <Zap className="h-5 w-5 fill-current text-[#137A58]" />
               </div>
               <span className="font-bold text-2xl tracking-tight text-zinc-900 dark:text-zinc-100">
-                REVolt<span className="text-[#0070F3] dark:text-[#38BDF8]">X</span>
+                REVolt<span className="text-[#137A58] dark:text-[#34D399]">X</span>
               </span>
             </Link>
 
@@ -65,7 +65,7 @@ export default function InternalLoginPage() {
                 value={staffEmail}
                 onChange={(e) => setStaffEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#0070F3] shadow-2xs transition-all"
+                className="w-full px-4 py-3.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#137A58] shadow-2xs transition-all"
                 placeholder="ReVoltX Staff Identity"
               />
             </div>
@@ -76,7 +76,7 @@ export default function InternalLoginPage() {
                 value={securityKey}
                 onChange={(e) => setSecurityKey(e.target.value)}
                 required
-                className="w-full px-4 py-3.5 pr-12 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#0070F3] shadow-2xs transition-all"
+                className="w-full px-4 py-3.5 pr-12 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/40 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-[#137A58] shadow-2xs transition-all"
                 placeholder="Hardware / ROS Authentication Token"
               />
               <button
@@ -93,7 +93,7 @@ export default function InternalLoginPage() {
               <button
                 type="button"
                 onClick={() => handleSignIn()}
-                className="text-xs font-medium text-zinc-400 hover:text-[#0070F3] dark:hover:text-[#38BDF8] transition-colors"
+                className="text-xs font-medium text-zinc-400 hover:text-[#137A58] dark:hover:text-[#34D399] transition-colors"
               >
                 Recovery Token
               </button>

@@ -32,7 +32,7 @@ export default function InternalBatteriesPage() {
           </p>
         </div>
 
-        <div className="text-xs font-mono font-bold text-[#0070F3] bg-white px-3 py-1.5 rounded-xl border border-[#DDE7E2]">
+        <div className="text-xs font-mono font-bold text-[#137A58] bg-white px-3 py-1.5 rounded-xl border border-[#DDE7E2]">
           {batteries.length} Global Batteries Logged
         </div>
       </div>
@@ -67,7 +67,7 @@ export default function InternalBatteriesPage() {
               {filtered.map(b => (
                 <tr key={b.id} className="hover:bg-[#F7FAF8] transition-colors">
                   <td className="py-3.5 font-mono font-bold text-[#10201B]">
-                    <Link href={`/battery/${b.revoltXId}`} className="hover:text-[#0070F3]">
+                    <Link href={`/battery/${b.revoltXId}`} className="hover:text-[#137A58]">
                       {b.revoltXId}
                     </Link>
                   </td>
@@ -75,7 +75,7 @@ export default function InternalBatteriesPage() {
                   <td className="py-3.5 text-[#62756E]">{b.ownerName || b.fleetName || 'Unassigned'}</td>
                   <td className="py-3.5">{b.chemistry} ({b.capacity} Ah)</td>
                   <td className="py-3.5 font-mono font-bold text-[#10201B]">{b.currentSOH}%</td>
-                  <td className="py-3.5 font-mono font-bold text-[#0070F3]">{b.rxScore}/100</td>
+                  <td className="py-3.5 font-mono font-bold text-[#137A58]">{b.rxScore}/100</td>
                   <td className="py-3.5">
                     <BatteryStatusBadge stage={b.lifecycleStage} size="sm" />
                   </td>
@@ -89,7 +89,7 @@ export default function InternalBatteriesPage() {
                       </Link>
                       <Link
                         href="/internal/testing"
-                        className="px-2.5 py-1 rounded-lg bg-[#0070F3] text-white font-semibold text-[11px] hover:bg-[#0058C6]"
+                        className="px-2.5 py-1 rounded-lg bg-[#137A58] text-white font-semibold text-[11px] hover:bg-[#0E5B42]"
                       >
                         Test
                       </Link>

@@ -46,7 +46,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#F7FAF8] dark:bg-black text-[#10201B] dark:text-[#F8FAFC] transition-colors duration-200">
+      <body className="min-h-full flex flex-col bg-[#F7FAF8] dark:bg-black text-[#10201B] dark:text-[#ECFDF5] transition-colors duration-200">
         <BatteryStoreProvider>
           {children}
         </BatteryStoreProvider>

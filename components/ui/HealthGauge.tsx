@@ -20,10 +20,10 @@ export const HealthGauge: React.FC<HealthGaugeProps> = ({
   initialSOH = 100
 }) => {
   const getSOHColor = (val: number) => {
-    if (val >= 80) return '#0070F3';
-    if (val >= 70) return '#38BDF8';
-    if (val >= 55) return '#F59E0B';
-    return '#EF4444';
+    if (val >= 80) return '#137A58';
+    if (val >= 70) return '#21A879';
+    if (val >= 55) return '#D89A24';
+    return '#D94B4B';
   };
 
   const sohColor = getSOHColor(soh);
@@ -62,16 +62,16 @@ export const HealthGauge: React.FC<HealthGaugeProps> = ({
       {/* Threshold markers */}
       <div className="flex justify-between text-[10px] text-[#62756E] mt-1.5 px-0.5 font-mono">
         <span>0%</span>
-        <span className="text-[#EF4444]">40% Recycle</span>
-        <span className="text-[#F59E0B]">70% 2nd Life</span>
-        <span className="text-[#0070F3]">80% EV Gate</span>
+        <span className="text-[#D94B4B]">40% Recycle</span>
+        <span className="text-[#D89A24]">70% 2nd Life</span>
+        <span className="text-[#137A58]">80% EV Gate</span>
         <span>100%</span>
       </div>
 
       {/* Sub metrics grid */}
       <div className="mt-5 grid grid-cols-3 gap-3 pt-4 border-t border-[#DDE7E2]">
         <div className="flex items-center gap-2">
-          <div className="p-2 rounded-lg bg-blue-500/10 text-[#0070F3]">
+          <div className="p-2 rounded-lg bg-[#DDF5EA] text-[#137A58]">
             <BatteryMedium className="w-4 h-4" />
           </div>
           <div>
@@ -81,7 +81,7 @@ export const HealthGauge: React.FC<HealthGaugeProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="p-2 rounded-lg bg-[#F0F5F2] text-[#0284C7]">
+          <div className="p-2 rounded-lg bg-[#F0F5F2] text-[#21A879]">
             <RefreshCw className="w-4 h-4" />
           </div>
           <div>

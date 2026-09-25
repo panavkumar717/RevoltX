@@ -45,7 +45,7 @@ export function AnimatedCounter({
   }, [isInView, delay, value, direction, motionValue]);
 
   useEffect(() => {
-    return springValue.on('change', (latest) => {
+    return springValue.on('change', (latest: number) => {
       if (ref.current) {
         ref.current.textContent = `${prefix}${latest.toLocaleString(undefined, {
           minimumFractionDigits: decimals,

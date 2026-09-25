@@ -11,7 +11,7 @@ export default function CircularityTransactionsPage() {
   return (
     <div className="space-y-6">
       <div className="pb-4 border-b border-[#DDE7E2]">
-        <span className="text-xs font-bold uppercase tracking-wider text-[#0070F3]">
+        <span className="text-xs font-bold uppercase tracking-wider text-[#137A58]">
           Chain of Custody
         </span>
         <h1 className="text-2xl font-bold text-[#10201B] mt-1">
@@ -40,7 +40,7 @@ export default function CircularityTransactionsPage() {
               {opportunities.map(opp => (
                 <tr key={opp.id} className="hover:bg-[#F7FAF8] transition-colors">
                   <td className="py-3.5 font-mono font-bold text-[#10201B]">TXN-{opp.id.toUpperCase()}</td>
-                  <td className="py-3.5 font-mono text-[#0070F3] font-bold">
+                  <td className="py-3.5 font-mono text-[#137A58] font-bold">
                     <Link href={`/battery/${opp.batteryId}`} className="hover:underline">
                       {opp.batteryId}
                     </Link>
@@ -52,7 +52,7 @@ export default function CircularityTransactionsPage() {
                   <td className="py-3.5">{opp.targetApplication}</td>
                   <td className="py-3.5 font-mono font-bold text-[#10201B]">${opp.economicValueUsd}</td>
                   <td className="py-3.5">
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#0070F3] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full border border-[#BFDBFE]">
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#137A58] bg-[#DDF5EA] px-2.5 py-0.5 rounded-full border border-[#BBEAD7]">
                       <CheckCircle2 className="w-3 h-3" /> Transferred
                     </span>
                   </td>

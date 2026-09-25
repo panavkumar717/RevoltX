@@ -34,7 +34,7 @@ export default function InternalDashboardPage() {
       value: `${(batteries.length + 10000).toLocaleString()}`,
       sub: 'Across 14 OEMs & 38 Commercial Fleets',
       description: 'Continuous CAN-bus and cloud IoT telemetry ingestion with sub-second anomaly screening.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Live Stream</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7] font-bold">Live Stream</span>
     },
     {
       label: 'HARDWARE DOCK QUEUE',
@@ -58,7 +58,7 @@ export default function InternalDashboardPage() {
       value: `${opportunities.length} Qualified`,
       sub: 'ESS & Telecom Station Matches',
       description: 'Dynamic matchmaking algorithm routing 70-80% SOH packs to grid-tied buffer applications.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Marketplace</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7] font-bold">Marketplace</span>
     },
     {
       label: 'MINERAL HARVEST',
@@ -66,7 +66,7 @@ export default function InternalDashboardPage() {
       value: `${recyclingRecords.length} Active Batches`,
       sub: '96.4% Recovery Yield',
       description: 'Direct hydrometallurgical processing extracting battery-grade lithium, nickel, and cobalt salts.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 font-bold">Urban Mining</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7] font-bold">Urban Mining</span>
     },
     {
       label: 'FIELD OPERATIONS',
@@ -74,7 +74,7 @@ export default function InternalDashboardPage() {
       value: '3 On Duty',
       sub: '1,280 Registered Vehicle Owners',
       description: 'Field diagnostic units equipped with automated high-voltage test harnesses and bypass balancers.',
-      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-[#0070F3] border border-blue-500/20 font-bold">Staff Online</span>
+      badge: <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#DDF5EA] text-[#137A58] border border-[#BBEAD7] font-bold">Staff Online</span>
     }
   ];
 
@@ -100,9 +100,9 @@ export default function InternalDashboardPage() {
         <div className="flex items-center gap-2">
           <Link
             href="/internal/testing"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] shadow-xs transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] shadow-xs transition-colors"
           >
-            <Cpu className="w-4 h-4 text-[#0070F3]" />
+            <Cpu className="w-4 h-4 text-white" />
             <span>+ Start Battery Assessment</span>
           </Link>
         </div>
@@ -120,14 +120,14 @@ export default function InternalDashboardPage() {
         clickEffect={true}
         spotlightRadius={320}
         particleCount={14}
-        glowColor="0, 112, 243"
+        glowColor="19, 122, 88"
       />
 
       {/* Primary Section 1: Assessment Queue & Active Smart Dock Simulator */}
       <div className="p-6 rounded-3xl bg-white border border-[#DDE7E2] shadow-xs space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="p-2 rounded-xl bg-[#EFF6FF] text-[#0070F3]">
+            <span className="p-2 rounded-xl bg-[#DDF5EA] text-[#137A58]">
               <Cpu className="w-5 h-5" />
             </span>
             <div>
@@ -142,7 +142,7 @@ export default function InternalDashboardPage() {
 
           <Link
             href="/internal/testing"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6] transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42] transition-colors"
           >
             <Play className="w-3 h-3 fill-current" />
             <span>Launch Testing Simulator</span>
@@ -168,7 +168,7 @@ export default function InternalDashboardPage() {
             <div className="flex items-center gap-2">
               <Link
                 href="/internal/testing"
-                className="px-4 py-2 rounded-xl bg-[#0070F3] text-white text-xs font-bold hover:bg-[#0058C6]"
+                className="px-4 py-2 rounded-xl bg-[#137A58] text-white text-xs font-bold hover:bg-[#0E5B42]"
               >
                 Run Assessment Now →
               </Link>
@@ -191,7 +191,7 @@ export default function InternalDashboardPage() {
 
           <Link
             href="/internal/batteries"
-            className="text-xs font-semibold text-[#0070F3] hover:underline"
+            className="text-xs font-semibold text-[#137A58] hover:underline"
           >
             View All Global Batteries →
           </Link>
@@ -216,7 +216,7 @@ export default function InternalDashboardPage() {
                   <td className="py-3 font-mono font-bold text-[#10201B]">{b.revoltXId}</td>
                   <td className="py-3">{b.fleetName || b.ownerName}</td>
                   <td className="py-3 font-mono font-bold text-[#D89A24]">{b.currentSOH}%</td>
-                  <td className="py-3 font-mono font-bold text-[#0070F3]">{b.rxScore}/100</td>
+                  <td className="py-3 font-mono font-bold text-[#137A58]">{b.rxScore}/100</td>
                   <td className="py-3">
                     <BatteryStatusBadge risk={b.risk} size="sm" />
                   </td>
