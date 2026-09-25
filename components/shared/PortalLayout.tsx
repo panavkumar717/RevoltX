@@ -91,6 +91,17 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
     setTimeout(() => setResetToast(false), 2500);
   };
 
+  const isItemActive = (href: string) => {
+    if (pathname === href) return true;
+    const hasExactMatchInNav = navItems.some(n => n.href === pathname);
+    if (hasExactMatchInNav) return false;
+    if (href !== portalConfig.homeHref && pathname.startsWith(href + '/')) {
+      const longerMatch = navItems.some(n => n.href !== href && n.href.length > href.length && pathname.startsWith(n.href));
+      return !longerMatch;
+    }
+    return false;
+  };
+
   return (
     <div className="min-h-screen bg-[#F7FAF8] flex flex-col">
       {/* Top Universal Operating Bar */}
@@ -269,7 +280,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
           <nav className="space-y-1">
             {navItems.map((item) => {
               const NavIcon = item.icon;
-              const isActive = pathname === item.href || (item.href !== portalConfig.homeHref && pathname.startsWith(item.href));
+              const isActive = isItemActive(item.href);
 
               return (
                 <Link
@@ -336,7 +347,7 @@ export const PortalLayout: React.FC<PortalLayoutProps> = ({
               <div className="space-y-1">
                 {navItems.map((item) => {
                   const NavIcon = item.icon;
-                  const isActive = pathname === item.href;
+                  const isActive = isItemActive(item.href);
 
                   return (
                     <Link
