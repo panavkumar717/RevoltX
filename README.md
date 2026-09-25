@@ -204,28 +204,6 @@ The RX Engine combines an exact deterministic classifier with **Google Gemini 3.
 
 ---
 
-## 🧭 Navigation Sitemap
-
-- **Landing Page**: [`http://localhost:3000/`](http://localhost:3000/)
-- **Public Certified Marketplace**: [`http://localhost:3000/marketplace`](http://localhost:3000/marketplace)
-- **Manufacturer & Fleet Portal**: [`http://localhost:3000/manufacturer`](http://localhost:3000/manufacturer)
-  - Fleet Asset Registry: [`http://localhost:3000/manufacturer/batteries`](http://localhost:3000/manufacturer/batteries)
-  - Register New Battery: [`http://localhost:3000/manufacturer/batteries/register`](http://localhost:3000/manufacturer/batteries/register)
-  - Issues Reported: [`http://localhost:3000/manufacturer/service-requests`](http://localhost:3000/manufacturer/service-requests)
-- **Customer / Owner Portal**: [`http://localhost:3000/owner`](http://localhost:3000/owner)
-  - Health Diagnostics: [`http://localhost:3000/owner/health`](http://localhost:3000/owner/health)
-  - Lifecycle Timeline: [`http://localhost:3000/owner/lifecycle`](http://localhost:3000/owner/lifecycle)
-- **Circularity Partner Portal**: [`http://localhost:3000/circularity`](http://localhost:3000/circularity)
-  - Secondary Opportunities: [`http://localhost:3000/circularity/opportunities`](http://localhost:3000/circularity/opportunities)
-  - Critical Mineral Recycling: [`http://localhost:3000/circularity/recycling`](http://localhost:3000/circularity/recycling)
-- **Internal Ops & Intelligence**:
-  - AI Intelligence Studio: [`http://localhost:3000/internal/intelligence`](http://localhost:3000/internal/intelligence)
-  - Smart Dock Test Dock: [`http://localhost:3000/internal/testing`](http://localhost:3000/internal/testing)
-- **Digital Battery Passport**: [`http://localhost:3000/battery/RX-2026-892738`](http://localhost:3000/battery/RX-2026-892738)
-- **Interactive Live Demo**: [`http://localhost:3000/demo`](http://localhost:3000/demo)
-
----
-
 ## 📜 Regulatory & Technical Compliance
 
 | Standard / Directive | Scope | ReVoltX Implementation |
